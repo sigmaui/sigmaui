@@ -1,0 +1,32 @@
+{
+  "name": "sigmaui",
+  "private": true,
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": {
+    "name": "",
+    "email": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sigmaui/sigmaui.git"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^24.0.3",
+    "clean-package": "^2.2.0",
+    "tsup": "^8.5.0",
+    "turbo": "^2.5.4",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=16.x"
+  },
+  "workspaces": [
+    "packages/*",
+    "packages/*/*",
+    "packages/*/*/*"
+  ],
+  "packageManager": "yarn@1.22.22"
+}

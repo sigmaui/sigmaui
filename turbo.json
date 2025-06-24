@@ -1,0 +1,13 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [
+    "tsconfig.json"
+  ],
+  "tasks": {
+    "setup": {
+      "dependsOn": [
+        "^setup"
+      ]
+    }
+  }
+}
