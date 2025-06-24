@@ -21,17 +21,8 @@
     "jsx": "react",
     "baseUrl": ".",
     "paths": {
-      "microui/*": [
-        "./microui/src/*"
-      ],
-      "src/*": [
-        "./src/*"
-      ],
-      "public/*": [
-        "./public/*"
-      ],
-      "micro-app/*": [
-        "./micro-app/src/*"
+      "@packages/*": [
+        "./packages/*"
       ]
     }
   },

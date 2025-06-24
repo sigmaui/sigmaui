@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite';
 import path from 'path';
-// @ts-ignore
-import stylexPlugin from 'vite-plugin-stylex';
+import stylexPlugin from '@stylexjs/rollup-plugin';
 
 export default defineConfig(({ mode }) => {
   return {

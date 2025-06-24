@@ -3,7 +3,10 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "lib": ["dom", "esnext"],
+    "lib": [
+      "dom",
+      "esnext"
+    ],
     "declaration": true,
     "sourceMap": true,
     "moduleResolution": "node",
@@ -16,8 +19,19 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "downlevelIteration": true,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "paths": {
+      "@packages/*": [
+        "../../../packages/*"
+      ]
+    }
   },
-  "include": ["packages"],
-  "exclude": ["**/node_modules", "**/dist", "**/.turbo"]
+  "include": [
+    "packages"
+  ],
+  "exclude": [
+    "**/node_modules",
+    "**/dist",
+    "**/.turbo"
+  ]
 }
