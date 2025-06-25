@@ -1,6 +1,9 @@
 import { defineConfig } from 'vite';
 import path from 'path';
-import stylexPlugin from '@stylexjs/rollup-plugin';
+// import stylexPlugin from '@stylexjs/rollup-plugin';
+// import stylexPlugin from 'vite-plugin-stylex';
+// @ts-ignore
+import stylexPlugin from 'unplugin-stylex/vite';
 
 export default defineConfig(({ mode }) => {
   return {
@@ -8,7 +11,11 @@ export default defineConfig(({ mode }) => {
     publicDir: 'public',
     resolve: {
       alias: {
-        'src': path.resolve(__dirname, './src')
+        'src': path.resolve(__dirname, './src'),
+        '@packages/react/hooks/with-stylex': path.resolve(__dirname, '../../packages/react/src/hooks/with-stylex/src'),
+        '@packages/react/hooks/use-theme': path.resolve(__dirname, '../../packages/react/src/hooks/use-theme/src'),
+        '@packages/react/components/select': path.resolve(__dirname, '../../packages/react/src/components/select/src'),
+        'packages': path.resolve(__dirname, '../../packages')
       }
     },
     build: {
@@ -19,7 +26,7 @@ export default defineConfig(({ mode }) => {
           manualChunks: {
             react: ['react'],
             'react-dom': ['react-dom'],
-            'react-router': ['react-router', 'react-router-dom']
+            // 'react-router': ['react-router', 'react-router-dom']
           }
         }
       }
@@ -29,11 +36,12 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       stylexPlugin({
-        fileName: 'stylex.css'
+        stylex: {
+          filename: 'stylex.css',
+          classNamePrefix: 'x',
+          // useCSSLayers: true
+        }
       })
-    ],
-    define: {
-      'process.env': process.env
-    }
+    ]
   }
 })

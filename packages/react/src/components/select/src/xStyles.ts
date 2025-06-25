@@ -1,10 +1,21 @@
 import * as stylex from '@stylexjs/stylex';
 
+import { colors } from '../../../../../common/theme/tokens/colors.stylex';
+
 export const xStyles = stylex.create({
-  wrapper: {
-    position: 'fixed',
-    overflow: 'inherit'
-  }
+  root: {},
+  label: {},
+  control: {},
+  trigger: {
+    fontSize: '16px',
+    color: colors.primary
+  },
+  valueText: {},
+  content: {},
+  itemGroup: {},
+  itemGroupLabel: {},
+  item: {},
+  indicator: {}
 });
 
 export type StylesType = typeof xStyles;

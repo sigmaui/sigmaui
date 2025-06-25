@@ -19,20 +19,24 @@ const ThemeContext = createContext<ThemeContextType>({
 interface ThemeProviderProps {
   children?: ReactNode;
   theme?: Theme<any, any>;
-  globalProps?: Record<string, unknown>;
+  themeConfig?: Record<string, unknown>;
 }
 
 export const ThemeProvider: FC<ThemeProviderProps> = ({
   children,
   theme,
-  globalProps
+  themeConfig: themeConfigFromProp = {}
 }) => {
+  const { themeConfig = {} } = useContext(ThemeContext);
+
   return (
     <ThemeContext.Provider
       value={{
         theme,
         themeConfig: {
-          globalProps
+          ...themeConfig,
+          ...themeConfigFromProp,
+          globalProps: Object.assign({}, themeConfig?.globalProps, themeConfigFromProp?.globalProps)
         }
       }}
     >

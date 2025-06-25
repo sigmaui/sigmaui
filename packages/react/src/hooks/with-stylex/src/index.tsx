@@ -1,6 +1,7 @@
 import React from 'react';
-import { useStyleX } from 'use-stylex';
-import { useTheme } from '../../use-theme/src';
+// import { useStyleX } from 'use-stylex';
+import { useStyleX } from 'packages/common/hooks/use-stylex';
+import { useTheme } from '@packages/react/hooks/use-theme';
 
 export const withStyleX = <T extends Record<string, any>>(
   xStyles: T,
@@ -8,8 +9,9 @@ export const withStyleX = <T extends Record<string, any>>(
 ) => {
   return (Component: any) => {
     return (props: any) => {
-      const { theme } = useTheme();
-      console.log('theme withStyleX', theme)
+      const { theme, themeConfig } = useTheme();
+      console.log('theme withStyleX', themeConfig);
+
       const { classes } = useStyleX(xStyles, {
         ...params,
         theme

@@ -11,11 +11,20 @@
     "type": "git",
     "url": "git+https://github.com/sigmaui/sigmaui.git"
   },
-  "scripts": {},
+  "scripts": {
+    "dev": "turbo run dev --filter=sigmaui-org",
+    "dev:website": "cd apps/website && yarn dev",
+    "build": "turbo run build --filter=sigmaui-org",
+    "build:website": "cd apps/website && yarn build",
+    "serve": "turbo run serve --filter=sigmaui-org",
+    "serve:website": "cd apps/website && yarn serve",
+    "start": "yarn dev:website"
+  },
   "dependencies": {
     "@ark-ui/react": "^5.15.1",
     "@stylexjs/stylex": "^0.13.1",
-    "use-stylex": "^0.0.4"
+    "clsx": "^2.1.1",
+    "use-stylex": "^0.0.5"
   },
   "devDependencies": {
     "@types/node": "^24.0.3",

@@ -18,11 +18,28 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": true,
     "downlevelIteration": true,
     "noImplicitAny": false,
+    "baseUrl": ".",
     "paths": {
       "@packages/*": [
         "../../../packages/*"
+      ],
+      "@packages/react/hooks/*": [
+        "packages/react/src/hooks/*/src"
+      ],
+      "@packages/react/hooks/with-stylex": [
+        "packages/react/src/hooks/with-stylex/src"
+      ],
+      "@packages/react/hooks/use-theme": [
+        "packages/react/src/hooks/use-theme/src"
+      ],
+      "@packages/react/components/*": [
+        "packages/react/src/components/*/src"
+      ],
+      "@packages/react/components/select": [
+        "packages/react/src/components/select/src"
       ]
     }
   },
