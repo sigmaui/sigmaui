@@ -28,16 +28,14 @@
     "build:fast": "tsup src",
     "prepack": "clean-package",
     "postpack": "clean-package restore",
-    "prepublishOnly": "node ../../../scripts/prepublish.js",
-    "postpublish": "node ../../../scripts/postpublish.js"
+    "prepublishOnly": "node ../../../../scripts/prepublish.js",
+    "postpublish": "node ../../../../scripts/postpublish.js"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18"
   },
-  "devDependencies": {
-  },
-  "clean-package": "../../../clean-package.config.json"
+  "devDependencies": {},
+  "clean-package": "../../../../clean-package.config.json"
 }

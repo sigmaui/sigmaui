@@ -1,14 +1,28 @@
 import React from 'react';
+import type { FC } from 'react';
+import clsx from 'clsx';
+import { withStyleX } from '@packages/react/hooks/with-stylex';
 
-const Button = ({
+import type { ButtonProps } from './types';
+import type { StylesType } from './xStyles';
+
+import xStyles from './xStyles';
+
+const SigmaButton: FC<ButtonProps<StylesType>> = ({
+  prefixCls,
   className,
-  children
+  children,
+  classes
 }) => {
   return (
-    <div className={className}>
+    <button
+      className={clsx(prefixCls, className, classes.getClass('root'))}
+    >
       {children}
-    </div>
+    </button>
   )
 }
 
-export default Button
+SigmaButton.displayName = 'SigmaButton';
+
+export default withStyleX(xStyles)(SigmaButton)

@@ -80,4 +80,6 @@ const SigmaSelect: FC<SelectProps<StylesType>> = ({
   )
 }
 
+SigmaSelect.displayName = 'SigmaSelect';
+
 export default withStyleX(xStyles)(SigmaSelect)

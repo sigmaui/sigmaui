@@ -28,8 +28,8 @@
     "build:fast": "tsup src",
     "prepack": "clean-package",
     "postpack": "clean-package restore",
-    "prepublishOnly": "node ../../../scripts/prepublish.js",
-    "postpublish": "node ../../../scripts/postpublish.js"
+    "prepublishOnly": "node ../../../../../scripts/prepublish.js",
+    "postpublish": "node ../../../../../scripts/postpublish.js"
   },
   "dependencies": {
   },
@@ -37,5 +37,5 @@
   },
   "devDependencies": {
   },
-  "clean-package": "../../../clean-package.config.json"
+  "clean-package": "../../../../../clean-package.config.json"
 }

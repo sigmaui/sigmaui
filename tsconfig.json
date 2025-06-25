@@ -40,6 +40,9 @@
       ],
       "@packages/react/components/select": [
         "packages/react/src/components/select/src"
+      ],
+      "@packages/react/components/button": [
+        "packages/react/src/components/button/src"
       ]
     }
   },
