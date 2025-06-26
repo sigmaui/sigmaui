@@ -1,6 +1,9 @@
 import React, { useContext, createContext } from 'react';
 import type { FC, ReactNode } from 'react';
 import type { Theme } from '@stylexjs/stylex';
+import * as stylex from '@stylexjs/stylex';
+
+export type StylesDefinitions = Parameters<typeof stylex.create>[0];
 
 interface ComponentDefaultProps {
   [key: string]: unknown;

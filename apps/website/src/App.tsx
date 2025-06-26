@@ -1,14 +1,22 @@
 import React from 'react';
 import type { FC, ReactNode } from 'react';
-import Button from '@packages/react/components/button';
+import * as stylex from '@stylexjs/stylex';
+import Button, { ButtonKeys } from '@packages/react/components/button';
 import Select from '@packages/react/components/select';
 import { ThemeProvider } from '@packages/react/hooks/use-theme';
+import type { StylesDefinitions } from '@packages/react/hooks/use-theme';
 import { getTheme, darkTheme } from 'packages/common/theme';
 import { themeConfig } from './theme/config';
 
 interface AppProps {
   children: ReactNode
 }
+
+const buttonStyles = stylex.create<Pick<StylesDefinitions, ButtonKeys>>({
+  root: {
+    // position: 'fixed'
+  }
+});
 
 const App: FC<AppProps> = ({
   children
@@ -33,8 +41,9 @@ const App: FC<AppProps> = ({
         color="primary"
         size="lg"
         type="ghost"
+        customStyles={buttonStyles}
       >
-        Button
+        Button 1
       </Button>
       <ThemeProvider
         theme={darkTheme}
@@ -45,6 +54,13 @@ const App: FC<AppProps> = ({
           test: '123'
         }}
       >
+        <Button
+          color="primary"
+          // size="lg"
+          type="ghost"
+        >
+          Button 2
+        </Button>
         <Select
           options={{
             items: [

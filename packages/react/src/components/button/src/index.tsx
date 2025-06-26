@@ -4,19 +4,30 @@ import clsx from 'clsx';
 import { withStyleX } from '@packages/react/hooks/with-stylex';
 
 import type { ButtonProps } from './types';
-import type { StylesType } from './xStyles';
+import type { ButtonTypes, ButtonKeys } from './xStyles';
 
-import xStyles from './xStyles';
+import { buttonStyles } from './xStyles';
 
-const SigmaButton: FC<ButtonProps<StylesType>> = ({
+export type {
+  ButtonTypes,
+  ButtonKeys
+}
+
+export {
+  buttonStyles
+}
+
+const SigmaButton: FC<ButtonProps<ButtonTypes>> = ({
   prefixCls,
   className,
   children,
-  classes
+  classes,
+  classX,
+  customStyles = {}
 }) => {
   return (
     <button
-      className={clsx(prefixCls, className, classes.getClass('root', 'size', 'type'))}
+      className={clsx(prefixCls, className, classes.getClass('root', 'size', 'type', classX, customStyles.root))}
     >
       {children}
     </button>
@@ -25,4 +36,4 @@ const SigmaButton: FC<ButtonProps<StylesType>> = ({
 
 SigmaButton.displayName = 'Button';
 
-export default withStyleX(xStyles)(SigmaButton)
+export default withStyleX(buttonStyles)(SigmaButton)

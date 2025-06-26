@@ -2,7 +2,7 @@ import * as stylex from '@stylexjs/stylex';
 
 import { colors } from '../../../../../common/theme/tokens/colors.stylex';
 
-export const xStyles = stylex.create({
+export const buttonStyles = stylex.create({
   root: {
     backgroundColor: '#333',
     color: colors.primary,
@@ -17,6 +17,7 @@ export const xStyles = stylex.create({
   }
 });
 
-export type StylesType = typeof xStyles;
+export type ButtonTypes = typeof buttonStyles;
+export type ButtonKeys = keyof ButtonTypes;
 
-export default xStyles
+export default buttonStyles

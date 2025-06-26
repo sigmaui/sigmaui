@@ -1,11 +1,16 @@
 import * as stylex from '@stylexjs/stylex';
 import type { Theme } from '@stylexjs/stylex';
-import { tailwindStyles } from './tailwind';
 
 import type { Tailwind, Variant } from './types';
 
+export type {
+  Tailwind
+}
+
 type UseStyleXParams = {
   isWithAttrs?: boolean;
+  isHash?: boolean;
+  tailwindStyles?: any;
   theme?: Theme<any, any>
 };
 
@@ -14,46 +19,56 @@ export type Classes<T> = {
     [key: string]: string
   }) : string;
 } & {
-  getProps: (...args: (keyof T | T[keyof T] | Tailwind | Variant)[]) => any;
-  getClass: (...args: (keyof T | T[keyof T] | Tailwind | Variant)[]) => string;
-  tailwind: (...args: Tailwind[]) => string;
+  getProps: (...args: (keyof T | T[keyof T] | Tailwind | Tailwind[] | Variant)[]) => any;
+  getClass: (...args: (keyof T | T[keyof T] | Tailwind | Tailwind[] | Variant)[]) => string;
 };
 
 export const useStyleX = <T extends Record<string, any>>(xStyles: T, params: UseStyleXParams = {}): {
   classes: Classes<T>
 } => {
-  const { isWithAttrs = false, theme } = params;
+  const {
+    isWithAttrs = false,
+    isHash = false,
+    tailwindStyles,
+    theme
+  } = params;
 
   const classKey = isWithAttrs ? 'class' : 'className';
   const funcKey = isWithAttrs ? 'attrs' : 'props';
 
   const classes = {} as Partial<Classes<T>>;
 
-  Object.keys(xStyles).forEach((key) => {
-    const value = xStyles[key];
+  if (isHash) {
+    Object.keys(xStyles).forEach((key) => {
+      const value = xStyles[key];
 
-    if (typeof value === 'function') {
-      (classes as any)[key as keyof T] = (...args: any[]) => {
-        return (stylex as any)[funcKey](value(...args));
-      };
-    } else {
-      const props = (stylex as any)[funcKey](value);
-      classes[key as keyof T] = props[classKey];
-    }
-  });
+      if (typeof value === 'function') {
+        (classes as any)[key as keyof T] = (...args: any[]) => {
+          return (stylex as any)[funcKey](value(...args));
+        };
+      } else {
+        const props = (stylex as any)[funcKey](value);
+        classes[key as keyof T] = props[classKey];
+      }
+    });
+  }
 
   const getProps = ((...args: (keyof T | T[keyof T] | Tailwind)[]): string => {
-    const styles = args.map((arg) => {
-      if (typeof arg === 'string') {
-        if (tailwindStyles[arg as Tailwind]) {
-          return tailwindStyles[arg as Tailwind]
+    const styles: any = [];
+
+    const getStyles = (args: any[]) => {
+      for (const arg of args) {
+        if (typeof arg === 'string') {
+          styles.push(tailwindStyles?.[arg as Tailwind] ?? xStyles[arg]);
+        } else if (Array.isArray(arg)) {
+          getStyles(arg);
+        } else {
+          styles.push(arg);
         }
-
-        return xStyles[arg];
       }
+    }
 
-      return arg;
-    });
+    getStyles(args);
 
     if (theme) {
       return (stylex as any)[funcKey](theme, ...styles)
@@ -66,15 +81,6 @@ export const useStyleX = <T extends Record<string, any>>(xStyles: T, params: Use
     const props: any = getProps(...args);
     return props[classKey];
   }) as Classes<T>['getClass'];
-
-  classes.tailwind = ((...args: Tailwind[]): string => {
-    const styles = args.map((arg) => {
-      return tailwindStyles[arg];
-    });
-
-    const props = (stylex as any)[funcKey](...styles);
-    return props[classKey];
-  }) as Classes<T>['tailwind'];
 
   classes.getProps = getProps;
 

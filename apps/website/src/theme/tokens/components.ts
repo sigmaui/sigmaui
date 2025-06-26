@@ -1,7 +1,8 @@
 export default {
   Button: {
     defaultProps: {
-      children: '123'
+      size: 'sm',
+      classX: ['relative', 'block']
     }
   }
 }

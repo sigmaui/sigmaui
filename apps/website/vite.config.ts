@@ -6,6 +6,9 @@ import path from 'path';
 import stylexPlugin from 'unplugin-stylex/vite';
 
 export default defineConfig(({ mode }) => {
+  console.log('mode', mode)
+  const isDev = mode === 'development';
+
   return {
     base: './',
     publicDir: 'public',
@@ -40,7 +43,8 @@ export default defineConfig(({ mode }) => {
         stylex: {
           filename: 'stylex.css',
           classNamePrefix: 'x',
-          // useCSSLayers: true
+          dev: isDev,
+          useCSSLayers: true
         }
       })
     ]

@@ -1,17 +1,21 @@
-import React, { ComponentType, ReactElement } from 'react';
-// import { useStyleX } from 'use-stylex';
+import React, { ReactElement } from 'react';
 import { useStyleX, type Classes } from 'packages/common/hooks/use-stylex';
 import { useTheme } from '@packages/react/hooks/use-theme';
 import type { ThemeContextType } from '@packages/react/hooks/use-theme';
 import type { Theme } from '@stylexjs/stylex';
 
+import { position } from 'packages/common/theme/tailwind/position';
+import { display } from 'packages/common/theme/tailwind/display';
+import { cursor } from 'packages/common/theme/tailwind/cursor';
+
 interface WithStyleXParams {
   isWithAttrs?: boolean;
+  tailwindStyles?: any;
 }
 
 export const withStyleX = <T extends Record<string, unknown>>(
   xStyles: T,
-  params?: WithStyleXParams
+  params: WithStyleXParams = {}
 ) => {
   return (Component: any) => {
     const componentName = Component.displayName || Component.name;
@@ -51,10 +55,20 @@ export const withStyleX = <T extends Record<string, unknown>>(
         (xStyles as any).type = themeVariant.types?.[type];
       }
 
+      const { tailwindStyles = {}, ...restParams } = params;
+
       const { classes } = useStyleX(xStyles, {
-        ...params,
+        ...restParams,
+        tailwindStyles: {
+          ...position,
+          ...display,
+          ...cursor,
+          ...tailwindStyles
+        },
         theme
       });
+
+      console.log('restProps', restProps)
 
       return (
         <Component
