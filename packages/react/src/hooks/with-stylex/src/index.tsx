@@ -37,7 +37,7 @@ export const withStyleX = <T extends Record<string, unknown>>(
         }
       }
 
-      const { color, size, variant, ...restProps } = domProps;
+      const { color, size, type, ...restProps } = domProps;
 
       if (color) {
         (xStyles as any).color = themeVariant.colors?.[color];
@@ -47,8 +47,8 @@ export const withStyleX = <T extends Record<string, unknown>>(
         (xStyles as any).size = themeVariant.sizes?.[size];
       }
 
-      if (variant) {
-        (xStyles as any).variant = themeVariant.variants?.[variant];
+      if (type) {
+        (xStyles as any).type = themeVariant.types?.[type];
       }
 
       const { classes } = useStyleX(xStyles, {

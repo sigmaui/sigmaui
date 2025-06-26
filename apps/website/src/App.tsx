@@ -32,7 +32,7 @@ const App: FC<AppProps> = ({
       <Button
         color="primary"
         size="lg"
-        variant="ghost"
+        type="ghost"
       >
         Button
       </Button>

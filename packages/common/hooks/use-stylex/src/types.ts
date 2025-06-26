@@ -1,4 +1,4 @@
-export type Variant = 'color' | 'size' | 'variant';
+export type Variant = 'color' | 'size' | 'type';
 
 export type Tailwind =
   | 'static'

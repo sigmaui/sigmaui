@@ -1,6 +1,6 @@
 import * as stylex from '@stylexjs/stylex';
 
-export const variants = stylex.create({
+export const types = stylex.create({
   secondary: {},
   destructive: {},
   outline: {},

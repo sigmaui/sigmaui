@@ -16,7 +16,7 @@ const SigmaButton: FC<ButtonProps<StylesType>> = ({
 }) => {
   return (
     <button
-      className={clsx(prefixCls, className, classes.getClass('root', 'size', 'variant'))}
+      className={clsx(prefixCls, className, classes.getClass('root', 'size', 'type'))}
     >
       {children}
     </button>
