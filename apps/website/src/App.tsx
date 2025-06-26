@@ -14,7 +14,8 @@ interface AppProps {
 
 const buttonStyles = stylex.create<Pick<StylesDefinitions, ButtonKeys>>({
   root: {
-    // position: 'fixed'
+    // position: 'fixed',
+    backgroundColor: 'pink'
   }
 });
 
@@ -41,7 +42,7 @@ const App: FC<AppProps> = ({
         color="primary"
         size="lg"
         type="ghost"
-        customStyles={buttonStyles}
+        styles={buttonStyles}
       >
         Button 1
       </Button>

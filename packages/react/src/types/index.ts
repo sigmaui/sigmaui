@@ -14,5 +14,5 @@ export interface FCWithStylesProps<Styles> extends FCProps {
   color?: ThemeColor;
   size?: ThemeSize;
   type?: ThemeType;
-  customStyles?: Partial<Record<keyof Styles, any>>;
+  styles?: Partial<Record<keyof Styles, any>>;
 }

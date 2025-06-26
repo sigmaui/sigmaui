@@ -2,7 +2,7 @@ import * as stylex from '@stylexjs/stylex';
 
 import { colors } from '../../../../../common/theme/tokens/colors.stylex';
 
-export const xStyles = stylex.create({
+export const selectStyles = stylex.create({
   root: {},
   label: {},
   control: {},
@@ -22,6 +22,7 @@ export const xStyles = stylex.create({
   indicator: {}
 });
 
-export type StylesType = typeof xStyles;
+export type SelectTypes = typeof selectStyles;
+export type SelectKeys = keyof SelectTypes;
 
-export default xStyles
+export default selectStyles

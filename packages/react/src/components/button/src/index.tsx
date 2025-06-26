@@ -18,16 +18,16 @@ export {
 }
 
 const SigmaButton: FC<ButtonProps<ButtonTypes>> = ({
-  prefixCls,
+  prefixCls = 'sm-button',
   className,
   children,
   classes,
   classX,
-  customStyles = {}
+  styles = {}
 }) => {
   return (
     <button
-      className={clsx(prefixCls, className, classes.getClass('root', 'size', 'type', classX, customStyles.root))}
+      className={clsx(prefixCls, className, classes.getClass('root', 'size', 'type', classX, styles.root))}
     >
       {children}
     </button>

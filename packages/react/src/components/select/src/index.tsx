@@ -5,43 +5,53 @@ import { Portal, Select, createListCollection } from '@ark-ui/react';
 import { withStyleX } from '@packages/react/hooks/with-stylex';
 
 import type { SelectProps } from './types';
-import type { StylesType } from './xStyles';
+import type { SelectTypes, SelectKeys } from './xStyles';
 
-import xStyles from './xStyles';
+import { selectStyles } from './xStyles';
 
-const SigmaSelect: FC<SelectProps<StylesType>> = ({
+export type {
+  SelectTypes,
+  SelectKeys
+}
+
+export {
+  selectStyles
+}
+
+const SigmaSelect: FC<SelectProps<SelectTypes>> = ({
   prefixCls = 'sm-select',
   className,
   classes,
+  styles = {},
   options
 }) => {
   const collection = createListCollection(options);
 
   return (
     <Select.Root
-      className={clsx(prefixCls, className, classes.getClass('root'))}
+      className={clsx(prefixCls, className, classes.getClass('root', styles.root))}
       collection={collection}
       onSelect={(value) => {
         console.log('onSelect', value)
       }}
     >
       <Select.Label
-        className={classes.getClass('label')}
+        className={classes.getClass('label', styles.label)}
       >
         Framework
       </Select.Label>
       <Select.Control
-        className={classes.getClass('control')}
+        className={classes.getClass('control', styles.control)}
       >
         <Select.Trigger
-          className={classes.getClass('trigger')}
+          className={classes.getClass('trigger', styles.trigger)}
         >
           <Select.ValueText
             placeholder="Select a Framework"
-            className={classes.getClass('valueText')}
+            className={classes.getClass('valueText', styles.valueText)}
           />
           <Select.Indicator
-            className={classes.getClass('indicator')}
+            className={classes.getClass('indicator', styles.indicator)}
           />
         </Select.Trigger>
         <Select.ClearTrigger>Clear</Select.ClearTrigger>
@@ -49,20 +59,20 @@ const SigmaSelect: FC<SelectProps<StylesType>> = ({
       <Portal>
         <Select.Positioner>
           <Select.Content
-            className={classes.getClass('content')}
+            className={classes.getClass('content', styles.content)}
           >
             <Select.ItemGroup
-              className={classes.getClass('itemGroup')}
+              className={classes.getClass('itemGroup', styles.itemGroup)}
             >
               <Select.ItemGroupLabel
-                className={classes.getClass('itemGroupLabel')}
+                className={classes.getClass('itemGroupLabel', styles.itemGroupLabel)}
               >
                 Frameworks
               </Select.ItemGroupLabel>
               {
                 collection.items.map(({ value, label }) => (
                   <Select.Item
-                    className={classes.getClass('item')}
+                    className={classes.getClass('item', styles.item)}
                     key={value}
                     item={value}
                   >
@@ -82,4 +92,4 @@ const SigmaSelect: FC<SelectProps<StylesType>> = ({
 
 SigmaSelect.displayName = 'Select';
 
-export default withStyleX(xStyles)(SigmaSelect)
+export default withStyleX(selectStyles)(SigmaSelect)
