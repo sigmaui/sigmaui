@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { useStyleX, type Classes } from 'packages/common/hooks/use-stylex';
+import { useStyleX, type Classes } from '@sigmaui-kit/use-stylex';
 import { useTheme } from '@packages/react/hooks/use-theme';
 import type { ThemeContextType } from '@packages/react/hooks/use-theme';
 import type { Theme } from '@stylexjs/stylex';

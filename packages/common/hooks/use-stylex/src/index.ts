@@ -4,7 +4,8 @@ import type { Theme } from '@stylexjs/stylex';
 import type { Tailwind, Variant } from './types';
 
 export type {
-  Tailwind
+  Tailwind,
+  Variant
 }
 
 type UseStyleXParams = {

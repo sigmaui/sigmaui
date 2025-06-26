@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import type { ThemeColor, ThemeSize, ThemeType } from 'packages/common/theme/types';
-import type { Classes, Tailwind } from 'packages/common/hooks/use-stylex';
+import type { Classes, Tailwind } from '@sigmaui-kit/use-stylex';
 
 export interface FCProps {
   prefixCls: string;

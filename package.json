@@ -22,9 +22,9 @@
   },
   "dependencies": {
     "@ark-ui/react": "^5.15.1",
+    "@sigmaui-kit/use-stylex": "^0.0.2",
     "@stylexjs/stylex": "^0.13.1",
-    "clsx": "^2.1.1",
-    "use-stylex": "^0.0.5"
+    "clsx": "^2.1.1"
   },
   "devDependencies": {
     "@types/node": "^24.0.3",
