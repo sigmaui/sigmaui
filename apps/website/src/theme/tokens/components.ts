@@ -1,5 +1,7 @@
 export default {
   Button: {
-    defaultProps: {}
+    defaultProps: {
+      children: '123'
+    }
   }
 }

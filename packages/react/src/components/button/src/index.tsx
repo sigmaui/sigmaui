@@ -23,6 +23,6 @@ const SigmaButton: FC<ButtonProps<StylesType>> = ({
   )
 }
 
-SigmaButton.displayName = 'SigmaButton';
+SigmaButton.displayName = 'Button';
 
 export default withStyleX(xStyles)(SigmaButton)

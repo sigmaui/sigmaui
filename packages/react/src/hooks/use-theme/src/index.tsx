@@ -4,6 +4,7 @@ import type { Theme } from '@stylexjs/stylex';
 
 interface ThemeConfig {
   globalProps?: Record<string, unknown>;
+  [key: string]: any;
 }
 
 interface ThemeContextType {

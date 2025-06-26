@@ -13,11 +13,11 @@
   },
   "scripts": {
     "dev": "turbo run dev --filter=sigmaui-org",
-    "dev:website": "cd apps/website && yarn dev",
+    "dev:web": "cd apps/website && yarn dev",
     "build": "turbo run build --filter=sigmaui-org",
-    "build:website": "cd apps/website && yarn build",
+    "build:web": "cd apps/website && yarn build",
     "serve": "turbo run serve --filter=sigmaui-org",
-    "serve:website": "cd apps/website && yarn serve",
+    "serve:web": "cd apps/website && yarn serve",
     "start": "yarn dev:website"
   },
   "dependencies": {

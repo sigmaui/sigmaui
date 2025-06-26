@@ -8,9 +8,27 @@ export const withStyleX = <T extends Record<string, any>>(
   params?: { isWithAttrs?: boolean }
 ) => {
   return (Component: any) => {
-    return (props: any) => {
-      const { theme, themeConfig } = useTheme();
+    const componentName = Component.displayName || Component.name;
+
+    return (props: any = {}) => {
+      const { theme, themeConfig = {} } = useTheme();
       console.log('theme withStyleX', themeConfig);
+
+      const { ...restProps } = props;
+
+      let domProps = restProps;
+
+      if (componentName) {
+        const defaultProps = themeConfig.components?.[componentName]?.defaultProps;
+
+        if (defaultProps) {
+          if (typeof defaultProps === 'function') {
+            domProps = { ...(defaultProps(theme) || {}), ...restProps }
+          } else {
+            domProps = { ...defaultProps, ...restProps }
+          }
+        }
+      }
 
       const { classes } = useStyleX(xStyles, {
         ...params,
@@ -19,7 +37,7 @@ export const withStyleX = <T extends Record<string, any>>(
 
       return (
         <Component
-          {...(props)}
+          {...domProps}
           classes={classes}
         />
       );
