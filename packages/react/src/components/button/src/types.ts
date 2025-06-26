@@ -1,9 +1,4 @@
-import type { ReactNode } from 'react';
-import type { Classes } from 'packages/common/hooks/use-stylex';
+import type { FCWithStylesProps } from 'packages/react/src/types';
 
-export interface ButtonProps<Styles> {
-  prefixCls: string;
-  classes: Classes<Styles>;
-  children?: ReactNode;
-  className?: string;
+export interface ButtonProps<Styles> extends FCWithStylesProps<Styles> {
 }

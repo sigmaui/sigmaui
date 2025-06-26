@@ -1,4 +1,8 @@
-import type { StyleXStyles } from '@stylexjs/stylex';
+import type { StyleXStyles, Theme } from '@stylexjs/stylex';
+
+export type {
+  Theme
+}
 
 export interface ColorTheme {
   primary: string;
@@ -8,6 +12,8 @@ export interface ColorTheme {
   error: string;
   warning: string;
   success: string;
+  info?: string;
+  disabled?: string;
 }
 
 export interface SpacingTheme {
@@ -40,13 +46,47 @@ export interface BorderTheme {
   radiusRound: string;
 }
 
+export interface GradientTheme {
+  primary: string;
+  secondary: string;
+  background: string;
+  overlay: string;
+}
+
+export interface ShadowTheme {
+  sm: string;
+  md: string;
+  lg: string;
+  xl: string;
+}
+
 export interface GlobalTheme {
   colors: ColorTheme;
   spacing: SpacingTheme;
   typography: TypographyTheme;
   borders: BorderTheme;
+  gradients?: GradientTheme;
+  shadows?: ShadowTheme;
 }
 
 export type ThemeStyles = StyleXStyles<{
   [K in keyof GlobalTheme]: GlobalTheme[K];
-}>; 
+}>;
+
+export type ThemeMode = 'default' | 'light' | 'dark';
+
+export type ThemeColor =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'background'
+  | 'text'
+  | 'error'
+  | 'warning'
+  | 'success'
+  | 'info'
+  | 'disabled';
+
+export type ThemeSize = 'default' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+
+export type ThemeVariant = 'default' | 'secondary' | 'destructive' | 'outline' | 'filled' | 'ghost' | 'link';

@@ -1,3 +1,5 @@
+export type Variant = 'color' | 'size' | 'variant';
+
 export type Tailwind =
   | 'static'
   | 'fixed'

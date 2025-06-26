@@ -1,15 +1,32 @@
-import * as stylex from '@stylexjs/stylex';
+import { defaultTheme } from './modes/default.stylex';
+import { darkTheme } from './modes/dark.stylex';
+import { variants, sizes } from './tokens/variants.stylex';
 
-import { colors } from './tokens/colors.stylex';
+import type { Theme, ThemeMode } from './types';
 
-export const defaultTheme = stylex.createTheme(colors, {
-  primary: {
-    default: '#34C759'
+export {
+  defaultTheme,
+  darkTheme
+}
+
+export interface ThemeParams {
+  mode?: ThemeMode;
+}
+
+export const getTheme = (params: ThemeParams = {}) => {
+  const { mode } = params;
+
+  let theme: Theme<any, any>;
+
+  if (mode === 'dark') {
+    theme = darkTheme;
   }
-});
 
-export const getTheme = (params: any = {}) => {
-  const { mode: themeMode } = params;
-
-  return defaultTheme
+  return {
+    theme,
+    themeVariant: {
+      variants,
+      sizes
+    }
+  }
 }

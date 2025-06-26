@@ -2,38 +2,58 @@ import React, { useContext, createContext } from 'react';
 import type { FC, ReactNode } from 'react';
 import type { Theme } from '@stylexjs/stylex';
 
+interface ComponentDefaultProps {
+  [key: string]: unknown;
+}
+
+type DefaultPropsFunction = (theme: Theme<any, any>) => ComponentDefaultProps;
+
 interface ThemeConfig {
   globalProps?: Record<string, unknown>;
+  components?: {
+    [componentName: string]: {
+      defaultProps?: ComponentDefaultProps | DefaultPropsFunction;
+    };
+  };
+
   [key: string]: any;
 }
 
-interface ThemeContextType {
+export interface ThemeContextType {
   theme?: Theme<any, any>;
   themeConfig: ThemeConfig;
+  themeVariant: { [key: string]: any };
 }
 
 const ThemeContext = createContext<ThemeContextType>({
   theme: undefined,
-  themeConfig: {}
+  themeConfig: {},
+  themeVariant: {}
 });
 
 interface ThemeProviderProps {
   children?: ReactNode;
   theme?: Theme<any, any>;
   themeConfig?: Record<string, unknown>;
+  themeVariant?: { [key: string]: any };
 }
 
 export const ThemeProvider: FC<ThemeProviderProps> = ({
   children,
   theme,
-  themeConfig: themeConfigFromProp = {}
+  themeConfig: themeConfigFromProp = {},
+  themeVariant: themeVariantFromProp = {},
 }) => {
-  const { themeConfig = {} } = useContext(ThemeContext);
+  const { themeVariant = {}, themeConfig = {} } = useContext(ThemeContext);
 
   return (
     <ThemeContext.Provider
       value={{
         theme,
+        themeVariant: {
+          ...themeVariant,
+          ...themeVariantFromProp
+        },
         themeConfig: {
           ...themeConfig,
           ...themeConfigFromProp,

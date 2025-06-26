@@ -1,7 +1,6 @@
 import * as stylex from '@stylexjs/stylex';
-import type { ColorTheme } from '../types';
 
-export const colors = stylex.defineVars({
+export const variables = stylex.defineVars({
   primary: '#007AFF',
   secondary: '#5856D6',
   background: '#FFFFFF',
@@ -9,4 +8,4 @@ export const colors = stylex.defineVars({
   error: '#FF3B30',
   warning: '#FF9500',
   success: '#34C759'
-}) satisfies ColorTheme; 
+});

@@ -8,7 +8,12 @@ export const xStyles = stylex.create({
     color: colors.primary,
     border: 0,
     paddingBlock: 8,
-    paddingInline: 12
+    paddingInline: 12,
+    cursor: 'pointer',
+
+    ':hover': {
+      backgroundColor: '#111'
+    }
   }
 });
 

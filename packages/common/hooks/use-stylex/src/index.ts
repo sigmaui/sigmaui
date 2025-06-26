@@ -2,7 +2,7 @@ import * as stylex from '@stylexjs/stylex';
 import type { Theme } from '@stylexjs/stylex';
 import { tailwindStyles } from './tailwind';
 
-import type { Tailwind } from './types';
+import type { Tailwind, Variant } from './types';
 
 type UseStyleXParams = {
   isWithAttrs?: boolean;
@@ -14,8 +14,8 @@ export type Classes<T> = {
     [key: string]: string
   }) : string;
 } & {
-  getProps: (...args: (keyof T | T[keyof T] | Tailwind)[]) => any;
-  getClass: (...args: (keyof T | T[keyof T] | Tailwind)[]) => string;
+  getProps: (...args: (keyof T | T[keyof T] | Tailwind | Variant)[]) => any;
+  getClass: (...args: (keyof T | T[keyof T] | Tailwind | Variant)[]) => string;
   tailwind: (...args: Tailwind[]) => string;
 };
 
