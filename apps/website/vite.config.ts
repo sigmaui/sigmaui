@@ -1,7 +1,5 @@
 import { defineConfig } from 'vite';
 import path from 'path';
-// import stylexPlugin from '@stylexjs/rollup-plugin';
-// import stylexPlugin from 'vite-plugin-stylex';
 // @ts-ignore
 import stylexPlugin from 'unplugin-stylex/vite';
 
@@ -43,7 +41,9 @@ export default defineConfig(({ mode }) => {
         stylex: {
           filename: 'stylex.css',
           classNamePrefix: 'x',
-          dev: isDev,
+          dev: false,
+          // dev: isDev,
+          runtimeInjection: isDev,
           useCSSLayers: true
         }
       })
