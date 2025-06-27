@@ -2,7 +2,7 @@ import React from 'react';
 import type { FC, ReactNode } from 'react';
 import * as stylex from '@stylexjs/stylex';
 import Button, { ButtonKeys } from '@packages/react/components/button';
-import Select from '@packages/react/components/select';
+import Select, { SelectKeys } from '@packages/react/components/select';
 import { ThemeProvider } from '@packages/react/hooks/use-theme';
 import type { StylesDefinitions } from '@packages/react/hooks/use-theme';
 import { getTheme, darkTheme } from 'packages/common/theme';
@@ -12,12 +12,21 @@ interface AppProps {
   children: ReactNode
 }
 
-const buttonStyles = stylex.create<Pick<StylesDefinitions, ButtonKeys>>({
+const buttonStyles = stylex.create({
   root: {
     // position: 'fixed',
     backgroundColor: 'pink'
   }
-});
+} as Partial<Pick<StylesDefinitions, ButtonKeys>>);
+
+const selectStyles = stylex.create({
+  root: {
+    paddingInline: '10px'
+  },
+  label: {
+    color: 'pink'
+  }
+} as Partial<Pick<StylesDefinitions, SelectKeys>>);
 
 const App: FC<AppProps> = ({
   children
@@ -75,6 +84,7 @@ const App: FC<AppProps> = ({
               }
             ]
           }}
+          styles={selectStyles}
         >
           Test
         </Select>

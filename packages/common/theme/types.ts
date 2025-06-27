@@ -1,8 +1,11 @@
+import * as stylex from '@stylexjs/stylex';
 import type { StyleXStyles, Theme } from '@stylexjs/stylex';
 
 export type {
   Theme
 }
+
+export type StylesDefinitions = Parameters<typeof stylex.create>[0];
 
 export interface ColorTheme {
   primary: string;
@@ -73,7 +76,7 @@ export type ThemeStyles = StyleXStyles<{
   [K in keyof GlobalTheme]: GlobalTheme[K];
 }>;
 
-export type ThemeMode = 'default' | 'light' | 'dark';
+export type ThemeMode = 'default' | 'light' | 'dark' | 'desktop' | 'mobile' | 'tablet';
 
 export type ThemeColor =
   | 'default'

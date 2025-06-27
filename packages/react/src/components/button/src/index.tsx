@@ -4,9 +4,9 @@ import clsx from 'clsx';
 import { withStyleX } from '@packages/react/hooks/with-stylex';
 
 import type { ButtonProps } from './types';
-import type { ButtonTypes, ButtonKeys } from './xStyles';
+import type { ButtonTypes, ButtonKeys } from 'packages/common/styles/button/xStyles';
 
-import { buttonStyles } from './xStyles';
+import { buttonStyles } from 'packages/common/styles/button/xStyles';
 
 export type {
   ButtonTypes,

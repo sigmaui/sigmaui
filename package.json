@@ -18,10 +18,13 @@
     "build:web": "cd apps/website && yarn build",
     "serve": "turbo run serve --filter=sigmaui-org",
     "serve:web": "cd apps/website && yarn serve",
-    "start": "yarn dev:website"
+    "start": "yarn dev:web",
+    "dev:docs": "cd apps/vue-app/docs && yarn dev",
+    "dev:chart-maker": "cd apps/vue-app/chart-maker && yarn dev"
   },
   "dependencies": {
-    "@ark-ui/react": "^5.15.1",
+    "@ark-ui/react": "^5.15.2",
+    "@ark-ui/vue": "^5.15.2",
     "@sigmaui-kit/use-stylex": "^0.0.2",
     "@stylexjs/stylex": "^0.13.1",
     "clsx": "^2.1.1"
@@ -35,7 +38,8 @@
     "react-dom": "^19.1.0",
     "tsup": "^8.5.0",
     "turbo": "^2.5.4",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vue": "^3.5.17"
   },
   "engines": {
     "node": ">=16.x"

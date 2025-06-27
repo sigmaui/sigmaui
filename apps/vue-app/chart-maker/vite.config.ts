@@ -2,6 +2,8 @@ import { defineConfig } from 'vite';
 import path from 'path';
 // @ts-ignore
 import stylexPlugin from 'unplugin-stylex/vite';
+// @ts-ignore
+import vue from '@vitejs/plugin-vue';
 
 export default defineConfig(({ mode }) => {
   console.log('mode', mode)
@@ -14,11 +16,10 @@ export default defineConfig(({ mode }) => {
       alias: {
         'src': path.resolve(__dirname, './src'),
         'packages': path.resolve(__dirname, '../../packages'),
-        '@packages/common/theme/types': path.resolve(__dirname, '../../packages/common/theme/types'),
         '@packages/react/hooks/with-stylex': path.resolve(__dirname, '../../packages/react/src/hooks/with-stylex/src'),
         '@packages/react/hooks/use-theme': path.resolve(__dirname, '../../packages/react/src/hooks/use-theme/src'),
-        '@packages/react/components/select': path.resolve(__dirname, '../../packages/react/src/components/select/src'),
-        '@packages/react/components/button': path.resolve(__dirname, '../../packages/react/src/components/button/src'),
+        '@packages/react/components/select': path.resolve(__dirname, '../../packages/react/src/styles/select/src'),
+        '@packages/react/components/button': path.resolve(__dirname, '../../packages/react/src/styles/button/src'),
       }
     },
     build: {
@@ -26,11 +27,7 @@ export default defineConfig(({ mode }) => {
       sourcemap: false,
       rollupOptions: {
         output: {
-          manualChunks: {
-            react: ['react'],
-            'react-dom': ['react-dom'],
-            // 'react-router': ['react-router', 'react-router-dom']
-          }
+          manualChunks: {}
         }
       }
     },
@@ -38,6 +35,7 @@ export default defineConfig(({ mode }) => {
       pure: ['console.log', 'console.warn']
     },
     plugins: [
+      vue(),
       stylexPlugin({
         stylex: {
           filename: 'stylex.css',

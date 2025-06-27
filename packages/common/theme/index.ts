@@ -20,6 +20,8 @@ export const getTheme = (params: ThemeParams = {}) => {
 
   if (mode === 'dark') {
     theme = darkTheme;
+  } else {
+    theme = defaultTheme;
   }
 
   return {

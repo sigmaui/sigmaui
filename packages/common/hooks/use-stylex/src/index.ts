@@ -20,8 +20,8 @@ export type Classes<T> = {
     [key: string]: string
   }) : string;
 } & {
-  getProps: (...args: (keyof T | T[keyof T] | Tailwind | Tailwind[] | Variant)[]) => any;
-  getClass: (...args: (keyof T | T[keyof T] | Tailwind | Tailwind[] | Variant)[]) => string;
+  getProps: (...args: (keyof T | T[keyof T] | Tailwind | Tailwind[] | Variant | undefined)[]) => any;
+  getClass: (...args: (keyof T | T[keyof T] | Tailwind | Tailwind[] | Variant | undefined)[]) => string;
 };
 
 export const useStyleX = <T extends Record<string, any>>(xStyles: T, params: UseStyleXParams = {}): {

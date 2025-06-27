@@ -26,6 +26,12 @@
       "@packages/*": [
         "../../../packages/*"
       ],
+      "@packages/common/theme/types": [
+        "packages/common/theme/types"
+      ],
+      "@packages/react/types": [
+        "packages/react/src/types"
+      ],
       "@packages/react/hooks/*": [
         "packages/react/src/hooks/*/src"
       ],
@@ -43,6 +49,18 @@
       ],
       "@packages/react/components/button": [
         "packages/react/src/components/button/src"
+      ],
+      "@packages/vue/types": [
+        "packages/vue/src/types"
+      ],
+      "@packages/vue/hooks/*": [
+        "packages/vue/src/hooks/*/src"
+      ],
+      "@packages/vue/hooks/with-stylex": [
+        "packages/vue/src/hooks/with-stylex/src"
+      ],
+      "@packages/vue/components/button": [
+        "packages/vue/src/components/button/src"
       ]
     }
   },

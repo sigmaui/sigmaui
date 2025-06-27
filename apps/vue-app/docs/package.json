@@ -1,0 +1,19 @@
+{
+  "name": "sigmaui-docs",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host --port 6002",
+    "build": "vite build",
+    "serve": "vite preview --host --port 6002"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^24.0.4",
+    "@vitejs/plugin-vue": "^6.0.0",
+    "unplugin-stylex": "^0.5.3",
+    "vite": "^7.0.0",
+    "vite-plugin-stylex": "^0.13.0"
+  }
+}

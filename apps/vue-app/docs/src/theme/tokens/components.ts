@@ -1,7 +1,7 @@
 import * as stylex from '@stylexjs/stylex';
 import type { StylesDefinitions } from '@packages/common/theme/types';
-import type { ButtonKeys } from '@packages/react/components/button';
-import type { SelectKeys } from '@packages/react/components/select';
+import type { ButtonKeys } from 'packages/common/styles/button/xStyles';
+import type { SelectKeys } from 'packages/common/styles/select/xStyles';
 import { FCProps } from '@packages/react/types';
 
 type ComponentTokens = {

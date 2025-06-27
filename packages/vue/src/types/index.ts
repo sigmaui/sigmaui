@@ -1,11 +1,9 @@
-import type { ReactNode } from 'react';
 import type { ThemeColor, ThemeSize, ThemeType } from 'packages/common/theme/types';
 import type { Classes, Tailwind } from '@sigmaui-kit/use-stylex';
 
 export interface FCDefaultProps {
   prefixCls?: string;
   className?: string;
-  children?: ReactNode;
   classX?: Tailwind | Tailwind[];
 }
 
@@ -17,5 +15,5 @@ export interface FCProps<Styles> extends FCDefaultProps {
 }
 
 export interface FCWithStylesProps<Styles> extends FCProps<Styles> {
-  classes: Classes<Styles>;
+  classes?: Classes<Styles>;
 }
