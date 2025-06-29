@@ -3,8 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { ThemeProvider, useTheme } from '@packages/vue/hooks/use-theme';
-import type { ThemeContextProps } from '@packages/vue/hooks/use-theme';
+import { ThemeProvider, useTheme, type ThemeContextProps } from '@packages/vue/hooks/use-theme';
 
 const { themeVariant = {}, themeConfig = {} } = useTheme() || {};
 

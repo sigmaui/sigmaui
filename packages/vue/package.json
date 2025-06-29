@@ -30,7 +30,10 @@
     "prepublishOnly": "node ../../scripts/prepublish.js",
     "postpublish": "node ../../scripts/postpublish.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@tanstack/vue-form": "^1.12.4",
+    "@tanstack/vue-table": "^8.21.3"
+  },
   "peerDependencies": {},
   "clean-package": "../../clean-package.config.json"
 }

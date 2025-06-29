@@ -22,7 +22,7 @@ npm install @sigmaui-kit/v-with-stylex
 <script setup lang="ts">
 import { useWithStyleX } from '@sigmaui-kit/v-with-stylex';
 
-// Define your styles
+// Define your components
 const xStyles = {
   base: {
     padding: '1rem',
@@ -114,7 +114,7 @@ const { createClasses, theme, themeVariant, themeConfig } = useWithStyleX({
   componentName: 'MyComponent',
   params: {
     tailwindStyles: {
-      // Additional tailwind styles
+      // Additional tailwind components
     },
   },
 });

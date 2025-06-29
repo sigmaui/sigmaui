@@ -6,7 +6,7 @@ export interface FCDefaultProps {
   prefixCls?: string;
   className?: string;
   children?: ReactNode;
-  classX?: Tailwind | Tailwind[];
+  xClass?: Tailwind | Tailwind[];
 }
 
 export interface FCProps<Styles> extends FCDefaultProps {

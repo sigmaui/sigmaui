@@ -4,7 +4,7 @@ import type { Classes, Tailwind } from '@sigmaui-kit/use-stylex';
 export interface FCDefaultProps {
   prefixCls?: string;
   className?: string;
-  classX?: Tailwind | Tailwind[];
+  xClass?: Tailwind | Tailwind[];
 }
 
 export interface FCProps<Styles> extends FCDefaultProps {

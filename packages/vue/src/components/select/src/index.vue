@@ -1,3 +1,26 @@
+<script lang="ts">
+import { selectStyles, SelectTypes } from 'packages/common/components/select/xStyles';
+</script>
+
+<script setup lang="ts">
+import { Select, createListCollection } from '@ark-ui/vue';
+import { withStyleX } from '@packages/vue/hooks/with-stylex';
+import type { SelectProps } from './types';
+
+const rawProps = defineProps<SelectProps<SelectTypes>>();
+
+const { classes, props } = withStyleX(selectStyles)({
+  displayName: 'select',
+  rawProps
+});
+
+const { styles } = props;
+
+const collection = createListCollection({
+  items: ['React1', 'Solid', 'Vue', 'Svelte'],
+})
+</script>
+
 <template>
   <Select.Root :collection="collection" :class="classes.getClass('root')">
     <Select.Label>Framework</Select.Label>
@@ -25,21 +48,3 @@
     <Select.HiddenSelect/>
   </Select.Root>
 </template>
-
-<script lang="ts">
-import { selectStyles, SelectTypes } from '../../../../../common/styles/select/xStyles';
-</script>
-
-<script setup lang="ts">
-import { Select, createListCollection } from '@ark-ui/vue';
-import { useStyleX } from '@sigmaui-kit/use-stylex';
-import type { SelectProps } from './types';
-
-defineProps<SelectProps<SelectTypes>>();
-
-const { classes } = useStyleX(selectStyles);
-
-const collection = createListCollection({
-  items: ['React', 'Solid', 'Vue', 'Svelte'],
-})
-</script>

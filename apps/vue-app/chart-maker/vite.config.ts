@@ -18,8 +18,8 @@ export default defineConfig(({ mode }) => {
         'packages': path.resolve(__dirname, '../../packages'),
         '@packages/react/hooks/with-stylex': path.resolve(__dirname, '../../packages/react/src/hooks/with-stylex/src'),
         '@packages/react/hooks/use-theme': path.resolve(__dirname, '../../packages/react/src/hooks/use-theme/src'),
-        '@packages/react/components/select': path.resolve(__dirname, '../../packages/react/src/styles/select/src'),
-        '@packages/react/components/button': path.resolve(__dirname, '../../packages/react/src/styles/button/src'),
+        '@packages/react/components/select': path.resolve(__dirname, '../../packages/react/src/components/select/src'),
+        '@packages/react/components/button': path.resolve(__dirname, '../../packages/react/src/components/button/src'),
       }
     },
     build: {

@@ -1,7 +1,6 @@
 import React, { ReactElement } from 'react';
 import { useStyleX, type Classes } from '@sigmaui-kit/use-stylex';
-import { useTheme } from '@packages/react/hooks/use-theme';
-import type { ThemeContextType } from '@packages/react/hooks/use-theme';
+import { useTheme, type ThemeContextProps } from '@packages/react/hooks/use-theme';
 import type { Theme } from '@stylexjs/stylex';
 
 import { position } from 'packages/common/theme/tailwind/position';
@@ -21,7 +20,7 @@ export const withStyleX = <T extends Record<string, unknown>>(
     const componentName = Component.displayName || Component.name;
 
     const WrappedComponent = (props: any): ReactElement => {
-      const { theme, themeVariant = {}, themeConfig = {} } = useTheme() as ThemeContextType;
+      const { theme, themeVariant = {}, themeConfig = {} } = useTheme() as ThemeContextProps;
       console.log('theme withStyleX', themeVariant, themeConfig);
 
       let domProps = props;

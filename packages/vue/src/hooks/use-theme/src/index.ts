@@ -8,13 +8,15 @@ interface ComponentDefaultProps {
 
 type DefaultPropsFunction = (theme: Theme<any, any>) => ComponentDefaultProps;
 
-interface ThemeConfig {
-  globalProps?: Record<string, unknown>;
-  components?: {
-    [componentName: string]: {
-      defaultProps?: ComponentDefaultProps | DefaultPropsFunction;
-    };
+export interface Components<Props> {
+  [componentName: string]: {
+    defaultProps?: Props | ComponentDefaultProps | DefaultPropsFunction;
   };
+}
+
+export interface ThemeConfig {
+  globalProps?: Record<string, unknown>;
+  components?: Components<any>;
 
   [key: string]: any;
 }

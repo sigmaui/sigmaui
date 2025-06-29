@@ -1,13 +1,16 @@
 import React from 'react';
 import type { FC } from 'react';
-import clsx from 'clsx';
-import { Portal, Select, createListCollection, useSelectContext } from '@ark-ui/react';
+import { clsx } from 'clsx';
+import { Portal, Select, createListCollection } from '@ark-ui/react';
 import { withStyleX } from '@packages/react/hooks/with-stylex';
 
 import type { SelectProps } from './types';
-import type { SelectTypes, SelectKeys } from './xStyles';
 
-import { selectStyles } from './xStyles';
+import {
+  selectStyles,
+  type SelectTypes,
+  type SelectKeys
+} from 'packages/common/components/select/xStyles';
 
 export type {
   SelectTypes,

@@ -30,9 +30,9 @@ const selectStyles = stylex.create({
 const componentTokens: ComponentTokens = {
   Button: {
     defaultProps: {
-      size: 'sm',
-      classX: ['relative', 'block'],
-      styles: buttonStyles
+      // size: 'sm',
+      xClass: ['relative', 'block'],
+      // styles: buttonStyles
     }
   },
   Select: {

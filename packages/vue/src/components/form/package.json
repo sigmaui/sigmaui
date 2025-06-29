@@ -1,0 +1,42 @@
+{
+  "name": "@sigmaui-kit/v-form",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "homepage": "https://sigmaui.org",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sigmaui/sigmaui.git",
+    "directory": "packages/vue/components/v-form"
+  },
+  "scripts": {
+    "setup": "yarn install",
+    "build": "tsup src --dts",
+    "dev": "pnpm build:fast --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "build:fast": "tsup src",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore",
+    "prepublishOnly": "node ../../../../../scripts/prepublish.js",
+    "postpublish": "node ../../../../../scripts/postpublish.js"
+  },
+  "dependencies": {
+  },
+  "peerDependencies": {
+    "vue": ">=3.0.0"
+  },
+  "devDependencies": {
+  },
+  "clean-package": "../../../../../clean-package.config.json"
+}

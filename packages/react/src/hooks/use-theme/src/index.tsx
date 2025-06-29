@@ -22,13 +22,13 @@ interface ThemeConfig {
   [key: string]: any;
 }
 
-export interface ThemeContextType {
+export interface ThemeContextProps {
   theme?: Theme<any, any>;
   themeConfig: ThemeConfig;
   themeVariant: { [key: string]: any };
 }
 
-const ThemeContext = createContext<ThemeContextType>({
+const ThemeContext = createContext<ThemeContextProps>({
   theme: undefined,
   themeConfig: {},
   themeVariant: {}
@@ -69,6 +69,6 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
   );
 };
 
-export const useTheme = (): ThemeContextType => {
+export const useTheme = (): ThemeContextProps => {
   return useContext(ThemeContext);
 };

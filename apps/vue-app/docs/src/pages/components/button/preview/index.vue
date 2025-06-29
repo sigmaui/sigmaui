@@ -1,0 +1,37 @@
+<template>
+  <div :class="classes.getClass('demoSection')">
+    <h2 v-if="showDemoTitle" :class="classes.getClass('demoTitle')">Demo</h2>
+    <ThemeProvider :theme="theme" :theme-config="themeConfig" :theme-variant="themeVariant">
+      <Button :class="classes.getClass('demoButton')">Default Button</Button>
+      <Button size="lg" :class="classes.getClass('demoButton')">Large Button</Button>
+      <Button size="sm" :class="classes.getClass('demoButton')">Small Button</Button>
+    </ThemeProvider>
+  </div>
+</template>
+
+<script lang="ts">
+import { buttonPreviewStyles, ButtonPreviewTypes } from './xStyles.ts';
+
+interface Props {
+  showDemoTitle?: boolean;
+}
+</script>
+
+<script setup lang="ts">
+import { withStyleX } from '@packages/vue/hooks/with-stylex';
+import ThemeProvider from 'packages/vue/src/system/theme-provider.vue';
+import Button from 'packages/vue/src/components/button/src/index.vue';
+import { getTheme } from 'packages/common/theme';
+import { themeConfig } from '../../../../theme/config';
+
+const props = withDefaults(defineProps<Props>(), {
+  showDemoTitle: true
+});
+
+const { theme, themeVariant } = getTheme();
+
+const { classes } = withStyleX(buttonPreviewStyles)({
+  displayName: 'ButtonPreview',
+  rawProps: {}
+});
+</script>

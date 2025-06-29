@@ -37,7 +37,7 @@ const App: FC<AppProps> = ({
 
   return (
     <ThemeProvider
-      theme={theme}
+      // theme={theme}
       themeVariant={themeVariant}
       themeConfig={{
         globalProps: {
@@ -47,6 +47,9 @@ const App: FC<AppProps> = ({
         ...themeConfig
       }}
     >
+      <Button>
+        Button default
+      </Button>
       <Button
         color="primary"
         size="lg"
