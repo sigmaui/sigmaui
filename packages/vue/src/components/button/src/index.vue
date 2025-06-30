@@ -1,8 +1,6 @@
 <script lang="ts">
 import { clsx } from 'clsx';
 import { buttonStyles, ButtonTypes } from 'packages/common/components/button/xStyles';
-
-const prefixCls = 'sm-button';
 </script>
 
 <script setup lang="ts">
@@ -21,7 +19,8 @@ const { classes, props } = withStyleX(buttonStyles)({
 const {
   className,
   xClass,
-  styles = {}
+  styles = {},
+  prefixCls = 'sm-button'
 } = props;
 
 console.log('xClass', xClass)

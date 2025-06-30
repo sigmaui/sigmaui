@@ -25,37 +25,37 @@ interface ThemeConfig {
 export interface ThemeContextProps {
   theme?: Theme<any, any>;
   themeConfig: ThemeConfig;
-  themeVariant: { [key: string]: any };
+  themeTokens: { [key: string]: any };
 }
 
 const ThemeContext = createContext<ThemeContextProps>({
   theme: undefined,
   themeConfig: {},
-  themeVariant: {}
+  themeTokens: {}
 });
 
 interface ThemeProviderProps {
   children?: ReactNode;
   theme?: Theme<any, any>;
   themeConfig?: Record<string, unknown>;
-  themeVariant?: { [key: string]: any };
+  themeTokens?: { [key: string]: any };
 }
 
 export const ThemeProvider: FC<ThemeProviderProps> = ({
   children,
   theme,
   themeConfig: themeConfigFromProp = {},
-  themeVariant: themeVariantFromProp = {},
+  themeTokens: themeTokensFromProp = {},
 }) => {
-  const { themeVariant = {}, themeConfig = {} } = useContext(ThemeContext);
+  const { themeTokens = {}, themeConfig = {} } = useContext(ThemeContext);
 
   return (
     <ThemeContext.Provider
       value={{
         theme,
-        themeVariant: {
-          ...themeVariant,
-          ...themeVariantFromProp
+        themeTokens: {
+          ...themeTokens,
+          ...themeTokensFromProp
         },
         themeConfig: {
           ...themeConfig,

@@ -30,8 +30,8 @@ export const withStyleX = <T extends Record<string, unknown>>(
 
     console.log('rawProps', rawProps)
 
-    const { theme, themeVariant = {}, themeConfig = {} } = useTheme() as ThemeContextProps || {};
-    // console.log('theme withStyleX', themeVariant, themeConfig);
+    const { theme, themeTokens = {}, themeConfig = {} } = useTheme() as ThemeContextProps || {};
+    // console.log('theme withStyleX', themeTokens, themeConfig);
 
     let props: P = rawProps;
 
@@ -52,18 +52,22 @@ export const withStyleX = <T extends Record<string, unknown>>(
 
     // console.log('props withStyleX', props);
 
-    const { color, size, type, ...restProps } = props;
+    const { type, size, color, variant, ...restProps } = props;
 
-    if (color) {
-      (xStyles as any).color = themeVariant.colors?.[color];
+    if (type) {
+      (xStyles as any).type = themeTokens.types?.[type];
     }
 
     if (size) {
-      (xStyles as any).size = themeVariant.sizes?.[size];
+      (xStyles as any).size = themeTokens.sizes?.[size];
     }
 
-    if (type) {
-      (xStyles as any).type = themeVariant.types?.[type];
+    if (color) {
+      (xStyles as any).color = themeTokens.colors?.[color];
+    }
+
+    if (variant) {
+      (xStyles as any).type = themeTokens.variants?.[variant];
     }
 
     const { tailwindStyles = {}, ...restParams } = xParams;

@@ -4,7 +4,7 @@
     <p :class="classes.getClass('subtitle')">Explore all available components in the SigmaUI library.</p>
 
     <div :class="classes.getClass('segmentGroupSection')">
-      <ThemeProvider :theme="theme" :theme-config="themeConfig" :theme-variant="themeVariant">
+      <ThemeProvider :theme="theme" :theme-config="themeConfig" :theme-tokens="themeTokens">
         <SegmentGroup
             :items="[
             { label: 'Get Started', value: 'get-started' },
@@ -63,7 +63,7 @@ import { getTheme } from 'packages/common/theme';
 import { themeConfig } from '../../theme/config';
 
 const router = useRouter();
-const { theme, themeVariant } = getTheme();
+const { theme, themeTokens } = getTheme();
 
 const { classes } = withStyleX(componentsStyles)({
   displayName: 'Components',

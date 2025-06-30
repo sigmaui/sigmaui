@@ -24,7 +24,7 @@ export interface ThemeConfig {
 export interface ThemeContextProps {
   theme?: Theme<any, any>;
   themeConfig?: ThemeConfig;
-  themeVariant?: { [key: string]: any };
+  themeTokens?: { [key: string]: any };
 }
 
 const ThemeContext = createContext<ThemeContextProps>('ThemeContext');

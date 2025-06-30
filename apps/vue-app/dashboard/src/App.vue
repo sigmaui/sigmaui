@@ -21,7 +21,7 @@ import Form, { type FormItem } from 'packages/vue/src/components/form/src/index.
 import { getTheme } from 'packages/common/theme';
 import { themeConfig } from './theme/config';
 
-const { theme, themeVariant } = getTheme();
+const { theme, themeTokens } = getTheme();
 
 const items: FormItem[] = [
   {
@@ -57,7 +57,7 @@ const handleFormSubmit = (formData: any) => {
 </script>
 
 <template>
-  <ThemeProvider :theme="theme" :theme-config="themeConfig" :theme-variant="themeVariant">
+  <ThemeProvider :theme="theme" :theme-config="themeConfig" :theme-tokens="themeTokens">
     <Button>Button</Button>
     <ThemeProvider>
       <Button size="lg">Button</Button>

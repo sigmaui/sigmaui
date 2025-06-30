@@ -31,14 +31,14 @@ const selectStyles = stylex.create({
 const App: FC<AppProps> = ({
   children
 }) => {
-  const { theme, themeVariant } = getTheme();
+  const { theme, themeTokens } = getTheme();
 
   console.log('theme', theme)
 
   return (
     <ThemeProvider
       // theme={theme}
-      themeVariant={themeVariant}
+      themeTokens={themeTokens}
       themeConfig={{
         globalProps: {
           mode: 'dark',

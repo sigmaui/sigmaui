@@ -20,8 +20,8 @@ export const withStyleX = <T extends Record<string, unknown>>(
     const componentName = Component.displayName || Component.name;
 
     const WrappedComponent = (props: any): ReactElement => {
-      const { theme, themeVariant = {}, themeConfig = {} } = useTheme() as ThemeContextProps;
-      console.log('theme withStyleX', themeVariant, themeConfig);
+      const { theme, themeTokens = {}, themeConfig = {} } = useTheme() as ThemeContextProps;
+      console.log('theme withStyleX', themeTokens, themeConfig);
 
       let domProps = props;
 
@@ -43,15 +43,15 @@ export const withStyleX = <T extends Record<string, unknown>>(
       const { color, size, type, ...restProps } = domProps;
 
       if (color) {
-        (xStyles as any).color = themeVariant.colors?.[color];
+        (xStyles as any).color = themeTokens.colors?.[color];
       }
 
       if (size) {
-        (xStyles as any).size = themeVariant.sizes?.[size];
+        (xStyles as any).size = themeTokens.sizes?.[size];
       }
 
       if (type) {
-        (xStyles as any).type = themeVariant.types?.[type];
+        (xStyles as any).type = themeTokens.types?.[type];
       }
 
       const { tailwindStyles = {}, ...restParams } = params;

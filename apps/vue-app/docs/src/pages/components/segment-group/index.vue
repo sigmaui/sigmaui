@@ -12,7 +12,7 @@
 
     <div :class="classes.getClass('demoSection')">
       <h2 :class="classes.getClass('demoTitle')">With Custom Items</h2>
-      <ThemeProvider :theme="theme" :theme-config="themeConfig" :theme-variant="themeVariant">
+      <ThemeProvider :theme="theme" :theme-config="themeConfig" :theme-tokens="themeTokens">
         <SegmentGroup 
           :items="['Small', 'Medium', 'Large']"
           label="Size"
@@ -23,7 +23,7 @@
 
     <div :class="classes.getClass('demoSection')">
       <h2 :class="classes.getClass('demoTitle')">Controlled Component</h2>
-      <ThemeProvider :theme="theme" :theme-config="themeConfig" :theme-variant="themeVariant">
+      <ThemeProvider :theme="theme" :theme-config="themeConfig" :theme-tokens="themeTokens">
         <SegmentGroup 
           :items="['Light', 'Dark', 'Auto']"
           label="Theme"
@@ -56,7 +56,7 @@ import SegmentGroupPreview from './preview/index.vue';
 import { getTheme } from 'packages/common/theme';
 import { themeConfig } from '../../../theme/config';
 
-const { theme, themeVariant } = getTheme();
+const { theme, themeTokens } = getTheme();
 
 const { classes } = withStyleX(segmentGroupPageStyles)({
   displayName: 'SegmentGroupPage',

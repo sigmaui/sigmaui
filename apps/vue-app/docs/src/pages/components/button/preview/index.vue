@@ -1,7 +1,7 @@
 <template>
   <div :class="classes.getClass('demoSection')">
     <h2 v-if="showDemoTitle" :class="classes.getClass('demoTitle')">Demo</h2>
-    <ThemeProvider :theme="theme" :theme-config="themeConfig" :theme-variant="themeVariant">
+    <ThemeProvider :theme="theme" :theme-config="themeConfig" :theme-tokens="themeTokens">
       <Button :class="classes.getClass('demoButton')">Default Button</Button>
       <Button size="lg" :class="classes.getClass('demoButton')">Large Button</Button>
       <Button size="sm" :class="classes.getClass('demoButton')">Small Button</Button>
@@ -28,7 +28,7 @@ const props = withDefaults(defineProps<Props>(), {
   showDemoTitle: true
 });
 
-const { theme, themeVariant } = getTheme();
+const { theme, themeTokens } = getTheme();
 
 const { classes } = withStyleX(buttonPreviewStyles)({
   displayName: 'ButtonPreview',

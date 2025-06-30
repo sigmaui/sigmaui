@@ -1,7 +1,7 @@
 <template>
   <div :class="classes.getClass('demoSection')">
     <h2 v-if="showDemoTitle" :class="classes.getClass('demoTitle')">Demo</h2>
-    <ThemeProvider :theme="theme" :theme-config="themeConfig" :theme-variant="themeVariant">
+    <ThemeProvider :theme="theme" :theme-config="themeConfig" :theme-tokens="themeTokens">
       <Table 
         :data="tableData" 
         :columns="columns"
@@ -43,7 +43,7 @@ const props = withDefaults(defineProps<Props>(), {
   showDemoTitle: true
 });
 
-const { theme, themeVariant } = getTheme();
+const { theme, themeTokens } = getTheme();
 
 const { classes } = withStyleX(tablePreviewStyles)({
   displayName: 'TablePreview',
