@@ -187,7 +187,7 @@ const handleSelectionChange = (selection: any) => {
 
 ## Examples
 
-See the `example.ts` file in the component directory for more detailed examples of how to use the table component with different data types and configurations.
+See the `example.ts` file in the component directory for more detailed examples of how to use the table component with different data typesStylex and configurations.
 
 ## Dependencies
 

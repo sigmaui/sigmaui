@@ -93,3 +93,5 @@ export type ThemeColor =
 export type ThemeSize = 'default' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 
 export type ThemeType = 'default' | 'secondary' | 'destructive' | 'outline' | 'filled' | 'ghost' | 'link';
+
+export type ThemeVariant = 'default' | 'solid' | 'outlined' | 'dashed' | 'filled' | 'text' | 'link';

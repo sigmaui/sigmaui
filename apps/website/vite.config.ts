@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => {
       alias: {
         'src': path.resolve(__dirname, './src'),
         'packages': path.resolve(__dirname, '../../packages'),
-        '@packages/common/theme/types': path.resolve(__dirname, '../../packages/common/theme/types'),
+        '@packages/common/theme/types': path.resolve(__dirname, '../../packages/common/theme/typesStylex'),
         '@packages/react/hooks/with-stylex': path.resolve(__dirname, '../../packages/react/src/hooks/with-stylex/src'),
         '@packages/react/hooks/use-theme': path.resolve(__dirname, '../../packages/react/src/hooks/use-theme/src'),
         '@packages/react/components/select': path.resolve(__dirname, '../../packages/react/src/components/select/src'),

@@ -1,13 +1,33 @@
 import * as stylex from '@stylexjs/stylex';
-import type { ColorTheme } from '../types';
 
-export const colors = stylex.defineVars({
-  primary: '#FF8000',
-  secondary: '#5856D6',
-  background: '#FFFFFF',
-  text: '#000000',
-  error: '#FF3B30',
-  warning: '#FF9500',
-  success: '#34C759',
-  button: '#FFFFFF'
-}) satisfies ColorTheme; 
+export const colors = stylex.create({
+  default: {
+    color: '#FF8000',
+
+    ':hover': {
+      color: '#FF8000'
+    }
+  },
+  primary: {
+    color: '#FF8000'
+  },
+  secondary: {
+    color: '#5856D6'
+  }
+});
+
+export const textColors = stylex.create({
+  default: {
+    color: '#FF8000',
+
+    ':hover': {
+      color: '#FF8000'
+    }
+  },
+  primary: {
+    color: '#FF8000'
+  },
+  secondary: {
+    color: '#5856D6'
+  }
+});

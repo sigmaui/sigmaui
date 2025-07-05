@@ -1,6 +1,6 @@
 import * as stylex from '@stylexjs/stylex';
 
-import { colors } from '../../theme/tokens/colors.stylex';
+import { colors } from '../../theme/tokens/variables.stylex';
 
 export const formStyles = stylex.create({
   root: {

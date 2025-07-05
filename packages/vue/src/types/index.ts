@@ -1,4 +1,4 @@
-import type { ThemeColor, ThemeSize, ThemeType } from 'packages/common/theme/types';
+import { ThemeColor, ThemeSize, ThemeType, ThemeVariant } from 'packages/common/theme/types';
 import type { Classes, Tailwind } from '@sigmaui-kit/use-stylex';
 
 export interface FCDefaultProps {
@@ -8,9 +8,10 @@ export interface FCDefaultProps {
 }
 
 export interface FCProps<Styles> extends FCDefaultProps {
-  color?: ThemeColor;
   size?: ThemeSize;
   type?: ThemeType;
+  color?: ThemeColor;
+  variant?: ThemeVariant;
   styles?: Partial<Record<keyof Styles, any>>;
 }
 

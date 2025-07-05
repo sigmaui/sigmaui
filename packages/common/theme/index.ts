@@ -1,6 +1,8 @@
 import { defaultTheme } from './modes/default.stylex';
 import { darkTheme } from './modes/dark.stylex';
-import { colors, types, sizes, variants } from './tokens/variants.stylex';
+import { sizes } from './tokens/sizes.stylex';
+import { types } from './tokens/types.stylex';
+import { variants } from './tokens/variants.stylex';
 
 import type { Theme, ThemeMode } from './types';
 
@@ -27,8 +29,8 @@ export const getTheme = (params: ThemeParams = {}) => {
   return {
     theme,
     themeTokens: {
-      types,
       sizes,
+      types,
       variants
     }
   }

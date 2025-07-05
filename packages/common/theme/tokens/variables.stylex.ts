@@ -1,11 +1,12 @@
 import * as stylex from '@stylexjs/stylex';
 
-export const variables = stylex.defineVars({
-  primary: '#007AFF',
+export const colors = stylex.defineVars({
+  primary: '#FF8000',
   secondary: '#5856D6',
   background: '#FFFFFF',
   text: '#000000',
   error: '#FF3B30',
   warning: '#FF9500',
-  success: '#34C759'
+  success: '#34C759',
+  button: '#FFFFFF'
 });

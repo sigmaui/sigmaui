@@ -1,6 +1,6 @@
 import * as stylex from '@stylexjs/stylex';
 
-import { colors } from '../tokens/colors.stylex.ts';
+import { colors } from '../tokens/variables.stylex.ts';
 import { sizes } from '../tokens/sizes.stylex.ts';
 
 export const defaultTheme = stylex.createTheme(colors, {

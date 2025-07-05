@@ -5,6 +5,15 @@
       <Button :class="classes.getClass('demoButton')">Default Button</Button>
       <Button size="lg" :class="classes.getClass('demoButton')">Large Button</Button>
       <Button size="sm" :class="classes.getClass('demoButton')">Small Button</Button>
+      <Button variant="dashed" :class="classes.getClass('demoButton')">
+        Dashed
+      </Button>
+      <Button variant="text" :class="classes.getClass('demoButton')">
+        Text
+      </Button>
+      <Button variant="link" :class="classes.getClass('demoButton')">
+        Link
+      </Button>
     </ThemeProvider>
   </div>
 </template>

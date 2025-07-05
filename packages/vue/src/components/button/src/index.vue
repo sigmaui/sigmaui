@@ -31,7 +31,7 @@ console.log('data', data)
 </script>
 
 <template>
-  <button :class="clsx(prefixCls, className, classes.getClass('root', 'size', 'type', xClass, styles.root))">
+  <button :class="clsx(prefixCls, className, classes.getClass('root', 'size', 'type', 'variant', xClass, styles.root))">
     <slot/>
   </button>
 </template>

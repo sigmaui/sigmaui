@@ -67,7 +67,7 @@ export const withStyleX = <T extends Record<string, unknown>>(
     }
 
     if (variant) {
-      (xStyles as any).type = themeTokens.variants?.[variant];
+      (xStyles as any).variant = themeTokens.variants?.[variant];
     }
 
     const { tailwindStyles = {}, ...restParams } = xParams;

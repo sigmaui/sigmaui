@@ -32,8 +32,8 @@ const componentTokens: Components<FCProps<any>> = {
   Button: {
     defaultProps: {
       size: 'sm',
-      xClass: ['relative', 'block'],
-      styles: buttonStyles
+      // xClass: ['relative', 'block'],
+      // styles: buttonStyles
     }
   },
   Select: {
