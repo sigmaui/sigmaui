@@ -1,5 +1,4 @@
 <script lang="ts">
-import { clsx } from 'clsx';
 import { selectStyles, SelectTypes } from 'packages/common/components/select/xStyles';
 </script>
 
@@ -27,7 +26,7 @@ const collection = createListCollection({
 </script>
 
 <template>
-  <Select.Root :collection="collection" :class="clsx(prefixCls, className, classes.getClass('root', styles.root))">
+  <Select.Root :collection="collection" :class="classes.getClass(prefixCls, className, 'root', styles.root)">
     <Select.Label>Framework</Select.Label>
     <Select.Control>
       <Select.Trigger :class="classes.getClass('trigger')">

@@ -29,7 +29,6 @@
     "@sigmaui-kit/use-stylex": "^0.0.2",
     "@stylexjs/stylex": "^0.13.1",
     "@tanstack/react-router": "^1.122.0",
-    "clsx": "^2.1.1",
     "motion": "^12.19.2",
     "vue-router": "^4.5.1"
   },

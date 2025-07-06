@@ -1,5 +1,5 @@
 import * as stylex from '@stylexjs/stylex';
-import { colors } from '../../../../../../packages/common/theme/tokens/colors.stylex.ts';
+import { colors } from '../../../../../../packages/common/theme/tokens/variables.stylex.ts';
 
 export const homeStyles = stylex.create({
   root: {

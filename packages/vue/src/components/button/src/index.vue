@@ -1,5 +1,4 @@
 <script lang="ts">
-import { clsx } from 'clsx';
 import { buttonStyles, ButtonTypes } from 'packages/common/components/button/xStyles';
 </script>
 
@@ -31,7 +30,7 @@ console.log('data', data)
 </script>
 
 <template>
-  <button :class="clsx(prefixCls, className, classes.getClass('root', 'size', 'type', 'variant', xClass, styles.root))">
+  <button :class="classes.getClass(prefixCls, className, 'root', 'size', 'type', 'variant', xClass, styles.root)">
     <slot/>
   </button>
 </template>

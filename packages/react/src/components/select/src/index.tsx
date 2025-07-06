@@ -1,6 +1,5 @@
 import React from 'react';
 import type { FC } from 'react';
-import { clsx } from 'clsx';
 import { Portal, Select, createListCollection } from '@ark-ui/react';
 import { withStyleX } from '@packages/react/hooks/with-stylex';
 
@@ -32,7 +31,7 @@ const SigmaSelect: FC<SelectProps<SelectTypes>> = ({
 
   return (
     <Select.Root
-      className={clsx(prefixCls, className, classes.getClass('root', styles.root))}
+      className={classes.getClass(prefixCls, className, 'root', styles.root)}
       collection={collection}
       onSelect={(value) => {
         console.log('onSelect', value)

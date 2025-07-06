@@ -1,5 +1,4 @@
 <script lang="ts">
-import { clsx } from 'clsx';
 import { segmentGroupStyles, SegmentGroupTypes } from 'packages/common/components/segment-group/xStyles';
 </script>
 
@@ -37,7 +36,7 @@ const isHorizontal = orientation === 'horizontal'
 
 <template>
   <SegmentGroup.RootProvider
-      :class="clsx(classes.getClass('root', isHorizontal && 'horizontal'))"
+      :class="classes.getClass('root', isHorizontal && 'horizontal')"
       :value="segmentGroup"
   >
     <SegmentGroup.Label v-if="props.label" :class="classes.getClass('label')">

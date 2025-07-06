@@ -10,7 +10,6 @@ export type {
 </script>
 
 <script setup lang="ts">
-import { clsx } from 'clsx';
 import { useForm } from '@tanstack/vue-form';
 import { withStyleX } from '@packages/vue/hooks/with-stylex';
 import type { FormProps } from './types';
@@ -51,11 +50,11 @@ const isAction = true;
 
 <template>
   <form
-      :class="clsx(prefixCls, className, classes.getClass('root', styles.root))"
+      :class="classes.getClass(prefixCls, className, 'root', styles.root)"
       @submit="handleSubmit"
   >
     <div
-        :class="clsx(`${prefixCls}-field`, classes.getClass('field', styles.field))"
+        :class="classes.getClass(`${prefixCls}-field`, 'field', styles.field)"
         :key="index"
         v-for="(item, index) in items"
     >
@@ -63,7 +62,7 @@ const isAction = true;
     </div>
     <component :is="form.Subscribe" v-if="isAction">
       <template v-slot="{ canSubmit, isSubmitting }">
-        <div :class="clsx(`${prefixCls}-actions`)">
+        <div :class="`${prefixCls}-actions`">
           <button
               type="submit"
               :class="classes.getClass('submit')"

@@ -1,4 +1,11 @@
-export type Variant = 'color' | 'size' | 'type' | 'variant';
+export enum VariantEnum {
+  Color = 'color',
+  Size = 'size',
+  Type = 'type',
+  Variant = 'variant'
+}
+
+export type Variant = `${VariantEnum}`;
 
 export type Tailwind =
   | 'static'

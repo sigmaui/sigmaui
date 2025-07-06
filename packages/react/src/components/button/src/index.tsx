@@ -1,6 +1,5 @@
 import React from 'react';
 import type { FC } from 'react';
-import { clsx } from 'clsx';
 import { withStyleX } from '@packages/react/hooks/with-stylex';
 
 import type { ButtonProps } from './types';
@@ -30,7 +29,7 @@ const SigmaButton: FC<ButtonProps<ButtonTypes>> = ({
 }) => {
   return (
     <button
-      className={clsx(prefixCls, className, classes.getClass('root', 'size', 'type', xClass, styles.root))}
+      className={classes.getClass(prefixCls, className, 'root', 'size', 'type', xClass, styles.root)}
     >
       {children}
     </button>

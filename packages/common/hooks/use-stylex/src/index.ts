@@ -1,11 +1,18 @@
 import * as stylex from '@stylexjs/stylex';
 import type { Theme } from '@stylexjs/stylex';
 
-import type { Tailwind, Variant } from './types';
+import { VariantEnum, type Tailwind, type Variant } from './types';
+
+type Writable<T> = {
+  -readonly [P in keyof T]: T[P];
+};
+
+type StyleXProps = Writable<ReturnType<typeof stylex.props>>;
 
 export type {
   Tailwind,
-  Variant
+  Variant,
+  StyleXProps
 }
 
 type UseStyleXParams = {
@@ -20,9 +27,13 @@ export type Classes<T> = {
     [key: string]: string
   }) : string;
 } & {
-  getProps: (...args: (keyof T | T[keyof T] | Tailwind | Tailwind[] | Variant | undefined)[]) => any;
-  getClass: (...args: (keyof T | T[keyof T] | Tailwind | Tailwind[] | Variant | undefined)[]) => string;
+  getProps: (...args: (keyof T | T[keyof T] | Tailwind | Tailwind[] | Variant | string | undefined)[]) => any;
+  getClass: (...args: (keyof T | T[keyof T] | Tailwind | Tailwind[] | Variant | string | undefined)[]) => string;
 };
+
+export function isVariant(value: string): value is VariantEnum {
+  return Object.values(VariantEnum).includes(value as VariantEnum);
+}
 
 export const useStyleX = <T extends Record<string, any>>(xStyles: T, params: UseStyleXParams = {}): {
   classes: Classes<T>
@@ -54,13 +65,26 @@ export const useStyleX = <T extends Record<string, any>>(xStyles: T, params: Use
     });
   }
 
-  const getProps = ((...args: (keyof T | T[keyof T] | Tailwind)[]): string => {
+  const getProps = ((...args: (keyof T | T[keyof T] | Tailwind)[]): StyleXProps => {
     const styles: any = [];
+    let classStr = '';
 
     const getStyles = (args: any[]) => {
       for (const arg of args) {
         if (typeof arg === 'string') {
-          styles.push(tailwindStyles?.[arg as Tailwind] ?? xStyles[arg]);
+          const values = tailwindStyles?.[arg as Tailwind] ?? xStyles[arg];
+
+          if (values) {
+            styles.push(values);
+          } else {
+            if (!isVariant(arg)) {
+              if (classStr) {
+                classStr += ' ';
+              }
+
+              classStr += arg;
+            }
+          }
         } else if (Array.isArray(arg)) {
           getStyles(arg);
         } else {
@@ -71,11 +95,19 @@ export const useStyleX = <T extends Record<string, any>>(xStyles: T, params: Use
 
     getStyles(args);
 
+    let props: StyleXProps;
+
     if (theme) {
-      return (stylex as any)[funcKey](theme, ...styles)
+      props = (stylex as any)[funcKey](theme, ...styles)
+    } else {
+      props = (stylex as any)[funcKey](...styles)
     }
 
-    return (stylex as any)[funcKey](...styles)
+    if (classStr) {
+      props.className = `${classStr} ${props[classKey]}`
+    }
+
+    return props;
   }) as Classes<T>['getProps'];
 
   classes.getClass = ((...args: (keyof T | T[keyof T] | Tailwind)[]): string => {
