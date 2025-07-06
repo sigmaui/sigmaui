@@ -13,13 +13,19 @@
 </script>
 
 <script setup lang="ts">
+import ThemeProvider from 'packages/vue/src/system/theme-provider.vue';
+import { getTheme } from 'packages/common/theme';
+import { themeConfig } from './theme/config';
+
+const { theme, themeTokens } = getTheme();
+
 // App component with router
 </script>
 
 <template>
-  <div id="app">
-    <router-view />
-  </div>
+  <ThemeProvider :theme="theme" :theme-config="themeConfig" :theme-tokens="themeTokens">
+    <router-view/>
+  </ThemeProvider>
 </template>
 
 <style>

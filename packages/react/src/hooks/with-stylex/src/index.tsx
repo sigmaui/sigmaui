@@ -13,9 +13,13 @@ interface WithStyleXParams {
 }
 
 export const withStyleX = <T extends Record<string, unknown>>(
-  xStyles: T,
+  xStylesProp: T,
   params: WithStyleXParams = {}
 ) => {
+  const xStyles = {
+    ...xStylesProp
+  }
+
   return (Component: any) => {
     const componentName = Component.displayName || Component.name;
 
