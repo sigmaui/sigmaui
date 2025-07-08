@@ -26,15 +26,23 @@
   "dependencies": {
     "@ark-ui/react": "^5.15.2",
     "@ark-ui/vue": "^5.15.2",
-    "@sigmaui-kit/theme-tailwind": "^0.0.1",
+    "@sigmaui-kit/theme-tailwind": "^0.1.1",
     "@sigmaui-kit/use-stylex": "^0.0.4",
     "@sigmaui-kit/v-use-theme": "^0.0.1",
+    "@stylexjs/open-props": "^0.11.1",
     "@stylexjs/stylex": "^0.14.1",
+    "@stylextras/open-props": "^0.11.0",
     "@tanstack/react-router": "^1.122.0",
+    "@tanstack/vue-table": "^8.21.3",
     "motion": "^12.19.2",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.28.0",
+    "@babel/core": "^7.28.0",
+    "@babel/preset-typescript": "^7.27.1",
+    "@sigmaui-kit/unplugin-stylex": "^0.0.1",
+    "@stylexjs/babel-plugin": "^0.14.1",
     "@types/node": "^24.0.3",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
@@ -42,19 +50,16 @@
     "fast-glob": "^3.3.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "rimraf": "^6.0.1",
     "tsup": "^8.5.0",
     "turbo": "^2.5.4",
     "typescript": "^5.8.3",
+    "unplugin-auto-import": "^19.3.0",
     "unplugin-vue": "^6.2.0",
     "vue": "^3.5.17"
   },
   "engines": {
     "node": ">=16.x"
   },
-  "workspaces": [
-    "packages/*",
-    "packages/*/*",
-    "packages/*/*/*"
-  ],
   "packageManager": "yarn@1.22.22"
 }

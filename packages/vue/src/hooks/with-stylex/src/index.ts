@@ -4,9 +4,9 @@ import { useTheme, type ThemeContextProps } from '@sigmaui-kit/v-use-theme';
 // import { useTheme, type ThemeContextProps } from '@packages/vue/hooks/use-theme';
 import type { Theme } from '@stylexjs/stylex';
 
-import { position } from '../../../../../common/theme/tailwind/src/position.ts';
-import { display } from '../../../../../common/theme/tailwind/src/display.ts';
-import { cursor } from '../../../../../common/theme/tailwind/src/cursor.ts';
+import { position } from '@sigmaui-kit/theme-tailwind/position.stylex';
+import { display } from '@sigmaui-kit/theme-tailwind/display.stylex';
+import { cursor } from '@sigmaui-kit/theme-tailwind/cursor.stylex';
 
 interface WithStyleXParams {
   isWithAttrs?: boolean;

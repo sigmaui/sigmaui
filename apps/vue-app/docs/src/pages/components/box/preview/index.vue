@@ -3,7 +3,7 @@
     <h2 v-if="showDemoTitle" :class="classes.getClass('demoTitle')">Demo</h2>
     <ThemeProvider :theme="theme" :theme-config="themeConfig" :theme-tokens="themeTokens">
       <div :class="classes.getClass('demoContainer')">
-        <Box :class="classes.getClass( 'demoBox')" as="div">
+        <Box :class="classes.getClass( 'demoBox', 'absolute', 'fixed')" as="div">
           <p>Default Box Component</p>
         </Box>
 

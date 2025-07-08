@@ -13,7 +13,7 @@ export const boxPreviewStyles = stylex.create({
     fontWeight: '600'
   },
   demoContainer: {
-    display: 'flex',
+    display: 'table',
     flexDirection: 'column',
     gap: '1rem'
   },

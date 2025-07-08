@@ -29,9 +29,6 @@
       "@packages/common/theme/types": [
         "packages/common/theme/types"
       ],
-      "@packages/common/hooks/use-stylex": [
-        "packages/common/hooks/use-stylex/src"
-      ],
       "@packages/react/types": [
         "packages/react/src/types"
       ],

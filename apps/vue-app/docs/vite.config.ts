@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import path from 'path';
 // @ts-ignore
-import stylexPlugin from 'unplugin-stylex/vite';
+import stylexPlugin from '@sigmaui-kit/unplugin-stylex/vite';
 // @ts-ignore
 import vue from '@vitejs/plugin-vue';
 
@@ -12,6 +12,9 @@ export default defineConfig(({ mode }) => {
   return {
     base: './',
     publicDir: 'public',
+    optimizeDeps: {
+      exclude: ['@sigmaui-kit/theme-tailwind']
+    },
     resolve: {
       alias: {
         'src': path.resolve(__dirname, './src'),
@@ -45,7 +48,10 @@ export default defineConfig(({ mode }) => {
           dev: false,
           // dev: isDev,
           runtimeInjection: isDev,
-          useCSSLayers: true
+          useCSSLayers: true,
+          // aliases: {
+          //   '@packages/common/theme/tokens': path.resolve(__dirname, '../../../packages/common/theme/tokens')
+          // }
         }
       })
     ]

@@ -3,9 +3,9 @@ import { useStyleX, type Classes } from '@sigmaui-kit/use-stylex';
 import { useTheme, type ThemeContextProps } from '@packages/react/hooks/use-theme';
 import type { Theme } from '@stylexjs/stylex';
 
-import { position } from '../../../../../common/theme/tailwind/src/position.ts';
-import { display } from '../../../../../common/theme/tailwind/src/display.ts';
-import { cursor } from '../../../../../common/theme/tailwind/src/cursor.ts';
+import { position } from 'packages/common/theme/tailwind/src/position';
+import { display } from 'packages/common/theme/tailwind/src/display';
+import { cursor } from 'packages/common/theme/tailwind/src/cursor';
 
 interface WithStyleXParams {
   isWithAttrs?: boolean;
