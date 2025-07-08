@@ -19,7 +19,8 @@ export default defineConfig(({ mode }) => {
         '@packages/vue/hooks/with-stylex': path.resolve(__dirname, '../../../packages/vue/src/hooks/with-stylex/src'),
         '@packages/vue/hooks/use-theme': path.resolve(__dirname, '../../../packages/vue/src/hooks/use-theme/src'),
         '@packages/vue/components/select': path.resolve(__dirname, '../../../packages/vue/src/components/select/src'),
-        '@packages/vue/components/button': path.resolve(__dirname, '../../../packages/vue/src/components/button/src')
+        '@packages/vue/components/button': path.resolve(__dirname, '../../../packages/vue/src/components/button/src'),
+        '@packages/vue/components/box': path.resolve(__dirname, '../../../packages/vue/src/components/box/src')
       }
     },
     build: {

@@ -17,7 +17,7 @@ interface Props {
 
 <script setup lang="ts">
 import { withStyleX } from '@packages/vue/hooks/with-stylex';
-import ThemeProvider from 'packages/vue/src/system/theme-provider.vue';
+import ThemeProvider from 'packages/vue/src/system/theme-provider/src/index.vue';
 import Select from 'packages/vue/src/components/select/src/index.vue';
 import { getTheme } from 'packages/common/theme';
 import { themeConfig } from '../../../../theme/config';

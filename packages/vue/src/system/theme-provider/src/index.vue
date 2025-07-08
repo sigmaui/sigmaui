@@ -3,7 +3,8 @@
 </template>
 
 <script setup lang="ts">
-import { ThemeProvider, useTheme, type ThemeContextProps } from '@packages/vue/hooks/use-theme';
+// import { ThemeProvider, useTheme, type ThemeContextProps } from '@packages/vue/hooks/use-theme';
+import { ThemeProvider, useTheme, type ThemeContextProps } from '@sigmaui-kit/v-use-theme';
 
 const { themeTokens = {}, themeConfig = {} } = useTheme() || {};
 

@@ -34,7 +34,7 @@ interface Person {
 
 <script setup lang="ts">
 import { withStyleX } from '@packages/vue/hooks/with-stylex';
-import ThemeProvider from 'packages/vue/src/system/theme-provider.vue';
+import ThemeProvider from 'packages/vue/src/system/theme-provider/src/index.vue';
 import Table from 'packages/vue/src/components/table/src/index.vue';
 import { getTheme } from 'packages/common/theme';
 import { themeConfig } from '../../../../theme/config';

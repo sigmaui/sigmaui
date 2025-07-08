@@ -1,6 +1,6 @@
 {
-  "name": "@sigmaui-kit/use-stylex",
-  "version": "0.0.4",
+  "name": "@sigmaui-kit/theme-tailwind",
+  "version": "0.0.1",
   "description": "",
   "keywords": [],
   "author": "",
@@ -17,11 +17,11 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sigmaui/sigmaui.git",
-    "directory": "packages/common/hooks/use-stylex"
+    "directory": "packages/common/theme/tailwind"
   },
   "scripts": {
     "setup": "yarn install",
-    "build": "tsup src --dts",
+    "build": "tsup src --dts && node ./generate-exports.js",
     "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
@@ -29,7 +29,8 @@
     "prepack": "clean-package",
     "postpack": "clean-package restore",
     "prepublishOnly": "node ../../../../scripts/prepublish.js",
-    "postpublish": "node ../../../../scripts/postpublish.js"
+    "postpublish": "node ../../../../scripts/postpublish.js",
+    "generate:exports": "node ./generate-exports.js"
   },
   "dependencies": {},
   "peerDependencies": {

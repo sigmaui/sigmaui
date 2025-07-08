@@ -8,5 +8,5 @@ export default defineConfig({
   esbuildOptions(options) {
     options.drop = ['console'];
   },
-  external: ['@stylexjs/stylex']
+  external: []
 });

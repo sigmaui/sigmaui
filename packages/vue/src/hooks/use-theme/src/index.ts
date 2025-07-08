@@ -1,6 +1,15 @@
+import { inject, provide } from 'vue';
 import type { Theme } from '@stylexjs/stylex';
 
-import { createContext } from '../../../system/create-context';
+type CreateContextReturn<T> = [(opts: T) => void, (fallback?: T) => T, symbol];
+
+const createContext = <T>(id: string) => {
+  const contextId = Symbol(id);
+  const provider = (value: T) => provide(contextId, value);
+  const consumer = (fallback?: T) => inject(contextId, fallback);
+
+  return [provider, consumer, contextId] as CreateContextReturn<T>
+}
 
 interface ComponentDefaultProps {
   [key: string]: unknown;

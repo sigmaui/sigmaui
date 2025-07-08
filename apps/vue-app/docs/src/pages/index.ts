@@ -4,6 +4,7 @@ import Button from './components/button/route';
 import Select from './components/select/route';
 import Table from './components/table/route';
 import SegmentGroup from './components/segment-group/route';
+import Box from './components/box/route';
 import NotFound from './not-found/route';
 
 export default [
@@ -13,5 +14,6 @@ export default [
   Select,
   Table,
   SegmentGroup,
+  Box,
   NotFound
 ]

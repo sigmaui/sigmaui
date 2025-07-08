@@ -50,7 +50,7 @@ import { segmentGroupPageStyles, SegmentGroupPageTypes } from './xStyles.ts';
 import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
 import { withStyleX } from '@packages/vue/hooks/with-stylex';
-import ThemeProvider from 'packages/vue/src/system/theme-provider.vue';
+import ThemeProvider from 'packages/vue/src/system/theme-provider/src/index.vue';
 import SegmentGroup from 'packages/vue/src/components/segment-group/src/index.vue';
 import SegmentGroupPreview from './preview/index.vue';
 import { getTheme } from 'packages/common/theme';

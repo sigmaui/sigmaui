@@ -54,11 +54,12 @@ interface ComponentItem {
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
 import { withStyleX } from '@packages/vue/hooks/with-stylex';
-import ThemeProvider from 'packages/vue/src/system/theme-provider.vue';
+import ThemeProvider from 'packages/vue/src/system/theme-provider/src/index.vue';
 import SegmentGroup from 'packages/vue/src/components/segment-group/src/index.vue';
 import ButtonPreview from './button/preview/index.vue';
 import SelectPreview from './select/preview/index.vue';
 import SegmentGroupPreview from './segment-group/preview/index.vue';
+import BoxPreview from './box/preview/index.vue';
 import { getTheme } from 'packages/common/theme';
 import { themeConfig } from '../../theme/config';
 
@@ -108,6 +109,13 @@ const components: ComponentItem[] = [
     description: 'Segmented control component for selecting one option from a group',
     preview: SegmentGroupPreview,
     docsLink: '/docs/components/segment-group'
+  },
+  {
+    name: 'box',
+    title: 'Box',
+    description: 'Flexible container component that can render as any HTML element',
+    preview: BoxPreview,
+    docsLink: '/docs/components/box'
   }
 ];
 </script> 

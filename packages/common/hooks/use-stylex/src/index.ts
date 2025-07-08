@@ -27,8 +27,8 @@ export type Classes<T> = {
     [key: string]: string
   }) : string;
 } & {
-  getProps: (...args: (keyof T | T[keyof T] | Tailwind | Tailwind[] | Variant | string | undefined)[]) => any;
-  getClass: (...args: (keyof T | T[keyof T] | Tailwind | Tailwind[] | Variant | string | undefined)[]) => string;
+  getProps: (...args: (keyof T | T[keyof T] | Tailwind | Tailwind[] | Variant | undefined)[]) => any;
+  getClass: (...args: (keyof T | T[keyof T] | Tailwind | Tailwind[] | Variant | undefined)[]) => string;
 };
 
 export function isVariant(value: string): value is VariantEnum {
@@ -104,7 +104,7 @@ export const useStyleX = <T extends Record<string, any>>(xStyles: T, params: Use
     }
 
     if (classStr) {
-      props.className = `${classStr} ${props[classKey]}`
+      props.className = props[classKey] ? `${classStr} ${props[classKey]}` : `${classStr}`
     }
 
     return props;

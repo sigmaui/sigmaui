@@ -1,6 +1,6 @@
 {
-  "name": "@sigmaui-kit/use-stylex",
-  "version": "0.0.4",
+  "name": "@sigmaui-kit/v-theme-provider",
+  "version": "0.0.1",
   "description": "",
   "keywords": [],
   "author": "",
@@ -17,7 +17,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sigmaui/sigmaui.git",
-    "directory": "packages/common/hooks/use-stylex"
+    "directory": "packages/vue/hooks/theme-provider"
   },
   "scripts": {
     "setup": "yarn install",
@@ -28,14 +28,15 @@
     "build:fast": "tsup src",
     "prepack": "clean-package",
     "postpack": "clean-package restore",
-    "prepublishOnly": "node ../../../../scripts/prepublish.js",
-    "postpublish": "node ../../../../scripts/postpublish.js"
+    "prepublishOnly": "node ../../../../../scripts/prepublish.js",
+    "postpublish": "node ../../../../../scripts/postpublish.js"
   },
-  "dependencies": {},
+  "dependencies": {
+  },
   "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18"
+    "vue": ">=3.0.0"
   },
-  "devDependencies": {},
-  "clean-package": "../../../../clean-package.config.json"
+  "devDependencies": {
+  },
+  "clean-package": "../../../../../clean-package.config.json"
 }

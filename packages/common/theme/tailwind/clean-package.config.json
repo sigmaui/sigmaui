@@ -1,0 +1,203 @@
+{
+  "remove": [
+    "devDependencies"
+  ],
+  "replace": {
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "exports": {}
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./alignContent": {
+      "import": "./dist/alignContent.js",
+      "require": "./dist/alignContent.js",
+      "types": "./dist/alignContent.d.ts"
+    },
+    "./alignItems": {
+      "import": "./dist/alignItems.js",
+      "require": "./dist/alignItems.js",
+      "types": "./dist/alignItems.d.ts"
+    },
+    "./backgroundAttachment": {
+      "import": "./dist/backgroundAttachment.js",
+      "require": "./dist/backgroundAttachment.js",
+      "types": "./dist/backgroundAttachment.d.ts"
+    },
+    "./backgroundClip": {
+      "import": "./dist/backgroundClip.js",
+      "require": "./dist/backgroundClip.js",
+      "types": "./dist/backgroundClip.d.ts"
+    },
+    "./backgroundColor": {
+      "import": "./dist/backgroundColor.js",
+      "require": "./dist/backgroundColor.js",
+      "types": "./dist/backgroundColor.d.ts"
+    },
+    "./backgroundOrigin": {
+      "import": "./dist/backgroundOrigin.js",
+      "require": "./dist/backgroundOrigin.js",
+      "types": "./dist/backgroundOrigin.d.ts"
+    },
+    "./backgroundPosition": {
+      "import": "./dist/backgroundPosition.js",
+      "require": "./dist/backgroundPosition.js",
+      "types": "./dist/backgroundPosition.d.ts"
+    },
+    "./backgroundRepeat": {
+      "import": "./dist/backgroundRepeat.js",
+      "require": "./dist/backgroundRepeat.js",
+      "types": "./dist/backgroundRepeat.d.ts"
+    },
+    "./backgroundSize": {
+      "import": "./dist/backgroundSize.js",
+      "require": "./dist/backgroundSize.js",
+      "types": "./dist/backgroundSize.d.ts"
+    },
+    "./boxSizing": {
+      "import": "./dist/boxSizing.js",
+      "require": "./dist/boxSizing.js",
+      "types": "./dist/boxSizing.d.ts"
+    },
+    "./clear": {
+      "import": "./dist/clear.js",
+      "require": "./dist/clear.js",
+      "types": "./dist/clear.d.ts"
+    },
+    "./cursor": {
+      "import": "./dist/cursor.js",
+      "require": "./dist/cursor.js",
+      "types": "./dist/cursor.d.ts"
+    },
+    "./display": {
+      "import": "./dist/display.js",
+      "require": "./dist/display.js",
+      "types": "./dist/display.d.ts"
+    },
+    "./flexDirection": {
+      "import": "./dist/flexDirection.js",
+      "require": "./dist/flexDirection.js",
+      "types": "./dist/flexDirection.d.ts"
+    },
+    "./flexWrap": {
+      "import": "./dist/flexWrap.js",
+      "require": "./dist/flexWrap.js",
+      "types": "./dist/flexWrap.d.ts"
+    },
+    "./float": {
+      "import": "./dist/float.js",
+      "require": "./dist/float.js",
+      "types": "./dist/float.d.ts"
+    },
+    "./height": {
+      "import": "./dist/height.js",
+      "require": "./dist/height.js",
+      "types": "./dist/height.d.ts"
+    },
+    "./inset": {
+      "import": "./dist/inset.js",
+      "require": "./dist/inset.js",
+      "types": "./dist/inset.d.ts"
+    },
+    "./justifyContent": {
+      "import": "./dist/justifyContent.js",
+      "require": "./dist/justifyContent.js",
+      "types": "./dist/justifyContent.d.ts"
+    },
+    "./justifyItems": {
+      "import": "./dist/justifyItems.js",
+      "require": "./dist/justifyItems.js",
+      "types": "./dist/justifyItems.d.ts"
+    },
+    "./objectFit": {
+      "import": "./dist/objectFit.js",
+      "require": "./dist/objectFit.js",
+      "types": "./dist/objectFit.d.ts"
+    },
+    "./overflow": {
+      "import": "./dist/overflow.js",
+      "require": "./dist/overflow.js",
+      "types": "./dist/overflow.d.ts"
+    },
+    "./pointerEvents": {
+      "import": "./dist/pointerEvents.js",
+      "require": "./dist/pointerEvents.js",
+      "types": "./dist/pointerEvents.d.ts"
+    },
+    "./position": {
+      "import": "./dist/position.js",
+      "require": "./dist/position.js",
+      "types": "./dist/position.d.ts"
+    },
+    "./resize": {
+      "import": "./dist/resize.js",
+      "require": "./dist/resize.js",
+      "types": "./dist/resize.d.ts"
+    },
+    "./textAlign": {
+      "import": "./dist/textAlign.js",
+      "require": "./dist/textAlign.js",
+      "types": "./dist/textAlign.d.ts"
+    },
+    "./textOverflow": {
+      "import": "./dist/textOverflow.js",
+      "require": "./dist/textOverflow.js",
+      "types": "./dist/textOverflow.d.ts"
+    },
+    "./textTransform": {
+      "import": "./dist/textTransform.js",
+      "require": "./dist/textTransform.js",
+      "types": "./dist/textTransform.d.ts"
+    },
+    "./touchAction": {
+      "import": "./dist/touchAction.js",
+      "require": "./dist/touchAction.js",
+      "types": "./dist/touchAction.d.ts"
+    },
+    "./transform": {
+      "import": "./dist/transform.js",
+      "require": "./dist/transform.js",
+      "types": "./dist/transform.d.ts"
+    },
+    "./userSelect": {
+      "import": "./dist/userSelect.js",
+      "require": "./dist/userSelect.js",
+      "types": "./dist/userSelect.d.ts"
+    },
+    "./verticalAlign": {
+      "import": "./dist/verticalAlign.js",
+      "require": "./dist/verticalAlign.js",
+      "types": "./dist/verticalAlign.d.ts"
+    },
+    "./visibility": {
+      "import": "./dist/visibility.js",
+      "require": "./dist/visibility.js",
+      "types": "./dist/visibility.d.ts"
+    },
+    "./whitespace": {
+      "import": "./dist/whitespace.js",
+      "require": "./dist/whitespace.js",
+      "types": "./dist/whitespace.d.ts"
+    },
+    "./width": {
+      "import": "./dist/width.js",
+      "require": "./dist/width.js",
+      "types": "./dist/width.d.ts"
+    },
+    "./willChange": {
+      "import": "./dist/willChange.js",
+      "require": "./dist/willChange.js",
+      "types": "./dist/willChange.d.ts"
+    },
+    "./wordBreak": {
+      "import": "./dist/wordBreak.js",
+      "require": "./dist/wordBreak.js",
+      "types": "./dist/wordBreak.d.ts"
+    }
+  }
+}
