@@ -6,7 +6,7 @@
   "author": "",
   "homepage": "https://sigmaui.org",
   "license": "MIT",
-  "main": "src/index.ts",
+  "main": "src/index.vue",
   "sideEffects": false,
   "files": [
     "dist"
@@ -31,12 +31,10 @@
     "prepublishOnly": "node ../../../../../scripts/prepublish.js",
     "postpublish": "node ../../../../../scripts/postpublish.js"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "peerDependencies": {
     "vue": ">=3.0.0"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "clean-package": "../../../../../clean-package.config.json"
 }

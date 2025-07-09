@@ -13,7 +13,10 @@ export default defineConfig(({ mode }) => {
     base: './',
     publicDir: 'public',
     optimizeDeps: {
-      exclude: ['@sigmaui-kit/theme-tailwind']
+      exclude: [
+        '@sigmaui-kit/theme-tailwind',
+        '@sigmaui-kit/v-box'
+      ]
     },
     resolve: {
       alias: {

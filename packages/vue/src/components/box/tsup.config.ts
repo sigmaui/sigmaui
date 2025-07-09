@@ -9,6 +9,13 @@ export default defineConfig({
   esbuildOptions(options) {
     options.drop = ['console'];
   },
-  esbuildPlugins: [vue()],
-  external: ['@stylexjs/stylex']
+  esbuildPlugins: [
+    vue({
+      isProduction: true
+    })
+  ],
+  external: [
+    '@stylexjs/stylex',
+    '@sigmaui-kit/v-with-stylex'
+  ]
 });

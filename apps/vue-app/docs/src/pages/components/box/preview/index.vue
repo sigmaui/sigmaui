@@ -3,7 +3,7 @@
     <h2 v-if="showDemoTitle" :class="classes.getClass('demoTitle')">Demo</h2>
     <ThemeProvider :theme="theme" :theme-config="themeConfig" :theme-tokens="themeTokens">
       <div :class="classes.getClass('demoContainer')">
-        <Box :class="classes.getClass( 'demoBox', 'absolute', 'fixed')" as="div">
+        <Box :class="classes.getClass( 'demoBox')" as="div">
           <p>Default Box Component</p>
         </Box>
 
@@ -35,7 +35,8 @@ interface Props {
 <script setup lang="ts">
 import { withStyleX } from '@packages/vue/hooks/with-stylex';
 import ThemeProvider from 'packages/vue/src/system/theme-provider/src/index.vue';
-import Box from 'packages/vue/src/components/box/src/index.vue';
+// import Box from 'packages/vue/src/components/box/src/index.vue';
+import Box from '@sigmaui-kit/v-box';
 import { getTheme } from 'packages/common/theme';
 import { themeConfig } from '../../../../theme/config';
 
