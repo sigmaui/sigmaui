@@ -12,7 +12,8 @@ import { boxStyles, BoxTypes } from 'packages/common/components/box/xStyles';
 </script>
 
 <script setup lang="ts">
-import { withStyleX } from '@sigmaui-kit/v-with-stylex';
+import { withStyleX } from '@packages/vue/hooks/with-stylex';
+// import { withStyleX } from '@sigmaui-kit/v-with-stylex';
 
 import type { BoxProps } from './types';
 

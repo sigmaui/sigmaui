@@ -22,13 +22,17 @@ type UseStyleXParams = {
   theme?: Theme<any, any>
 };
 
+export type ClassValue = ClassArray | ClassDictionary | Tailwind | Variant | undefined;
+export type ClassDictionary = Record<string, any>;
+export type ClassArray = ClassValue[];
+
 export type Classes<T> = {
   [K in keyof T]: T[K] extends (...args: any[]) => any ? ((...args: Parameters<T[K]>) => {
     [key: string]: string
   }) : string;
 } & {
-  getProps: (...args: (keyof T | T[keyof T] | Tailwind | Tailwind[] | Variant | undefined)[]) => any;
-  getClass: (...args: (keyof T | T[keyof T] | Tailwind | Tailwind[] | Variant | undefined)[]) => string;
+  getProps: (...args: (keyof T | T[keyof T] | ClassValue)[]) => any;
+  getClass: (...args: (keyof T | T[keyof T] | ClassValue)[]) => string;
 };
 
 export function isVariant(value: string): value is VariantEnum {
@@ -110,8 +114,8 @@ export const useStyleX = <T extends Record<string, any>>(xStyles: T, params: Use
     return props;
   }) as Classes<T>['getProps'];
 
-  classes.getClass = ((...args: (keyof T | T[keyof T] | Tailwind)[]): string => {
-    const props: any = getProps(...args);
+  classes.getClass = ((...args: (keyof T | T[keyof T] | ClassValue)[]): string => {
+    const props = getProps(...args);
     return props[classKey];
   }) as Classes<T>['getClass'];
 

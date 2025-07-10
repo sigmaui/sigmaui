@@ -1,11 +1,11 @@
 import { ThemeColor, ThemeSize, ThemeType, ThemeVariant } from 'packages/common/theme/types';
-import type { Classes, Tailwind } from '@sigmaui-kit/use-stylex';
+import type { Classes, ClassValue } from '@sigmaui-kit/use-stylex';
 
 export interface FCDefaultProps {
   prefixCls?: string;
-  className?: Tailwind | Tailwind[];
-  class?: Tailwind | Tailwind[] | string;
-  xClass?: Tailwind | Tailwind[];
+  className?: ClassValue | string;
+  class?: ClassValue | string;
+  xClass?: ClassValue;
 }
 
 export interface FCProps<Styles> extends FCDefaultProps {

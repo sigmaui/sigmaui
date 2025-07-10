@@ -27,7 +27,7 @@
     "@ark-ui/react": "^5.15.2",
     "@ark-ui/vue": "^5.15.2",
     "@sigmaui-kit/theme-tailwind": "^0.1.1",
-    "@sigmaui-kit/use-stylex": "^0.0.4",
+    "@sigmaui-kit/use-stylex": "^0.0.5",
     "@sigmaui-kit/v-box": "^0.0.2",
     "@sigmaui-kit/v-use-theme": "^0.0.1",
     "@sigmaui-kit/v-with-stylex": "^0.0.1",
