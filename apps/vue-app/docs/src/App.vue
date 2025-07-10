@@ -13,6 +13,7 @@
 </script>
 
 <script setup lang="ts">
+import PlatformProvider from '@sigmaui-kit/v-platform';
 import ThemeProvider from 'packages/vue/src/system/theme-provider/src/index.vue';
 import { getTheme } from 'packages/common/theme';
 import { themeConfig } from './theme/config';
@@ -23,9 +24,11 @@ const { theme, themeTokens } = getTheme();
 </script>
 
 <template>
-  <ThemeProvider :theme="theme" :theme-config="themeConfig" :theme-tokens="themeTokens">
-    <router-view/>
-  </ThemeProvider>
+  <PlatformProvider>
+    <ThemeProvider :theme="theme" :theme-config="themeConfig" :theme-tokens="themeTokens">
+      <router-view/>
+    </ThemeProvider>
+  </PlatformProvider>
 </template>
 
 <style>

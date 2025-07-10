@@ -1,12 +1,12 @@
 {
-  "name": "@sigmaui-kit/v-theme-provider",
+  "name": "@sigmaui-kit/use-platform-detect",
   "version": "0.0.1",
   "description": "",
   "keywords": [],
   "author": "",
   "homepage": "https://sigmaui.org",
   "license": "MIT",
-  "main": "src/index.vue",
+  "main": "src/index.ts",
   "sideEffects": false,
   "files": [
     "dist"
@@ -17,7 +17,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sigmaui/sigmaui.git",
-    "directory": "packages/vue/system/theme-provider"
+    "directory": "packages/common/hooks/use-platform-detect"
   },
   "scripts": {
     "setup": "yarn install",
@@ -28,13 +28,13 @@
     "build:fast": "tsup src",
     "prepack": "clean-package",
     "postpack": "clean-package restore",
-    "prepublishOnly": "node ../../../../../scripts/prepublish.js",
-    "postpublish": "node ../../../../../scripts/postpublish.js"
+    "prepublishOnly": "node ../../../../scripts/prepublish.js",
+    "postpublish": "node ../../../../scripts/postpublish.js"
   },
-  "dependencies": {},
-  "peerDependencies": {
-    "vue": ">=3.0.0"
+  "dependencies": {
+    "ua-parser-js": "^2.0.4"
   },
+  "peerDependencies": {},
   "devDependencies": {},
-  "clean-package": "../../../../../clean-package.config.json"
+  "clean-package": "../../../../clean-package.config.json"
 }

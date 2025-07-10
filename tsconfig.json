@@ -62,6 +62,9 @@
       "@packages/vue/hooks/with-stylex": [
         "packages/vue/src/hooks/with-stylex/src"
       ],
+      "@packages/react/hooks/use-platform": [
+        "packages/vue/src/hooks/use-platform/src"
+      ],
       "@packages/vue/components/button": [
         "packages/vue/src/components/button/src"
       ],

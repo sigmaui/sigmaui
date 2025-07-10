@@ -1,5 +1,5 @@
 {
-  "name": "@sigmaui-kit/v-theme-provider",
+  "name": "@sigmaui-kit/v-platform",
   "version": "0.0.1",
   "description": "",
   "keywords": [],
@@ -17,7 +17,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sigmaui/sigmaui.git",
-    "directory": "packages/vue/system/theme-provider"
+    "directory": "packages/vue/system/platform"
   },
   "scripts": {
     "setup": "yarn install",

@@ -53,6 +53,7 @@ interface ComponentItem {
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
+import { usePlatform } from '@sigmaui-kit/v-use-platform';
 import { withStyleX } from '@packages/vue/hooks/with-stylex';
 import ThemeProvider from 'packages/vue/src/system/theme-provider/src/index.vue';
 import SegmentGroup from 'packages/vue/src/components/segment-group/src/index.vue';
@@ -64,7 +65,10 @@ import { getTheme } from 'packages/common/theme';
 import { themeConfig } from '../../theme/config';
 
 const router = useRouter();
+const { platform } = usePlatform();
 const { theme, themeTokens } = getTheme();
+
+console.log('platform', platform);
 
 const { classes } = withStyleX(componentsStyles)({
   displayName: 'Components',
