@@ -1,5 +1,5 @@
 <script lang="ts">
-
+import { h } from 'vue'
 // import * as stylex from '@stylexjs/stylex';
 
 // const components = stylex.create({
@@ -9,24 +9,27 @@
 //     fontWeight: 'bold'
 //   }
 // });
-
 </script>
 
 <script setup lang="ts">
+import { MDXProvider } from '@mdx-js/vue';
 import PlatformProvider from '@sigmaui-kit/v-platform';
 import ThemeProvider from 'packages/vue/src/system/theme-provider/src/index.vue';
+import { MDXComponents } from 'packages/vue/src/components/mdx-components';
 import { getTheme } from 'packages/common/theme';
 import { themeConfig } from './theme/config';
 
 const { theme, themeTokens } = getTheme();
 
-// App component with router
+console.log('MDXComponents', MDXComponents)
 </script>
 
 <template>
   <PlatformProvider>
     <ThemeProvider :theme="theme" :theme-config="themeConfig" :theme-tokens="themeTokens">
-      <router-view/>
+      <MDXProvider :components="MDXComponents">
+        <router-view/>
+      </MDXProvider>
     </ThemeProvider>
   </PlatformProvider>
 </template>

@@ -4,6 +4,7 @@ import path from 'path';
 import stylexPlugin from '@sigmaui-kit/unplugin-stylex/vite';
 // @ts-ignore
 import vue from '@vitejs/plugin-vue';
+import mdx from '@mdx-js/rollup';
 
 export default defineConfig(({ mode }) => {
   console.log('mode', mode)
@@ -44,6 +45,10 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       vue(),
+      mdx({
+        providerImportSource: '@mdx-js/vue',
+        jsxImportSource: 'vue'
+      }),
       stylexPlugin({
         stylex: {
           filename: 'stylex.css',

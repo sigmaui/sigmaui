@@ -3,7 +3,9 @@ import { colors } from '../../../../../../../packages/common/theme/tokens/variab
 
 export const buttonPageStyles = stylex.create({
   root: {
-    padding: '2rem'
+    padding: '2rem',
+    maxWidth: '1200px',
+    margin: '0 auto'
   },
   demoSection: {
     margin: '2rem 0',
