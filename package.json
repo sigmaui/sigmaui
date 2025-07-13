@@ -48,6 +48,9 @@
     "@tanstack/vue-table": "^8.21.3",
     "@tanstack/vue-virtual": "^3.13.12",
     "motion": "^12.19.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "vue": "^3.5.17",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
@@ -61,15 +64,12 @@
     "@types/react-dom": "^19.1.6",
     "clean-package": "^2.2.0",
     "fast-glob": "^3.3.3",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
     "rimraf": "^6.0.1",
     "tsup": "^8.5.0",
     "turbo": "^2.5.4",
     "typescript": "^5.8.3",
     "unplugin-auto-import": "^19.3.0",
-    "unplugin-vue": "^6.2.0",
-    "vue": "^3.5.17"
+    "unplugin-vue": "^6.2.0"
   },
   "engines": {
     "node": ">=16.x"
