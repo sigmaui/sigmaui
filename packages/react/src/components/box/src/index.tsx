@@ -1,41 +1,27 @@
 import React from 'react';
 import type { FC } from 'react';
-import { clsx } from 'clsx';
-import { withStyles } from '@microui-kit/with-styles';
+import classNames from 'classnames';
+import { useMicroUI } from '@microui-kit/use-micro-ui';
 
-import type { ButtonProps } from './types';
+import type { BoxProps } from './types';
 
-import {
-  buttonStyles,
-  type ButtonTypes,
-  type ButtonKeys
-} from 'packages/common/components/button/xStyles';
-
-export type {
-  ButtonTypes,
-  ButtonKeys
-}
-
-export {
-  buttonStyles
-}
-
-const SigmaBox: FC<ButtonProps<ButtonTypes>> = ({
+const SigmaBox: FC<BoxProps> = ({
   prefixCls = 'sm-box',
   className,
   children,
-  classes,
-  styles = {}
+  as: As = 'div',
 }) => {
+  const { css } = useMicroUI();
+
   return (
-    <button
-      className={clsx(prefixCls, className)}
+    <As
+      className={classNames(prefixCls, className)}
     >
       {children}
-    </button>
+    </As>
   )
 }
 
 SigmaBox.displayName = 'Box';
 
-export default withStyles(buttonStyles)(SigmaBox)
+export default SigmaBox

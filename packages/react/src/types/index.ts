@@ -6,10 +6,10 @@ export interface FCDefaultProps {
   children?: ReactNode;
 }
 
-export interface FCProps<Styles> extends FCDefaultProps {
-  styles?: Partial<Record<keyof Styles, any>>;
+export interface FCProps extends FCDefaultProps {
+
 }
 
-export interface FCWithStylesProps<Styles> extends FCProps<Styles> {
+export interface FCWithStylesProps<Styles> extends FCProps {
   classes: any
 }

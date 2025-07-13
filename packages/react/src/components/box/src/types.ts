@@ -1,4 +1,5 @@
-import type { FCWithStylesProps } from '@packages/react/types';
+import type { FCProps } from '@packages/react/types';
 
-export interface ButtonProps<Styles> extends FCWithStylesProps<Styles> {
+export interface BoxProps extends FCProps {
+  as?: keyof HTMLElementTagNameMap
 }

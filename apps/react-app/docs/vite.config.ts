@@ -1,14 +1,41 @@
 import { defineConfig } from 'vite';
 import path from 'path';
-// @ts-ignore
-import stylexPlugin from '@sigmaui-kit/unplugin-stylex/vite';
-// @ts-ignore
 import reactRefresh from '@vitejs/plugin-react';
 import mdx from '@mdx-js/rollup';
+
+const FILE_NAME = {
+  MAIN: 'main',
+  VENDOR: 'vendor',
+  COMPONENT: 'component',
+  LIBRARY: 'library',
+  PAGE: 'page',
+  SERVER: 'server',
+  ROOT_CONFIG: 'root-config'
+};
+
+const PATH_NAME = {
+  HTML: 'index.html',
+  SERVER: 'entry/server.tsx',
+  CLIENT: 'entry/client.tsx',
+  SERVER_CONFIG: 'server.config.ts',
+  SERVER_API: 'apis/index.ts',
+  PAGE: '/pages/',
+  COMPONENT: '/components/'
+};
+
+const BUILD_NAME = {
+  CLIENT: 'client',
+  CLIENT_MICRO: 'client-micro',
+  SERVER: 'server',
+  SERVER_CONFIG: 'server-config',
+  SERVER_API: 'server-api',
+};
 
 export default defineConfig(({ mode }) => {
   console.log('mode', mode)
   const isDev = mode === 'development';
+
+  const staticPath = 'static';
 
   return {
     base: './',
@@ -36,7 +63,97 @@ export default defineConfig(({ mode }) => {
       sourcemap: false,
       rollupOptions: {
         output: {
-          manualChunks: {}
+          // entryFileNames: (params: any) => {
+          //   const { facadeModuleId } = params;
+          //
+          //   // console.log('facadeModuleId', facadeModuleId);
+          //
+          //   // const defaultPath = `${staticPath}/[name].${version}.min.js`;
+          //   const defaultPath = `${staticPath}/[name].[hash].min.js`;
+          //
+          //   if (facadeModuleId.endsWith(PATH_NAME.HTML)) {
+          //     // return `${staticPath}/${FILE_NAME.MAIN}.${version}.min.js`
+          //
+          //     return `${staticPath}/${FILE_NAME.MAIN}.[hash].min.js`
+          //   }
+          //
+          //   if (facadeModuleId.endsWith(PATH_NAME.SERVER)) {
+          //     return `${FILE_NAME.SERVER}.min.js`
+          //   }
+          //
+          //   if (facadeModuleId.endsWith(PATH_NAME.SERVER_CONFIG)) {
+          //     return 'server.config.js'
+          //   }
+          //
+          //   if (facadeModuleId.endsWith(PATH_NAME.SERVER_API)) {
+          //     return 'server.api.js'
+          //   }
+          //
+          //   return defaultPath
+          // },
+          // chunkFileNames: (params: any) => {
+          //   const { facadeModuleId, name } = params;
+          //
+          //   // console.log('facadeModuleId', name, facadeModuleId);
+          //
+          //   if (name === FILE_NAME.VENDOR) {
+          //     // console.log('name', name, params)
+          //
+          //     // return `${staticPath}/vendor.${version}.min.js`
+          //     return `${staticPath}/vendor.[hash].min.js`
+          //   }
+          //
+          //   let defaultPath;
+          //
+          //   if (name === 'index') {
+          //     // console.log('facadeModuleId', facadeModuleId);
+          //     defaultPath = `${staticPath}/${FILE_NAME.COMPONENT}.[hash].min.js`;
+          //   } else {
+          //     // defaultPath = `${staticPath}/${FILE_NAME.LIBRARY}.[hash].[name].min.js`;
+          //     defaultPath = `${staticPath}/${FILE_NAME.LIBRARY}.[hash].min.js`;
+          //   }
+          //
+          //   if (facadeModuleId) {
+          //     if (facadeModuleId.includes(PATH_NAME.PAGE)) {
+          //       return `${staticPath}/${FILE_NAME.PAGE}.[hash].min.js`
+          //
+          //       // const paths = facadeModuleId.match(/(.*)\/pages\/(.*)\/(.*)\.tsx$/) || [];
+          //       // let name;
+          //       // const folder = paths[2];
+          //       //
+          //       // if (folder) {
+          //       //   if (folder.includes('/')) {
+          //       //     const folders = folder.split('/');
+          //       //
+          //       //     folders.shift();
+          //       //
+          //       //     name = folders.join('-')
+          //       //   } else {
+          //       //     name = folder
+          //       //   }
+          //       // } else {
+          //       //   name = FILE_NAME.COMPONENT
+          //       // }
+          //
+          //       // return `${staticPath}/${FILE_NAME.PAGE}.${name}.[hash].min.js`
+          //     }
+          //
+          //     return defaultPath
+          //   }
+          //
+          //   return defaultPath
+          // },
+          // assetFileNames: () => {
+          //   return `${staticPath}/assets/[name].[hash].[ext]`
+          // },
+          manualChunks(id: string) {
+            if (id.includes('node_modules')) {
+              const segments = id.split('node_modules/');
+              if (segments[1]) {
+                return segments[1].split('/')[0];
+              }
+            }
+          }
         }
       }
     },
@@ -48,20 +165,6 @@ export default defineConfig(({ mode }) => {
       mdx({
         providerImportSource: '@mdx-js/react',
         jsxImportSource: 'react'
-      }),
-      stylexPlugin({
-        stylex: {
-          filename: 'stylex.css',
-          classNamePrefix: 'x',
-          dev: false,
-          // dev: isDev,
-          runtimeInjection: isDev,
-          useCSSLayers: true,
-          treeshakeCompensation: true,
-          // aliases: {
-          //   '@packages/common/theme/tokens': path.resolve(__dirname, '../../../packages/common/theme/tokens')
-          // }
-        }
       })
     ]
   }

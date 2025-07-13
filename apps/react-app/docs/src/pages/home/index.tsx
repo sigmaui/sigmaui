@@ -1,7 +1,11 @@
+import Box from 'packages/react/src/components/box/src';
+
 const Home = ({}) => {
   return (
     <div>
-      Home
+      <Box>
+        Box
+      </Box>
     </div>
   )
 }
