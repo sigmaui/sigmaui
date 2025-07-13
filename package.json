@@ -26,6 +26,8 @@
   "dependencies": {
     "@ark-ui/react": "^5.15.2",
     "@ark-ui/vue": "^5.15.2",
+    "@microui-kit/use-micro-ui": "^1.0.0",
+    "@microui-kit/with-styles": "^1.1.2",
     "@sigmaui-kit/theme-tailwind": "^0.1.1",
     "@sigmaui-kit/use-platform-detect": "^0.0.1",
     "@sigmaui-kit/use-stylex": "^0.0.5",
@@ -47,6 +49,9 @@
     "@tanstack/vue-store": "^0.7.3",
     "@tanstack/vue-table": "^8.21.3",
     "@tanstack/vue-virtual": "^3.13.12",
+    "clsx": "^2.1.1",
+    "fela": "^12.2.1",
+    "fela-dom": "^12.2.1",
     "motion": "^12.19.2",
     "vue-router": "^4.5.1"
   },
