@@ -1,11 +1,12 @@
 import React, { ReactElement } from 'react';
-import { useStyleX, type Classes } from '@sigmaui-kit/use-stylex';
+// import { useStyleX, type Classes } from '@sigmaui-kit/use-stylex';
+import { useStyleX, type Classes } from '@packages/common/hooks/use-stylex';
 import { useTheme, type ThemeContextProps } from '@packages/react/hooks/use-theme';
 import type { Theme } from '@stylexjs/stylex';
 
-import { position } from 'packages/common/theme/tailwind/src/position';
-import { display } from 'packages/common/theme/tailwind/src/display';
-import { cursor } from 'packages/common/theme/tailwind/src/cursor';
+import { position } from '@sigmaui-kit/theme-tailwind/position.stylex';
+import { display } from '@sigmaui-kit/theme-tailwind/display.stylex';
+import { cursor } from '@sigmaui-kit/theme-tailwind/cursor.stylex';
 
 interface WithStyleXParams {
   isWithAttrs?: boolean;
@@ -63,9 +64,9 @@ export const withStyleX = <T extends Record<string, unknown>>(
       const { classes } = useStyleX(xStyles, {
         ...restParams,
         tailwindStyles: {
-          ...position,
-          ...display,
-          ...cursor,
+          // ...position,
+          // ...display,
+          // ...cursor,
           ...tailwindStyles
         },
         theme

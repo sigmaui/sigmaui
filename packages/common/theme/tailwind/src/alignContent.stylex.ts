@@ -1,6 +1,6 @@
 import { create } from '@stylexjs/stylex';
 
-export const alignContentStylex = create({
+export const alignContent = create({
   'content-center': { 'align-content': 'center' },
   'content-start': { 'align-content': 'flex-start' },
   'content-end': { 'align-content': 'flex-end' },
