@@ -1,26 +1,26 @@
-import { RouterProvider } from '@tanstack/react-router';
+import { Outlet } from 'react-router';
 import { MDXProvider } from '@mdx-js/react';
 import { createRenderer } from '@microui-kit/create-renderer';
-import { SigmaUIProvider } from 'packages/react/src/system/provider/src';
-import router from './router';
+import { MicroUIProvider } from '@microui-kit/provider';
+import themeConfig from 'packages/common/theme/config';
 
 const renderer = createRenderer({});
 
 const App = ({}) => {
+  const theme = {
+    ...themeConfig
+  }
+
   return (
-    <SigmaUIProvider
+    <MicroUIProvider
       renderer={renderer}
-      theme={{
-        modes: {
-          light: {},
-          dark: {}
-        }
-      }}
+      theme={theme}
+      themeMode="light"
     >
       <MDXProvider>
-        <RouterProvider router={router}/>
+        <Outlet/>
       </MDXProvider>
-    </SigmaUIProvider>
+    </MicroUIProvider>
   )
 }
 

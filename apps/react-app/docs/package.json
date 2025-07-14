@@ -15,8 +15,6 @@
     "@mdx-js/rollup": "^3.1.0",
     "@types/node": "^24.0.4",
     "@vitejs/plugin-react": "^4.6.0",
-    "unplugin-stylex": "^0.5.3",
-    "vite": "^7.0.0",
-    "vite-plugin-stylex": "^0.13.0"
+    "vite": "^7.0.0"
   }
 }

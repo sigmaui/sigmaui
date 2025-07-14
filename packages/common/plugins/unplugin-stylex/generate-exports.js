@@ -6,7 +6,7 @@ const srcDir = path.resolve(__dirname, 'src');
 const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 
 const files = fs.readdirSync(srcDir)
-  .filter(f => f.endsWith('.ts') && f !== 'index.ts')
+  .filter(f => f.endsWith('.ts') && f !== 'index.tsx')
   .map(f => f.replace(/\.ts$/, ''));
 
 const exportsField = {

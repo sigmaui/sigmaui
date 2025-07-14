@@ -18,7 +18,7 @@ const PATH_NAME = {
   SERVER: 'entry/server.tsx',
   CLIENT: 'entry/client.tsx',
   SERVER_CONFIG: 'server.config.ts',
-  SERVER_API: 'apis/index.ts',
+  SERVER_API: 'apis/index.tsx',
   PAGE: '/pages/',
   COMPONENT: '/components/'
 };

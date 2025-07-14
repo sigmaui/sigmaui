@@ -1,4 +1,9 @@
-import type { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
+import type { Classes } from 'packages/common/components/types';
+
+export type TStyles<T> = { [K in keyof T]: React.CSSProperties } | ((theme: any, props: any) => {
+  [K in keyof T]: React.CSSProperties
+})
 
 export interface FCDefaultProps {
   prefixCls?: string;
@@ -11,5 +16,7 @@ export interface FCProps extends FCDefaultProps {
 }
 
 export interface FCWithStylesProps<Styles> extends FCProps {
-  classes: any
+  classes: Classes<Styles>
+  theme?: { key: string, value: any }
+  _style?: TStyles<Styles>
 }

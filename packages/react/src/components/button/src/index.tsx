@@ -1,35 +1,23 @@
 import React from 'react';
 import type { FC } from 'react';
-import { withStyleX } from '@packages/react/hooks/with-stylex';
+import classNames from 'classnames';
+import { withStyles } from '@microui-kit/with-styles';
 
 import type { ButtonProps } from './types';
 
-import {
-  buttonStyles,
-  type ButtonTypes,
-  type ButtonKeys
-} from 'packages/common/components/button/xStyles';
+import { styles, type ButtonTypes } from 'packages/common/components/button/styles';
 
-export type {
-  ButtonTypes,
-  ButtonKeys
-}
+type Props = ButtonProps<ButtonTypes>;
 
-export {
-  buttonStyles
-}
-
-const SigmaButton: FC<ButtonProps<ButtonTypes>> = ({
+const SigmaButton: FC<Props> = ({
   prefixCls = 'sm-button',
   className,
   children,
-  classes,
-  xClass,
-  styles = {}
+  classes
 }) => {
   return (
     <button
-      className={classes.getClass(prefixCls, className, 'root', 'size', 'type', xClass, styles.root)}
+      className={classNames(prefixCls, className, classes.wrapper)}
     >
       {children}
     </button>
@@ -38,4 +26,4 @@ const SigmaButton: FC<ButtonProps<ButtonTypes>> = ({
 
 SigmaButton.displayName = 'Button';
 
-export default withStyleX(buttonStyles)(SigmaButton)
+export default withStyles<Props>(styles<Props>)(SigmaButton)

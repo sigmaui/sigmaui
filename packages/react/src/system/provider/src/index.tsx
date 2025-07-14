@@ -7,6 +7,10 @@ import { cssifyObject } from '@microui-kit/utils';
 
 import { THEME_MODE } from '@microui-kit/types';
 
+export {
+  THEME_MODE
+}
+
 interface MicroUIProviderProps {
   theme?: any
   children?: React.ReactNode
