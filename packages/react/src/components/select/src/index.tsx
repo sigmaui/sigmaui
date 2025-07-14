@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import type { FC } from 'react';
-import { Portal, Select, createListCollection } from '@ark-ui/react';
+import { Select, createListCollection } from '@ark-ui/react';
 import { withStyles } from '@microui-kit/with-styles';
 
 import type { SelectProps } from './types';
@@ -42,38 +42,36 @@ const SigmaSelect: FC<SelectProps<SelectTypes>> = ({
             className={classes.valueText}
             placeholder={placeholder}
           />
-          <Select.Indicator className={classes.indicator}/>
+          <Select.Indicator className={classes.indicator} />
         </Select.Trigger>
         <Select.ClearTrigger>Clear</Select.ClearTrigger>
       </Select.Control>
-      <Portal>
-        <Select.Positioner>
-          <Select.Content className={classes.content}>
-            <Select.ItemGroup className={classes.itemGroup}>
-              {
-                itemGroupLabel
-                &&
-                <Select.ItemGroupLabel className={classes.itemGroupLabel}>
-                  {itemGroupLabel}
-                </Select.ItemGroupLabel>
-              }
-              {
-                collection.items.map(({ value, label }) => (
-                  <Select.Item
-                    className={classes.item}
-                    key={value}
-                    item={value}
-                  >
-                    <Select.ItemText>{label}</Select.ItemText>
-                    <Select.ItemIndicator>✓</Select.ItemIndicator>
-                  </Select.Item>
-                ))
-              }
-            </Select.ItemGroup>
-          </Select.Content>
-        </Select.Positioner>
-      </Portal>
-      <Select.HiddenSelect/>
+      <Select.Positioner>
+        <Select.Content className={classes.content}>
+          <Select.ItemGroup className={classes.itemGroup}>
+            {
+              itemGroupLabel
+              &&
+              <Select.ItemGroupLabel className={classes.itemGroupLabel}>
+                {itemGroupLabel}
+              </Select.ItemGroupLabel>
+            }
+            {
+              collection.items.map(({ value, label }) => (
+                <Select.Item
+                  className={classes.item}
+                  key={value}
+                  item={value}
+                >
+                  <Select.ItemText>{label}</Select.ItemText>
+                  <Select.ItemIndicator>✓</Select.ItemIndicator>
+                </Select.Item>
+              ))
+            }
+          </Select.ItemGroup>
+        </Select.Content>
+      </Select.Positioner>
+      <Select.HiddenSelect />
     </Select.Root>
   )
 }

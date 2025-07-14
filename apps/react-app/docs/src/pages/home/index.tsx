@@ -1,6 +1,7 @@
 import Box from '@microui-kit/box';
 import Select from 'packages/react/src/components/select/src';
 import Button from 'packages/react/src/components/button/src';
+import SegmentGroup from 'packages/react/src/components/segment-group/src';
 
 const Home = ({}) => {
   return (
@@ -31,6 +32,13 @@ const Home = ({}) => {
       <Button>
         Button
       </Button>
+      <SegmentGroup
+        options={[
+          { label: 'React', value: 'react' },
+          { label: 'Vue', value: 'vue' }
+        ]}
+        label="Choose your framework"
+      />
     </div>
   )
 }
