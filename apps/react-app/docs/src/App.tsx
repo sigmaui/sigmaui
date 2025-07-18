@@ -3,6 +3,7 @@ import { MDXProvider } from '@mdx-js/react';
 import { createRenderer } from '@microui-kit/create-renderer';
 import { MicroUIProvider, THEME_MODE } from '@microui-kit/provider';
 import themeConfig from 'packages/common/theme/config';
+import { MDXComponents } from './components/mdx';
 
 const renderer = createRenderer({});
 
@@ -17,7 +18,9 @@ const App = ({}) => {
       theme={theme}
       themeMode={THEME_MODE.LIGHT}
     >
-      <MDXProvider>
+      <MDXProvider
+        components={MDXComponents}
+      >
         <Outlet/>
       </MDXProvider>
     </MicroUIProvider>

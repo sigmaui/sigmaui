@@ -11,7 +11,7 @@ import { styles, type SegmentGroupTypes } from 'packages/common/components/segme
 const SigmaSegmentGroup: FC<SegmentGroupProps<SegmentGroupTypes>> = ({
   prefixCls = 'sm-segment-group',
   className,
-  classes,
+  classes = {},
   options,
   placeholder,
   label,
@@ -26,7 +26,7 @@ const SigmaSegmentGroup: FC<SegmentGroupProps<SegmentGroupTypes>> = ({
   return (
     <SegmentGroup.Root
       className={classNames(prefixCls, className, classes.wrapper, classes[direction])}
-      value={stringValue}
+      // value={stringValue}
       onValueChange={(e) => onChange?.(e.value)}
       orientation={direction}
     >

@@ -4,7 +4,7 @@ import { RouterProvider } from 'react-router';
 import { PlatformProvider } from '@microui-kit/platform';
 
 import { createRouter } from './router';
-import App from './App.tsx';
+import App from './App';
 
 const router = createRouter({
   App
