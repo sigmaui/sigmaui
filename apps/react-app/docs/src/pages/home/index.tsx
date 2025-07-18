@@ -1,9 +1,14 @@
+import { usePlatform } from '@microui-kit/platform';
 import Box from '@microui-kit/box';
 import Select from 'packages/react/src/components/select/src';
 import Button from 'packages/react/src/components/button/src';
 import SegmentGroup from 'packages/react/src/components/segment-group/src';
 
 const Home = ({}) => {
+  const { platform } = usePlatform();
+
+  console.log('platform', platform)
+
   return (
     <div>
       <Box
@@ -29,7 +34,13 @@ const Home = ({}) => {
       >
         Select
       </Select>
-      <Button>
+      <Button
+        _style={(theme) => ({
+          wrapper: {
+            fontSize: theme.base?.fontSize
+          }
+        })}
+      >
         Button
       </Button>
       <SegmentGroup

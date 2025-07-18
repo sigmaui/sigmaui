@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router';
 import { MDXProvider } from '@mdx-js/react';
 import { createRenderer } from '@microui-kit/create-renderer';
-import { MicroUIProvider } from '@microui-kit/provider';
+import { MicroUIProvider, THEME_MODE } from '@microui-kit/provider';
 import themeConfig from 'packages/common/theme/config';
 
 const renderer = createRenderer({});
@@ -15,7 +15,7 @@ const App = ({}) => {
     <MicroUIProvider
       renderer={renderer}
       theme={theme}
-      themeMode="light"
+      themeMode={THEME_MODE.LIGHT}
     >
       <MDXProvider>
         <Outlet/>

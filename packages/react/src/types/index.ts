@@ -1,7 +1,8 @@
 import React, { type ReactNode } from 'react';
+import { type Theme } from '@microui-kit/theme';
 import type { Classes } from 'packages/common/components/types';
 
-export type TStyles<T> = { [K in keyof T]: React.CSSProperties } | ((theme: any, props: any) => {
+export type TStyles<T> = { [K in keyof T]: React.CSSProperties } | ((theme: Theme, props: any) => {
   [K in keyof T]: React.CSSProperties
 })
 
@@ -16,7 +17,7 @@ export interface FCProps extends FCDefaultProps {
 }
 
 export interface FCWithStylesProps<Styles> extends FCProps {
-  classes: Classes<Styles>
-  theme?: { key: string, value: any }
+  classes?: Classes<Styles>
+  theme?: Theme
   _style?: TStyles<Styles>
 }

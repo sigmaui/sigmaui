@@ -3,13 +3,9 @@ import type { FC } from 'react';
 import classNames from 'classnames';
 import { withStyles } from '@microui-kit/with-styles';
 
-import type { ButtonProps } from './types';
+import { styles, type ButtonProps } from 'packages/common/components/button/styles';
 
-import { styles, type ButtonTypes } from 'packages/common/components/button/styles';
-
-type Props = ButtonProps<ButtonTypes>;
-
-const SigmaButton: FC<Props> = ({
+const SigmaButton: FC<ButtonProps> = ({
   prefixCls = 'sm-button',
   className,
   children,
@@ -17,7 +13,7 @@ const SigmaButton: FC<Props> = ({
 }) => {
   return (
     <button
-      className={classNames(prefixCls, className, classes.wrapper)}
+      className={classNames(prefixCls, className, classes?.wrapper)}
     >
       {children}
     </button>
@@ -26,4 +22,4 @@ const SigmaButton: FC<Props> = ({
 
 SigmaButton.displayName = 'Button';
 
-export default withStyles<Props>(styles<Props>)(SigmaButton)
+export default withStyles<ButtonProps>(styles)(SigmaButton)

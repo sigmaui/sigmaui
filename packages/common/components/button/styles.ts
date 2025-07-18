@@ -1,4 +1,6 @@
-export const styles = <Props>({ theme = {} }: Props) => {
+import { IProps } from './types';
+
+export const styles = ({ theme = {} }: IProps<any>) => {
   // console.log('theme', theme)
 
   return {
@@ -18,3 +20,5 @@ export const styles = <Props>({ theme = {} }: Props) => {
 
 export type ButtonTypes = ReturnType<typeof styles>;
 export type ButtonKeys = keyof ButtonTypes;
+
+export type ButtonProps = IProps<ButtonTypes>;
