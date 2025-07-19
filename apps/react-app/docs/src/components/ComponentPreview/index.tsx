@@ -18,8 +18,16 @@ const ComponentPreview: FC<ComponentPreviewProps> = ({
     >
       <Tabs
         options={[
-          { label: 'Preview', value: 'preview' },
-          { label: 'Code', value: 'code' }
+          {
+            label: 'Preview',
+            value: 'preview',
+            content: 'Preview'
+          },
+          {
+            label: 'Code',
+            value: 'code',
+            content: 'Code'
+          }
         ]}
       />
       {children}

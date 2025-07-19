@@ -1,47 +1,66 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import type { FC } from 'react';
 import classNames from 'classnames';
 import { withStyles } from '@microui-kit/with-styles';
-import { Tabs, useTabs } from '@ark-ui/react';
+import { Tabs } from '@ark-ui/react';
 
 import { styles, type TabsProps } from 'packages/common/components/tabs/styles';
 
 const SigmaTabs: FC<TabsProps> = ({
   prefixCls = 'sm-tabs',
   className,
-  children,
   classes,
-  options = []
+  options = [],
+  rootProps = {}
 }) => {
-  const tabs = useTabs();
-
-  console.log('tabs', tabs);
-
-  const onValueChange = (e) => {
-
+  const onValueChange = ({ value }) => {
+    console.log('onValueChange', value)
   }
 
+  const { lazyMount = true, unmountOnExit = true } = rootProps;
+
+  const { triggers, contents } = useMemo(() => {
+    const triggers = [];
+    const contents = [];
+
+    options.forEach(({ label, value, content }) => {
+      triggers.push((
+        <Tabs.Trigger
+          className={classes?.trigger}
+          value={value}
+        >
+          {label}
+        </Tabs.Trigger>
+      ));
+
+      contents.push((
+        <Tabs.Content
+          value={value}
+        >
+          {content}
+        </Tabs.Content>
+      ))
+    })
+
+    return {
+      triggers,
+      contents
+    }
+  }, [options]);
+
   return (
-    <div
+    <Tabs.Root
+      lazyMount={lazyMount}
+      unmountOnExit={unmountOnExit}
+      defaultValue="preview"
       className={classNames(prefixCls, className, classes?.wrapper)}
+      onValueChange={onValueChange}
     >
-      <Tabs.RootProvider value={tabs}>
-        <Tabs.List>
-          {
-            options.map(({ label, value }) => {
-              return (
-                <Tabs.Trigger
-                  className={classes?.trigger}
-                  value={value}
-                >
-                  {label}
-                </Tabs.Trigger>
-              )
-            })
-          }
-        </Tabs.List>
-      </Tabs.RootProvider>
-    </div>
+      <Tabs.List>
+        {triggers}
+      </Tabs.List>
+      {contents}
+    </Tabs.Root>
   )
 }
 
