@@ -1,8 +1,8 @@
 import { usePlatform } from '@microui-kit/platform';
 import Box from '@microui-kit/box';
-import Select from 'packages/react/src/components/select/src';
 import Button from 'packages/react/src/components/button/src';
-import SegmentGroup from 'packages/react/src/components/segment-group/src';
+
+import { routeMap } from '../../router/routeMap';
 
 const Home = ({}) => {
   const { platform } = usePlatform();
@@ -13,43 +13,39 @@ const Home = ({}) => {
     <div>
       <Box
         css={{
-          fontSize: '2rem'
+          width: '40%'
         }}
-        _class={['absolute', 'fixed', 'static']}
       >
-        Box
+        <Box
+          css={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 12
+          }}
+        >
+          <Box
+            as="h1"
+          >
+            Build your own Design System
+          </Box>
+          <Box
+            as="p"
+          >
+            Beautifully designed components built with Ark UI and FelaJS that work with a variety of JS frameworks.
+          </Box>
+        </Box>
+        <Box
+          css={{
+            marginTop: 24
+          }}
+        >
+          <Button
+            href={routeMap.introduction}
+          >
+            Get Started
+          </Button>
+        </Box>
       </Box>
-      <Select
-        options={{
-          items: [
-            { label: 'React', value: 'react' },
-            { label: 'Vue', value: 'vue' }
-          ]
-        }}
-        placeholder="Select a Framework"
-        _style={{
-          wrapper: {},
-          trigger: {}
-        }}
-      >
-        Select
-      </Select>
-      <Button
-        _style={(theme) => ({
-          wrapper: {
-            fontSize: theme.base?.fontSize
-          }
-        })}
-      >
-        Button
-      </Button>
-      <SegmentGroup
-        options={[
-          { label: 'React', value: 'react' },
-          { label: 'Vue', value: 'vue' }
-        ]}
-        label="Choose your framework"
-      />
     </div>
   )
 }

@@ -10,9 +10,11 @@ export const styles = ({ theme = {} }: IProps<any>) => {
       paddingInline: 12,
       cursor: 'pointer',
       backgroundColor: theme.colors?.base,
+      color: theme.colors?.text,
+      borderRadius: theme.base?.borderRadius,
 
       ':hover': {
-        backgroundColor: 'red'
+        backgroundColor: theme.fn?.lighten?.(theme.colors?.base, 0.05)
       }
     }
   }

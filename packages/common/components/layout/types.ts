@@ -1,5 +1,4 @@
 import type { FCWithStylesProps } from '@packages/react/types';
 
 export interface IProps<Styles> extends FCWithStylesProps<Styles> {
-  href?: string
 }
