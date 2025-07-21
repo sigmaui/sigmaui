@@ -1,14 +1,14 @@
 import type { ReactNode } from 'react';
-import { type TabsRootProps } from '@ark-ui/react';
 import type { FCWithStylesProps } from '@packages/react/types';
 
-export interface TabsOption {
+export interface SegmentGroupOption {
   value: string;
   label: string | ReactNode;
-  content: string | ReactNode;
 }
 
 export interface IProps<Styles> extends FCWithStylesProps<Styles> {
-  options?: TabsOption[]
-  rootProps?: TabsRootProps
-}
+  options: SegmentGroupOption[];
+  label?: string | ReactNode;
+  defaultValue?: string | null;
+  direction?: 'horizontal' | 'vertical';
+} 

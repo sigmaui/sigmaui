@@ -8,16 +8,34 @@ import { styles, type LayoutProps } from 'packages/common/components/layout/styl
 const SigmaLayout: FC<LayoutProps> = ({
   prefixCls = 'sm-layout',
   className,
+  classes,
   children,
-  classes
+  header,
+  sidebar
 }) => {
   return (
     <div
       className={classNames(prefixCls, className, classes?.wrapper)}
     >
-      <div className={classNames(`${prefixCls}-content`, classes?.content)}>
-        {children}
-      </div>
+      {
+        header
+        &&
+        <div className={classNames(`${prefixCls}-header`, classes?.header)}>
+          {header}
+        </div>
+      }
+      <main className={classNames(`${prefixCls}-main`, classes?.main)}>
+        {
+          sidebar
+          &&
+          <div className={classNames(`${prefixCls}-sidebar`, classes?.sidebar)}>
+            {sidebar}
+          </div>
+        }
+        <div className={classNames(`${prefixCls}-content`, classes?.content)}>
+          {children}
+        </div>
+      </main>
     </div>
   )
 }

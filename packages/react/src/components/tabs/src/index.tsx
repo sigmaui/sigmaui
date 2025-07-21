@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import type { FC } from 'react';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 import { withStyles } from '@microui-kit/with-styles';
 import { Tabs } from '@ark-ui/react';
 
@@ -24,22 +25,39 @@ const SigmaTabs: FC<TabsProps> = ({
     const contents = [];
 
     options.forEach(({ label, value, content }) => {
+      const isLink = value.startsWith('/');
+
+      const triggerProps = {
+        className: classes?.trigger,
+        value
+      };
+
+      if (isLink) {
+        triggerProps.asChild = true;
+        triggerProps.children = (
+          <Link to={value}>
+            {label}
+          </Link>
+        );
+      } else {
+        triggerProps.children = label
+      }
+
       triggers.push((
         <Tabs.Trigger
-          className={classes?.trigger}
-          value={value}
-        >
-          {label}
-        </Tabs.Trigger>
+          {...triggerProps}
+        />
       ));
 
-      contents.push((
-        <Tabs.Content
-          value={value}
-        >
-          {content}
-        </Tabs.Content>
-      ))
+      if (content) {
+        contents.push((
+          <Tabs.Content
+            value={value}
+          >
+            {content}
+          </Tabs.Content>
+        ))
+      }
     })
 
     return {

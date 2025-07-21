@@ -1,11 +1,22 @@
 import { IProps } from './types';
 
-export const styles = ({ theme = {} }: IProps<any>) => {
+export const styles = ({ theme = {}, isSidebar }: IProps<any>) => {
   // console.log('theme', theme)
 
   return {
     wrapper: {},
-    content: {}
+    header: {},
+    main: {
+      display: 'flex'
+    },
+    sidebar: {
+      position: 'fixed',
+      width: 220
+    },
+    content: {
+      marginLeft: isSidebar ? 220 : undefined,
+      width: isSidebar ? `calc(100% - ${theme.fn?.pxToRem?.(220)})` : '100%'
+    }
   }
 }
 

@@ -1,34 +1,32 @@
-export const styles = () => {
+import { IProps } from './types';
+
+export const styles = ({ theme = {} }: IProps<any>) => {
   return {
     wrapper: {
       display: 'flex',
       flexDirection: 'column',
-      gap: '8px',
+      gap: 8,
     },
     label: {
-      fontSize: '14px',
+      fontSize: 14,
       fontWeight: 500,
       color: '#222',
-      marginBottom: '4px',
+      marginBottom: 4,
     },
     control: {
       display: 'flex',
-      gap: '8px',
+      gap: 8,
     },
     item: {
-      padding: '8px 16px',
-      fontSize: '14px',
+      paddingBlock: 12,
+      fontSize: 14,
       fontWeight: 500,
       color: '#222',
       backgroundColor: 'transparent',
       border: 'none',
-      borderRadius: '6px',
+      borderRadius: 6,
       cursor: 'pointer',
-      transition: 'all 0.2s ease',
-
-      ':hover': {
-        backgroundColor: '#f1f3f4',
-      }
+      transition: 'all 0.2s ease'
     },
     itemText: {
       pointerEvents: 'none',
@@ -37,21 +35,22 @@ export const styles = () => {
     indicator: {
       width: 'var(--width)',
       height: '2px',
-      backgroundColor: '#2563eb',
+      backgroundColor: theme.colors?.base,
       bottom: 0,
       transition: 'all 0.2s ease',
     },
     horizontal: {
       flexDirection: 'row',
       alignItems: 'center',
-      gap: '16px',
+      gap: 12
     },
     vertical: {
       flexDirection: 'column',
-      gap: '8px',
+      gap: 6
     },
   };
 };
 
 export type SegmentGroupTypes = ReturnType<typeof styles>;
-export type SegmentGroupKeys = keyof SegmentGroupTypes; 
+export type SegmentGroupKeys = keyof SegmentGroupTypes;
+export type SegmentGroupProps = IProps<SegmentGroupTypes>;

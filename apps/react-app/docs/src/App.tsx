@@ -2,17 +2,25 @@ import { Outlet } from 'react-router';
 import { MDXProvider } from '@mdx-js/react';
 import { createRenderer } from '@microui-kit/create-renderer';
 import { MicroUIProvider, THEME_MODE } from '@microui-kit/provider';
+import { useRouter } from '@microui-kit/use-router';
 import Layout from 'packages/react/src/components/layout/src';
 import themeConfig, { globalStyle } from 'packages/common/theme/config';
 
 import { MDXComponents } from './components/mdx';
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
 
 const renderer = createRenderer({});
 
 const App = ({}) => {
+  const router = useRouter();
+  const { pathname } = router;
+
   const theme = {
     ...themeConfig
   }
+
+  const isSidebar = pathname.startsWith('/docs');
 
   return (
     <MicroUIProvider
@@ -30,10 +38,20 @@ const App = ({}) => {
               width: 1200,
               marginInline: 'auto'
             },
-            content: {
+            main: {
               marginTop: 24
-            }
+            },
+            header: {},
+            sidebar: {},
+            content: {}
           }}
+          header={(
+            <Header/>
+          )}
+          isSidebar={isSidebar}
+          sidebar={isSidebar && (
+            <Sidebar/>
+          )}
         >
           <Outlet/>
         </Layout>

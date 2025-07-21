@@ -14,7 +14,7 @@ export const styles = ({ theme = {} }: IProps<any>) => {
       borderRadius: theme.base?.borderRadius,
 
       ':hover': {
-        backgroundColor: theme.fn?.lighten?.(theme.colors?.base, 0.05)
+        backgroundColor: theme.fn?.lighten?.(theme.colors?.base, 0.1)
       }
     }
   }

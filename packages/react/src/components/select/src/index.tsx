@@ -23,7 +23,7 @@ const SigmaSelect: FC<SelectProps<SelectTypes>> = ({
 
   return (
     <Select.Root
-      className={classNames(prefixCls, className, classes.wrapper)}
+      className={classNames(prefixCls, className, classes?.wrapper)}
       collection={collection}
       onSelect={(value) => {
         console.log('onSelect', value)
@@ -32,34 +32,34 @@ const SigmaSelect: FC<SelectProps<SelectTypes>> = ({
       {
         label
         &&
-        <Select.Label className={classes.label}>
+        <Select.Label className={classes?.label}>
           {label}
         </Select.Label>
       }
-      <Select.Control className={classes.control}>
-        <Select.Trigger className={classes.trigger}>
+      <Select.Control className={classes?.control}>
+        <Select.Trigger className={classes?.trigger}>
           <Select.ValueText
-            className={classes.valueText}
+            className={classes?.valueText}
             placeholder={placeholder}
           />
-          <Select.Indicator className={classes.indicator} />
+          <Select.Indicator className={classes?.indicator} />
         </Select.Trigger>
         <Select.ClearTrigger>Clear</Select.ClearTrigger>
       </Select.Control>
       <Select.Positioner>
-        <Select.Content className={classes.content}>
-          <Select.ItemGroup className={classes.itemGroup}>
+        <Select.Content className={classes?.content}>
+          <Select.ItemGroup className={classes?.itemGroup}>
             {
               itemGroupLabel
               &&
-              <Select.ItemGroupLabel className={classes.itemGroupLabel}>
+              <Select.ItemGroupLabel className={classes?.itemGroupLabel}>
                 {itemGroupLabel}
               </Select.ItemGroupLabel>
             }
             {
               collection.items.map(({ value, label }) => (
                 <Select.Item
-                  className={classes.item}
+                  className={classes?.item}
                   key={value}
                   item={value}
                 >

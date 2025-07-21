@@ -1,53 +1,87 @@
-import React from 'react';
-import classNames from 'classnames';
+import React, { Fragment } from 'react';
 import type { FC } from 'react';
+import classNames from 'classnames';
+import { useRouter } from '@microui-kit/use-router';
+import { Link } from 'react-router-dom';
 import { SegmentGroup } from '@ark-ui/react';
 import { withStyles } from '@microui-kit/with-styles';
 
-import type { SegmentGroupProps } from './types';
+import { styles, type SegmentGroupProps } from 'packages/common/components/segment-group/styles';
 
-import { styles, type SegmentGroupTypes } from 'packages/common/components/segment-group/styles';
-
-const SigmaSegmentGroup: FC<SegmentGroupProps<SegmentGroupTypes>> = ({
+const SigmaSegmentGroup: FC<SegmentGroupProps> = ({
   prefixCls = 'sm-segment-group',
   className,
-  classes = {},
+  classes,
   options,
-  placeholder,
   label,
-  value,
-  onChange,
+  defaultValue,
   direction = 'horizontal',
 }) => {
-  // Only pass string or undefined to value
-  const stringValue = typeof value === 'string' ? value : value !== undefined ? String(value) : undefined;
-  const items = options?.map(opt => ({ label: opt.label, value: String(opt.value) })) || [];
+  const router = useRouter();
+
+  const onValueChange = ({ value }) => {
+    console.log('onValueChange', value)
+  }
 
   return (
     <SegmentGroup.Root
-      className={classNames(prefixCls, className, classes.wrapper, classes[direction])}
-      // value={stringValue}
-      onValueChange={(e) => onChange?.(e.value)}
+      className={classNames(prefixCls, className, classes?.wrapper, classes?.[direction])}
+      defaultValue={defaultValue}
+      onValueChange={onValueChange}
       orientation={direction}
     >
-      {label && <SegmentGroup.Label className={classes.label}>{label}</SegmentGroup.Label>}
-      <SegmentGroup.Indicator className={classes.indicator} />
-      <div className={classes.control}>
-        {items.length > 0 ? (
-          items.map((item) => (
-            <SegmentGroup.Item key={item.value} value={item.value} className={classes.item}>
-              <SegmentGroup.ItemText className={classes.itemText}>{item.label}</SegmentGroup.ItemText>
-              <SegmentGroup.ItemHiddenInput />
-            </SegmentGroup.Item>
-          ))
-        ) : (
-          placeholder && <span className={classes.itemText}>{placeholder}</span>
-        )}
-      </div>
+      {
+        label
+        &&
+        <SegmentGroup.Label className={classes?.label}>{label}</SegmentGroup.Label>
+      }
+      <SegmentGroup.Indicator className={classes?.indicator}/>
+      {
+        options.map(({ value, label }) => {
+          const itemProps = {
+            className: classes?.item,
+            value
+          };
+
+          const isLink = value.startsWith('/');
+
+          const item = (
+            <Fragment>
+              <SegmentGroup.ItemText className={classes?.itemText}>{label}</SegmentGroup.ItemText>
+              <SegmentGroup.ItemControl/>
+              <SegmentGroup.ItemHiddenInput/>
+            </Fragment>
+          )
+
+          if (isLink) {
+            itemProps.children = (
+              <a
+                href={value}
+                onClick={(event) => {
+                  // event.preventDefault();
+
+                  router.push(value)
+                }}
+              >
+                {item}
+              </a>
+            )
+          } else {
+            itemProps.children = item
+          }
+
+          return (
+            <SegmentGroup.Item
+              key={value}
+              {...itemProps}
+            />
+          )
+        })
+      }
     </SegmentGroup.Root>
   );
 };
 
 SigmaSegmentGroup.displayName = 'SegmentGroup';
 
-export default withStyles<SegmentGroupProps<SegmentGroupTypes>>(styles)(SigmaSegmentGroup); 
+export default withStyles<SegmentGroupProps>(styles)(SigmaSegmentGroup);
