@@ -1,11 +1,16 @@
 const createLoadable = (route: any = {}) => {
   const {
     lazy,
+    element: Element,
     ...restRoute
   } = route;
 
   const newRoute: any = {
     ...restRoute
+  }
+
+  if (Element) {
+    newRoute.element = <Element/>
   }
 
   if (lazy) {

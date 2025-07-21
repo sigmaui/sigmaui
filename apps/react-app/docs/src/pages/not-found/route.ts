@@ -1,4 +1,4 @@
-import Component from './index.tsx';
+import Component from './index';
 
 export default {
   name: 'page-not-found',
