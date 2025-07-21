@@ -3,7 +3,7 @@ import type { FC } from 'react';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import { withStyles } from '@microui-kit/with-styles';
-import { Tabs } from '@ark-ui/react';
+import { Tabs, type TabTriggerProps } from '@ark-ui/react';
 
 import { styles, type TabsProps } from 'packages/common/components/tabs/styles';
 
@@ -21,13 +21,13 @@ const SigmaTabs: FC<TabsProps> = ({
   const { lazyMount = true, unmountOnExit = true } = rootProps;
 
   const { triggers, contents } = useMemo(() => {
-    const triggers = [];
-    const contents = [];
+    const triggers: any[] = [];
+    const contents: any[] = [];
 
     options.forEach(({ label, value, content }) => {
       const isLink = value.startsWith('/');
 
-      const triggerProps = {
+      const triggerProps: TabTriggerProps = {
         className: classes?.trigger,
         value
       };
@@ -52,6 +52,7 @@ const SigmaTabs: FC<TabsProps> = ({
       if (content) {
         contents.push((
           <Tabs.Content
+            className={classes?.content}
             value={value}
           >
             {content}
@@ -68,14 +69,15 @@ const SigmaTabs: FC<TabsProps> = ({
 
   return (
     <Tabs.Root
+      {...rootProps}
       lazyMount={lazyMount}
       unmountOnExit={unmountOnExit}
-      defaultValue="preview"
       className={classNames(prefixCls, className, classes?.wrapper)}
       onValueChange={onValueChange}
     >
-      <Tabs.List>
+      <Tabs.List className={classes?.list}>
         {triggers}
+        <Tabs.Indicator className={classes?.indicator}/>
       </Tabs.List>
       {contents}
     </Tabs.Root>

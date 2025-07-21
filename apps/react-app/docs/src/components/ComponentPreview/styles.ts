@@ -4,7 +4,11 @@ export const styles = ({ theme = {} }: IProps<any>) => {
   // console.log('theme', theme)
 
   return {
-    wrapper: {}
+    wrapper: {
+      border: '1px solid',
+      borderColor: '#ddd',
+      borderRadius: theme.base?.borderRadius
+    }
   }
 }
 

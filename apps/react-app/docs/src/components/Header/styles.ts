@@ -10,8 +10,13 @@ export const styles = ({ theme = {} }: IProps<any>) => {
       alignItems: 'center',
       height: 56
     },
+    left: {
+      display: 'flex'
+    },
+    right: {},
     logo: {
       lineHeight: 0,
+      marginRight: 36,
 
       '& img': {
         height: 36

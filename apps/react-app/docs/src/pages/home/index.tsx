@@ -1,6 +1,7 @@
 import { usePlatform } from '@microui-kit/platform';
 import Box from '@microui-kit/box';
 import Button from 'packages/react/src/components/button/src';
+import Page from '../../components/Page';
 
 import { routeMap } from '../../router/routeMap';
 
@@ -10,7 +11,7 @@ const Home = ({}) => {
   console.log('platform', platform)
 
   return (
-    <div>
+    <Page>
       <Box
         css={{
           width: '40%'
@@ -40,13 +41,13 @@ const Home = ({}) => {
           }}
         >
           <Button
-            href={routeMap.introduction}
+            href={routeMap.introductionPath}
           >
             Get Started
           </Button>
         </Box>
       </Box>
-    </div>
+    </Page>
   )
 }
 

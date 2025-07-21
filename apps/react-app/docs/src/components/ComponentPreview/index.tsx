@@ -2,35 +2,34 @@ import React from 'react';
 import type { FC } from 'react';
 import classNames from 'classnames';
 import { withStyles } from '@microui-kit/with-styles';
-import Tabs from 'packages/react/src/components/tabs/src';
+
+import CodeDemo from '../CodeDemo';
+import CodeHighlightTabs from '../CodeHighlightTabs';
 
 import { styles, type ComponentPreviewProps } from './styles';
 
 const ComponentPreview: FC<ComponentPreviewProps> = ({
   prefixCls = 'sm-component-preview',
   className,
-  children,
-  classes
+  classes,
+  data
 }) => {
   return (
-    <div
-      className={classNames(prefixCls, className, classes?.wrapper)}
-    >
-      <Tabs
-        options={[
-          {
-            label: 'Preview',
-            value: 'preview',
-            content: 'Preview'
-          },
-          {
-            label: 'Code',
-            value: 'code',
-            content: 'Code'
+    <div className={classNames(prefixCls, className, classes?.wrapper)}>
+      <CodeDemo
+        data={data}
+        _style={{
+          wrapper: {
+            padding: 12
           }
-        ]}
+        }}
       />
-      {children}
+      <CodeHighlightTabs
+        data={data}
+        _style={{
+          wrapper: {}
+        }}
+      />
     </div>
   )
 }

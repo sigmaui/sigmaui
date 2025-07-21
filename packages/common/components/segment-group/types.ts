@@ -10,5 +10,5 @@ export interface IProps<Styles> extends FCWithStylesProps<Styles> {
   options: SegmentGroupOption[];
   label?: string | ReactNode;
   defaultValue?: string | null;
-  direction?: 'horizontal' | 'vertical';
+  orientation?: 'horizontal' | 'vertical';
 } 

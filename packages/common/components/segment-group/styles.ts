@@ -6,6 +6,14 @@ export const styles = ({ theme = {} }: IProps<any>) => {
       display: 'flex',
       flexDirection: 'column',
       gap: 8,
+
+      '&[data-orientation=horizontal]': {
+        flexDirection: 'row',
+        alignItems: 'center'
+      },
+      '&[data-orientation=vertical]': {
+        flexDirection: 'column'
+      }
     },
     label: {
       fontSize: 14,
@@ -38,16 +46,7 @@ export const styles = ({ theme = {} }: IProps<any>) => {
       backgroundColor: theme.colors?.base,
       bottom: 0,
       transition: 'all 0.2s ease',
-    },
-    horizontal: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      gap: 12
-    },
-    vertical: {
-      flexDirection: 'column',
-      gap: 6
-    },
+    }
   };
 };
 

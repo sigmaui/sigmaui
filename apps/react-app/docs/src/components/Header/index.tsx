@@ -24,8 +24,27 @@ const Header: FC<HeaderProps> = ({
       className={classNames(prefixCls, className, classes?.wrapper)}
     >
       <div className={classes?.top}>
-        <div className={classes?.logo}>
-          <img alt="logo" src="/assets/images/logo.png"/>
+        <div className={classes?.left}>
+          <div className={classes?.logo}>
+            <img alt="logo" src="/assets/images/logo.png"/>
+          </div>
+          <Menu
+            direction="horizontal"
+            options={[
+              {
+                label: 'Docs',
+                value: routeMap.introductionPath
+              },
+              {
+                label: 'Playground',
+                value: routeMap.playgroundPath
+              },
+              {
+                label: 'Blogs',
+                value: routeMap.blogPath
+              }
+            ]}
+          />
         </div>
       </div>
       {
@@ -33,10 +52,10 @@ const Header: FC<HeaderProps> = ({
         &&
         <SegmentGroup
           defaultValue={pathname}
-          direction="horizontal"
+          orientation="horizontal"
           options={[
             {
-              label: 'Docs',
+              label: 'Get Started',
               value: routeMap.introductionPath
             },
             {
@@ -58,9 +77,7 @@ const Header: FC<HeaderProps> = ({
           ]}
           _style={{
             wrapper: {
-              marginTop: 6
-            },
-            horizontal: {
+              marginTop: 6,
               gap: 24
             }
           }}

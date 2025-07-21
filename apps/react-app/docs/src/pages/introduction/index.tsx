@@ -1,5 +1,5 @@
 import { usePlatform } from '@microui-kit/platform';
-import Box from '@microui-kit/box';
+import Page from '../../components/Page';
 import IntroductionMdx from '../../content/docs/guide/introduction.mdx';
 
 const Introduction = ({}) => {
@@ -8,9 +8,9 @@ const Introduction = ({}) => {
   console.log('platform', platform)
 
   return (
-    <Box>
+    <Page>
       <IntroductionMdx/>
-    </Box>
+    </Page>
   )
 }
 

@@ -2,8 +2,7 @@ import React, { Fragment } from 'react';
 import type { FC } from 'react';
 import classNames from 'classnames';
 import { useRouter } from '@microui-kit/use-router';
-import { Link } from 'react-router-dom';
-import { SegmentGroup } from '@ark-ui/react';
+import { SegmentGroup, useSegmentGroup, type SegmentGroupItemProps } from '@ark-ui/react';
 import { withStyles } from '@microui-kit/with-styles';
 
 import { styles, type SegmentGroupProps } from 'packages/common/components/segment-group/styles';
@@ -15,7 +14,7 @@ const SigmaSegmentGroup: FC<SegmentGroupProps> = ({
   options,
   label,
   defaultValue,
-  direction = 'horizontal',
+  orientation = 'horizontal',
 }) => {
   const router = useRouter();
 
@@ -23,12 +22,20 @@ const SigmaSegmentGroup: FC<SegmentGroupProps> = ({
     console.log('onValueChange', value)
   }
 
+  const segmentGroup = useSegmentGroup({
+    defaultValue,
+    onValueChange,
+    orientation
+  });
+
+  console.log('segmentGroup', segmentGroup);
+
+  const { setValue } = segmentGroup;
+
   return (
-    <SegmentGroup.Root
-      className={classNames(prefixCls, className, classes?.wrapper, classes?.[direction])}
-      defaultValue={defaultValue}
-      onValueChange={onValueChange}
-      orientation={direction}
+    <SegmentGroup.RootProvider
+      className={classNames(prefixCls, className, classes?.wrapper)}
+      value={segmentGroup}
     >
       {
         label
@@ -38,7 +45,7 @@ const SigmaSegmentGroup: FC<SegmentGroupProps> = ({
       <SegmentGroup.Indicator className={classes?.indicator}/>
       {
         options.map(({ value, label }) => {
-          const itemProps = {
+          const itemProps: SegmentGroupItemProps = {
             className: classes?.item,
             value
           };
@@ -54,20 +61,22 @@ const SigmaSegmentGroup: FC<SegmentGroupProps> = ({
           )
 
           if (isLink) {
+            itemProps.asChild = true;
             itemProps.children = (
               <a
                 href={value}
                 onClick={(event) => {
-                  // event.preventDefault();
+                  event.preventDefault();
 
-                  router.push(value)
+                  router.push(value);
+                  setValue(value);
                 }}
               >
                 {item}
               </a>
             )
           } else {
-            itemProps.children = item
+            (itemProps as any).children = item
           }
 
           return (
@@ -78,7 +87,7 @@ const SigmaSegmentGroup: FC<SegmentGroupProps> = ({
           )
         })
       }
-    </SegmentGroup.Root>
+    </SegmentGroup.RootProvider>
   );
 };
 

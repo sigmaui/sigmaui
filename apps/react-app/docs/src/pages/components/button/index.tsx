@@ -1,10 +1,11 @@
+import Page from '../../../components/Page';
 import ButtonMdx from '../../../content/docs/components/button.mdx';
 
 const ButtonPage = ({}) => {
   return (
-    <div>
+    <Page>
       <ButtonMdx/>
-    </div>
+    </Page>
   )
 }
 

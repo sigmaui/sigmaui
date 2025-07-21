@@ -5,8 +5,28 @@ export const styles = ({ theme = {} }: IProps<any>) => {
 
   return {
     wrapper: {},
-    trigger: {},
-    content: {}
+    list: {
+      position: 'relative',
+      display: 'flex',
+      gap: 12
+    },
+    trigger: {
+      paddingBottom: 12,
+      paddingInline: 12,
+      border: 0,
+      backgroundColor: 'transparent',
+      cursor: 'pointer'
+    },
+    indicator: {
+      width: 'var(--width)',
+      height: '2px',
+      backgroundColor: theme.colors?.base,
+      bottom: 0,
+      transition: 'all 0.2s ease'
+    },
+    content: {
+      marginTop: 12
+    }
   }
 }
 
