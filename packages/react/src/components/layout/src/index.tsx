@@ -20,9 +20,9 @@ const SigmaLayout: FC<LayoutProps> = ({
       {
         header
         &&
-        <div className={classNames(`${prefixCls}-header`, classes?.header)}>
+        <header className={classNames(`${prefixCls}-header`, classes?.header)}>
           {header}
-        </div>
+        </header>
       }
       <main className={classNames(`${prefixCls}-main`, classes?.main)}>
         {

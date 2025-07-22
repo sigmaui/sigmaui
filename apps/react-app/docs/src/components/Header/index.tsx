@@ -20,7 +20,7 @@ const Header: FC<HeaderProps> = ({
   const isShowSegmentDocs = pathname.startsWith('/docs');
 
   return (
-    <header
+    <div
       className={classNames(prefixCls, className, classes?.wrapper)}
     >
       <div className={classes?.top}>
@@ -83,7 +83,7 @@ const Header: FC<HeaderProps> = ({
           }}
         />
       }
-    </header>
+    </div>
   )
 }
 
