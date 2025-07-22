@@ -1,6 +1,8 @@
 export const components = {
   Button: {
     defaultProps: {},
-    styles: {}
+    _style: {
+      wrapper: {}
+    }
   }
 };

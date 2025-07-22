@@ -18,7 +18,7 @@ const ComponentPreview: FC<ComponentPreviewProps> = ({
     <div className={classNames(prefixCls, className, classes?.wrapper)}>
       <CodeDemo
         data={data}
-        styles={{
+        _style={{
           wrapper: {
             padding: 12
           }
@@ -26,7 +26,7 @@ const ComponentPreview: FC<ComponentPreviewProps> = ({
       />
       <CodeHighlightTabs
         data={data}
-        styles={{
+        _style={{
           wrapper: {}
         }}
       />
