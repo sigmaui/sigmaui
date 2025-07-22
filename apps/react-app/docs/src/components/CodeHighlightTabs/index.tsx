@@ -32,7 +32,7 @@ const CodeHighlightTabs: FC<CodeHighlightTabsProps> = ({
         rootProps={{
           defaultValue: 'react'
         }}
-        _style={{
+        styles={{
           content: {
             padding: 12
           }

@@ -32,7 +32,7 @@ const CodeEditor: FC<CodeEditorProps> = ({
         rootProps={{
           defaultValue: 'react'
         }}
-        _style={{
+        styles={{
           content: {
             padding: 12
           }

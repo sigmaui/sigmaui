@@ -33,7 +33,7 @@ const App = ({}) => {
         components={MDXComponents}
       >
         <Layout
-          _style={{
+          styles={{
             wrapper: {
               width: 1200,
               marginInline: 'auto'

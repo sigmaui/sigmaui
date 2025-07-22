@@ -75,7 +75,7 @@ const Header: FC<HeaderProps> = ({
               value: routeMap.templatePath
             }
           ]}
-          _style={{
+          styles={{
             wrapper: {
               marginTop: 6,
               gap: 24

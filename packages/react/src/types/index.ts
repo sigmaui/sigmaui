@@ -38,5 +38,5 @@ export interface FCProps extends FCDefaultProps {
 export interface FCWithStylesProps<IStyles> extends FCProps {
   classes?: Classes<IStyles>
   theme?: Theme
-  _style?: Styles<IStyles>
+  styles?: Styles<IStyles>
 }
