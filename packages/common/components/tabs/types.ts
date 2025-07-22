@@ -1,6 +1,10 @@
 import type { ReactNode } from 'react';
 import { type TabsRootProps } from '@ark-ui/react';
-import type { FCWithStylesProps } from 'packages/common/types';
+import type { FCWithStylesProps, StylesProperties } from 'packages/common/types';
+
+export type {
+  StylesProperties
+}
 
 export interface TabsOption {
   value: string;

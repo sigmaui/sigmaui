@@ -1,4 +1,4 @@
-import { IProps } from './types';
+import type { IProps, StylesProperties } from './types';
 
 export const styles = ({ theme = {} }: IProps<any>) => {
   return {
@@ -14,17 +14,17 @@ export const styles = ({ theme = {} }: IProps<any>) => {
       '&[data-orientation=vertical]': {
         flexDirection: 'column'
       }
-    },
+    } as StylesProperties,
     label: {
       fontSize: 14,
       fontWeight: 500,
       color: '#222',
       marginBottom: 4,
-    },
+    } as StylesProperties,
     control: {
       display: 'flex',
       gap: 8,
-    },
+    } as StylesProperties,
     item: {
       paddingBlock: 12,
       fontSize: 14,
@@ -35,10 +35,10 @@ export const styles = ({ theme = {} }: IProps<any>) => {
       borderRadius: 6,
       cursor: 'pointer',
       transition: 'all 0.2s ease'
-    },
+    } as StylesProperties,
     itemText: {
       pointerEvents: 'none',
-    },
+    } as StylesProperties,
     itemHiddenInput: {},
     indicator: {
       width: 'var(--width)',
@@ -46,7 +46,7 @@ export const styles = ({ theme = {} }: IProps<any>) => {
       backgroundColor: theme.colors?.base,
       bottom: 0,
       transition: 'all 0.2s ease',
-    }
+    } as StylesProperties
   };
 };
 
