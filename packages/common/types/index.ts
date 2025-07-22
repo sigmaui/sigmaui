@@ -1,8 +1,7 @@
 import type { CSSProperties } from 'fela';
 import { type InternalTheme } from '@microui-kit/theme';
-import type { Classes } from 'packages/common/components/types';
 
-interface StyleProperties extends CSSProperties {
+export interface StyleProperties extends CSSProperties {
   size?: string
   variant?: string
 }
@@ -15,15 +14,17 @@ export type Breakpoints = {
   }
 }
 
-export type TStyles =
-  { [key: 'wrapper' | string]: Breakpoints | StyleProperties | TStyles }
-  | ((theme: any, props: any) => {
-  [key: 'wrapper' | string]: Breakpoints | StyleProperties | TStyles
-})
+export type StylesProperties = Breakpoints | StyleProperties;
 
 export type Styles<T> = { [K in keyof T]?: CSSProperties } | ((theme: InternalTheme, props: any) => {
   [K in keyof T]?: CSSProperties
 })
+
+export type Classes<T> = {
+  [K in keyof T]: T[K] extends (...args: any[]) => any ? ((...args: Parameters<T[K]>) => {
+    [key: string]: string
+  }) : string;
+}
 
 export interface FCDefaultProps {
   prefixCls?: string;

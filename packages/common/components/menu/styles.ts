@@ -1,4 +1,4 @@
-import { IProps, TStyles } from './types';
+import type { IProps, StylesProperties } from './types';
 
 export const styles = ({ theme = {} }: IProps<any>) => {
   // console.log('theme', theme)
@@ -12,22 +12,22 @@ export const styles = ({ theme = {} }: IProps<any>) => {
         display: 'flex',
         gap: 12
       }
-    },
+    } as StylesProperties,
     itemGroup: {
       '&:not(:last-child)': {
         marginBottom: 24
       }
-    },
+    } as StylesProperties,
     itemGroupLabel: {
       opacity: 0.5,
       lineHeight: 32
-    },
+    } as StylesProperties,
     item: {
       display: 'block',
       height: 32,
       lineHeight: 32,
       cursor: 'pointer'
-    }
+    } as StylesProperties
   }
 }
 

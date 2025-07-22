@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
-import type { FCWithStylesProps, TStyles } from 'packages/common/types';
+import type { FCWithStylesProps, StylesProperties } from 'packages/common/types';
 
 export type {
-  TStyles
+  StylesProperties
 }
 
 export interface MenuOption {

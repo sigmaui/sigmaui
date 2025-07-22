@@ -4,11 +4,9 @@ import type { FC } from 'react';
 import { Select, createListCollection } from '@ark-ui/react';
 import { withStyles } from '@microui-kit/with-styles';
 
-import type { SelectProps } from './types';
+import { styles, type SelectProps } from 'packages/common/components/select/styles';
 
-import { styles, type SelectTypes } from 'packages/common/components/select/styles';
-
-const SigmaSelect: FC<SelectProps<SelectTypes>> = ({
+const SigmaSelect: FC<SelectProps> = ({
   prefixCls = 'sm-select',
   className,
   classes,
@@ -42,7 +40,7 @@ const SigmaSelect: FC<SelectProps<SelectTypes>> = ({
             className={classes?.valueText}
             placeholder={placeholder}
           />
-          <Select.Indicator className={classes?.indicator} />
+          <Select.Indicator className={classes?.indicator}/>
         </Select.Trigger>
         <Select.ClearTrigger>Clear</Select.ClearTrigger>
       </Select.Control>
@@ -71,11 +69,11 @@ const SigmaSelect: FC<SelectProps<SelectTypes>> = ({
           </Select.ItemGroup>
         </Select.Content>
       </Select.Positioner>
-      <Select.HiddenSelect />
+      <Select.HiddenSelect/>
     </Select.Root>
   )
 }
 
 SigmaSelect.displayName = 'Select';
 
-export default withStyles<SelectProps<SelectTypes>>(styles)(SigmaSelect)
+export default withStyles<SelectProps>(styles)(SigmaSelect)

@@ -1,4 +1,4 @@
-import { IProps } from './types';
+import { IProps, StylesProperties } from './types';
 
 export const styles = ({ theme = {} }: IProps<any>) => {
   // console.log('theme', theme)
@@ -16,7 +16,7 @@ export const styles = ({ theme = {} }: IProps<any>) => {
       ':hover': {
         backgroundColor: theme.fn?.lighten?.(theme.colors?.base, 0.1)
       }
-    }
+    } as StylesProperties
   }
 }
 

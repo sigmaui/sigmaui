@@ -1,4 +1,4 @@
-import { IProps } from './types';
+import type { IProps, StylesProperties } from './types';
 
 export const styles = ({ theme = {}, isSidebar }: IProps<any>) => {
   // console.log('theme', theme)
@@ -8,15 +8,15 @@ export const styles = ({ theme = {}, isSidebar }: IProps<any>) => {
     header: {},
     main: {
       display: 'flex'
-    },
+    } as StylesProperties,
     sidebar: {
       position: 'fixed',
       width: 220
-    },
+    } as StylesProperties,
     content: {
       marginLeft: isSidebar ? 220 : undefined,
       width: isSidebar ? `calc(100% - ${theme.fn?.pxToRem?.(220)})` : '100%'
-    }
+    } as StylesProperties
   }
 }
 
