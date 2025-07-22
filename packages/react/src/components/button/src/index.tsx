@@ -11,13 +11,33 @@ const SigmaButton: FC<ButtonProps> = ({
   className,
   children,
   classes,
-  href
+  href,
+  loading,
+  locking,
+  disabled,
+  prefix,
+  suffix,
 }) => {
+  if (loading) {
+    prefix = 'Loading'
+  }
+
   const buttonEl = (
     <button
       className={classNames(prefixCls, className, classes?.wrapper)}
+      disabled={disabled || loading || locking}
     >
+      {
+        prefix
+        &&
+        <div className={classes?.prefix}>{prefix}</div>
+      }
       {children}
+      {
+        suffix
+        &&
+        <div className={classes?.suffix}>{suffix}</div>
+      }
     </button>
   );
 

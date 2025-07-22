@@ -16,6 +16,8 @@ export type Breakpoints = {
 
 export type StylesProperties = Breakpoints | StyleProperties;
 
+export type StylesObject = { [key: string]: StyleProperties };
+
 export type Styles<T> = { [K in keyof T]?: CSSProperties } | ((theme: Theme, props: any) => {
   [K in keyof T]?: CSSProperties
 })
@@ -40,4 +42,19 @@ export interface FCWithStylesProps<IStyles> extends FCProps {
   classes?: Classes<IStyles>
   theme?: Theme
   _style?: Styles<IStyles>
+  extendStyle?: Styles<IStyles>
 }
+
+export type ThemeColor =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'info'
+  | 'error'
+  | 'disabled';
+
+export type ThemeSize = 'default' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+
+export type ThemeVariant = 'default' | 'solid' | 'outlined' | 'dashed' | 'filled' | 'text' | 'link';

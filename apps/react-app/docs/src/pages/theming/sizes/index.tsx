@@ -1,0 +1,45 @@
+import Box from '@microui-kit/box';
+import Button from '@sigmaui-kit/button';
+import Input from '@sigmaui-kit/input';
+import Page from '@docs/components/Page';
+import SizesMdx from '@docs/content/docs/theming/sizes.mdx';
+
+const SizesPage = ({}) => {
+  return (
+    <Page>
+      <SizesMdx/>
+      <Box css={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+        <Button size="xs">xs</Button>
+        <Button size="sm">sm</Button>
+        <Button
+          loading
+          disabled
+          size="lg"
+          _style={{
+            wrapper: {
+              // fontSize: 36
+            }
+          }}
+        >
+          lg
+        </Button>
+      </Box>
+      <Box css={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+        <Input size="xs" placeholder="xs"/>
+        <Input size="sm" placeholder="sm"/>
+        <Input
+          disabled
+          size="lg"
+          placeholder="lg"
+          _style={{
+            wrapper: {
+              // fontSize: 36
+            }
+          }}
+        />
+      </Box>
+    </Page>
+  )
+}
+
+export default SizesPage

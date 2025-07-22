@@ -21,6 +21,9 @@
       "@sigmaui-kit/button": [
         "../../../packages/react/src/components/button/src"
       ],
+      "@sigmaui-kit/input": [
+        "../../../packages/react/src/components/input/src"
+      ],
       "@sigmaui-kit/select": [
         "../../../packages/react/src/components/select/src"
       ],

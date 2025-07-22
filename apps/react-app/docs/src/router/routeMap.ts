@@ -1,15 +1,24 @@
+const componentPath = '/docs/components';
+const themingPath = '/docs/theming';
+
 export const routeMap = {
   playgroundPath: '/playground',
   blogPath: '/blogs',
   introductionPath: '/docs/introduction',
   installationPath: '/docs/installation',
-  componentPath: '/docs/components',
   blockPath: '/docs/blocks',
   chartPath: '/docs/charts',
   templatePath: '/docs/templates',
+  componentPath,
   component: {
-    overview: '/docs/components/overview',
-    box: '/docs/components/box',
-    button: '/docs/components/button'
+    overview: `${componentPath}/overview`,
+    box: `${componentPath}/box`,
+    button: `${componentPath}/button`,
+    input: `${componentPath}/input`
+  },
+  themingPath,
+  theming: {
+    sizes: `${themingPath}/sizes`,
+    variants: `${themingPath}/variants`
   }
 }

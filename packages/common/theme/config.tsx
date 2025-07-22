@@ -1,8 +1,33 @@
 import { type Theme } from '@microui-kit/theme';
+import themeValuePlugin from '@microui-kit/fela-plugin-theme-value';
+import { formatProperty } from '@microui-kit/create-renderer';
 
 import { modes } from './modes';
 import { components } from './tokens/components';
 import { colors } from './tokens/colors';
+import { sizes } from './tokens/sizes';
+import { variants } from './tokens/variants';
+
+const themeMapping: any = {
+  color: (theme: any) => theme.colors,
+  backgroundColor: (theme: any) => theme.colors,
+  borderColor: (theme: any) => theme.colors,
+  fontSize: (theme: any) => theme.fontSizes,
+  fontWeight: (theme: any) => theme.fontWeights,
+  fontFamily: (theme: any) => theme.fontFamilies,
+  borderRadius: (theme: any) => theme.radii,
+  height: (theme: any) => theme.heights
+}
+
+export const felaRendererConfig = {
+  plugins: [
+    themeValuePlugin(themeMapping)
+  ],
+  customProperties: {
+    borderWidth: formatProperty('borderWidth')
+  },
+  clsBlackList: []
+}
 
 const theme: Theme = {
   base: {
@@ -11,7 +36,9 @@ const theme: Theme = {
   },
   modes,
   components,
-  colors
+  colors,
+  sizes,
+  variants
 }
 
 export const globalStyle = ({ theme, renderer }: any) => {

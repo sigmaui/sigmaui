@@ -1,7 +1,7 @@
 import { routeMap } from '@docs/router/routeMap';
 
 export default {
-  name: 'page-button',
-  path: routeMap.component.button,
+  name: 'page-input',
+  path: routeMap.component.input,
   lazy: () => import('./index'),
 }

@@ -4,13 +4,13 @@ import { createRenderer } from '@microui-kit/create-renderer';
 import { MicroUIProvider, THEME_MODE } from '@microui-kit/provider';
 import { useRouter } from '@microui-kit/use-router';
 import Layout from '@sigmaui-kit/layout';
-import themeConfig, { globalStyle } from 'packages/common/theme/config';
+import themeConfig, { globalStyle, felaRendererConfig } from 'packages/common/theme/config';
 
 import { MDXComponents } from './components/mdx';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 
-const renderer = createRenderer({});
+const renderer = createRenderer(felaRendererConfig);
 
 console.log('renderer', renderer)
 
@@ -23,6 +23,8 @@ const App = ({}) => {
   }
 
   const isSidebar = pathname.startsWith('/docs');
+
+  console.log('theme', theme)
 
   return (
     <MicroUIProvider

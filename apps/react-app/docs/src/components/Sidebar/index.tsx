@@ -38,6 +38,19 @@ const Sidebar: FC<SidebarProps> = ({
             ]
           },
           {
+            label: 'Theming',
+            options: [
+              {
+                label: 'Sizes',
+                value: routeMap.theming.sizes
+              },
+              {
+                label: 'Variants',
+                value: routeMap.theming.variants
+              }
+            ]
+          },
+          {
             label: 'Components',
             options: [
               {
@@ -47,6 +60,10 @@ const Sidebar: FC<SidebarProps> = ({
               {
                 label: 'Button',
                 value: routeMap.component.button
+              },
+              {
+                label: 'Input',
+                value: routeMap.component.input
               }
             ]
           }
