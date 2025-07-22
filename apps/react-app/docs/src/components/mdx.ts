@@ -1,7 +1,5 @@
-import Box from 'packages/react/src/components/box/src';
-import ComponentPreview from '../components/ComponentPreview';
+import ComponentPreview from '@docs/components/ComponentPreview';
 
 export const MDXComponents = {
-  Box,
   ComponentPreview
 }
