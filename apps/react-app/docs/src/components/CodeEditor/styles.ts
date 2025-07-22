@@ -8,7 +8,7 @@ export const styles = ({ theme = {} }: IProps<any>) => {
   }
 }
 
-export type CodeHighlightTabsTypes = ReturnType<typeof styles>;
-export type CodeHighlightTabsKeys = keyof CodeHighlightTabsTypes;
+export type CodeEditorTypes = ReturnType<typeof styles>;
+export type CodeEditorKeys = keyof CodeEditorTypes;
 
-export type CodeHighlightTabsProps = IProps<CodeHighlightTabsTypes>;
+export type CodeEditorProps = IProps<CodeEditorTypes>;

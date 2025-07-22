@@ -2,7 +2,7 @@ import React from 'react';
 import type { FC } from 'react';
 import classNames from 'classnames';
 import { withStyles } from '@microui-kit/with-styles';
-import Tabs from 'packages/react/src/components/tabs/src';
+import Tabs from '@sigmaui-kit/tabs';
 
 import { styles, type CodeHighlightTabsProps } from './styles';
 

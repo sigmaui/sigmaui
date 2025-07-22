@@ -2,12 +2,12 @@ import React from 'react';
 import type { FC } from 'react';
 import classNames from 'classnames';
 import { withStyles } from '@microui-kit/with-styles';
-import Tabs from 'packages/react/src/components/tabs/src';
+import Tabs from '@sigmaui-kit/tabs';
 
-import { styles, type CodeHighlightTabsProps } from './styles';
+import { styles, type CodeEditorProps } from './styles';
 
-const CodeHighlightTabs: FC<CodeHighlightTabsProps> = ({
-  prefixCls = 'sm-highlight-tabs',
+const CodeEditor: FC<CodeEditorProps> = ({
+  prefixCls = 'sm-code-editor',
   className,
   classes,
   data
@@ -42,6 +42,6 @@ const CodeHighlightTabs: FC<CodeHighlightTabsProps> = ({
   )
 }
 
-CodeHighlightTabs.displayName = 'CodeHighlightTabs';
+CodeEditor.displayName = 'CodeEditor';
 
-export default withStyles<CodeHighlightTabsProps>(styles)(CodeHighlightTabs)
+export default withStyles<CodeEditorProps>(styles)(CodeEditor)
