@@ -23,6 +23,9 @@
     "noImplicitAny": false,
     "baseUrl": ".",
     "paths": {
+      "docs/*": [
+        "../../../apps/react-app/docs/src/*"
+      ],
       "@packages/*": [
         "../../../packages/*"
       ],
@@ -52,6 +55,24 @@
       ],
       "@packages/react/components/button": [
         "packages/react/src/components/button/src"
+      ],
+      "@sigmaui-kit/layout": [
+        "packages/react/src/components/layout/src"
+      ],
+      "@sigmaui-kit/button": [
+        "packages/react/src/components/button/src"
+      ],
+      "@sigmaui-kit/select": [
+        "packages/react/src/components/select/src"
+      ],
+      "@sigmaui-kit/tabs": [
+        "packages/react/src/components/tabs/src"
+      ],
+      "@sigmaui-kit/segment-group": [
+        "packages/react/src/components/segment-group/src"
+      ],
+      "@sigmaui-kit/menu": [
+        "packages/react/src/components/menu/src"
       ],
       "@packages/vue/types": [
         "packages/vue/src/types"

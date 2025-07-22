@@ -50,12 +50,19 @@ export default defineConfig(({ mode }) => {
       alias: {
         'src': path.resolve(__dirname, './src'),
         'packages': path.resolve(__dirname, '../../../packages'),
+        '@docs': path.resolve(__dirname, '../../../apps/react-app/docs/src'),
         '@packages/common/hooks/use-stylex': path.resolve(__dirname, '../../../packages/common/hooks/use-stylex/src'),
         '@packages/react/hooks/with-stylex': path.resolve(__dirname, '../../../packages/react/src/hooks/with-stylex/src'),
         '@packages/react/hooks/use-theme': path.resolve(__dirname, '../../../packages/react/src/hooks/use-theme/src'),
         '@packages/react/components/select': path.resolve(__dirname, '../../../packages/react/src/components/select/src'),
         '@packages/react/components/button': path.resolve(__dirname, '../../../packages/react/src/components/button/src'),
-        '@packages/react/components/box': path.resolve(__dirname, '../../../packages/react/src/components/box/src')
+        '@packages/react/components/box': path.resolve(__dirname, '../../../packages/react/src/components/box/src'),
+        '@sigmaui-kit/layout': path.resolve(__dirname, '../../../packages/react/src/components/layout/src'),
+        '@sigmaui-kit/button': path.resolve(__dirname, '../../../packages/react/src/components/button/src'),
+        '@sigmaui-kit/select': path.resolve(__dirname, '../../../packages/react/src/components/select/src'),
+        '@sigmaui-kit/tabs': path.resolve(__dirname, '../../../packages/react/src/components/tabs/src'),
+        '@sigmaui-kit/segment-group': path.resolve(__dirname, '../../../packages/react/src/components/segment-group/src'),
+        '@sigmaui-kit/menu': path.resolve(__dirname, '../../../packages/react/src/components/menu/src')
       }
     },
     build: {

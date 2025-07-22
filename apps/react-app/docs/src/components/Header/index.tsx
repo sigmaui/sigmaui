@@ -3,10 +3,10 @@ import type { FC } from 'react';
 import classNames from 'classnames';
 import { withStyles } from '@microui-kit/with-styles';
 import { useRouter } from '@microui-kit/use-router';
-import SegmentGroup from 'packages/react/src/components/segment-group/src';
-import Menu from 'packages/react/src/components/menu/src';
+import SegmentGroup from '@sigmaui-kit/segment-group';
+import Menu from '@sigmaui-kit/menu';
 
-import { routeMap } from '../../router/routeMap';
+import { routeMap } from '@docs/router/routeMap';
 
 import { styles, type HeaderProps } from './styles';
 

@@ -3,9 +3,9 @@ import type { FC } from 'react';
 import classNames from 'classnames';
 import { withStyles } from '@microui-kit/with-styles';
 import { useRouter } from '@microui-kit/use-router';
-import Menu from 'packages/react/src/components/menu/src';
+import Menu from '@sigmaui-kit/menu';
 
-import { routeMap } from '../../router/routeMap';
+import { routeMap } from '@docs/router/routeMap';
 
 import { styles, type SidebarProps } from './styles';
 

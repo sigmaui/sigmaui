@@ -1,9 +1,9 @@
 import { usePlatform } from '@microui-kit/platform';
 import Box from '@microui-kit/box';
-import Button from 'packages/react/src/components/button/src';
-import Page from '../../components/Page';
+import Button from '@sigmaui-kit/button';
+import Page from '@docs/components/Page';
 
-import { routeMap } from '../../router/routeMap';
+import { routeMap } from '@docs/router/routeMap';
 
 const Home = ({}) => {
   const { platform } = usePlatform();
