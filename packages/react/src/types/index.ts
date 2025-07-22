@@ -1,5 +1,5 @@
 import React, { type ReactNode } from 'react';
-import { type Theme } from '@microui-kit/theme';
+import { type InternalTheme } from '@microui-kit/theme';
 import type { Classes } from 'packages/common/components/types';
 
 interface StyleProperties extends React.CSSProperties {
@@ -21,8 +21,8 @@ export type TStyles =
   [key: 'wrapper' | string]: Breakpoints | StyleProperties | TStyles
 })
 
-export type Styles<T> = { [K in keyof T]: React.CSSProperties } | ((theme: Theme, props: any) => {
-  [K in keyof T]: React.CSSProperties
+export type Styles<T> = { [K in keyof T]?: React.CSSProperties } | ((theme: InternalTheme, props: any) => {
+  [K in keyof T]?: React.CSSProperties
 })
 
 export interface FCDefaultProps {
@@ -37,6 +37,6 @@ export interface FCProps extends FCDefaultProps {
 
 export interface FCWithStylesProps<IStyles> extends FCProps {
   classes?: Classes<IStyles>
-  theme?: Theme
-  styles?: Styles<IStyles>
+  theme?: InternalTheme
+  _style?: Styles<IStyles>
 }
