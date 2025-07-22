@@ -29,7 +29,7 @@ const Header: FC<HeaderProps> = ({
             <img alt="logo" src="/assets/images/logo.png"/>
           </div>
           <Menu
-            direction="horizontal"
+            orientation="horizontal"
             options={[
               {
                 label: 'Docs',

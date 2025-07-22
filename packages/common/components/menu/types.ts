@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import type { FCWithStylesProps, TStyles } from '@packages/react/types';
+import type { FCWithStylesProps, TStyles } from 'packages/common/types';
 
 export type {
   TStyles
@@ -13,5 +13,5 @@ export interface MenuOption {
 
 export interface IProps<Styles> extends FCWithStylesProps<Styles> {
   options?: MenuOption[];
-  direction?: 'horizontal' | 'vertical';
+  orientation?: 'horizontal' | 'vertical';
 }

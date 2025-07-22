@@ -4,7 +4,9 @@ export const styles = ({ theme = {} }: IProps<any>) => {
   // console.log('theme', theme)
 
   return {
-    wrapper: {},
+    wrapper: {
+
+    },
     list: {
       position: 'relative',
       display: 'flex',

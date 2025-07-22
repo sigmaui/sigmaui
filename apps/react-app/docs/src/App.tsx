@@ -12,6 +12,8 @@ import Sidebar from './components/Sidebar';
 
 const renderer = createRenderer({});
 
+console.log('renderer', renderer)
+
 const App = ({}) => {
   const router = useRouter();
   const { pathname } = router;
@@ -40,10 +42,7 @@ const App = ({}) => {
             },
             main: {
               marginTop: 24
-            },
-            header: {},
-            sidebar: {},
-            content: {}
+            }
           }}
           header={(
             <Header/>

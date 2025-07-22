@@ -2,7 +2,7 @@ import * as stylex from '@stylexjs/stylex';
 import type { StylesDefinitions } from '@packages/common/theme/types';
 import type { ButtonKeys } from '@packages/react/components/button';
 import type { SelectKeys } from '@packages/react/components/select';
-import { FCProps } from '@packages/react/types';
+import { FCProps } from 'packages/common/types';
 
 type ComponentTokens = {
   [key: string]: {

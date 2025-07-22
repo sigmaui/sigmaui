@@ -22,7 +22,7 @@ const Sidebar: FC<SidebarProps> = ({
       className={classNames(prefixCls, className, classes?.wrapper)}
     >
       <Menu
-        direction="vertical"
+        orientation="vertical"
         options={[
           {
             label: 'Get Started',

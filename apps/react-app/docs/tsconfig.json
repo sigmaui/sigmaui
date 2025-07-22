@@ -3,11 +3,17 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@packages/*": [
+        "../../../packages/*"
+      ],
       "packages/*": [
         "../../../packages/*"
       ],
       "@docs/*": [
         "src/*"
+      ],
+      "@packages/react/types": [
+        "../../../packages/react/src/types"
       ],
       "@sigmaui-kit/layout": [
         "../../../packages/react/src/components/layout/src"

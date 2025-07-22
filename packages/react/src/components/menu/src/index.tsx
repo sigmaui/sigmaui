@@ -3,7 +3,7 @@ import type { FC } from 'react';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import { withStyles } from '@microui-kit/with-styles';
-import { Menu } from '@ark-ui/react';
+import { Menu, type MenuItemProps } from '@ark-ui/react';
 
 import { styles, type MenuProps } from 'packages/common/components/menu/styles';
 import type { MenuOption } from 'packages/common/components/menu/types';
@@ -13,7 +13,7 @@ const SigmaMenu: FC<MenuProps> = ({
   className,
   classes,
   options = [],
-  direction = 'horizontal'
+  orientation = 'horizontal'
 }) => {
   const renderItems = ({ items = [] }: { items: MenuOption[] }) => {
     return items.map(({ label, value, options }) => {
@@ -28,7 +28,7 @@ const SigmaMenu: FC<MenuProps> = ({
         )
       }
 
-      const itemProps = {
+      const itemProps: MenuItemProps = {
         className: classes?.item,
         value
       };
@@ -57,7 +57,8 @@ const SigmaMenu: FC<MenuProps> = ({
   return (
     <Menu.Root>
       <Menu.Content
-        className={classNames(prefixCls, className, classes?.wrapper, classes?.[direction])}
+        className={classNames(prefixCls, className, classes?.wrapper)}
+        data-orientation={orientation}
       >
         {renderItems({ items: options })}
       </Menu.Content>
