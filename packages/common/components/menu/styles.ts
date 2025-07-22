@@ -4,13 +4,14 @@ export const styles = ({ theme = {} }: IProps<any>) => {
   // console.log('theme', theme)
 
   return {
-    wrapper: {},
-    vertical: {
-      display: 'block'
-    },
-    horizontal: {
-      display: 'flex',
-      gap: 12
+    wrapper: {
+      '&[data-orientation="vertical"]': {
+        display: 'block'
+      },
+      '&[data-orientation="horizontal"]': {
+        display: 'flex',
+        gap: 12
+      }
     },
     itemGroup: {
       '&:not(:last-child)': {
