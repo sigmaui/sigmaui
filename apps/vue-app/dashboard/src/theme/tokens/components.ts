@@ -3,7 +3,7 @@ import type { StylesDefinitions } from '@packages/common/theme/types';
 import { type Components } from '@packages/vue/hooks/use-theme';
 import type { ButtonKeys } from 'packages/common/components/button/xStyles';
 import type { SelectKeys } from 'packages/common/components/select/xStyles';
-import { FCProps } from '@packages/react/types';
+import { FCProps } from 'packages/common/types';
 
 type ComponentTokens = {
   [key: string]: {

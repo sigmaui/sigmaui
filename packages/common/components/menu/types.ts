@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import type { FCWithStylesProps, TStyles } from '@packages/react/types';
+import type { FCWithStylesProps, TStyles } from 'packages/common/types';
 
 export type {
   TStyles

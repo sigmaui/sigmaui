@@ -1,4 +1,4 @@
-import type { FCWithStylesProps } from '@packages/react/types';
+import type { FCWithStylesProps } from 'packages/common/types';
 
 export interface IProps<Styles> extends FCWithStylesProps<Styles> {
 }
