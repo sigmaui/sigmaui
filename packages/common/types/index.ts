@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'fela';
-import { type InternalTheme } from '@microui-kit/theme';
+import { type Theme } from '@microui-kit/theme';
 
 export interface StyleProperties extends CSSProperties {
   size?: string
@@ -16,7 +16,7 @@ export type Breakpoints = {
 
 export type StylesProperties = Breakpoints | StyleProperties;
 
-export type Styles<T> = { [K in keyof T]?: CSSProperties } | ((theme: InternalTheme, props: any) => {
+export type Styles<T> = { [K in keyof T]?: CSSProperties } | ((theme: Theme, props: any) => {
   [K in keyof T]?: CSSProperties
 })
 
@@ -38,6 +38,6 @@ export interface FCProps extends FCDefaultProps {
 
 export interface FCWithStylesProps<IStyles> extends FCProps {
   classes?: Classes<IStyles>
-  theme?: InternalTheme
+  theme?: Theme
   _style?: Styles<IStyles>
 }
