@@ -8,10 +8,15 @@ import SizesMdx from '@docs/content/docs/theming/sizes.mdx'
 const SizesPage = ({}) => {
   return (
     <Page>
-      <SizesMdx/>
+      <SizesMdx />
       <Box css={{ display: 'flex', gap: 12, alignItems: 'center' }}>
         <Button size="xs">xs</Button>
-        <Button locking size="sm">sm</Button>
+        <Button
+          locking
+          size="sm"
+        >
+          sm
+        </Button>
         <Button
           loading
           disabled
@@ -19,7 +24,7 @@ const SizesPage = ({}) => {
           _style={{
             wrapper: {
               // fontSize: 36
-            }
+            },
           }}
         >
           lg

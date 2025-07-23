@@ -29,20 +29,16 @@ const SigmaButton: FC<ButtonProps> = ({
             loader: {
               borderColor: theme.fn.rgba('#fff', 0.2),
               borderLeftColor: '#fff!important',
-              borderWidth: 2
-            }
-          })
+              borderWidth: 2,
+            },
+          }),
         }}
       />
     )
   }
 
   if (locking) {
-    prefix = (
-      <Loading
-        isDot
-      />
-    )
+    prefix = <Loading isDot />
   }
 
   const buttonEl = (

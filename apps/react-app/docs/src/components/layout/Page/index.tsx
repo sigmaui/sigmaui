@@ -19,8 +19,8 @@ const Page: FC<PageProps> = ({ prefixCls = 'sm-page', className, children, class
             position: 'absolute',
             top: 0,
             right: 0,
-            width: 150
-          }
+            width: 150,
+          },
         }}
       />
     </div>

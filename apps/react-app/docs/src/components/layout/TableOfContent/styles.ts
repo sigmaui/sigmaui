@@ -4,7 +4,7 @@ export const styles = ({ theme = {} }: IProps<any>) => {
   // console.log('theme', theme)
 
   return {
-    wrapper: {} as StylesProperties
+    wrapper: {} as StylesProperties,
   }
 }
 

@@ -19,7 +19,7 @@ const SigmaText: FC<TextProps> = ({
 }) => {
   const restProps = getRestProps(textProps);
 
-  const { css } = useMicroUI();
+  const { css } = useMicroUI()
 
   const classString = css({
     displayName,
