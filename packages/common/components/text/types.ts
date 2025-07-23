@@ -1,8 +1,5 @@
-import type { FCWithStylesProps, StylesProperties, ThemeSize, ThemeVariant } from 'packages/common/types'
+import type { FCProps, StyleProperties, ThemeSize } from 'packages/common/types'
 
-export type { StylesProperties }
-
-export interface IProps<Styles> extends FCWithStylesProps<Styles> {
-  href?: string
+export interface TextProps extends StyleProperties, FCProps {
   size?: ThemeSize
 }

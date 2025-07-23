@@ -1,4 +1,4 @@
-import Page from '@docs/components/Page'
+import Page from '@docs/components/layout/Page'
 import ButtonMdx from '@docs/content/docs/components/button.mdx'
 
 const ButtonPage = ({}) => {

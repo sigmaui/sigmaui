@@ -1,7 +1,7 @@
 import { usePlatform } from '@microui-kit/platform'
 import Box from '@microui-kit/box'
 import Button from '@sigmaui-kit/button'
-import Page from '@docs/components/Page'
+import Page from '@docs/components/layout/Page'
 
 import { routeMap } from '@docs/router/routeMap'
 

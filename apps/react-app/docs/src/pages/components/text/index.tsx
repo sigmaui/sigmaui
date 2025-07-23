@@ -1,4 +1,4 @@
-import Page from '@docs/components/Page'
+import Page from '@docs/components/layout/Page'
 import TextMdx from '@docs/content/docs/components/text.mdx'
 
 const TextPage = ({}) => {

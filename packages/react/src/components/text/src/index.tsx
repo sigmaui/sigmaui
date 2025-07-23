@@ -1,14 +1,37 @@
 import React from 'react'
 import type { FC } from 'react'
 import classNames from 'classnames'
-import { withStyles } from '@microui-kit/with-styles'
+import { useMicroUI } from '@microui-kit/use-micro-ui'
+import { getRestProps } from '@microui-kit/helpers'
 
-import { styles, type TextProps } from 'packages/common/components/text/styles'
+import { type TextProps } from 'packages/common/components/text/types'
 
-const SigmaText: FC<TextProps> = ({ prefixCls = 'sm-text', className, children, classes }) => {
-  return <div className={classNames(prefixCls, className, classes?.wrapper)}>{children}</div>
+const displayName = 'Text'
+
+const SigmaText: FC<TextProps> = ({
+  prefixCls = 'sm-text',
+  className,
+  children,
+  size,
+  ...textProps
+}) => {
+  const restProps = getRestProps(textProps);
+
+  const { css } = useMicroUI();
+
+  const classString = css({
+    displayName,
+    size,
+    ...restProps
+  });
+
+  return (
+    <div className={classNames(prefixCls, className, classString)}>
+      {children}
+    </div>
+  )
 }
 
-SigmaText.displayName = 'Text'
+SigmaText.displayName = displayName
 
-export default withStyles<TextProps>(styles)(SigmaText)
+export default SigmaText

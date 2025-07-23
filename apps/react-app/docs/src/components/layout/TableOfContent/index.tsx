@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import { withStyles } from '@microui-kit/with-styles'
 import { useRouter } from '@microui-kit/use-router'
 import SegmentGroup from '@sigmaui-kit/segment-group'
-import Menu from '@sigmaui-kit/menu'
+import Text from '@sigmaui-kit/text'
 
 import { routeMap } from '@docs/router/routeMap'
 
@@ -14,10 +14,14 @@ const TableOfContent: FC<TableOfContentProps> = ({ prefixCls = 'sm-table-of-cont
   const router = useRouter()
   const { pathname } = router
 
-
   return (
     <div className={classNames(prefixCls, className, classes?.wrapper)}>
-
+      <Text
+        size="lg"
+        fontWeight={600}
+      >
+        On this page
+      </Text>
     </div>
   )
 }

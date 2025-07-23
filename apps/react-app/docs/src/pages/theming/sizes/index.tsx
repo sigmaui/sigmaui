@@ -2,7 +2,7 @@ import Box from '@microui-kit/box'
 import Button from '@sigmaui-kit/button'
 import Input from '@sigmaui-kit/input'
 import Text from '@sigmaui-kit/text'
-import Page from '@docs/components/Page'
+import Page from '@docs/components/layout/Page'
 import SizesMdx from '@docs/content/docs/theming/sizes.mdx'
 
 const SizesPage = ({}) => {

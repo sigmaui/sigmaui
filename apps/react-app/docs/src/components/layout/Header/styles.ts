@@ -1,4 +1,4 @@
-import { IProps } from './types'
+import { IProps } from './types.ts'
 
 export const styles = ({ theme = {} }: IProps<any>) => {
   // console.log('theme', theme)

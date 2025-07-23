@@ -1,14 +1,16 @@
-import { IProps } from './types'
+import type { IProps, StylesProperties } from './types'
 
 export const styles = ({ theme = {} }: IProps<any>) => {
   // console.log('theme', theme)
 
   return {
     wrapper: {
+      position: 'relative',
+
       '& > *:not(:last-child)': {
         marginBottom: 12,
       },
-    },
+    } as StylesProperties,
   }
 }
 

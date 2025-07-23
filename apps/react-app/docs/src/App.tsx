@@ -7,8 +7,8 @@ import Layout from '@sigmaui-kit/layout'
 import themeConfig, { globalStyle, felaRendererConfig } from 'packages/common/theme/config'
 
 import { MDXComponents } from './components/mdx'
-import Header from './components/Header'
-import Sidebar from './components/Sidebar'
+import Header from './components/layout/Header'
+import Sidebar from './components/layout/Sidebar'
 
 const renderer = createRenderer(felaRendererConfig)
 
