@@ -12,6 +12,7 @@ const SigmaText: FC<TextProps> = ({
   prefixCls = 'sm-text',
   className,
   children,
+  _class,
   size,
   ...textProps
 }) => {
@@ -23,7 +24,7 @@ const SigmaText: FC<TextProps> = ({
     displayName,
     size,
     ...restProps
-  });
+  }, { _class });
 
   return (
     <div className={classNames(prefixCls, className, classString)}>
