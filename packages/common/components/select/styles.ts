@@ -1,4 +1,4 @@
-import type { IProps, StylesProperties } from './types';
+import type { IProps, StylesProperties } from './types'
 
 export const styles = ({ theme = {} }) => {
   // console.log('theme', theme)
@@ -11,17 +11,17 @@ export const styles = ({ theme = {} }) => {
       border: 0,
       paddingBlock: 8,
       paddingInline: 12,
-      cursor: 'pointer'
+      cursor: 'pointer',
     } as StylesProperties,
     valueText: {},
     content: {},
     itemGroup: {},
     itemGroupLabel: {},
     item: {},
-    indicator: {}
+    indicator: {},
   }
 }
 
-export type SelectTypes = ReturnType<typeof styles>;
-export type SelectKeys = keyof SelectTypes;
-export type SelectProps = IProps<SelectTypes>;
+export type SelectTypes = ReturnType<typeof styles>
+export type SelectKeys = keyof SelectTypes
+export type SelectProps = IProps<SelectTypes>

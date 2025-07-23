@@ -1,18 +1,18 @@
-import React from 'react';
-import type { FC } from 'react';
-import classNames from 'classnames';
-import { withStyles } from '@microui-kit/with-styles';
-import Tabs from '@sigmaui-kit/tabs';
+import React from 'react'
+import type { FC } from 'react'
+import classNames from 'classnames'
+import { withStyles } from '@microui-kit/with-styles'
+import Tabs from '@sigmaui-kit/tabs'
 
-import { styles, type CodeHighlightTabsProps } from './styles';
+import { styles, type CodeHighlightTabsProps } from './styles'
 
 const CodeHighlightTabs: FC<CodeHighlightTabsProps> = ({
   prefixCls = 'sm-highlight-tabs',
   className,
   classes,
-  data
+  data,
 }) => {
-  const code = data?.code;
+  const code = data?.code
 
   return (
     <div className={classNames(prefixCls, className, classes?.wrapper)}>
@@ -21,27 +21,27 @@ const CodeHighlightTabs: FC<CodeHighlightTabsProps> = ({
           {
             label: 'React',
             value: 'react',
-            content: code?.react
+            content: code?.react,
           },
           {
             label: 'Vue',
             value: 'vue',
-            content: code?.vue
-          }
+            content: code?.vue,
+          },
         ]}
         rootProps={{
-          defaultValue: 'react'
+          defaultValue: 'react',
         }}
         _style={{
           content: {
-            padding: 12
-          }
+            padding: 12,
+          },
         }}
       />
     </div>
   )
 }
 
-CodeHighlightTabs.displayName = 'CodeHighlightTabs';
+CodeHighlightTabs.displayName = 'CodeHighlightTabs'
 
 export default withStyles<CodeHighlightTabsProps>(styles)(CodeHighlightTabs)

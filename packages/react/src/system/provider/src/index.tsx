@@ -1,15 +1,13 @@
-import React, { FC, useRef, useEffect, useCallback, useMemo } from 'react';
-import { ProviderProps, RendererProvider, ThemeProvider } from 'react-fela';
-import { useThemeMode } from '@microui-kit/use-theme-mode';
-import { usePlatform } from 'packages/react/src/system/platform/src';
-import { getTheme } from '@microui-kit/theme';
-import { cssifyObject } from '@microui-kit/utils';
+import React, { FC, useRef, useEffect, useCallback, useMemo } from 'react'
+import { ProviderProps, RendererProvider, ThemeProvider } from 'react-fela'
+import { useThemeMode } from '@microui-kit/use-theme-mode'
+import { usePlatform } from 'packages/react/src/system/platform/src'
+import { getTheme } from '@microui-kit/theme'
+import { cssifyObject } from '@microui-kit/utils'
 
-import { THEME_MODE } from '@microui-kit/types';
+import { THEME_MODE } from '@microui-kit/types'
 
-export {
-  THEME_MODE
-}
+export { THEME_MODE }
 
 interface MicroUIProviderProps {
   theme?: any
@@ -28,46 +26,46 @@ interface MicroUIProviderProps {
   providerProps?: ProviderProps
 }
 
-const ROOT_TYPE = 'ROOT';
+const ROOT_TYPE = 'ROOT'
 
 function renderRoot(params: any) {
-  const { renderer, style, selector, mode, isCache = true } = params;
+  const { renderer, style, selector, mode, isCache = true } = params
 
-  const css = cssifyObject(style);
+  const css = cssifyObject(style)
 
   const rootType = `${ROOT_TYPE}:${mode}`
 
   const change = {
     type: rootType,
     css,
-    selector
+    selector,
   }
 
   if (isCache) {
-    renderer.cache[rootType] = change;
-    renderer._emitChange(change);
+    renderer.cache[rootType] = change
+    renderer._emitChange(change)
   }
 
   // console.log('renderRoot', renderer.nodes);
 
-  const node = renderer.nodes[rootType];
+  const node = renderer.nodes[rootType]
 
   if (node) {
-    node.textContent = `${selector}{${css}}`;
+    node.textContent = `${selector}{${css}}`
   }
 }
 
 function getMode(params: any) {
-  const { deviceMode, themeMode } = params;
+  const { deviceMode, themeMode } = params
 
-  const modes: string[] = [];
+  const modes: string[] = []
 
   if (deviceMode) {
-    modes.push(deviceMode);
+    modes.push(deviceMode)
   }
 
   if (themeMode) {
-    modes.push(themeMode);
+    modes.push(themeMode)
   }
 
   if (modes.length === 0) {
@@ -91,34 +89,32 @@ export const SigmaUIProvider: FC<MicroUIProviderProps> = ({
   extra,
   themeMode: themeModeFromProp,
   isSplashMode,
-  providerProps = {}
+  providerProps = {},
 }) => {
-  const rendererRef = useRef(false);
-  const { platform }: any = usePlatform();
-  const deviceMode = platform?.device;
+  const rendererRef = useRef(false)
+  const { platform }: any = usePlatform()
+  const deviceMode = platform?.device
 
   const { mode: themeMode, changeMode } = useThemeMode({
     cookies,
-    mode: themeModeFromProp || THEME_MODE.DARK
-  });
+    mode: themeModeFromProp || THEME_MODE.DARK,
+  })
 
-  const { plugins = [], ...configs }: any = rendererConfig;
+  const { plugins = [], ...configs }: any = rendererConfig
 
-  const { domain, domainInfo = {}, projectName, splashProps = {}, isCssVars, isCheckMobile } = themeProps;
+  const { domain, domainInfo = {}, projectName, splashProps = {}, isCssVars, isCheckMobile } = themeProps
 
-  const uiConfig = domainInfo.theme?.uiConfig || {};
+  const uiConfig = domainInfo.theme?.uiConfig || {}
 
-  let splash: any;
+  let splash: any
 
   if (isSplashMode && uiConfig.splash) {
-    splash = (
-      <div dangerouslySetInnerHTML={{ __html: uiConfig.splash }}/>
-    )
+    splash = <div dangerouslySetInnerHTML={{ __html: uiConfig.splash }} />
   }
 
   const mode = useMemo(() => {
     return getMode({ deviceMode, themeMode })
-  }, [deviceMode, themeMode]);
+  }, [deviceMode, themeMode])
 
   const theme = getTheme(themeFromProp, {
     deviceMode,
@@ -127,18 +123,18 @@ export const SigmaUIProvider: FC<MicroUIProviderProps> = ({
     projectName,
     platform,
     isCssVars,
-    isCheckMobile
-  });
+    isCheckMobile,
+  })
 
-  const modes = theme?.modes;
+  const modes = theme?.modes
 
   useMemo(() => {
     Object.keys(configs).forEach((key) => {
       renderer[key] = configs[key]
-    });
+    })
   }, [configs])
 
-  const rootSelector = mode ? `${root}[data-mode="${mode}"]` : root;
+  const rootSelector = mode ? `${root}[data-mode="${mode}"]` : root
 
   const renderCssVars = useCallback(() => {
     if (theme.__cssVars) {
@@ -146,43 +142,49 @@ export const SigmaUIProvider: FC<MicroUIProviderProps> = ({
         renderer,
         selector: rootSelector,
         style: theme.__cssVars,
-        mode
-      });
+        mode,
+      })
     }
   }, [JSON.stringify(theme.__cssVars), mode])
 
   if (!rendererRef.current) {
-    rendererRef.current = true;
+    rendererRef.current = true
 
     if (typeof globalStyle === 'function') {
       globalStyle = globalStyle({ theme, renderer })
     }
 
-    const { html: htmlStyle = {}, body: bodyStyle = {}, ...staticStyle }: any = globalStyle;
+    const { html: htmlStyle = {}, body: bodyStyle = {}, ...staticStyle }: any = globalStyle
 
-    renderer.renderStatic({
-      // scrollbarColor: 'hsl(0, 0%, 67%) transparent',
-      ...htmlStyle
-    }, 'html');
+    renderer.renderStatic(
+      {
+        // scrollbarColor: 'hsl(0, 0%, 67%) transparent',
+        ...htmlStyle,
+      },
+      'html',
+    )
 
-    renderer.renderStatic({
-      margin: 0,
-      ...bodyStyle
-    }, 'body');
+    renderer.renderStatic(
+      {
+        margin: 0,
+        ...bodyStyle,
+      },
+      'body',
+    )
 
-    const lightName = THEME_MODE.LIGHT;
+    const lightName = THEME_MODE.LIGHT
 
-    const lightConfig = modes[lightName] || themeFromProp;
+    const lightConfig = modes[lightName] || themeFromProp
 
     const lightCss = {
       backgroundColor: lightConfig.colors?.background || '#ffffff',
       color: lightConfig.colors?.default || '#1a1a1a',
       // colorScheme: 'light'
-    };
+    }
 
-    const darkName = THEME_MODE.DARK;
+    const darkName = THEME_MODE.DARK
 
-    const darkConfig = modes[darkName] || {};
+    const darkConfig = modes[darkName] || {}
 
     const darkCss = {
       backgroundColor: darkConfig.colors?.background || '#000000',
@@ -190,34 +192,34 @@ export const SigmaUIProvider: FC<MicroUIProviderProps> = ({
       // colorScheme: 'dark'
     }
 
-    renderer.renderStatic(lightCss, `html[data-theme-mode=${lightName}]`);
-    renderer.renderStatic(darkCss, `html[data-theme-mode=${darkName}]`);
+    renderer.renderStatic(lightCss, `html[data-theme-mode=${lightName}]`)
+    renderer.renderStatic(darkCss, `html[data-theme-mode=${darkName}]`)
 
-    const staticKeys = Object.keys(staticStyle);
+    const staticKeys = Object.keys(staticStyle)
 
     if (staticKeys.length > 0) {
-      staticKeys.forEach(key => {
+      staticKeys.forEach((key) => {
         renderer.renderStatic(staticStyle[key], key)
       })
     }
 
-    renderCssVars();
+    renderCssVars()
 
     if (typeof themeRenderer === 'function') {
       // @ts-ignore
-      themeRenderer(renderer);
+      themeRenderer(renderer)
     }
   }
 
-  globalProps.changeMode = changeMode;
+  globalProps.changeMode = changeMode
 
   useEffect(() => {
-    renderCssVars();
+    renderCssVars()
   }, [JSON.stringify(theme.__cssVars)])
 
   useEffect(() => {
-    const element = document.documentElement;
-    element.setAttribute('data-mode', mode);
+    const element = document.documentElement
+    element.setAttribute('data-mode', mode)
   }, [mode])
 
   return (

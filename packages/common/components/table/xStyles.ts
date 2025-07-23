@@ -1,6 +1,6 @@
-import * as stylex from '@stylexjs/stylex';
+import * as stylex from '@stylexjs/stylex'
 
-import { colors } from '../../theme/tokens/variables.stylex';
+import { colors } from '../../theme/tokens/variables.stylex'
 
 export const tableStyles = stylex.create({
   root: {
@@ -76,9 +76,9 @@ export const tableStyles = stylex.create({
     width: '16px',
     height: '16px',
   },
-});
+})
 
-export type TableTypes = typeof tableStyles;
-export type TableKeys = keyof TableTypes;
+export type TableTypes = typeof tableStyles
+export type TableKeys = keyof TableTypes
 
 export default tableStyles

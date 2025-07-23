@@ -1,4 +1,4 @@
-import { create } from '@stylexjs/stylex';
+import { create } from '@stylexjs/stylex'
 
 export const overflow = create({
   'overflow-auto': { overflow: 'auto' },
@@ -15,5 +15,5 @@ export const overflow = create({
   'overflow-x-visible': { 'overflow-x': 'visible' },
   'overflow-y-visible': { 'overflow-y': 'visible' },
   'overflow-x-scroll': { 'overflow-x': 'scroll' },
-  'overflow-y-scroll': { 'overflow-y': 'scroll' }
-});
+  'overflow-y-scroll': { 'overflow-y': 'scroll' },
+})

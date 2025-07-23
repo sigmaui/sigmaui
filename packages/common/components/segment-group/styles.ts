@@ -1,4 +1,4 @@
-import type { IProps, StylesProperties } from './types';
+import type { IProps, StylesProperties } from './types'
 
 export const styles = ({ theme = {} }: IProps<any>) => {
   return {
@@ -9,11 +9,11 @@ export const styles = ({ theme = {} }: IProps<any>) => {
 
       '&[data-orientation=horizontal]': {
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
       },
       '&[data-orientation=vertical]': {
-        flexDirection: 'column'
-      }
+        flexDirection: 'column',
+      },
     } as StylesProperties,
     label: {
       fontSize: 14,
@@ -34,7 +34,7 @@ export const styles = ({ theme = {} }: IProps<any>) => {
       border: 'none',
       borderRadius: 6,
       cursor: 'pointer',
-      transition: 'all 0.2s ease'
+      transition: 'all 0.2s ease',
     } as StylesProperties,
     itemText: {
       pointerEvents: 'none',
@@ -46,10 +46,10 @@ export const styles = ({ theme = {} }: IProps<any>) => {
       backgroundColor: theme.colors?.base,
       bottom: 0,
       transition: 'all 0.2s ease',
-    } as StylesProperties
-  };
-};
+    } as StylesProperties,
+  }
+}
 
-export type SegmentGroupTypes = ReturnType<typeof styles>;
-export type SegmentGroupKeys = keyof SegmentGroupTypes;
-export type SegmentGroupProps = IProps<SegmentGroupTypes>;
+export type SegmentGroupTypes = ReturnType<typeof styles>
+export type SegmentGroupKeys = keyof SegmentGroupTypes
+export type SegmentGroupProps = IProps<SegmentGroupTypes>

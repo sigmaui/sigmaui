@@ -1,4 +1,4 @@
-import { IProps, StylesProperties } from './types';
+import { IProps, StylesProperties } from './types'
 
 export const styles = ({ theme = {}, size, variant }: IProps<any>) => {
   // console.log('theme', theme)
@@ -18,23 +18,23 @@ export const styles = ({ theme = {}, size, variant }: IProps<any>) => {
       variant,
 
       ':hover': {
-        backgroundColor: theme.fn?.lighten?.(theme.colors?.base, 0.1)
+        backgroundColor: theme.fn?.lighten?.(theme.colors?.base, 0.1),
       },
 
       '&[disabled]': {
-        cursor: 'not-allowed'
-      }
+        cursor: 'not-allowed',
+      },
     } as StylesProperties,
     prefix: {
-      marginRight: 6
+      marginRight: 6,
     } as StylesProperties,
     suffix: {
-      marginLeft: 6
-    } as StylesProperties
+      marginLeft: 6,
+    } as StylesProperties,
   }
 }
 
-export type ButtonTypes = ReturnType<typeof styles>;
-export type ButtonKeys = keyof ButtonTypes;
+export type ButtonTypes = ReturnType<typeof styles>
+export type ButtonKeys = keyof ButtonTypes
 
-export type ButtonProps = IProps<ButtonTypes>;
+export type ButtonProps = IProps<ButtonTypes>

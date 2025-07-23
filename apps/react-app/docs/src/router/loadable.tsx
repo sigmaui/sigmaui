@@ -1,28 +1,20 @@
 const createLoadable = (route: any = {}) => {
-  const {
-    lazy,
-    element: Element,
-    ...restRoute
-  } = route;
+  const { lazy, element: Element, ...restRoute } = route
 
   const newRoute: any = {
-    ...restRoute
+    ...restRoute,
   }
 
   if (Element) {
-    newRoute.element = <Element/>
+    newRoute.element = <Element />
   }
 
   if (lazy) {
     newRoute.lazy = async () => {
-      const { default: Component } = await lazy();
+      const { default: Component } = await lazy()
 
       return {
-        Component: (props: any) => (
-          <Component
-            {...props}
-          />
-        )
+        Component: (props: any) => <Component {...props} />,
       }
     }
   }

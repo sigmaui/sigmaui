@@ -1,3 +1,3 @@
 export const tablet = {
-  colors: {}
-};
+  colors: {},
+}

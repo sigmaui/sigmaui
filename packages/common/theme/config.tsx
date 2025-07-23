@@ -1,12 +1,12 @@
-import { type Theme } from '@microui-kit/theme';
-import themeValuePlugin from '@microui-kit/fela-plugin-theme-value';
-import { formatProperty } from '@microui-kit/create-renderer';
+import { type Theme } from '@microui-kit/theme'
+import themeValuePlugin from '@microui-kit/fela-plugin-theme-value'
+import { formatProperty } from '@microui-kit/create-renderer'
 
-import { modes } from './modes';
-import { components } from './tokens/components';
-import { colors } from './tokens/colors';
-import { sizes, fontSizes, heights, radii } from './tokens/sizes';
-import { variants } from './tokens/variants';
+import { modes } from './modes'
+import { components } from './tokens/components'
+import { colors } from './tokens/colors'
+import { sizes, fontSizes, heights, radii } from './tokens/sizes'
+import { variants } from './tokens/variants'
 
 const themeMapping: any = {
   color: (theme: any) => theme.colors,
@@ -16,23 +16,21 @@ const themeMapping: any = {
   fontWeight: (theme: any) => theme.fontWeights,
   fontFamily: (theme: any) => theme.fontFamilies,
   borderRadius: (theme: any) => theme.radii,
-  height: (theme: any) => theme.heights
+  height: (theme: any) => theme.heights,
 }
 
 export const felaRendererConfig = {
-  plugins: [
-    themeValuePlugin(themeMapping)
-  ],
+  plugins: [themeValuePlugin(themeMapping)],
   customProperties: {
-    borderWidth: formatProperty('borderWidth')
+    borderWidth: formatProperty('borderWidth'),
   },
-  clsBlackList: []
+  clsBlackList: [],
 }
 
 const theme: Theme = {
   base: {
     fontSize: 16,
-    borderRadius: 8
+    borderRadius: 8,
   },
   modes,
   components,
@@ -41,19 +39,19 @@ const theme: Theme = {
   variants,
   fontSizes,
   heights,
-  radii
+  radii,
 }
 
 export const globalStyle = ({ theme, renderer }: any) => {
-  const platform = theme?.platform;
+  const platform = theme?.platform
 
   return {
     '*, :after, :before': {
       '-webkitBoxSizing': 'border-box',
-      boxSizing: 'border-box'
+      boxSizing: 'border-box',
     },
     html: {
-      'text-size-adjust': 'none'
+      'text-size-adjust': 'none',
     },
     body: {
       fontFamily: '"SigmaUI-Sans",-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif',
@@ -61,10 +59,10 @@ export const globalStyle = ({ theme, renderer }: any) => {
       fontWeight: 400,
       // lineHeight: '1rem',
       '-webkit-tap-highlight-color': 'transparent',
-      overflowX: 'auto'
+      overflowX: 'auto',
     },
     'html:fullscreen': {
-      overflow: 'hidden'
+      overflow: 'hidden',
     },
     'html:fullscreen body': {
       position: 'absolute',
@@ -72,42 +70,42 @@ export const globalStyle = ({ theme, renderer }: any) => {
       top: 0,
       left: 0,
       right: platform?.isDesktop ? 'calc((var(--app-scrollbar-width, 0px) + 1px) * -1)' : undefined,
-      overflowX: 'auto'
+      overflowX: 'auto',
     },
     'body[data-overflow="hidden"]': {
-      width: 'calc(100% - var(--app-scrollbar-width, 0px))'
+      width: 'calc(100% - var(--app-scrollbar-width, 0px))',
     },
     'h1, h2, h3, h4, h5, h6, p, ol, ul, li': {
       margin: 0,
-      padding: 0
+      padding: 0,
     },
     a: {
       color: 'inherit',
       textDecoration: 'none',
-      cursor: 'pointer'
+      cursor: 'pointer',
     },
     'a:hover': {
-      color: theme.colors.base
+      color: theme.colors.base,
     },
     'input, textarea, button': {
-      fontFamily: 'inherit'
+      fontFamily: 'inherit',
     },
     button: {
-      color: 'inherit'
+      color: 'inherit',
     },
     '::-webkit-scrollbar': {
       backgroundColor: 'transparent',
       width: 8,
       height: 8,
-      borderRadius: 8
+      borderRadius: 8,
     },
     '::-webkit-scrollbar-thumb': {
       backgroundColor: 'rgba(255, 255, 255, 0.12)',
-      borderRadius: 8
+      borderRadius: 8,
     },
     '::-webkit-scrollbar-corner': {
-      background: 'transparent'
-    }
+      background: 'transparent',
+    },
   }
 }
 

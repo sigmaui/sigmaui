@@ -1,7 +1,5 @@
-import { Button } from '@sigmaui-kit/vue';
+import { Button } from '@sigmaui-kit/vue'
 
 export default function Demo() {
-  return (
-    <Button color="primary">Button</Button>
-  )
+  return <Button color="primary">Button</Button>
 }

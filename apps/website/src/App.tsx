@@ -1,12 +1,12 @@
-import React from 'react';
-import type { FC, ReactNode } from 'react';
-import * as stylex from '@stylexjs/stylex';
-import Button, { ButtonKeys } from '@packages/react/components/button';
-import Select, { SelectKeys } from '@packages/react/components/select';
-import { ThemeProvider } from '@packages/react/hooks/use-theme';
-import type { StylesDefinitions } from '@packages/react/hooks/use-theme';
-import { getTheme, darkTheme } from 'packages/common/theme';
-import { themeConfig } from './theme/config';
+import React from 'react'
+import type { FC, ReactNode } from 'react'
+import * as stylex from '@stylexjs/stylex'
+import Button, { ButtonKeys } from '@packages/react/components/button'
+import Select, { SelectKeys } from '@packages/react/components/select'
+import { ThemeProvider } from '@packages/react/hooks/use-theme'
+import type { StylesDefinitions } from '@packages/react/hooks/use-theme'
+import { getTheme, darkTheme } from 'packages/common/theme'
+import { themeConfig } from './theme/config'
 
 interface AppProps {
   children: ReactNode
@@ -15,23 +15,21 @@ interface AppProps {
 const buttonStyles = stylex.create({
   root: {
     // position: 'fixed',
-    backgroundColor: 'pink'
-  }
-} as Partial<Pick<StylesDefinitions, ButtonKeys>>);
+    backgroundColor: 'pink',
+  },
+} as Partial<Pick<StylesDefinitions, ButtonKeys>>)
 
 const selectStyles = stylex.create({
   root: {
-    paddingInline: '10px'
+    paddingInline: '10px',
   },
   label: {
-    color: 'pink'
-  }
-} as Partial<Pick<StylesDefinitions, SelectKeys>>);
+    color: 'pink',
+  },
+} as Partial<Pick<StylesDefinitions, SelectKeys>>)
 
-const App: FC<AppProps> = ({
-  children
-}) => {
-  const { theme, themeTokens } = getTheme();
+const App: FC<AppProps> = ({ children }) => {
+  const { theme, themeTokens } = getTheme()
 
   console.log('theme', theme)
 
@@ -42,14 +40,12 @@ const App: FC<AppProps> = ({
       themeConfig={{
         globalProps: {
           mode: 'dark',
-          platform: 'desktop'
+          platform: 'desktop',
         },
-        ...themeConfig
+        ...themeConfig,
       }}
     >
-      <Button>
-        Button default
-      </Button>
+      <Button>Button default</Button>
       <Button
         color="primary"
         size="lg"
@@ -62,9 +58,9 @@ const App: FC<AppProps> = ({
         theme={darkTheme}
         themeConfig={{
           globalProps: {
-            platform: 'mobile'
+            platform: 'mobile',
           },
-          test: '123'
+          test: '123',
         }}
       >
         <Button
@@ -79,13 +75,13 @@ const App: FC<AppProps> = ({
             items: [
               {
                 label: 'React',
-                value: 'react'
+                value: 'react',
               },
               {
                 label: 'Vue',
-                value: 'vue'
-              }
-            ]
+                value: 'vue',
+              },
+            ],
           }}
           styles={selectStyles}
         >

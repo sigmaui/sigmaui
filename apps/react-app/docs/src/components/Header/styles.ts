@@ -1,4 +1,4 @@
-import { IProps } from './types';
+import { IProps } from './types'
 
 export const styles = ({ theme = {} }: IProps<any>) => {
   // console.log('theme', theme)
@@ -8,10 +8,10 @@ export const styles = ({ theme = {} }: IProps<any>) => {
     top: {
       display: 'flex',
       alignItems: 'center',
-      height: 56
+      height: 56,
     },
     left: {
-      display: 'flex'
+      display: 'flex',
     },
     right: {},
     logo: {
@@ -19,13 +19,13 @@ export const styles = ({ theme = {} }: IProps<any>) => {
       marginRight: 36,
 
       '& img': {
-        height: 36
-      }
-    }
+        height: 36,
+      },
+    },
   }
 }
 
-export type HeaderTypes = ReturnType<typeof styles>;
-export type HeaderKeys = keyof HeaderTypes;
+export type HeaderTypes = ReturnType<typeof styles>
+export type HeaderKeys = keyof HeaderTypes
 
-export type HeaderProps = IProps<HeaderTypes>;
+export type HeaderProps = IProps<HeaderTypes>

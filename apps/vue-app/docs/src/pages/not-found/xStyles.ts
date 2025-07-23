@@ -1,5 +1,5 @@
-import * as stylex from '@stylexjs/stylex';
-import { colors } from '../../../../../../packages/common/theme/tokens/variables.stylex.ts';
+import * as stylex from '@stylexjs/stylex'
+import { colors } from '../../../../../../packages/common/theme/tokens/variables.stylex.ts'
 
 export const notFoundStyles = stylex.create({
   root: {
@@ -8,11 +8,11 @@ export const notFoundStyles = stylex.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: '2rem',
-    backgroundColor: colors.background
+    backgroundColor: colors.background,
   },
   container: {
     textAlign: 'center',
-    maxWidth: '600px'
+    maxWidth: '600px',
   },
   errorCode: {
     fontSize: '8rem',
@@ -20,26 +20,26 @@ export const notFoundStyles = stylex.create({
     color: '#42b883',
     margin: '0',
     lineHeight: 1,
-    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.1)'
+    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.1)',
   },
   title: {
     fontSize: '2.5rem',
     fontWeight: 700,
     color: colors.text,
     margin: '1rem 0',
-    lineHeight: 1.2
+    lineHeight: 1.2,
   },
   description: {
     fontSize: '1.2rem',
     color: '#666',
     margin: '1rem 0 3rem 0',
-    lineHeight: 1.5
+    lineHeight: 1.5,
   },
   actions: {
     display: 'flex',
     gap: '1rem',
     justifyContent: 'center',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
   },
   homeLink: {
     display: 'inline-block',
@@ -54,8 +54,8 @@ export const notFoundStyles = stylex.create({
     ':hover': {
       backgroundColor: '#369870',
       transform: 'translateY(-1px)',
-      boxShadow: '0 4px 12px rgba(66, 184, 131, 0.3)'
-    }
+      boxShadow: '0 4px 12px rgba(66, 184, 131, 0.3)',
+    },
   },
   componentsLink: {
     display: 'inline-block',
@@ -72,12 +72,12 @@ export const notFoundStyles = stylex.create({
       backgroundColor: '#42b883',
       color: 'white',
       transform: 'translateY(-1px)',
-      boxShadow: '0 4px 12px rgba(66, 184, 131, 0.3)'
-    }
-  }
-});
+      boxShadow: '0 4px 12px rgba(66, 184, 131, 0.3)',
+    },
+  },
+})
 
-export type NotFoundTypes = typeof notFoundStyles;
-export type NotFoundKeys = keyof NotFoundTypes;
+export type NotFoundTypes = typeof notFoundStyles
+export type NotFoundKeys = keyof NotFoundTypes
 
-export default notFoundStyles; 
+export default notFoundStyles

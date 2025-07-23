@@ -1,28 +1,28 @@
-import { Outlet } from 'react-router';
-import { MDXProvider } from '@mdx-js/react';
-import { createRenderer } from '@microui-kit/create-renderer';
-import { MicroUIProvider, THEME_MODE } from '@microui-kit/provider';
-import { useRouter } from '@microui-kit/use-router';
-import Layout from '@sigmaui-kit/layout';
-import themeConfig, { globalStyle, felaRendererConfig } from 'packages/common/theme/config';
+import { Outlet } from 'react-router'
+import { MDXProvider } from '@mdx-js/react'
+import { createRenderer } from '@microui-kit/create-renderer'
+import { MicroUIProvider, THEME_MODE } from '@microui-kit/provider'
+import { useRouter } from '@microui-kit/use-router'
+import Layout from '@sigmaui-kit/layout'
+import themeConfig, { globalStyle, felaRendererConfig } from 'packages/common/theme/config'
 
-import { MDXComponents } from './components/mdx';
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
+import { MDXComponents } from './components/mdx'
+import Header from './components/Header'
+import Sidebar from './components/Sidebar'
 
-const renderer = createRenderer(felaRendererConfig);
+const renderer = createRenderer(felaRendererConfig)
 
 console.log('renderer', renderer)
 
 const App = ({}) => {
-  const router = useRouter();
-  const { pathname } = router;
+  const router = useRouter()
+  const { pathname } = router
 
   const theme = {
-    ...themeConfig
+    ...themeConfig,
   }
 
-  const isSidebar = pathname.startsWith('/docs');
+  const isSidebar = pathname.startsWith('/docs')
 
   console.log('theme', theme)
 
@@ -33,28 +33,22 @@ const App = ({}) => {
       themeMode={THEME_MODE.LIGHT}
       globalStyle={globalStyle}
     >
-      <MDXProvider
-        components={MDXComponents}
-      >
+      <MDXProvider components={MDXComponents}>
         <Layout
           _style={{
             wrapper: {
               width: 1200,
-              marginInline: 'auto'
+              marginInline: 'auto',
             },
             main: {
-              marginTop: 24
-            }
+              marginTop: 24,
+            },
           }}
-          header={(
-            <Header/>
-          )}
+          header={<Header />}
           isSidebar={isSidebar}
-          sidebar={isSidebar && (
-            <Sidebar/>
-          )}
+          sidebar={isSidebar && <Sidebar />}
         >
-          <Outlet/>
+          <Outlet />
         </Layout>
       </MDXProvider>
     </MicroUIProvider>

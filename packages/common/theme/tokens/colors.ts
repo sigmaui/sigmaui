@@ -6,5 +6,5 @@ export const colors = {
   error: '#FF3B30',
   warning: '#FF9500',
   success: '#34C759',
-  border: '#ddd'
-};
+  border: '#ddd',
+}

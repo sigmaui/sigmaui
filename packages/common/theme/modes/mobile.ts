@@ -1,8 +1,8 @@
 export const mobile = {
   base: {
-    fontSize: 12
+    fontSize: 12,
   },
   colors: {
-    primary: 'blue'
-  }
-};
+    primary: 'blue',
+  },
+}

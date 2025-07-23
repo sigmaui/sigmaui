@@ -1,7 +1,7 @@
-import type { StylesObject } from 'packages/common/types';
+import type { StylesObject } from 'packages/common/types'
 
 export const inputVariants = {
-  Input: {} as StylesObject
+  Input: {} as StylesObject,
 }
 
 export const buttonVariants = {
@@ -13,8 +13,8 @@ export const buttonVariants = {
 
       '&:hover': {
         backgroundColor: 'transparent',
-        borderColor: 'base'
-      }
+        borderColor: 'base',
+      },
     },
     outlined: {
       borderStyle: 'solid',
@@ -23,8 +23,8 @@ export const buttonVariants = {
 
       '&:hover': {
         backgroundColor: 'transparent',
-        borderColor: 'base'
-      }
+        borderColor: 'base',
+      },
     },
     dashed: {
       borderStyle: 'dashed',
@@ -33,26 +33,26 @@ export const buttonVariants = {
 
       '&:hover': {
         backgroundColor: 'transparent',
-        borderColor: 'base'
-      }
+        borderColor: 'base',
+      },
     },
     filled: {},
     text: {
       backgroundColor: 'transparent',
 
       '&:hover': {
-        backgroundColor: '#f1f1f1'
-      }
+        backgroundColor: '#f1f1f1',
+      },
     },
     link: {
       backgroundColor: 'transparent',
 
       '&:hover': {
         backgroundColor: 'transparent',
-        color: 'base'
-      }
-    }
-  } as StylesObject
+        color: 'base',
+      },
+    },
+  } as StylesObject,
 }
 
 export const variants = {
@@ -63,5 +63,5 @@ export const variants = {
   text: {},
   link: {},
   ...inputVariants,
-  ...buttonVariants
+  ...buttonVariants,
 }

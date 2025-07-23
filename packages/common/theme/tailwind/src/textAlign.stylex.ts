@@ -1,4 +1,4 @@
-import { create } from '@stylexjs/stylex';
+import { create } from '@stylexjs/stylex'
 
 export const textAlign = create({
   'text-left': { 'text-align': 'left' },
@@ -6,5 +6,5 @@ export const textAlign = create({
   'text-right': { 'text-align': 'right' },
   'text-justify': { 'text-align': 'justify' },
   'text-start': { 'text-align': 'start' },
-  'text-end': { 'text-align': 'end' }
-});
+  'text-end': { 'text-align': 'end' },
+})

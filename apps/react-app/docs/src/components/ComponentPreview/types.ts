@@ -1,9 +1,9 @@
-import type { FCWithStylesProps } from 'packages/common/types';
+import type { FCWithStylesProps } from 'packages/common/types'
 
 interface IData {
   code: {
-    react: string;
-    vue: string;
+    react: string
+    vue: string
   }
 }
 

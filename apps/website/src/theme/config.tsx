@@ -1,7 +1,7 @@
-import components from './tokens/components';
+import components from './tokens/components'
 
 export const themeConfig = {
-  components
+  components,
 }
 
 export default themeConfig

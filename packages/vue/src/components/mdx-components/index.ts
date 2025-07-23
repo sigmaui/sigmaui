@@ -1,18 +1,18 @@
-import { defineComponent, h } from 'vue';
-import Box from '../box/src/index.vue';
-import Button from '../button/src/index.vue';
-import Select from '../select/src/index.vue';
-import Table from '../table/src/index.vue';
-import SegmentGroup from '../segment-group/src/index.vue';
-import Form from '../form/src/index.vue';
+import { defineComponent, h } from 'vue'
+import Box from '../box/src/index.vue'
+import Button from '../button/src/index.vue'
+import Select from '../select/src/index.vue'
+import Table from '../table/src/index.vue'
+import SegmentGroup from '../segment-group/src/index.vue'
+import Form from '../form/src/index.vue'
 
 // Helper function to create styled components using Box
 const createComponent = (as: keyof HTMLElementTagNameMap, className: string) =>
   defineComponent({
     render() {
-      return h(Box, { as, class: className }, this.$slots.default?.());
-    }
-  });
+      return h(Box, { as, class: className }, this.$slots.default?.())
+    },
+  })
 
 export const MDXComponents = {
   // Basic HTML elements with styling using Box component
@@ -31,12 +31,16 @@ export const MDXComponents = {
   blockquote: createComponent('blockquote', 'border-l-4 border-blue-500 pl-4 italic text-gray-600 my-4'),
   a: defineComponent({
     render() {
-      return h(Box, {
-        as: 'a',
-        class: 'text-blue-600 hover:text-blue-800 underline',
-        href: '#'
-      }, this.$slots.default?.());
-    }
+      return h(
+        Box,
+        {
+          as: 'a',
+          class: 'text-blue-600 hover:text-blue-800 underline',
+          href: '#',
+        },
+        this.$slots.default?.(),
+      )
+    },
   }),
   strong: createComponent('strong', 'font-semibold text-gray-900'),
   em: createComponent('em', 'italic text-gray-700'),
@@ -47,5 +51,5 @@ export const MDXComponents = {
   Select,
   Table,
   SegmentGroup,
-  Form
-};
+  Form,
+}

@@ -1,14 +1,14 @@
-import { IProps } from './types';
+import { IProps } from './types'
 
 export const styles = ({ theme = {} }: IProps<any>) => {
   // console.log('theme', theme)
 
   return {
-    wrapper: {}
+    wrapper: {},
   }
 }
 
-export type SidebarTypes = ReturnType<typeof styles>;
-export type SidebarKeys = keyof SidebarTypes;
+export type SidebarTypes = ReturnType<typeof styles>
+export type SidebarKeys = keyof SidebarTypes
 
-export type SidebarProps = IProps<SidebarTypes>;
+export type SidebarProps = IProps<SidebarTypes>

@@ -3,6 +3,6 @@ export default {
   path: '/docs/introduction',
   lazy: () => import('./index'),
   routeProps: {
-    isSidebar: true
-  }
+    isSidebar: true,
+  },
 }

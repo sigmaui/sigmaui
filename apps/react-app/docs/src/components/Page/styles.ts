@@ -1,4 +1,4 @@
-import { IProps } from './types';
+import { IProps } from './types'
 
 export const styles = ({ theme = {} }: IProps<any>) => {
   // console.log('theme', theme)
@@ -6,13 +6,13 @@ export const styles = ({ theme = {} }: IProps<any>) => {
   return {
     wrapper: {
       '& > *:not(:last-child)': {
-        marginBottom: 12
-      }
-    }
+        marginBottom: 12,
+      },
+    },
   }
 }
 
-export type PageTypes = ReturnType<typeof styles>;
-export type PageKeys = keyof PageTypes;
+export type PageTypes = ReturnType<typeof styles>
+export type PageKeys = keyof PageTypes
 
-export type PageProps = IProps<PageTypes>;
+export type PageProps = IProps<PageTypes>

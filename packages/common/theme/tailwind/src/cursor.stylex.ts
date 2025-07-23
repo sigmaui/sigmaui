@@ -1,4 +1,4 @@
-import { create } from '@stylexjs/stylex';
+import { create } from '@stylexjs/stylex'
 
 export const cursor = create({
   'cursor-auto': { cursor: 'auto' },
@@ -34,5 +34,5 @@ export const cursor = create({
   'cursor-nesw-resize': { cursor: 'nesw-resize' },
   'cursor-nwse-resize': { cursor: 'nwse-resize' },
   'cursor-zoom-in': { cursor: 'zoom-in' },
-  'cursor-zoom-out': { cursor: 'zoom-out' }
-});
+  'cursor-zoom-out': { cursor: 'zoom-out' },
+})

@@ -1,9 +1,9 @@
-import Box from '@microui-kit/box';
-import Button from '@sigmaui-kit/button';
-import Input from '@sigmaui-kit/input';
-import Text from '@sigmaui-kit/text';
-import Page from '@docs/components/Page';
-import SizesMdx from '@docs/content/docs/theming/sizes.mdx';
+import Box from '@microui-kit/box'
+import Button from '@sigmaui-kit/button'
+import Input from '@sigmaui-kit/input'
+import Text from '@sigmaui-kit/text'
+import Page from '@docs/components/Page'
+import SizesMdx from '@docs/content/docs/theming/sizes.mdx'
 
 const SizesPage = ({}) => {
   return (
@@ -11,7 +11,7 @@ const SizesPage = ({}) => {
       <SizesMdx/>
       <Box css={{ display: 'flex', gap: 12, alignItems: 'center' }}>
         <Button size="xs">xs</Button>
-        <Button size="sm">sm</Button>
+        <Button locking size="sm">sm</Button>
         <Button
           loading
           disabled
@@ -26,8 +26,14 @@ const SizesPage = ({}) => {
         </Button>
       </Box>
       <Box css={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-        <Input size="xs" placeholder="xs"/>
-        <Input size="sm" placeholder="sm"/>
+        <Input
+          size="xs"
+          placeholder="xs"
+        />
+        <Input
+          size="sm"
+          placeholder="sm"
+        />
         <Input
           disabled
           size="lg"
@@ -35,7 +41,7 @@ const SizesPage = ({}) => {
           _style={{
             wrapper: {
               // fontSize: 36
-            }
+            },
           }}
         />
       </Box>
@@ -47,7 +53,7 @@ const SizesPage = ({}) => {
           _style={{
             wrapper: {
               // fontSize: 36
-            }
+            },
           }}
         >
           lg

@@ -1,4 +1,4 @@
-import type { StylesObject } from 'packages/common/types';
+import type { StylesObject } from 'packages/common/types'
 
 export const fontSizes = {
   xs: 12,
@@ -6,7 +6,7 @@ export const fontSizes = {
   md: 14,
   lg: 16,
   xl: 18,
-  '2xl': 20
+  '2xl': 20,
 }
 
 export const heights = {
@@ -15,7 +15,7 @@ export const heights = {
   md: 40,
   lg: 44,
   xl: 48,
-  '2xl': 56
+  '2xl': 56,
 }
 
 export const radii = {
@@ -24,7 +24,7 @@ export const radii = {
   md: 8,
   lg: 10,
   xl: 12,
-  '2xl': 16
+  '2xl': 16,
 }
 
 export const defaultSizes = {
@@ -34,29 +34,29 @@ export const defaultSizes = {
   md: {},
   lg: {},
   xl: {},
-  '2xl': {}
+  '2xl': {},
 }
 
 export const textSizes = {
   Text: {
     _: {},
     xs: {
-      fontSize: fontSizes.xs
+      fontSize: fontSizes.xs,
     },
     sm: {
-      fontSize: fontSizes.sm
+      fontSize: fontSizes.sm,
     },
     md: {
-      fontSize: fontSizes.md
+      fontSize: fontSizes.md,
     },
     lg: {
-      fontSize: fontSizes.lg
+      fontSize: fontSizes.lg,
     },
     xl: {
-      fontSize: fontSizes.xl
+      fontSize: fontSizes.xl,
     },
-    '2xl': {}
-  } as StylesObject
+    '2xl': {},
+  } as StylesObject,
 }
 
 export const inputSizes = {
@@ -66,34 +66,34 @@ export const inputSizes = {
       fontSize: fontSizes.xs,
       height: heights.xs,
       borderRadius: radii.xs,
-      paddingInline: 6
+      paddingInline: 6,
     },
     sm: {
       fontSize: fontSizes.sm,
       height: heights.sm,
       borderRadius: radii.sm,
-      paddingInline: 8
+      paddingInline: 8,
     },
     md: {
       fontSize: fontSizes.md,
       height: heights.md,
       borderRadius: radii.md,
-      paddingInline: 12
+      paddingInline: 12,
     },
     lg: {
       fontSize: fontSizes.lg,
       height: heights.lg,
       borderRadius: radii.lg,
-      paddingInline: 16
+      paddingInline: 16,
     },
     xl: {
       fontSize: fontSizes.xl,
       height: heights.xl,
       borderRadius: radii.xl,
-      paddingInline: 18
+      paddingInline: 18,
     },
-    '2xl': {}
-  } as StylesObject
+    '2xl': {},
+  } as StylesObject,
 }
 
 export const buttonSizes = {
@@ -102,30 +102,30 @@ export const buttonSizes = {
     xs: {
       fontSize: fontSizes.xs,
       height: heights.xs,
-      borderRadius: radii.xs
+      borderRadius: radii.xs,
     },
     sm: {
       fontSize: fontSizes.sm,
       height: heights.sm,
-      borderRadius: radii.sm
+      borderRadius: radii.sm,
     },
     md: {
       fontSize: fontSizes.md,
       height: heights.md,
-      borderRadius: radii.md
+      borderRadius: radii.md,
     },
     lg: {
       fontSize: fontSizes.lg,
       height: heights.lg,
-      borderRadius: radii.lg
+      borderRadius: radii.lg,
     },
     xl: {
       fontSize: fontSizes.xl,
       height: heights.xl,
-      borderRadius: radii.xl
+      borderRadius: radii.xl,
     },
-    '2xl': {}
-  } as StylesObject
+    '2xl': {},
+  } as StylesObject,
 }
 
 export const switchSizes = {
@@ -136,13 +136,13 @@ export const switchSizes = {
     md: {},
     lg: {},
     xl: {},
-    '2xl': {}
-  } as StylesObject
+    '2xl': {},
+  } as StylesObject,
 }
 
 export const sizes = {
   ...defaultSizes,
   ...textSizes,
   ...inputSizes,
-  ...buttonSizes
-};
+  ...buttonSizes,
+}

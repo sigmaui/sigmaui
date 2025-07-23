@@ -1,12 +1,12 @@
-import { create } from '@stylexjs/stylex';
+import { create } from '@stylexjs/stylex'
 
 export const display = create({
-  'block': { display: 'block' },
+  block: { display: 'block' },
   'inline-block': { display: 'inline-block' },
-  'inline': { display: 'inline' },
-  'flex': { display: 'flex' },
+  inline: { display: 'inline' },
+  flex: { display: 'flex' },
   'inline-flex': { display: 'inline-flex' },
-  'table': { display: 'table' },
+  table: { display: 'table' },
   'inline-table': { display: 'inline-table' },
   'table-caption': { display: 'table-caption' },
   'table-cell': { display: 'table-cell' },
@@ -17,9 +17,9 @@ export const display = create({
   'table-row-group': { display: 'table-row-group' },
   'table-row': { display: 'table-row' },
   'flow-root': { display: 'flow-root' },
-  'grid': { display: 'grid' },
+  grid: { display: 'grid' },
   'inline-grid': { display: 'inline-grid' },
-  'contents': { display: 'contents' },
+  contents: { display: 'contents' },
   'list-item': { display: 'list-item' },
-  'hidden': { display: 'none' }
-});
+  hidden: { display: 'none' },
+})

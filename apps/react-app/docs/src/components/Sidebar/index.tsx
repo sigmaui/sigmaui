@@ -1,26 +1,20 @@
-import React from 'react';
-import type { FC } from 'react';
-import classNames from 'classnames';
-import { withStyles } from '@microui-kit/with-styles';
-import { useRouter } from '@microui-kit/use-router';
-import Menu from '@sigmaui-kit/menu';
+import React from 'react'
+import type { FC } from 'react'
+import classNames from 'classnames'
+import { withStyles } from '@microui-kit/with-styles'
+import { useRouter } from '@microui-kit/use-router'
+import Menu from '@sigmaui-kit/menu'
 
-import { routeMap } from '@docs/router/routeMap';
+import { routeMap } from '@docs/router/routeMap'
 
-import { styles, type SidebarProps } from './styles';
+import { styles, type SidebarProps } from './styles'
 
-const Sidebar: FC<SidebarProps> = ({
-  prefixCls = 'sm-sidebar',
-  className,
-  classes
-}) => {
-  const router = useRouter();
-  const { pathname } = router;
+const Sidebar: FC<SidebarProps> = ({ prefixCls = 'sm-sidebar', className, classes }) => {
+  const router = useRouter()
+  const { pathname } = router
 
   return (
-    <div
-      className={classNames(prefixCls, className, classes?.wrapper)}
-    >
+    <div className={classNames(prefixCls, className, classes?.wrapper)}>
       <Menu
         orientation="vertical"
         options={[
@@ -29,54 +23,54 @@ const Sidebar: FC<SidebarProps> = ({
             options: [
               {
                 label: 'Introduction',
-                value: routeMap.introductionPath
+                value: routeMap.introductionPath,
               },
               {
                 label: 'Installation',
-                value: routeMap.installationPath
-              }
-            ]
+                value: routeMap.installationPath,
+              },
+            ],
           },
           {
             label: 'Theming',
             options: [
               {
                 label: 'Sizes',
-                value: routeMap.theming.sizes
+                value: routeMap.theming.sizes,
               },
               {
                 label: 'Variants',
-                value: routeMap.theming.variants
-              }
-            ]
+                value: routeMap.theming.variants,
+              },
+            ],
           },
           {
             label: 'Components',
             options: [
               {
                 label: 'Box',
-                value: routeMap.component.box
+                value: routeMap.component.box,
               },
               {
                 label: 'Button',
-                value: routeMap.component.button
+                value: routeMap.component.button,
               },
               {
                 label: 'Input',
-                value: routeMap.component.input
+                value: routeMap.component.input,
               },
               {
                 label: 'Text',
-                value: routeMap.component.text
-              }
-            ]
-          }
+                value: routeMap.component.text,
+              },
+            ],
+          },
         ]}
       />
     </div>
   )
 }
 
-Sidebar.displayName = 'Sidebar';
+Sidebar.displayName = 'Sidebar'
 
 export default withStyles<SidebarProps>(styles)(Sidebar)

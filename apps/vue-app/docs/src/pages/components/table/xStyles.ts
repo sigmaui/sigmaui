@@ -1,21 +1,21 @@
-import * as stylex from '@stylexjs/stylex';
-import { colors } from '../../../../../../../packages/common/theme/tokens/variables.stylex.ts';
+import * as stylex from '@stylexjs/stylex'
+import { colors } from '../../../../../../../packages/common/theme/tokens/variables.stylex.ts'
 
 export const tablePageStyles = stylex.create({
   root: {
-    padding: '2rem'
+    padding: '2rem',
   },
   demoSection: {
     margin: '2rem 0',
     padding: '1rem',
     border: '1px solid #ddd',
-    borderRadius: '8px'
+    borderRadius: '8px',
   },
   demoTitle: {
-    marginBottom: '1rem'
+    marginBottom: '1rem',
   },
   nav: {
-    marginTop: '2rem'
+    marginTop: '2rem',
   },
   navLink: {
     color: '#42b883',
@@ -27,12 +27,12 @@ export const tablePageStyles = stylex.create({
 
     ':hover': {
       backgroundColor: '#42b883',
-      color: 'white'
-    }
-  }
-});
+      color: 'white',
+    },
+  },
+})
 
-export type TablePageTypes = typeof tablePageStyles;
-export type TablePageKeys = keyof TablePageTypes;
+export type TablePageTypes = typeof tablePageStyles
+export type TablePageKeys = keyof TablePageTypes
 
-export default tablePageStyles;
+export default tablePageStyles

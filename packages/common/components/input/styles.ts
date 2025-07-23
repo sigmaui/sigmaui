@@ -1,4 +1,4 @@
-import { IProps, StylesProperties } from './types';
+import { IProps, StylesProperties } from './types'
 
 export const styles = ({ theme = {}, size, variant }: IProps<any>) => {
   // console.log('theme', theme)
@@ -14,13 +14,13 @@ export const styles = ({ theme = {}, size, variant }: IProps<any>) => {
       variant,
 
       '&[disabled]': {
-        cursor: 'not-allowed'
-      }
-    } as StylesProperties
+        cursor: 'not-allowed',
+      },
+    } as StylesProperties,
   }
 }
 
-export type InputTypes = ReturnType<typeof styles>;
-export type InputKeys = keyof InputTypes;
+export type InputTypes = ReturnType<typeof styles>
+export type InputKeys = keyof InputTypes
 
-export type InputProps = IProps<InputTypes>;
+export type InputProps = IProps<InputTypes>

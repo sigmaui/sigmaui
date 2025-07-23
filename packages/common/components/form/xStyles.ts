@@ -1,24 +1,24 @@
-import * as stylex from '@stylexjs/stylex';
+import * as stylex from '@stylexjs/stylex'
 
-import { colors } from '../../theme/tokens/variables.stylex';
+import { colors } from '../../theme/tokens/variables.stylex'
 
 export const formStyles = stylex.create({
   root: {
     display: 'flex',
     flexDirection: 'column',
     gap: '16px',
-    width: '100%'
+    width: '100%',
   },
   field: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '8px'
+    gap: '8px',
   },
   label: {
     fontSize: '14px',
     fontWeight: '500',
     color: colors.text,
-    cursor: 'pointer'
+    cursor: 'pointer',
   },
   input: {
     padding: '8px 12px',
@@ -31,13 +31,13 @@ export const formStyles = stylex.create({
     transition: 'border-color 0.2s ease',
     ':focus': {
       borderColor: colors.primary,
-      boxShadow: `0 0 0 2px ${colors.primary}20`
-    }
+      boxShadow: `0 0 0 2px ${colors.primary}20`,
+    },
   },
   error: {
     fontSize: '12px',
     color: colors.error,
-    marginTop: '4px'
+    marginTop: '4px',
   },
   submit: {
     padding: '10px 16px',
@@ -50,17 +50,17 @@ export const formStyles = stylex.create({
     cursor: 'pointer',
     transition: 'background-color 0.2s ease',
     ':hover': {
-      backgroundColor: '#E67300'
+      backgroundColor: '#E67300',
     },
     ':disabled': {
       backgroundColor: '#E5E7EB',
       color: '#9CA3AF',
-      cursor: 'not-allowed'
-    }
-  }
-});
+      cursor: 'not-allowed',
+    },
+  },
+})
 
-export type FormTypes = typeof formStyles;
-export type FormKeys = keyof FormTypes;
+export type FormTypes = typeof formStyles
+export type FormKeys = keyof FormTypes
 
 export default formStyles

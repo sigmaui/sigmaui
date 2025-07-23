@@ -1,18 +1,18 @@
-import React from 'react';
-import type { FC } from 'react';
-import classNames from 'classnames';
-import { withStyles } from '@microui-kit/with-styles';
+import React from 'react'
+import type { FC } from 'react'
+import classNames from 'classnames'
+import { withStyles } from '@microui-kit/with-styles'
 
-import CodeDemo from '../CodeDemo';
-import CodeHighlightTabs from '../CodeHighlightTabs';
+import CodeDemo from '../CodeDemo'
+import CodeHighlightTabs from '../CodeHighlightTabs'
 
-import { styles, type ComponentPreviewProps } from './styles';
+import { styles, type ComponentPreviewProps } from './styles'
 
 const ComponentPreview: FC<ComponentPreviewProps> = ({
   prefixCls = 'sm-component-preview',
   className,
   classes,
-  data
+  data,
 }) => {
   return (
     <div className={classNames(prefixCls, className, classes?.wrapper)}>
@@ -20,20 +20,20 @@ const ComponentPreview: FC<ComponentPreviewProps> = ({
         data={data}
         _style={{
           wrapper: {
-            padding: 12
-          }
+            padding: 12,
+          },
         }}
       />
       <CodeHighlightTabs
         data={data}
         _style={{
-          wrapper: {}
+          wrapper: {},
         }}
       />
     </div>
   )
 }
 
-ComponentPreview.displayName = 'ComponentPreview';
+ComponentPreview.displayName = 'ComponentPreview'
 
 export default withStyles<ComponentPreviewProps>(styles)(ComponentPreview)

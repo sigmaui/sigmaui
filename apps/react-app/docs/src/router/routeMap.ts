@@ -1,5 +1,5 @@
-const componentPath = '/docs/components';
-const themingPath = '/docs/theming';
+const componentPath = '/docs/components'
+const themingPath = '/docs/theming'
 
 export const routeMap = {
   playgroundPath: '/playground',
@@ -15,11 +15,11 @@ export const routeMap = {
     box: `${componentPath}/box`,
     button: `${componentPath}/button`,
     input: `${componentPath}/input`,
-    text: `${componentPath}/text`
+    text: `${componentPath}/text`,
   },
   themingPath,
   theming: {
     sizes: `${themingPath}/sizes`,
-    variants: `${themingPath}/variants`
-  }
+    variants: `${themingPath}/variants`,
+  },
 }

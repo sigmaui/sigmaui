@@ -1,25 +1,25 @@
-import { defineConfig } from 'vite';
-import path from 'path';
+import { defineConfig } from 'vite'
+import path from 'path'
 // @ts-ignore
-import stylexPlugin from 'unplugin-stylex/vite';
+import stylexPlugin from 'unplugin-stylex/vite'
 
 export default defineConfig(({ mode }) => {
   console.log('mode', mode)
-  const isDev = mode === 'development';
+  const isDev = mode === 'development'
 
   return {
     base: './',
     publicDir: 'public',
     resolve: {
       alias: {
-        'src': path.resolve(__dirname, './src'),
-        'packages': path.resolve(__dirname, '../../packages'),
+        src: path.resolve(__dirname, './src'),
+        packages: path.resolve(__dirname, '../../packages'),
         '@packages/common/theme/types': path.resolve(__dirname, '../../packages/common/theme/typesStylex'),
         '@packages/react/hooks/with-stylex': path.resolve(__dirname, '../../packages/react/src/hooks/with-stylex/src'),
         '@packages/react/hooks/use-theme': path.resolve(__dirname, '../../packages/react/src/hooks/use-theme/src'),
         '@packages/react/components/select': path.resolve(__dirname, '../../packages/react/src/components/select/src'),
         '@packages/react/components/button': path.resolve(__dirname, '../../packages/react/src/components/button/src'),
-      }
+      },
     },
     build: {
       minify: true,
@@ -30,12 +30,12 @@ export default defineConfig(({ mode }) => {
             react: ['react'],
             'react-dom': ['react-dom'],
             // 'react-router': ['react-router', 'react-router-dom']
-          }
-        }
-      }
+          },
+        },
+      },
     },
     esbuild: {
-      pure: ['console.log', 'console.warn']
+      pure: ['console.log', 'console.warn'],
     },
     plugins: [
       stylexPlugin({
@@ -45,9 +45,9 @@ export default defineConfig(({ mode }) => {
           dev: false,
           // dev: isDev,
           runtimeInjection: isDev,
-          useCSSLayers: true
-        }
-      })
-    ]
+          useCSSLayers: true,
+        },
+      }),
+    ],
   }
 })

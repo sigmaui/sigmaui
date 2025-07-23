@@ -1,6 +1,6 @@
-import { create } from '@stylexjs/stylex';
+import { create } from '@stylexjs/stylex'
 
 export const textOverflow = create({
   'text-ellipsis': { 'text-overflow': 'ellipsis' },
-  'text-clip': { 'text-overflow': 'clip' }
-});
+  'text-clip': { 'text-overflow': 'clip' },
+})

@@ -1,4 +1,4 @@
-import { create } from '@stylexjs/stylex';
+import { create } from '@stylexjs/stylex'
 
 export const backgroundRepeat = create({
   'bg-repeat': { 'background-repeat': 'repeat' },
@@ -6,5 +6,5 @@ export const backgroundRepeat = create({
   'bg-repeat-x': { 'background-repeat': 'repeat-x' },
   'bg-repeat-y': { 'background-repeat': 'repeat-y' },
   'bg-repeat-round': { 'background-repeat': 'round' },
-  'bg-repeat-space': { 'background-repeat': 'space' }
-});
+  'bg-repeat-space': { 'background-repeat': 'space' },
+})

@@ -1,82 +1,79 @@
 // import { useStyleX } from '@sigmaui-kit/use-stylex';
-import { useStyleX } from '@packages/common/hooks/use-stylex';
-import { useTheme, type ThemeContextProps } from '@sigmaui-kit/v-use-theme';
+import { useStyleX } from '@packages/common/hooks/use-stylex'
+import { useTheme, type ThemeContextProps } from '@sigmaui-kit/v-use-theme'
 // import { useTheme, type ThemeContextProps } from '@packages/vue/hooks/use-theme';
-import type { Theme } from '@stylexjs/stylex';
+import type { Theme } from '@stylexjs/stylex'
 
-import { position } from '@sigmaui-kit/theme-tailwind/position.stylex';
-import { display } from '@sigmaui-kit/theme-tailwind/display.stylex';
-import { cursor } from '@sigmaui-kit/theme-tailwind/cursor.stylex';
+import { position } from '@sigmaui-kit/theme-tailwind/position.stylex'
+import { display } from '@sigmaui-kit/theme-tailwind/display.stylex'
+import { cursor } from '@sigmaui-kit/theme-tailwind/cursor.stylex'
 
 interface WithStyleXParams {
-  isWithAttrs?: boolean;
-  tailwindStyles?: any;
+  isWithAttrs?: boolean
+  tailwindStyles?: any
 }
 
 interface Params<T = any> {
-  displayName?: string;
-  rawProps: T;
+  displayName?: string
+  rawProps: T
 }
 
-export const withStyleX = <T extends Record<string, unknown>>(
-  xStylesProp: T,
-  xParams: WithStyleXParams = {}
-) => {
+export const withStyleX = <T extends Record<string, unknown>>(xStylesProp: T, xParams: WithStyleXParams = {}) => {
   const xStyles = {
-    ...xStylesProp
-  };
+    ...xStylesProp,
+  }
 
   return <P extends Record<string, any>>(params: Params<P>) => {
-    const { displayName } = params;
-    const componentName = displayName;
+    const { displayName } = params
+    const componentName = displayName
 
     const rawProps = Object.fromEntries(
-      Object.entries(params.rawProps).filter(([_, value]) => value !== undefined)
-    ) as P;
+      Object.entries(params.rawProps).filter(([_, value]) => value !== undefined),
+    ) as P
 
     console.log('rawProps', rawProps)
 
-    const { theme, themeTokens = {}, themeConfig = {} } = useTheme() as ThemeContextProps || {};
+    const { theme, themeTokens = {}, themeConfig = {} } = (useTheme() as ThemeContextProps) || {}
     // console.log('theme withStyleX', themeTokens, themeConfig);
 
-    let props: P = rawProps;
+    let props: P = rawProps
 
     if (componentName) {
-      const defaultProps = themeConfig.components?.[componentName]?.defaultProps;
+      const defaultProps = themeConfig.components?.[componentName]?.defaultProps
 
       if (defaultProps) {
         if (typeof defaultProps === 'function') {
           props = {
             ...(defaultProps(theme as Theme<any, any>) || {}),
-            ...rawProps
-          } as P;
+            ...rawProps,
+          } as P
         } else {
-          props = { ...defaultProps, ...rawProps } as P;
+          props = { ...defaultProps, ...rawProps } as P
         }
       }
     }
 
     // console.log('props withStyleX', props);
 
-    const { type, size, color, variant, ...restProps } = props;
+    const { type, size, color, variant, ...restProps } = props
 
     if (type) {
-      (xStyles as any).type = themeTokens.types?.[type];
+      ;(xStyles as any).type = themeTokens.types?.[type]
     }
 
     if (size) {
-      (xStyles as any).size = themeTokens.sizes?.[size];
+      ;(xStyles as any).size = themeTokens.sizes?.[size]
     }
 
     if (color) {
-      (xStyles as any).color = themeTokens.colors?.[color];
+      ;(xStyles as any).color = themeTokens.colors?.[color]
     }
 
     if (variant) {
-      (xStyles as any).variant = themeTokens.variants?.[variant];
+      ;(xStyles as any).variant = themeTokens.variants?.[variant]
     }
 
-    const { tailwindStyles = {}, ...restParams } = xParams;
+    const { tailwindStyles = {}, ...restParams } = xParams
 
     console.log('xStyles', xStyles)
 
@@ -86,16 +83,16 @@ export const withStyleX = <T extends Record<string, unknown>>(
         ...position,
         ...display,
         ...cursor,
-        ...tailwindStyles
+        ...tailwindStyles,
       },
-      theme
-    });
+      theme,
+    })
 
     return {
       classes,
-      props: restProps
+      props: restProps,
     }
-  };
+  }
 }
 
 export default withStyleX

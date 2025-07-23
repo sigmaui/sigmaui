@@ -1,5 +1,5 @@
-import usage from './usage';
+import usage from './usage'
 
 export const buttonContent = {
-  usage
+  usage,
 }

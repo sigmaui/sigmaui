@@ -1,4 +1,4 @@
-import { create } from '@stylexjs/stylex';
+import { create } from '@stylexjs/stylex'
 
 export const width = create({
   'w-0': { width: 0 },
@@ -18,5 +18,5 @@ export const width = create({
   'max-w-screen': { 'max-width': '100vw' },
   'max-w-min': { 'max-width': 'min-content' },
   'max-w-max': { 'max-width': 'max-content' },
-  'max-w-fit': { 'max-width': 'fit-content' }
-});
+  'max-w-fit': { 'max-width': 'fit-content' },
+})

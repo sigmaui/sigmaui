@@ -1,26 +1,26 @@
-import * as stylex from '@stylexjs/stylex';
-import { colors } from '../../../../../../../packages/common/theme/tokens/variables.stylex.ts';
+import * as stylex from '@stylexjs/stylex'
+import { colors } from '../../../../../../../packages/common/theme/tokens/variables.stylex.ts'
 
 export const buttonPageStyles = stylex.create({
   root: {
     padding: '2rem',
     maxWidth: '1200px',
-    margin: '0 auto'
+    margin: '0 auto',
   },
   demoSection: {
     margin: '2rem 0',
     padding: '1rem',
     border: '1px solid #ddd',
-    borderRadius: '8px'
+    borderRadius: '8px',
   },
   demoTitle: {
-    marginBottom: '1rem'
+    marginBottom: '1rem',
   },
   demoButton: {
-    margin: '0.5rem'
+    margin: '0.5rem',
   },
   nav: {
-    marginTop: '2rem'
+    marginTop: '2rem',
   },
   navLink: {
     color: '#42b883',
@@ -31,12 +31,12 @@ export const buttonPageStyles = stylex.create({
 
     ':hover': {
       backgroundColor: '#42b883',
-      color: 'white'
-    }
-  }
-});
+      color: 'white',
+    },
+  },
+})
 
-export type ButtonPageTypes = typeof buttonPageStyles;
-export type ButtonPageKeys = keyof ButtonPageTypes;
+export type ButtonPageTypes = typeof buttonPageStyles
+export type ButtonPageKeys = keyof ButtonPageTypes
 
-export default buttonPageStyles; 
+export default buttonPageStyles
