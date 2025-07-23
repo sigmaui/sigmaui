@@ -8,16 +8,23 @@ import { type TextProps } from 'packages/common/components/text/types'
 
 const displayName = 'Text'
 
-const SigmaText: FC<TextProps> = ({ prefixCls = 'sm-text', className, children, size, ...textProps }) => {
-  const restProps = getRestProps(textProps)
+const SigmaText: FC<TextProps> = ({
+  prefixCls = 'sm-text',
+  className,
+  children,
+  _class,
+  size,
+  ...textProps
+}) => {
+  const restProps = getRestProps(textProps);
 
   const { css } = useMicroUI()
 
   const classString = css({
     displayName,
     size,
-    ...restProps,
-  })
+    ...restProps
+  }, { _class });
 
   return <div className={classNames(prefixCls, className, classString)}>{children}</div>
 }
