@@ -4,7 +4,6 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
 import eslintPluginPrettier from 'eslint-plugin-prettier'
-import eslintPluginVue from 'eslint-plugin-vue'
 
 export default tseslint.config(
   { ignores: ['dist', 'vite.config.ts', 'tsup.config.ts'] },
