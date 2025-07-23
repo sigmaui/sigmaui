@@ -14,6 +14,7 @@ const SigmaText: FC<TextProps> = ({
   children,
   _class,
   size,
+  as: As = 'div',
   ...textProps
 }) => {
   const restProps = getRestProps(textProps);
@@ -27,9 +28,9 @@ const SigmaText: FC<TextProps> = ({
   }, { _class });
 
   return (
-    <div className={classNames(prefixCls, className, classString)}>
+    <As className={classNames(prefixCls, className, classString)}>
       {children}
-    </div>
+    </As>
   )
 }
 

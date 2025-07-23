@@ -50,11 +50,6 @@ const SizesPage = ({}) => {
         <Text size="sm">sm</Text>
         <Text
           size="lg"
-          _style={{
-            wrapper: {
-              // fontSize: 36
-            },
-          }}
         >
           lg
         </Text>

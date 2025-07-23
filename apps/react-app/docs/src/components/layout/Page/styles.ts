@@ -5,12 +5,13 @@ export const styles = ({ theme = {} }: IProps<any>) => {
 
   return {
     wrapper: {
-      position: 'relative',
-
+      position: 'relative'
+    } as StylesProperties,
+    content: {
       '& > *:not(:last-child)': {
         marginBottom: 12,
       },
-    } as StylesProperties,
+    } as StylesProperties
   }
 }
 

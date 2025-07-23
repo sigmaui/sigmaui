@@ -10,7 +10,7 @@ import { styles, type PageProps } from './styles'
 const Page: FC<PageProps> = ({ prefixCls = 'sm-page', className, children, classes }) => {
   return (
     <div className={classNames(prefixCls, className, classes?.wrapper)}>
-      <div>
+      <div className={classes?.content}>
         {children}
       </div>
       <TableOfContent
