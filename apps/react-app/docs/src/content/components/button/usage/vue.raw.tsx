@@ -1,5 +1,6 @@
-import { Button } from '@sigmaui-kit/vue'
+<script setup lang="ts">
+</script>
 
-export default function Demo() {
-  return <Button color="primary">Button</Button>
-}
+<template>
+  <Button>Button</Button>
+</template>

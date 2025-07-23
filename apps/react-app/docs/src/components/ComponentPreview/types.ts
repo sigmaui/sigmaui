@@ -1,9 +1,13 @@
 import type { FCWithStylesProps } from 'packages/common/types'
 
-interface IData {
+export enum CodeEnum {
+  REACT = 'react',
+  VUE = 'vue',
+}
+export interface IData {
   code: {
-    react: string
-    vue: string
+    [CodeEnum.REACT]: string
+    [CodeEnum.VUE]: string
   }
 }
 

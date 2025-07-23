@@ -2,12 +2,35 @@ import React from 'react'
 import type { FC } from 'react'
 import classNames from 'classnames'
 import { withStyles } from '@microui-kit/with-styles'
-
-import CodeDemo from '../CodeDemo'
-import CodeHighlightTabs from '../CodeHighlightTabs'
-
 import { styles, type ComponentPreviewProps } from './styles'
+import { CodeDemo, CodeEditor } from '../common'
+import { CodeEnum, IData } from './types'
+import CodePreview from './children/CodePreview'
 
+export const transformTabsOptions = (data: IData) => {
+  return [
+    {
+      label: 'React',
+      value: CodeEnum.REACT,
+      content: (
+        <CodeEditor
+          displayLang="React"
+          content={data?.code?.[CodeEnum.REACT]}
+        />
+      ),
+    },
+    {
+      label: 'Vue',
+      value: CodeEnum.VUE,
+      content: (
+        <CodeEditor
+          displayLang="Vue"
+          content={data?.code?.[CodeEnum.VUE]}
+        />
+      ),
+    },
+  ]
+}
 const ComponentPreview: FC<ComponentPreviewProps> = ({
   prefixCls = 'sm-component-preview',
   className,
@@ -23,12 +46,16 @@ const ComponentPreview: FC<ComponentPreviewProps> = ({
             padding: 12,
           },
         }}
-      />
-      <CodeHighlightTabs
-        data={data}
-        _style={{
-          wrapper: {},
+      >
+        CodeDemo
+      </CodeDemo>
+      <CodePreview
+        containerClass={{
+          background: 'black',
+          padding: 12,
         }}
+        rootProps={{ defaultValue: CodeEnum.REACT }}
+        data={data}
       />
     </div>
   )

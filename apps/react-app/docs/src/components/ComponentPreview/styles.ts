@@ -8,6 +8,7 @@ export const styles = ({ theme = {} }: IProps<any>) => {
       border: '1px solid',
       borderColor: '#ddd',
       borderRadius: theme.base?.borderRadius,
+      overflow: 'hidden',
     },
   }
 }

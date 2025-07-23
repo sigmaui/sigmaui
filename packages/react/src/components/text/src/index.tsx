@@ -18,7 +18,7 @@ const SigmaText: FC<TextProps> = ({
 }) => {
   const restProps = getRestProps(textProps);
 
-  const { css } = useMicroUI();
+  const { css } = useMicroUI()
 
   const classString = css({
     displayName,
@@ -26,11 +26,7 @@ const SigmaText: FC<TextProps> = ({
     ...restProps
   }, { _class });
 
-  return (
-    <div className={classNames(prefixCls, className, classString)}>
-      {children}
-    </div>
-  )
+  return <div className={classNames(prefixCls, className, classString)}>{children}</div>
 }
 
 SigmaText.displayName = displayName
