@@ -10,17 +10,15 @@ import { styles, type PageProps } from './styles'
 const Page: FC<PageProps> = ({ prefixCls = 'sm-page', className, children, classes }) => {
   return (
     <div className={classNames(prefixCls, className, classes?.wrapper)}>
-      <div>
-        {children}
-      </div>
+      <div>{children}</div>
       <TableOfContent
         _style={{
           wrapper: {
             position: 'absolute',
             top: 0,
             right: 0,
-            width: 150
-          }
+            width: 150,
+          },
         }}
       />
     </div>
