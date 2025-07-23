@@ -21,7 +21,12 @@
     "start": "yarn dev:web",
     "dev:docs": "cd apps/react-app/docs && yarn dev",
     "dev:dashboard": "cd apps/vue-app/dashboard && yarn dev",
-    "dev:chart-maker": "cd apps/vue-app/chart-maker && yarn dev"
+    "dev:chart-maker": "cd apps/vue-app/chart-maker && yarn dev",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "postinstall": "husky install",
+    "commit": "npx git-cz",
+    "prepare": "husky"
   },
   "dependencies": {
     "@ark-ui/react": "^5.16.1",
@@ -77,22 +82,51 @@
     "@babel/cli": "^7.28.0",
     "@babel/core": "^7.28.0",
     "@babel/preset-typescript": "^7.27.1",
+    "@commitlint/cli": "16",
+    "@commitlint/config-conventional": "16",
+    "@commitlint/prompt": "16",
+    "@eslint/js": "^9.15.0",
     "@sigmaui-kit/unplugin-stylex": "^0.0.1",
     "@stylexjs/babel-plugin": "^0.14.1",
     "@types/node": "^24.0.3",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "clean-package": "^2.2.0",
+    "eslint": "^9.15.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "eslint-plugin-vue": "^10.3.0",
     "fast-glob": "^3.3.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.4.2",
     "rimraf": "^6.0.1",
     "tsup": "^8.5.0",
     "turbo": "^2.5.4",
     "typescript": "^5.8.3",
+    "typescript-eslint": "^8.15.0",
     "unplugin-auto-import": "^19.3.0",
     "unplugin-vue": "^6.2.0"
   },
   "engines": {
     "node": ">=16.x"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/prompt"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "yarn lint"
+    ]
   },
   "packageManager": "yarn@1.22.22"
 }
