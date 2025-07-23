@@ -1,5 +1,32 @@
 import type { StylesObject } from 'packages/common/types';
 
+export const fontSizes = {
+  xs: 12,
+  sm: 13,
+  md: 14,
+  lg: 16,
+  xl: 18,
+  '2xl': 20
+}
+
+export const heights = {
+  xs: 32,
+  sm: 36,
+  md: 40,
+  lg: 44,
+  xl: 48,
+  '2xl': 56
+}
+
+export const radii = {
+  xs: 6,
+  sm: 6,
+  md: 8,
+  lg: 10,
+  xl: 12,
+  '2xl': 16
+}
+
 export const defaultSizes = {
   _: {},
   xs: {},
@@ -13,14 +40,21 @@ export const defaultSizes = {
 export const textSizes = {
   Text: {
     _: {},
-    xs: {},
-    sm: {
-      fontSize: 12,
-      lineHeight: 12
+    xs: {
+      fontSize: fontSizes.xs
     },
-    md: {},
-    lg: {},
-    xl: {},
+    sm: {
+      fontSize: fontSizes.sm
+    },
+    md: {
+      fontSize: fontSizes.md
+    },
+    lg: {
+      fontSize: fontSizes.lg
+    },
+    xl: {
+      fontSize: fontSizes.xl
+    },
     '2xl': {}
   } as StylesObject
 }
@@ -29,33 +63,33 @@ export const inputSizes = {
   Input: {
     _: {},
     xs: {
-      fontSize: 12,
-      height: 32,
-      borderRadius: 6,
+      fontSize: fontSizes.xs,
+      height: heights.xs,
+      borderRadius: radii.xs,
       paddingInline: 6
     },
     sm: {
-      fontSize: 13,
-      height: 36,
-      borderRadius: 6,
+      fontSize: fontSizes.sm,
+      height: heights.sm,
+      borderRadius: radii.sm,
       paddingInline: 8
     },
     md: {
-      fontSize: 14,
-      height: 40,
-      borderRadius: 8,
+      fontSize: fontSizes.md,
+      height: heights.md,
+      borderRadius: radii.md,
       paddingInline: 12
     },
     lg: {
-      fontSize: 16,
-      height: 44,
-      borderRadius: 10,
+      fontSize: fontSizes.lg,
+      height: heights.lg,
+      borderRadius: radii.lg,
       paddingInline: 16
     },
     xl: {
-      fontSize: 18,
-      height: 48,
-      borderRadius: 12,
+      fontSize: fontSizes.xl,
+      height: heights.xl,
+      borderRadius: radii.xl,
       paddingInline: 18
     },
     '2xl': {}
@@ -66,29 +100,29 @@ export const buttonSizes = {
   Button: {
     _: {},
     xs: {
-      fontSize: 12,
-      height: 32,
-      borderRadius: 6
+      fontSize: fontSizes.xs,
+      height: heights.xs,
+      borderRadius: radii.xs
     },
     sm: {
-      fontSize: 13,
-      height: 36,
-      borderRadius: 6
+      fontSize: fontSizes.sm,
+      height: heights.sm,
+      borderRadius: radii.sm
     },
     md: {
-      fontSize: 14,
-      height: 40,
-      borderRadius: 8
+      fontSize: fontSizes.md,
+      height: heights.md,
+      borderRadius: radii.md
     },
     lg: {
-      fontSize: 16,
-      height: 44,
-      borderRadius: 10
+      fontSize: fontSizes.lg,
+      height: heights.lg,
+      borderRadius: radii.lg
     },
     xl: {
-      fontSize: 18,
-      height: 48,
-      borderRadius: 12
+      fontSize: fontSizes.xl,
+      height: heights.xl,
+      borderRadius: radii.xl
     },
     '2xl': {}
   } as StylesObject

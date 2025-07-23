@@ -60,6 +60,7 @@ export default defineConfig(({ mode }) => {
         '@sigmaui-kit/layout': path.resolve(__dirname, '../../../packages/react/src/components/layout/src'),
         '@sigmaui-kit/button': path.resolve(__dirname, '../../../packages/react/src/components/button/src'),
         '@sigmaui-kit/input': path.resolve(__dirname, '../../../packages/react/src/components/input/src'),
+        '@sigmaui-kit/text': path.resolve(__dirname, '../../../packages/react/src/components/text/src'),
         '@sigmaui-kit/select': path.resolve(__dirname, '../../../packages/react/src/components/select/src'),
         '@sigmaui-kit/tabs': path.resolve(__dirname, '../../../packages/react/src/components/tabs/src'),
         '@sigmaui-kit/segment-group': path.resolve(__dirname, '../../../packages/react/src/components/segment-group/src'),

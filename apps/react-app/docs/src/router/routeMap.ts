@@ -14,7 +14,8 @@ export const routeMap = {
     overview: `${componentPath}/overview`,
     box: `${componentPath}/box`,
     button: `${componentPath}/button`,
-    input: `${componentPath}/input`
+    input: `${componentPath}/input`,
+    text: `${componentPath}/text`
   },
   themingPath,
   theming: {

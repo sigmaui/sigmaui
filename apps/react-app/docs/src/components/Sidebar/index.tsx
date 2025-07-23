@@ -64,6 +64,10 @@ const Sidebar: FC<SidebarProps> = ({
               {
                 label: 'Input',
                 value: routeMap.component.input
+              },
+              {
+                label: 'Text',
+                value: routeMap.component.text
               }
             ]
           }

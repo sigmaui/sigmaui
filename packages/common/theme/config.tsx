@@ -5,7 +5,7 @@ import { formatProperty } from '@microui-kit/create-renderer';
 import { modes } from './modes';
 import { components } from './tokens/components';
 import { colors } from './tokens/colors';
-import { sizes } from './tokens/sizes';
+import { sizes, fontSizes, heights, radii } from './tokens/sizes';
 import { variants } from './tokens/variants';
 
 const themeMapping: any = {
@@ -38,7 +38,10 @@ const theme: Theme = {
   components,
   colors,
   sizes,
-  variants
+  variants,
+  fontSizes,
+  heights,
+  radii
 }
 
 export const globalStyle = ({ theme, renderer }: any) => {
