@@ -46,6 +46,7 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         src: path.resolve(__dirname, './src'),
+        '.velite': path.resolve(__dirname, './.velite'),
         packages: path.resolve(__dirname, '../../../packages'),
         '@docs': path.resolve(__dirname, '../../../apps/react-app/docs/src'),
         '@packages/common/hooks/use-stylex': path.resolve(__dirname, '../../../packages/common/hooks/use-stylex/src'),

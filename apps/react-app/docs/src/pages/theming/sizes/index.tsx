@@ -4,11 +4,14 @@ import Input from '@sigmaui-kit/input'
 import Text from '@sigmaui-kit/text'
 import Page from '@docs/components/layout/Page'
 import SizesMdx from '@docs/content/docs/theming/sizes.mdx'
+import { theming } from '.velite'
 
 const SizesPage = ({}) => {
+  console.log('theming', theming)
+
   return (
     <Page>
-      <SizesMdx />
+      <SizesMdx/>
       <Box css={{ display: 'flex', gap: 12, alignItems: 'center' }}>
         <Button size="xs">xs</Button>
         <Button
