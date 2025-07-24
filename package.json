@@ -110,7 +110,6 @@
     "typescript-eslint": "^8.15.0",
     "unplugin-auto-import": "^19.3.0",
     "unplugin-vue": "^6.2.0",
-    "velite": "^0.2.4",
     "vue-eslint-parser": "^10.2.0"
   },
   "engines": {

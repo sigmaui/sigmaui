@@ -14,6 +14,7 @@ const SigmaMenu: FC<MenuProps> = ({
   classes,
   options = [],
   orientation = 'horizontal',
+  value: valueFromProp
 }) => {
   const renderItems = ({ items = [] }: { items: MenuOption[] }) => {
     return items.map(({ label, value, options }) => {
@@ -27,8 +28,10 @@ const SigmaMenu: FC<MenuProps> = ({
       }
 
       const itemProps: MenuItemProps = {
-        className: classes?.item,
-        value,
+        className: classNames(classes?.item, {
+          _active: value === valueFromProp
+        }),
+        value
       }
 
       const isLink = value.startsWith('/')

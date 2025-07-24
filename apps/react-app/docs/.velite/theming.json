@@ -1,21 +1,28 @@
 [
   {
     "name": "theming-sizes",
+    "title": "Sizes",
+    "description": "The list of available size tokens",
     "toc": [
       {
-        "title": "Sizes",
-        "url": "#sizes",
+        "title": "Installation",
+        "url": "#installation",
         "items": []
       }
-    ]
+    ],
+    "code": "const{jsx:n}=arguments[0];function _createMdxContent(t){const e={h2:\"h2\",...t.components};return n(e.h2,{children:\"Installation\"})}return{default:function(t={}){const{wrapper:e}=t.components||{};return e?n(e,{...t,children:n(_createMdxContent,{...t})}):_createMdxContent(t)}};"
   },
   {
+    "name": "theming-variants",
+    "title": "Variants",
+    "description": "The list of available variant tokens",
     "toc": [
       {
-        "title": "Variants",
-        "url": "#variants",
+        "title": "Usage",
+        "url": "#usage",
         "items": []
       }
-    ]
+    ],
+    "code": "const{jsx:n}=arguments[0];function _createMdxContent(t){const e={h2:\"h2\",...t.components};return n(e.h2,{children:\"Usage\"})}return{default:function(t={}){const{wrapper:e}=t.components||{};return e?n(e,{...t,children:n(_createMdxContent,{...t})}):_createMdxContent(t)}};"
   }
 ]

@@ -1,6 +1,21 @@
 import path from 'node:path'
 import { defineConfig, defineCollection, s } from 'velite';
 
+const transform = (data: any, { meta }) => {
+  const normalizedPath = meta.path?.replace?.(/\\/g, '/');
+  const paths = normalizedPath.match(/\/([^\/]+)\/([^\/]+)\.mdx$/) || [];
+
+  // console.log('paths', paths);
+
+  const folder = paths[1];
+  const filename = paths[2];
+
+  return {
+    name: `${folder}-${filename}`,
+    ...data
+  }
+}
+
 const components = defineCollection({
   name: 'Components',
   pattern: ['components/*.mdx'],
@@ -10,7 +25,9 @@ const components = defineCollection({
       title: s.string().optional(),
       description: s.string().optional(),
       toc: s.toc(),
+      code: s.mdx(),
     })
+    .transform(transform)
 })
 
 const guides = defineCollection({
@@ -22,7 +39,9 @@ const guides = defineCollection({
       title: s.string().optional(),
       description: s.string().optional(),
       toc: s.toc(),
+      code: s.mdx(),
     })
+    .transform(transform)
 })
 
 const theming = defineCollection({
@@ -34,7 +53,9 @@ const theming = defineCollection({
       title: s.string().optional(),
       description: s.string().optional(),
       toc: s.toc(),
+      code: s.mdx(),
     })
+    .transform(transform)
 })
 
 export default defineConfig({

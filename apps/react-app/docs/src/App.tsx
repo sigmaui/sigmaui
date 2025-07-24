@@ -4,7 +4,9 @@ import { createRenderer } from '@microui-kit/create-renderer'
 import { MicroUIProvider, THEME_MODE } from '@microui-kit/provider'
 import { useRouter } from '@microui-kit/use-router'
 import Layout from '@sigmaui-kit/layout'
+import { getRoute } from '@docs/helpers'
 import themeConfig, { globalStyle, felaRendererConfig } from 'packages/common/theme/config'
+import { routes } from './router'
 
 import { MDXComponents } from './components/mdx'
 import Header from './components/layout/Header'
@@ -17,6 +19,9 @@ console.log('renderer', renderer)
 const App = ({}) => {
   const router = useRouter()
   const { pathname } = router
+
+  const route = getRoute({ routes, pathname });
+  const { routeProps = {}, name: pageName } = route;
 
   const theme = {
     ...themeConfig,
@@ -44,11 +49,16 @@ const App = ({}) => {
               marginTop: 24,
             },
           }}
-          header={<Header />}
+          header={<Header/>}
           isSidebar={isSidebar}
-          sidebar={isSidebar && <Sidebar />}
+          sidebar={isSidebar && <Sidebar/>}
         >
-          <Outlet />
+          <Outlet
+            context={{
+              pageName,
+              routeProps
+            }}
+          />
         </Layout>
       </MDXProvider>
     </MicroUIProvider>

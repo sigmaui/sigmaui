@@ -17,6 +17,7 @@ const Sidebar: FC<SidebarProps> = ({ prefixCls = 'sm-sidebar', className, classe
     <div className={classNames(prefixCls, className, classes?.wrapper)}>
       <Menu
         orientation="vertical"
+        value={pathname}
         options={[
           {
             label: 'Get Started',

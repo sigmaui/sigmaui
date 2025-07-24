@@ -38,20 +38,20 @@ const SigmaSegmentGroup: FC<SegmentGroupProps> = ({
       value={segmentGroup}
     >
       {label && <SegmentGroup.Label className={classes?.label}>{label}</SegmentGroup.Label>}
-      <SegmentGroup.Indicator className={classes?.indicator} />
+      <SegmentGroup.Indicator className={classes?.indicator}/>
       {options.map(({ value, label }) => {
         const itemProps: SegmentGroupItemProps = {
           className: classes?.item,
           value,
         }
 
-        const isLink = value.startsWith('/')
+        const isLink = value?.startsWith?.('/')
 
         const item = (
           <Fragment>
             <SegmentGroup.ItemText className={classes?.itemText}>{label}</SegmentGroup.ItemText>
-            <SegmentGroup.ItemControl />
-            <SegmentGroup.ItemHiddenInput />
+            <SegmentGroup.ItemControl/>
+            <SegmentGroup.ItemHiddenInput/>
           </Fragment>
         )
 
@@ -71,7 +71,7 @@ const SigmaSegmentGroup: FC<SegmentGroupProps> = ({
             </a>
           )
         } else {
-          ;(itemProps as any).children = item
+          itemProps.children = item
         }
 
         return (

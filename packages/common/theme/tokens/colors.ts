@@ -7,4 +7,5 @@ export const colors = {
   warning: '#FF9500',
   success: '#34C759',
   border: '#ddd',
+  active: '#f77f00'
 }

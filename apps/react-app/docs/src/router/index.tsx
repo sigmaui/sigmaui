@@ -4,7 +4,7 @@ import loadable from './loadable'
 
 import Pages from '../pages'
 
-const routes: any = []
+export const routes: any = []
 
 Pages.forEach((route: any) => {
   if (route.path instanceof Array) {

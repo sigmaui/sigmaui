@@ -11,5 +11,6 @@ export interface MenuOption {
 
 export interface IProps<Styles> extends FCWithStylesProps<Styles> {
   options?: MenuOption[]
+  value?: string
   orientation?: 'horizontal' | 'vertical'
 }

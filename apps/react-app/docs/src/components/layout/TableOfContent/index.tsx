@@ -6,11 +6,26 @@ import { useRouter } from '@microui-kit/use-router'
 import SegmentGroup from '@sigmaui-kit/segment-group'
 import Text from '@sigmaui-kit/text'
 
-import { routeMap } from '@docs/router/routeMap'
-
 import { styles, type TableOfContentProps } from './styles'
+import { type TocEntry } from './types'
 
-const TableOfContent: FC<TableOfContentProps> = ({ prefixCls = 'sm-table-of-content', className, classes }) => {
+interface FlattenedTocEntry extends Omit<TocEntry, 'items'> {
+  depth: number
+}
+
+const flattenTocEntries = (entries: TocEntry[] = [], depth = 0): FlattenedTocEntry[] =>
+  entries.reduce<FlattenedTocEntry[]>(
+    (acc, entry) =>
+      acc.concat({ label: entry.title, url: entry.url, depth }, flattenTocEntries(entry.items, depth + 1)),
+    []
+  )
+
+const TableOfContent: FC<TableOfContentProps> = ({
+  prefixCls = 'sm-table-of-content',
+  className,
+  classes,
+  entries = []
+}) => {
   const router = useRouter()
   const { pathname } = router
 
@@ -22,6 +37,10 @@ const TableOfContent: FC<TableOfContentProps> = ({ prefixCls = 'sm-table-of-cont
       >
         On this page
       </Text>
+      <SegmentGroup
+        orientation="vertical"
+        options={flattenTocEntries(entries)}
+      />
     </div>
   )
 }

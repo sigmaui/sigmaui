@@ -2,7 +2,7 @@ import Box from '@microui-kit/box'
 import Button from '@sigmaui-kit/button'
 import Input from '@sigmaui-kit/input'
 import Text from '@sigmaui-kit/text'
-import Page from '@docs/components/layout/Page'
+import DocPage from '@docs/components/layout/DocPage'
 import SizesMdx from '@docs/content/docs/theming/sizes.mdx'
 import { theming } from '.velite'
 
@@ -10,7 +10,9 @@ const SizesPage = ({}) => {
   console.log('theming', theming)
 
   return (
-    <Page>
+    <DocPage
+
+    >
       <SizesMdx/>
       <Box css={{ display: 'flex', gap: 12, alignItems: 'center' }}>
         <Button size="xs">xs</Button>
@@ -62,7 +64,7 @@ const SizesPage = ({}) => {
           lg
         </Text>
       </Box>
-    </Page>
+    </DocPage>
   )
 }
 

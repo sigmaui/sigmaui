@@ -4,8 +4,16 @@ import Box from './components/box/route'
 import Button from './components/button/route'
 import Input from './components/input/route'
 import Text from './components/text/route'
-import Sizes from './theming/sizes/route'
-import Variants from './theming/variants/route'
+import Theming from './theming/route'
 import NotFound from './not-found/route'
 
-export default [Home, Introduction, Box, Button, Input, Text, Sizes, Variants, NotFound]
+export default [
+  Home,
+  Introduction,
+  Box,
+  Button,
+  Input,
+  Text,
+  Theming,
+  NotFound
+]

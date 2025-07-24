@@ -27,6 +27,10 @@ export const styles = ({ theme = {} }: IProps<any>) => {
       height: 32,
       lineHeight: 32,
       cursor: 'pointer',
+
+      '&._active': {
+        color: 'active'
+      }
     } as StylesProperties,
   }
 }
