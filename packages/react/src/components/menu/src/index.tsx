@@ -29,7 +29,7 @@ const SigmaMenu: FC<MenuProps> = ({
 
       const itemProps: MenuItemProps = {
         className: classNames(classes?.item, {
-          _active: value === valueFromProp
+          ['_active']: value === valueFromProp
         }),
         value
       }
