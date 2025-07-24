@@ -2,16 +2,17 @@ import { useOutletContext } from 'react-router-dom';
 import { useRouter } from '@microui-kit/use-router'
 import DocPage from '@docs/components/layout/DocPage'
 import MDXContent from '@docs/components/common/MDXContent'
-import { theming } from '.velite'
+import { components } from '.velite'
 
-const ThemingPage = ({}) => {
+const ComponentPage = ({}) => {
+  console.log('components', components);
+
   const { pageName }: { pageName: string } = useOutletContext();
-  console.log('theming', theming);
 
   const router = useRouter();
   const { params } = router;
 
-  const page = theming.find(item => item.name === `${pageName}-${params.slug}`);
+  const page = components.find(item => item.name === `${pageName}-${params.slug}`);
 
   console.log('page', page)
 
@@ -26,4 +27,4 @@ const ThemingPage = ({}) => {
   )
 }
 
-export default ThemingPage
+export default ComponentPage

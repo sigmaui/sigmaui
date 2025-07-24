@@ -25,7 +25,7 @@ const components = defineCollection({
       title: s.string().optional(),
       description: s.string().optional(),
       toc: s.toc(),
-      code: s.mdx(),
+      code: s.mdx()
     })
     .transform(transform)
 })

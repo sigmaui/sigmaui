@@ -1,7 +1,6 @@
 import React from 'react'
 import type { FC } from 'react'
 import classNames from 'classnames'
-import { useOutletContext } from 'react-router-dom'
 import { withStyles } from '@microui-kit/with-styles'
 
 import TableOfContent from '../TableOfContent'
@@ -9,10 +8,6 @@ import TableOfContent from '../TableOfContent'
 import { styles, type DocPageProps } from './styles'
 
 const DocPage: FC<DocPageProps> = ({ prefixCls = 'sm-page', className, children, classes, data = {} }) => {
-  const { pageName }: { pageName: string } = useOutletContext();
-
-  console.log('pageName', pageName)
-
   const { title, description, toc } = data;
 
   return (
