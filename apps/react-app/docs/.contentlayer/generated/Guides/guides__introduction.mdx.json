@@ -1,6 +1,6 @@
 {
   "body": {
-    "raw": "# Introduction\n\nWelcome to the SigmaUI documentation!\n\n## What is SigmaUI?",
+    "raw": "# Introduction\r\n\r\nWelcome to the SigmaUI documentation!\r\n\r\n## What is SigmaUI?",
     "code": "var Component=(()=>{var u=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var p=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var o in t)c(n,o,{get:t[o],enumerable:!0})},s=(n,t,o,i)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let r of l(t))!f.call(n,r)&&r!==o&&c(n,r,{get:()=>t[r],enumerable:!(i=x(t,r))||i.enumerable});return n};var g=(n,t,o)=>(o=n!=null?u(_(n)):{},s(t||!n||!n.__esModule?c(o,\"default\",{value:n,enumerable:!0}):o,n)),I=n=>s(c({},\"__esModule\",{value:!0}),n);var h=p((F,a)=>{a.exports=_jsx_runtime});var C={};j(C,{default:()=>d,frontmatter:()=>M});var e=g(h()),M=void 0;function m(n){let t={h1:\"h1\",h2:\"h2\",p:\"p\",...n.components};return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(t.h1,{children:\"Introduction\"}),`\n`,(0,e.jsx)(t.p,{children:\"Welcome to the SigmaUI documentation!\"}),`\n`,(0,e.jsx)(t.h2,{children:\"What is SigmaUI?\"})]})}function d(n={}){let{wrapper:t}=n.components||{};return t?(0,e.jsx)(t,{...n,children:(0,e.jsx)(m,{...n})}):m(n)}return I(C);})();\n;return Component;"
   },
   "_id": "guides/introduction.mdx",
@@ -12,7 +12,8 @@
     "flattenedPath": "guides/introduction"
   },
   "type": "Guides",
+  "name": "introduction",
+  "dir": "guides",
   "slug": "/guides/introduction",
-  "slugAsParams": "introduction",
   "url": "/guides/introduction"
 }

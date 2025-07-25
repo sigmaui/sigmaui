@@ -2,13 +2,17 @@ import path from 'node:path'
 import { defineDocumentType, defineNestedType, makeSource } from 'contentlayer2/source-files';
 
 const computedFields = {
+  name: {
+    type: 'string',
+    resolve: (doc) => doc._raw.flattenedPath.split('/').slice(1).join('/'),
+  },
+  dir: {
+    type: 'string',
+    resolve: (doc) => doc._raw.sourceFileDir,
+  },
   slug: {
     type: 'string',
     resolve: (doc) => `/${doc._raw.flattenedPath}`,
-  },
-  slugAsParams: {
-    type: 'string',
-    resolve: (doc) => doc._raw.flattenedPath.split('/').slice(1).join('/'),
   },
   url: {
     type: 'string',
@@ -21,7 +25,6 @@ export const components = defineDocumentType(() => ({
   filePathPattern: ['components/*.mdx'],
   contentType: 'mdx',
   fields: {
-    name: { type: 'string', required: false },
     title: { type: 'string', required: false },
     description: { type: 'string', required: false }
   },
@@ -33,7 +36,6 @@ export const guides = defineDocumentType(() => ({
   filePathPattern: ['guides/*.mdx'],
   contentType: 'mdx',
   fields: {
-    name: { type: 'string', required: false },
     title: { type: 'string', required: false },
     description: { type: 'string', required: false }
   },
@@ -45,7 +47,6 @@ export const theming = defineDocumentType(() => ({
   filePathPattern: ['theming/*.mdx'],
   contentType: 'mdx',
   fields: {
-    name: { type: 'string', required: false },
     title: { type: 'string', required: false },
     description: { type: 'string', required: false }
   },

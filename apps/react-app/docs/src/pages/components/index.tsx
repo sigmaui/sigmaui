@@ -2,18 +2,15 @@ import { useOutletContext } from 'react-router-dom';
 import { useRouter } from '@microui-kit/use-router'
 import DocPage from '@docs/components/layout/DocPage'
 import MDXContent from '@docs/components/common/MDXContent'
-import { components } from '.velite'
 import { allComponents } from '.contentlayer/generated'
 
 const ComponentPage = ({}) => {
-  console.log('components', components);
-
   const { pageName }: { pageName: string } = useOutletContext();
 
   const router = useRouter();
   const { params } = router;
 
-  const page = allComponents.find(item => item.slug === '/components/button');
+  const page = allComponents.find(item => item.name === params.slug) || {};
 
   console.log('page', page)
 
@@ -22,7 +19,7 @@ const ComponentPage = ({}) => {
       data={page}
     >
       <MDXContent
-        code={page.body.code}
+        code={page.body?.code}
         // code={page.code}
       />
     </DocPage>

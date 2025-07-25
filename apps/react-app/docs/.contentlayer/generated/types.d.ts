@@ -13,13 +13,13 @@ export type Components = {
   _id: string
   _raw: Local.RawDocumentData
   type: 'Components'
-  name?: string | undefined
   title?: string | undefined
   description?: string | undefined
   /** MDX file body */
   body: MDX
+  name: string
+  dir: string
   slug: string
-  slugAsParams: string
   url: string
 }
 
@@ -28,13 +28,13 @@ export type Guides = {
   _id: string
   _raw: Local.RawDocumentData
   type: 'Guides'
-  name?: string | undefined
   title?: string | undefined
   description?: string | undefined
   /** MDX file body */
   body: MDX
+  name: string
+  dir: string
   slug: string
-  slugAsParams: string
   url: string
 }
 
@@ -43,13 +43,13 @@ export type Theming = {
   _id: string
   _raw: Local.RawDocumentData
   type: 'Theming'
-  name?: string | undefined
   title?: string | undefined
   description?: string | undefined
   /** MDX file body */
   body: MDX
+  name: string
+  dir: string
   slug: string
-  slugAsParams: string
   url: string
 }  
 

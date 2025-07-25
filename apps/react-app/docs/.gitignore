@@ -1,4 +1,5 @@
 .idea/
+.contentlayer
 node_modules/
 yarn.lock
 yarn-error.log
