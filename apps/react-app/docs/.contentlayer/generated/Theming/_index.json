@@ -17,14 +17,7 @@
     "type": "Theming",
     "name": "sizes",
     "dir": "theming",
-    "slug": "/theming/sizes",
-    "toc": [
-      {
-        "level": 2,
-        "label": "Installation",
-        "value": "installation"
-      }
-    ]
+    "slug": "/theming/sizes"
   },
   {
     "title": "Variants",
@@ -44,13 +37,6 @@
     "type": "Theming",
     "name": "variants",
     "dir": "theming",
-    "slug": "/theming/variants",
-    "toc": [
-      {
-        "level": 2,
-        "label": "Usage",
-        "value": "usage"
-      }
-    ]
+    "slug": "/theming/variants"
   }
 ]

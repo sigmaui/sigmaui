@@ -3,6 +3,32 @@ import { defineDocumentType, makeSource } from 'contentlayer2/source-files';
 import rehypeSlug from 'rehype-slug'
 import GithubSlugger from 'github-slugger'
 
+const tocField = {
+  toc: {
+    type: 'json',
+    resolve: (doc) => {
+      const slugs = new GithubSlugger()
+      
+      const regHeading = /\n(?<flag>#{1,6})\s+(?<title>.+)/g;
+      
+      return Array.from(doc.body.raw.matchAll(regHeading)).map(
+        ({ groups }) => {
+          const flag = groups?.flag;
+          const title = groups?.title;
+          
+          const slug = slugs.slug(title);
+          
+          return {
+            level: flag.length,
+            title,
+            slug
+          };
+        }
+      );
+    }
+  }
+}
+
 const computedFields = {
   name: {
     type: 'string',
@@ -20,27 +46,7 @@ const computedFields = {
   //   type: 'string',
   //   resolve: (doc) => `/${doc._raw.flattenedPath}`
   // },
-  toc: {
-    type: 'json',
-    resolve: (doc) => {
-      const slugs = new GithubSlugger()
-      
-      const regHeading = /\n(?<flag>#{1,6})\s+(?<content>.+)/g;
-      
-      return Array.from(doc.body.raw.matchAll(regHeading)).map(
-        ({ groups }) => {
-          const flag = groups?.flag;
-          const content = groups?.content;
-          
-          return {
-            level: flag.length,
-            label: content,
-            value: slugs.slug(content)
-          };
-        }
-      );
-    }
-  }
+  // tocField
 };
 
 export const components = defineDocumentType(() => ({

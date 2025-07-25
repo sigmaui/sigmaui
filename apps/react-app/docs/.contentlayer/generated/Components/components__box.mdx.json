@@ -16,12 +16,5 @@
   "type": "Components",
   "name": "box",
   "dir": "components",
-  "slug": "/components/box",
-  "toc": [
-    {
-      "level": 2,
-      "label": "Usage",
-      "value": "usage"
-    }
-  ]
+  "slug": "/components/box"
 }

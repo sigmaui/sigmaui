@@ -4,4 +4,5 @@ export type { StylesProperties }
 
 export interface IProps<Styles> extends FCWithStylesProps<Styles> {
   data?: any
+  isShowToc?: boolean
 }

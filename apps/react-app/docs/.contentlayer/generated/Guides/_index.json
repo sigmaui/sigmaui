@@ -15,13 +15,6 @@
     "type": "Guides",
     "name": "introduction",
     "dir": "guides",
-    "slug": "/guides/introduction",
-    "toc": [
-      {
-        "level": 2,
-        "label": "What is SigmaUI?",
-        "value": "what-is-sigmaui"
-      }
-    ]
+    "slug": "/guides/introduction"
   }
 ]

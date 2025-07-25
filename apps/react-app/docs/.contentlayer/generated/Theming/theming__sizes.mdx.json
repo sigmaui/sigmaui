@@ -16,12 +16,5 @@
   "type": "Theming",
   "name": "sizes",
   "dir": "theming",
-  "slug": "/theming/sizes",
-  "toc": [
-    {
-      "level": 2,
-      "label": "Installation",
-      "value": "installation"
-    }
-  ]
+  "slug": "/theming/sizes"
 }

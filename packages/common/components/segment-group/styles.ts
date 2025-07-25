@@ -26,7 +26,7 @@ export const styles = ({ theme = {} }: IProps<any>) => {
       gap: 8,
     } as StylesProperties,
     item: {
-      paddingBlock: 12,
+      paddingBlock: 4,
       fontSize: 14,
       fontWeight: 500,
       color: '#222',
@@ -35,17 +35,30 @@ export const styles = ({ theme = {} }: IProps<any>) => {
       borderRadius: 6,
       cursor: 'pointer',
       transition: 'all 0.2s ease',
+
+      '&[data-orientation=vertical]': {
+        paddingLeft: 12
+      }
     } as StylesProperties,
     itemText: {
       pointerEvents: 'none',
     } as StylesProperties,
     itemHiddenInput: {},
     indicator: {
-      width: 'var(--width)',
-      height: '2px',
+      display: 'block',
       backgroundColor: theme.colors?.base,
-      bottom: 0,
       transition: 'all 0.2s ease',
+
+      '&[data-orientation=horizontal]': {
+        width: 'var(--width)',
+        height: 2,
+        bottom: 0,
+      },
+
+      '&[data-orientation=vertical]': {
+        width: 2,
+        height: 'var(--height)',
+      }
     } as StylesProperties,
   }
 }

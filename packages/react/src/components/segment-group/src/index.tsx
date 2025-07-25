@@ -15,6 +15,8 @@ const SigmaSegmentGroup: FC<SegmentGroupProps> = ({
   label,
   defaultValue,
   orientation = 'horizontal',
+  valueName = 'value',
+  labelName = 'label',
 }) => {
   const router = useRouter()
 
@@ -39,7 +41,10 @@ const SigmaSegmentGroup: FC<SegmentGroupProps> = ({
     >
       {label && <SegmentGroup.Label className={classes?.label}>{label}</SegmentGroup.Label>}
       <SegmentGroup.Indicator className={classes?.indicator}/>
-      {options.map(({ value, label }) => {
+      {options.map((option: any = {}) => {
+        const value = option?.[valueName];
+        const label = option?.[labelName];
+
         const itemProps: SegmentGroupItemProps = {
           className: classes?.item,
           value,

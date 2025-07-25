@@ -10,4 +10,5 @@ export interface TocEntry {
 
 export interface IProps<Styles> extends FCWithStylesProps<Styles> {
   entries: TocEntry[]
+  contentClassName?: string
 }

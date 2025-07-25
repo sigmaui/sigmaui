@@ -7,8 +7,16 @@ import TableOfContent from '../TableOfContent'
 
 import { styles, type DocPageProps } from './styles'
 
-const DocPage: FC<DocPageProps> = ({ prefixCls = 'sm-page', className, children, classes, data = {} }) => {
-  const { title, description, toc } = data;
+const DocPage: FC<DocPageProps> = ({
+  prefixCls = 'sm-page', className,
+  children,
+  classes,
+  data = {},
+  isShowToc = true
+}) => {
+  const { slug, title, description, toc } = data;
+
+  const contentClassName = 'sm-toc-content';
 
   return (
     <div className={classNames(prefixCls, className, classes?.wrapper)}>
@@ -21,15 +29,17 @@ const DocPage: FC<DocPageProps> = ({ prefixCls = 'sm-page', className, children,
             <p className={classes?.description}>{description}</p>
           }
         </div>
-        <div className={classes?.content}>
+        <div className={classNames(contentClassName, classes?.content)}>
           {children}
         </div>
       </div>
       {
-        toc
+        (isShowToc || toc)
         &&
         <TableOfContent
+          key={slug}
           entries={toc}
+          contentClassName={contentClassName}
           _style={{
             wrapper: {
               position: 'absolute',

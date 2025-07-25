@@ -5,6 +5,30 @@ export const styles = ({ theme = {} }: IProps<any>) => {
 
   return {
     wrapper: {} as StylesProperties,
+    heading: {
+      fontWeight: 600,
+      marginBottom: 12
+    } as StylesProperties,
+    toc: {
+      '& ol': {
+        listStyle: 'none',
+
+        '&.is-collapsible a': {
+          paddingLeft: 12
+        }
+      },
+
+      '& .is-active-link': {
+        color: 'base'
+      },
+
+      '& li': {
+        '& a': {
+          display: 'block',
+          paddingBlock: 6
+        }
+      }
+    } as StylesProperties,
   }
 }
 

@@ -16,12 +16,5 @@
   "type": "Components",
   "name": "input",
   "dir": "components",
-  "slug": "/components/input",
-  "toc": [
-    {
-      "level": 2,
-      "label": "Usage",
-      "value": "usage"
-    }
-  ]
+  "slug": "/components/input"
 }

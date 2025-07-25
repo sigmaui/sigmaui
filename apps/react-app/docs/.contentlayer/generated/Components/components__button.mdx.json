@@ -2,8 +2,8 @@
   "title": "Button",
   "description": "Button allow users to perform actions and choose with a single tap\r",
   "body": {
-    "raw": "\r\nimport { buttonContent } from '@docs/content/components/button';\r\n\r\n## Installation\r\n\r\n## Usage\r\n\r\n<ComponentPreview data={buttonContent.usage}/>",
-    "code": "var Component=(()=>{var l=Object.create;var i=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var w=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var o in e)i(t,o,{get:e[o],enumerable:!0})},a=(t,e,o,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of g(e))!_.call(t,r)&&r!==o&&i(t,r,{get:()=>e[r],enumerable:!(s=x(e,r))||s.enumerable});return t};var C=(t,e,o)=>(o=t!=null?l(h(t)):{},a(e||!t||!t.__esModule?i(o,\"default\",{value:t,enumerable:!0}):o,t)),b=t=>a(i({},\"__esModule\",{value:!0}),t);var m=w((D,c)=>{c.exports=_jsx_runtime});var y={};j(y,{default:()=>f,frontmatter:()=>v});var n=C(m());var u={code:{react:\"string\",vue:\"string\"}};var p={usage:u};var v={name:\"button\",title:\"Button\",description:\"Button allow users to perform actions and choose with a single tap\"};function d(t){let e={h2:\"h2\",...t.components},{ComponentPreview:o}=e;return o||M(\"ComponentPreview\",!0),(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{id:\"installation\",children:\"Installation\"}),`\n`,(0,n.jsx)(e.h2,{id:\"usage\",children:\"Usage\"}),`\n`,(0,n.jsx)(o,{data:p.usage})]})}function f(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,{...t,children:(0,n.jsx)(d,{...t})}):d(t)}function M(t,e){throw new Error(\"Expected \"+(e?\"component\":\"object\")+\" `\"+t+\"` to be defined: you likely forgot to import, pass, or provide it.\")}return b(y);})();\n;return Component;"
+    "raw": "\r\nimport { buttonContent } from '@docs/content/components/button';\r\n\r\n## Installation\r\n\r\n## Usage\r\n\r\n### Sizes\r\n\r\n### Variants\r\n\r\n<ComponentPreview data={buttonContent.usage}/>",
+    "code": "var Component=(()=>{var h=Object.create;var i=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var w=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var o in t)i(e,o,{get:t[o],enumerable:!0})},a=(e,t,o,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let r of x(t))!_.call(e,r)&&r!==o&&i(e,r,{get:()=>t[r],enumerable:!(s=f(t,r))||s.enumerable});return e};var v=(e,t,o)=>(o=e!=null?h(g(e)):{},a(t||!e||!e.__esModule?i(o,\"default\",{value:e,enumerable:!0}):o,e)),C=e=>a(i({},\"__esModule\",{value:!0}),e);var m=w((B,c)=>{c.exports=_jsx_runtime});var y={};j(y,{default:()=>l,frontmatter:()=>b});var n=v(m());var d={code:{react:\"string\",vue:\"string\"}};var u={usage:d};var b={name:\"button\",title:\"Button\",description:\"Button allow users to perform actions and choose with a single tap\"};function p(e){let t={h2:\"h2\",h3:\"h3\",...e.components},{ComponentPreview:o}=t;return o||M(\"ComponentPreview\",!0),(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(t.h2,{id:\"installation\",children:\"Installation\"}),`\n`,(0,n.jsx)(t.h2,{id:\"usage\",children:\"Usage\"}),`\n`,(0,n.jsx)(t.h3,{id:\"sizes\",children:\"Sizes\"}),`\n`,(0,n.jsx)(t.h3,{id:\"variants\",children:\"Variants\"}),`\n`,(0,n.jsx)(o,{data:u.usage})]})}function l(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,{...e,children:(0,n.jsx)(p,{...e})}):p(e)}function M(e,t){throw new Error(\"Expected \"+(t?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}return C(y);})();\n;return Component;"
   },
   "_id": "components/button.mdx",
   "_raw": {
@@ -16,17 +16,5 @@
   "type": "Components",
   "name": "button",
   "dir": "components",
-  "slug": "/components/button",
-  "toc": [
-    {
-      "level": 2,
-      "label": "Installation",
-      "value": "installation"
-    },
-    {
-      "level": 2,
-      "label": "Usage",
-      "value": "usage"
-    }
-  ]
+  "slug": "/components/button"
 }

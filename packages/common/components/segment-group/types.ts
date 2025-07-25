@@ -13,4 +13,6 @@ export interface IProps<Styles> extends FCWithStylesProps<Styles> {
   label?: string | ReactNode
   defaultValue?: string | null
   orientation?: 'horizontal' | 'vertical'
+  valueName?: string
+  labelName?: string
 }
