@@ -1,0 +1,18 @@
+{
+  "body": {
+    "raw": "# Input\n\nInput allow users to perform actions and choose with a single tap.\n\n<ComponentPreview/>",
+    "code": "var Component=(()=>{var u=Object.create;var i=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),w=(e,n)=>{for(var t in n)i(e,t,{get:n[t],enumerable:!0})},c=(e,n,t,s)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let r of x(n))!l.call(e,r)&&r!==t&&i(e,r,{get:()=>n[r],enumerable:!(s=f(n,r))||s.enumerable});return e};var j=(e,n,t)=>(t=e!=null?u(h(e)):{},c(n||!e||!e.__esModule?i(t,\"default\",{value:e,enumerable:!0}):t,e)),g=e=>c(i({},\"__esModule\",{value:!0}),e);var a=_((b,p)=>{p.exports=_jsx_runtime});var v={};w(v,{default:()=>d,frontmatter:()=>C});var o=j(a()),C=void 0;function m(e){let n={h1:\"h1\",p:\"p\",...e.components},{ComponentPreview:t}=n;return t||M(\"ComponentPreview\",!0),(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(n.h1,{children:\"Input\"}),`\n`,(0,o.jsx)(n.p,{children:\"Input allow users to perform actions and choose with a single tap.\"}),`\n`,(0,o.jsx)(t,{})]})}function d(e={}){let{wrapper:n}=e.components||{};return n?(0,o.jsx)(n,{...e,children:(0,o.jsx)(m,{...e})}):m(e)}function M(e,n){throw new Error(\"Expected \"+(n?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}return g(v);})();\n;return Component;"
+  },
+  "_id": "components/input.mdx",
+  "_raw": {
+    "sourceFilePath": "components/input.mdx",
+    "sourceFileName": "input.mdx",
+    "sourceFileDir": "components",
+    "contentType": "mdx",
+    "flattenedPath": "components/input"
+  },
+  "type": "Components",
+  "slug": "/components/input",
+  "slugAsParams": "input",
+  "url": "/components/input"
+}

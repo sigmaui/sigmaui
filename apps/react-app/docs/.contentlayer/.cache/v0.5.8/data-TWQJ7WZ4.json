@@ -1,0 +1,174 @@
+{
+  "cacheItemsMap": {
+    "components/box.mdx": {
+      "document": {
+        "body": {
+          "raw": "# Box\n\nBox allow users to perform actions and choose with a single tap.\n\n<ComponentPreview/>",
+          "code": "var Component=(()=>{var x=Object.create;var i=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),w=(e,n)=>{for(var t in n)i(e,t,{get:n[t],enumerable:!0})},c=(e,n,t,s)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let r of u(n))!l.call(e,r)&&r!==t&&i(e,r,{get:()=>n[r],enumerable:!(s=f(n,r))||s.enumerable});return e};var j=(e,n,t)=>(t=e!=null?x(h(e)):{},c(n||!e||!e.__esModule?i(t,\"default\",{value:e,enumerable:!0}):t,e)),g=e=>c(i({},\"__esModule\",{value:!0}),e);var m=_((b,a)=>{a.exports=_jsx_runtime});var v={};w(v,{default:()=>d,frontmatter:()=>C});var o=j(m()),C=void 0;function p(e){let n={h1:\"h1\",p:\"p\",...e.components},{ComponentPreview:t}=n;return t||M(\"ComponentPreview\",!0),(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(n.h1,{children:\"Box\"}),`\n`,(0,o.jsx)(n.p,{children:\"Box allow users to perform actions and choose with a single tap.\"}),`\n`,(0,o.jsx)(t,{})]})}function d(e={}){let{wrapper:n}=e.components||{};return n?(0,o.jsx)(n,{...e,children:(0,o.jsx)(p,{...e})}):p(e)}function M(e,n){throw new Error(\"Expected \"+(n?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}return g(v);})();\n;return Component;"
+        },
+        "_id": "components/box.mdx",
+        "_raw": {
+          "sourceFilePath": "components/box.mdx",
+          "sourceFileName": "box.mdx",
+          "sourceFileDir": "components",
+          "contentType": "mdx",
+          "flattenedPath": "components/box"
+        },
+        "type": "Components",
+        "slug": "/components/box",
+        "slugAsParams": "box",
+        "url": "/components/box"
+      },
+      "documentHash": "1753119717747",
+      "hasWarnings": false,
+      "documentTypeName": "Components"
+    },
+    "components/button.mdx": {
+      "document": {
+        "name": "components-button",
+        "title": "Button",
+        "description": "Button allow users to perform actions and choose with a single tap",
+        "body": {
+          "raw": "\n\nimport { buttonContent } from '@docs/content/components/button';\n\n## Installation\n\n## Usage\n\n<ComponentPreview data={buttonContent.usage} />",
+          "code": "var Component=(()=>{var l=Object.create;var i=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var w=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var o in e)i(t,o,{get:e[o],enumerable:!0})},a=(t,e,o,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of h(e))!_.call(t,r)&&r!==o&&i(t,r,{get:()=>e[r],enumerable:!(s=x(e,r))||s.enumerable});return t};var C=(t,e,o)=>(o=t!=null?l(g(t)):{},a(e||!t||!t.__esModule?i(o,\"default\",{value:t,enumerable:!0}):o,t)),b=t=>a(i({},\"__esModule\",{value:!0}),t);var m=w((D,c)=>{c.exports=_jsx_runtime});var y={};j(y,{default:()=>f,frontmatter:()=>v});var n=C(m());var u={code:{react:\"string\",vue:\"string\"}};var p={usage:u};var v={name:\"components-button\",title:\"Button\",description:\"Button allow users to perform actions and choose with a single tap\"};function d(t){let e={h2:\"h2\",...t.components},{ComponentPreview:o}=e;return o||M(\"ComponentPreview\",!0),(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"Installation\"}),`\n`,(0,n.jsx)(e.h2,{children:\"Usage\"}),`\n`,(0,n.jsx)(o,{data:p.usage})]})}function f(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,{...t,children:(0,n.jsx)(d,{...t})}):d(t)}function M(t,e){throw new Error(\"Expected \"+(e?\"component\":\"object\")+\" `\"+t+\"` to be defined: you likely forgot to import, pass, or provide it.\")}return b(y);})();\n;return Component;"
+        },
+        "_id": "components/button.mdx",
+        "_raw": {
+          "sourceFilePath": "components/button.mdx",
+          "sourceFileName": "button.mdx",
+          "sourceFileDir": "components",
+          "contentType": "mdx",
+          "flattenedPath": "components/button"
+        },
+        "type": "Components",
+        "slug": "/components/button",
+        "slugAsParams": "button",
+        "url": "/components/button"
+      },
+      "documentHash": "1753366575659",
+      "hasWarnings": false,
+      "documentTypeName": "Components"
+    },
+    "components/input.mdx": {
+      "document": {
+        "body": {
+          "raw": "# Input\n\nInput allow users to perform actions and choose with a single tap.\n\n<ComponentPreview/>",
+          "code": "var Component=(()=>{var u=Object.create;var i=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),w=(e,n)=>{for(var t in n)i(e,t,{get:n[t],enumerable:!0})},c=(e,n,t,s)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let r of x(n))!l.call(e,r)&&r!==t&&i(e,r,{get:()=>n[r],enumerable:!(s=f(n,r))||s.enumerable});return e};var j=(e,n,t)=>(t=e!=null?u(h(e)):{},c(n||!e||!e.__esModule?i(t,\"default\",{value:e,enumerable:!0}):t,e)),g=e=>c(i({},\"__esModule\",{value:!0}),e);var a=_((b,p)=>{p.exports=_jsx_runtime});var v={};w(v,{default:()=>d,frontmatter:()=>C});var o=j(a()),C=void 0;function m(e){let n={h1:\"h1\",p:\"p\",...e.components},{ComponentPreview:t}=n;return t||M(\"ComponentPreview\",!0),(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(n.h1,{children:\"Input\"}),`\n`,(0,o.jsx)(n.p,{children:\"Input allow users to perform actions and choose with a single tap.\"}),`\n`,(0,o.jsx)(t,{})]})}function d(e={}){let{wrapper:n}=e.components||{};return n?(0,o.jsx)(n,{...e,children:(0,o.jsx)(m,{...e})}):m(e)}function M(e,n){throw new Error(\"Expected \"+(n?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}return g(v);})();\n;return Component;"
+        },
+        "_id": "components/input.mdx",
+        "_raw": {
+          "sourceFilePath": "components/input.mdx",
+          "sourceFileName": "input.mdx",
+          "sourceFileDir": "components",
+          "contentType": "mdx",
+          "flattenedPath": "components/input"
+        },
+        "type": "Components",
+        "slug": "/components/input",
+        "slugAsParams": "input",
+        "url": "/components/input"
+      },
+      "documentHash": "1753204542829",
+      "hasWarnings": false,
+      "documentTypeName": "Components"
+    },
+    "components/text.mdx": {
+      "document": {
+        "body": {
+          "raw": "# Text\n\nText allow users to perform actions and choose with a single tap.\n\n<ComponentPreview/>",
+          "code": "var Component=(()=>{var x=Object.create;var i=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),w=(e,n)=>{for(var t in n)i(e,t,{get:n[t],enumerable:!0})},c=(e,n,t,s)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let r of u(n))!l.call(e,r)&&r!==t&&i(e,r,{get:()=>n[r],enumerable:!(s=f(n,r))||s.enumerable});return e};var j=(e,n,t)=>(t=e!=null?x(h(e)):{},c(n||!e||!e.__esModule?i(t,\"default\",{value:e,enumerable:!0}):t,e)),g=e=>c(i({},\"__esModule\",{value:!0}),e);var m=_((b,a)=>{a.exports=_jsx_runtime});var v={};w(v,{default:()=>d,frontmatter:()=>C});var o=j(m()),C=void 0;function p(e){let n={h1:\"h1\",p:\"p\",...e.components},{ComponentPreview:t}=n;return t||M(\"ComponentPreview\",!0),(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(n.h1,{children:\"Text\"}),`\n`,(0,o.jsx)(n.p,{children:\"Text allow users to perform actions and choose with a single tap.\"}),`\n`,(0,o.jsx)(t,{})]})}function d(e={}){let{wrapper:n}=e.components||{};return n?(0,o.jsx)(n,{...e,children:(0,o.jsx)(p,{...e})}):p(e)}function M(e,n){throw new Error(\"Expected \"+(n?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}return g(v);})();\n;return Component;"
+        },
+        "_id": "components/text.mdx",
+        "_raw": {
+          "sourceFilePath": "components/text.mdx",
+          "sourceFileName": "text.mdx",
+          "sourceFileDir": "components",
+          "contentType": "mdx",
+          "flattenedPath": "components/text"
+        },
+        "type": "Components",
+        "slug": "/components/text",
+        "slugAsParams": "text",
+        "url": "/components/text"
+      },
+      "documentHash": "1753281672831",
+      "hasWarnings": false,
+      "documentTypeName": "Components"
+    },
+    "guides/introduction.mdx": {
+      "document": {
+        "body": {
+          "raw": "# Introduction\n\nWelcome to the SigmaUI documentation!\n\n## What is SigmaUI?",
+          "code": "var Component=(()=>{var u=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var p=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var o in t)c(n,o,{get:t[o],enumerable:!0})},s=(n,t,o,i)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let r of l(t))!f.call(n,r)&&r!==o&&c(n,r,{get:()=>t[r],enumerable:!(i=x(t,r))||i.enumerable});return n};var g=(n,t,o)=>(o=n!=null?u(_(n)):{},s(t||!n||!n.__esModule?c(o,\"default\",{value:n,enumerable:!0}):o,n)),I=n=>s(c({},\"__esModule\",{value:!0}),n);var h=p((F,a)=>{a.exports=_jsx_runtime});var C={};j(C,{default:()=>d,frontmatter:()=>M});var e=g(h()),M=void 0;function m(n){let t={h1:\"h1\",h2:\"h2\",p:\"p\",...n.components};return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(t.h1,{children:\"Introduction\"}),`\n`,(0,e.jsx)(t.p,{children:\"Welcome to the SigmaUI documentation!\"}),`\n`,(0,e.jsx)(t.h2,{children:\"What is SigmaUI?\"})]})}function d(n={}){let{wrapper:t}=n.components||{};return t?(0,e.jsx)(t,{...n,children:(0,e.jsx)(m,{...n})}):m(n)}return I(C);})();\n;return Component;"
+        },
+        "_id": "guides/introduction.mdx",
+        "_raw": {
+          "sourceFilePath": "guides/introduction.mdx",
+          "sourceFileName": "introduction.mdx",
+          "sourceFileDir": "guides",
+          "contentType": "mdx",
+          "flattenedPath": "guides/introduction"
+        },
+        "type": "Guides",
+        "slug": "/guides/introduction",
+        "slugAsParams": "introduction",
+        "url": "/guides/introduction"
+      },
+      "documentHash": "1753360905157",
+      "hasWarnings": false,
+      "documentTypeName": "Guides"
+    },
+    "theming/sizes.mdx": {
+      "document": {
+        "name": "theming-sizes",
+        "title": "Sizes",
+        "description": "The list of available size tokens",
+        "body": {
+          "raw": "\n## Installation",
+          "code": "var Component=(()=>{var u=Object.create;var i=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var d=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var p=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)i(t,e,{get:n[e],enumerable:!0})},a=(t,n,e,r)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let o of f(n))!_.call(t,o)&&o!==e&&i(t,o,{get:()=>n[o],enumerable:!(r=x(n,o))||r.enumerable});return t};var z=(t,n,e)=>(e=t!=null?u(d(t)):{},a(n||!t||!t.__esModule?i(e,\"default\",{value:t,enumerable:!0}):e,t)),M=t=>a(i({},\"__esModule\",{value:!0}),t);var l=p((b,c)=>{c.exports=_jsx_runtime});var D={};j(D,{default:()=>h,frontmatter:()=>C});var s=z(l()),C={name:\"theming-sizes\",title:\"Sizes\",description:\"The list of available size tokens\"};function m(t){let n={h2:\"h2\",...t.components};return(0,s.jsx)(n.h2,{children:\"Installation\"})}function h(t={}){let{wrapper:n}=t.components||{};return n?(0,s.jsx)(n,{...t,children:(0,s.jsx)(m,{...t})}):m(t)}return M(D);})();\n;return Component;"
+        },
+        "_id": "theming/sizes.mdx",
+        "_raw": {
+          "sourceFilePath": "theming/sizes.mdx",
+          "sourceFileName": "sizes.mdx",
+          "sourceFileDir": "theming",
+          "contentType": "mdx",
+          "flattenedPath": "theming/sizes"
+        },
+        "type": "Theming",
+        "slug": "/theming/sizes",
+        "slugAsParams": "sizes",
+        "url": "/theming/sizes"
+      },
+      "documentHash": "1753360905157",
+      "hasWarnings": false,
+      "documentTypeName": "Theming"
+    },
+    "theming/variants.mdx": {
+      "document": {
+        "name": "theming-variants",
+        "title": "Variants",
+        "description": "The list of available variant tokens",
+        "body": {
+          "raw": "\n## Usage",
+          "code": "var Component=(()=>{var u=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var d=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var p=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},s=(t,n,e,i)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let o of f(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(i=x(n,o))||i.enumerable});return t};var v=(t,n,e)=>(e=t!=null?u(d(t)):{},s(n||!t||!t.__esModule?r(e,\"default\",{value:t,enumerable:!0}):e,t)),M=t=>s(r({},\"__esModule\",{value:!0}),t);var m=p((X,c)=>{c.exports=_jsx_runtime});var C={};j(C,{default:()=>l,frontmatter:()=>g});var a=v(m()),g={name:\"theming-variants\",title:\"Variants\",description:\"The list of available variant tokens\"};function h(t){let n={h2:\"h2\",...t.components};return(0,a.jsx)(n.h2,{children:\"Usage\"})}function l(t={}){let{wrapper:n}=t.components||{};return n?(0,a.jsx)(n,{...t,children:(0,a.jsx)(h,{...t})}):h(t)}return M(C);})();\n;return Component;"
+        },
+        "_id": "theming/variants.mdx",
+        "_raw": {
+          "sourceFilePath": "theming/variants.mdx",
+          "sourceFileName": "variants.mdx",
+          "sourceFileDir": "theming",
+          "contentType": "mdx",
+          "flattenedPath": "theming/variants"
+        },
+        "type": "Theming",
+        "slug": "/theming/variants",
+        "slugAsParams": "variants",
+        "url": "/theming/variants"
+      },
+      "documentHash": "1753360905158",
+      "hasWarnings": false,
+      "documentTypeName": "Theming"
+    }
+  }
+}

@@ -6,6 +6,9 @@
       ".velite": [
         ".velite"
       ],
+      ".contentlayer2/generated": [
+        ".contentlayer/generated"
+      ],
       "@packages/*": [
         "../../../packages/*"
       ],

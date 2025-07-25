@@ -3,6 +3,7 @@ import { useRouter } from '@microui-kit/use-router'
 import DocPage from '@docs/components/layout/DocPage'
 import MDXContent from '@docs/components/common/MDXContent'
 import { components } from '.velite'
+import { allComponents } from '.contentlayer/generated'
 
 const ComponentPage = ({}) => {
   console.log('components', components);
@@ -12,7 +13,7 @@ const ComponentPage = ({}) => {
   const router = useRouter();
   const { params } = router;
 
-  const page = components.find(item => item.name === `${pageName}-${params.slug}`);
+  const page = allComponents.find(item => item.slug === '/components/button');
 
   console.log('page', page)
 
@@ -21,7 +22,8 @@ const ComponentPage = ({}) => {
       data={page}
     >
       <MDXContent
-        code={page.code}
+        code={page.body.code}
+        // code={page.code}
       />
     </DocPage>
   )
