@@ -7,18 +7,6 @@ import SegmentGroup from '@sigmaui-kit/segment-group'
 import Text from '@sigmaui-kit/text'
 
 import { styles, type TableOfContentProps } from './styles'
-import { type TocEntry } from './types'
-
-interface FlattenedTocEntry extends Omit<TocEntry, 'items'> {
-  depth: number
-}
-
-const flattenTocEntries = (entries: TocEntry[] = [], depth = 0): FlattenedTocEntry[] =>
-  entries.reduce<FlattenedTocEntry[]>(
-    (acc, entry) =>
-      acc.concat({ label: entry.title, url: entry.url, depth }, flattenTocEntries(entry.items, depth + 1)),
-    []
-  )
 
 const TableOfContent: FC<TableOfContentProps> = ({
   prefixCls = 'sm-table-of-content',
@@ -28,6 +16,8 @@ const TableOfContent: FC<TableOfContentProps> = ({
 }) => {
   const router = useRouter()
   const { pathname } = router
+
+  console.log('entries', entries)
 
   return (
     <div className={classNames(prefixCls, className, classes?.wrapper)}>
@@ -39,7 +29,7 @@ const TableOfContent: FC<TableOfContentProps> = ({
       </Text>
       <SegmentGroup
         orientation="vertical"
-        options={flattenTocEntries(entries)}
+        options={entries}
       />
     </div>
   )

@@ -3,7 +3,7 @@
   "description": "The list of available variant tokens\r",
   "body": {
     "raw": "\r\n## Usage",
-    "code": "var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var d=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var p=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},s=(t,n,e,i)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let o of h(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(i=f(n,o))||i.enumerable});return t};var v=(t,n,e)=>(e=t!=null?x(d(t)):{},s(n||!t||!t.__esModule?r(e,\"default\",{value:t,enumerable:!0}):e,t)),M=t=>s(r({},\"__esModule\",{value:!0}),t);var m=p((b,c)=>{c.exports=_jsx_runtime});var D={};j(D,{default:()=>u,frontmatter:()=>C});var a=v(m()),C={name:\"variants\",title:\"Variants\",description:\"The list of available variant tokens\"};function l(t){let n={h2:\"h2\",...t.components};return(0,a.jsx)(n.h2,{children:\"Usage\"})}function u(t={}){let{wrapper:n}=t.components||{};return n?(0,a.jsx)(n,{...t,children:(0,a.jsx)(l,{...t})}):l(t)}return M(D);})();\n;return Component;"
+    "code": "var Component=(()=>{var x=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var p=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},s=(t,n,e,i)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let o of f(n))!_.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(i=d(n,o))||i.enumerable});return t};var v=(t,n,e)=>(e=t!=null?x(h(t)):{},s(n||!t||!t.__esModule?a(e,\"default\",{value:t,enumerable:!0}):e,t)),M=t=>s(a({},\"__esModule\",{value:!0}),t);var m=p((X,c)=>{c.exports=_jsx_runtime});var C={};j(C,{default:()=>l,frontmatter:()=>g});var r=v(m()),g={name:\"variants\",title:\"Variants\",description:\"The list of available variant tokens\"};function u(t){let n={h2:\"h2\",...t.components};return(0,r.jsx)(n.h2,{id:\"usage\",children:\"Usage\"})}function l(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(u,{...t})}):u(t)}return M(C);})();\n;return Component;"
   },
   "_id": "theming/variants.mdx",
   "_raw": {
@@ -17,5 +17,11 @@
   "name": "variants",
   "dir": "theming",
   "slug": "/theming/variants",
-  "url": "/theming/variants"
+  "toc": [
+    {
+      "level": 2,
+      "label": "Usage",
+      "value": "usage"
+    }
+  ]
 }

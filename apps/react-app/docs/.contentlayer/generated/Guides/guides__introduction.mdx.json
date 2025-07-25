@@ -1,7 +1,7 @@
 {
   "body": {
     "raw": "# Introduction\r\n\r\nWelcome to the SigmaUI documentation!\r\n\r\n## What is SigmaUI?",
-    "code": "var Component=(()=>{var u=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var p=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var o in t)c(n,o,{get:t[o],enumerable:!0})},s=(n,t,o,i)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let r of l(t))!f.call(n,r)&&r!==o&&c(n,r,{get:()=>t[r],enumerable:!(i=x(t,r))||i.enumerable});return n};var g=(n,t,o)=>(o=n!=null?u(_(n)):{},s(t||!n||!n.__esModule?c(o,\"default\",{value:n,enumerable:!0}):o,n)),I=n=>s(c({},\"__esModule\",{value:!0}),n);var h=p((F,a)=>{a.exports=_jsx_runtime});var C={};j(C,{default:()=>d,frontmatter:()=>M});var e=g(h()),M=void 0;function m(n){let t={h1:\"h1\",h2:\"h2\",p:\"p\",...n.components};return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(t.h1,{children:\"Introduction\"}),`\n`,(0,e.jsx)(t.p,{children:\"Welcome to the SigmaUI documentation!\"}),`\n`,(0,e.jsx)(t.h2,{children:\"What is SigmaUI?\"})]})}function d(n={}){let{wrapper:t}=n.components||{};return t?(0,e.jsx)(t,{...n,children:(0,e.jsx)(m,{...n})}):m(n)}return I(C);})();\n;return Component;"
+    "code": "var Component=(()=>{var u=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var p=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),g=(n,t)=>{for(var o in t)r(n,o,{get:t[o],enumerable:!0})},s=(n,t,o,c)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let i of l(t))!f.call(n,i)&&i!==o&&r(n,i,{get:()=>t[i],enumerable:!(c=x(t,i))||c.enumerable});return n};var j=(n,t,o)=>(o=n!=null?u(_(n)):{},s(t||!n||!n.__esModule?r(o,\"default\",{value:n,enumerable:!0}):o,n)),I=n=>s(r({},\"__esModule\",{value:!0}),n);var d=p((D,a)=>{a.exports=_jsx_runtime});var w={};g(w,{default:()=>m,frontmatter:()=>M});var e=j(d()),M=void 0;function h(n){let t={h1:\"h1\",h2:\"h2\",p:\"p\",...n.components};return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(t.h1,{id:\"introduction\",children:\"Introduction\"}),`\n`,(0,e.jsx)(t.p,{children:\"Welcome to the SigmaUI documentation!\"}),`\n`,(0,e.jsx)(t.h2,{id:\"what-is-sigmaui\",children:\"What is SigmaUI?\"})]})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,e.jsx)(t,{...n,children:(0,e.jsx)(h,{...n})}):h(n)}return I(w);})();\n;return Component;"
   },
   "_id": "guides/introduction.mdx",
   "_raw": {
@@ -15,5 +15,11 @@
   "name": "introduction",
   "dir": "guides",
   "slug": "/guides/introduction",
-  "url": "/guides/introduction"
+  "toc": [
+    {
+      "level": 2,
+      "label": "What is SigmaUI?",
+      "value": "what-is-sigmaui"
+    }
+  ]
 }

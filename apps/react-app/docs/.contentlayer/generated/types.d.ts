@@ -20,7 +20,7 @@ export type Components = {
   name: string
   dir: string
   slug: string
-  url: string
+  toc: json
 }
 
 export type Guides = {
@@ -35,7 +35,7 @@ export type Guides = {
   name: string
   dir: string
   slug: string
-  url: string
+  toc: json
 }
 
 export type Theming = {
@@ -50,7 +50,7 @@ export type Theming = {
   name: string
   dir: string
   slug: string
-  url: string
+  toc: json
 }  
 
 /** Nested types */
