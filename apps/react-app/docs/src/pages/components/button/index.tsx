@@ -1,13 +1,13 @@
-import Page from '@docs/components/layout/Page'
+import DocPage from '@docs/components/layout/DocPage'
 import ButtonMdx from '@docs/content/docs/components/button.mdx'
 
 console.log('ButtonMdx', ButtonMdx)
 
 const ButtonPage = ({}) => {
   return (
-    <Page>
-      <ButtonMdx />
-    </Page>
+    <DocPage>
+      <ButtonMdx/>
+    </DocPage>
   )
 }
 

@@ -1,5 +1,5 @@
-import { Button } from '@sigmaui-kit/react'
+import Button from '@sigmaui-kit/button'
 
 export default function Demo() {
-  return <Button color="primary">Button</Button>
+  return <Button size="sm">Button</Button>
 }

@@ -3,7 +3,7 @@ import vue from './vue.raw.tsx?raw'
 
 export default {
   code: {
-    react: 'string',
-    vue: 'string',
-  },
+    react,
+    vue
+  }
 }

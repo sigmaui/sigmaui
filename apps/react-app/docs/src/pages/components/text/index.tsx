@@ -1,11 +1,11 @@
-import Page from '@docs/components/layout/Page'
+import DocPage from '@docs/components/layout/DocPage'
 import TextMdx from '@docs/content/docs/components/text.mdx'
 
 const TextPage = ({}) => {
   return (
-    <Page>
-      <TextMdx />
-    </Page>
+    <DocPage>
+      <TextMdx/>
+    </DocPage>
   )
 }
 

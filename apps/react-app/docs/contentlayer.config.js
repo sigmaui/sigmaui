@@ -1,6 +1,7 @@
 import path from 'node:path'
 import { defineDocumentType, makeSource } from 'contentlayer2/source-files';
 import rehypeSlug from 'rehype-slug'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import GithubSlugger from 'github-slugger'
 
 const tocField = {
@@ -29,6 +30,11 @@ const tocField = {
   }
 }
 
+const fields = {
+  title: { type: 'string', required: false },
+  description: { type: 'string', required: false }
+}
+
 const computedFields = {
   name: {
     type: 'string',
@@ -53,10 +59,7 @@ export const components = defineDocumentType(() => ({
   name: 'Components',
   filePathPattern: ['components/*.mdx'],
   contentType: 'mdx',
-  fields: {
-    title: { type: 'string', required: false },
-    description: { type: 'string', required: false }
-  },
+  fields,
   computedFields
 }))
 
@@ -64,10 +67,7 @@ export const guides = defineDocumentType(() => ({
   name: 'Guides',
   filePathPattern: ['guides/*.mdx'],
   contentType: 'mdx',
-  fields: {
-    title: { type: 'string', required: false },
-    description: { type: 'string', required: false }
-  },
+  fields,
   computedFields
 }))
 
@@ -75,10 +75,7 @@ export const theming = defineDocumentType(() => ({
   name: 'Theming',
   filePathPattern: ['theming/*.mdx'],
   contentType: 'mdx',
-  fields: {
-    title: { type: 'string', required: false },
-    description: { type: 'string', required: false }
-  },
+  fields,
   computedFields
 }))
 
@@ -89,6 +86,15 @@ export default makeSource({
   mdx: {
     rehypePlugins: [
       rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          properties: {
+            className: ["subheading-anchor"],
+            ariaLabel: "Link to section",
+          },
+        },
+      ],
     ]
   }
 })

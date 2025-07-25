@@ -1,11 +1,11 @@
-import Page from '@docs/components/layout/Page'
+import DocPage from '@docs/components/layout/DocPage'
 import BoxMdx from '@docs/content/docs/components/box.mdx'
 
 const BoxPage = ({}) => {
   return (
-    <Page>
-      <BoxMdx />
-    </Page>
+    <DocPage>
+      <BoxMdx/>
+    </DocPage>
   )
 }
 

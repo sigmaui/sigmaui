@@ -1,11 +1,11 @@
-import Page from '@docs/components/layout/Page'
+import DocPage from '@docs/components/layout/DocPage'
 import InputMdx from '@docs/content/docs/components/input.mdx'
 
 const InputPage = ({}) => {
   return (
-    <Page>
+    <DocPage>
       <InputMdx />
-    </Page>
+    </DocPage>
   )
 }
 

@@ -37,6 +37,7 @@ const ComponentPreview: FC<ComponentPreviewProps> = ({
   classes,
   data,
 }) => {
+  console.log('data', data)
   return (
     <div className={classNames(prefixCls, className, classes?.wrapper)}>
       <CodeDemo

@@ -8,7 +8,11 @@ export const styles = ({ theme = {} }: IProps<any>) => {
       position: 'relative'
     } as StylesProperties,
     main: {} as StylesProperties,
-    content: {} as StylesProperties,
+    content: {
+      '& > *:not(:last-child)': {
+        marginBottom: 12,
+      }
+    } as StylesProperties,
     info: {
       marginBottom: 24
     } as StylesProperties,
