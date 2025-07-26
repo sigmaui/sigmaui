@@ -21,14 +21,18 @@ const DocPage: FC<DocPageProps> = ({
   return (
     <div className={classNames(prefixCls, className, classes?.wrapper)}>
       <div className={classes?.main}>
-        <div className={classes?.info}>
-          <h1 className={classes?.title}>{title}</h1>
-          {
-            description
-            &&
-            <p className={classes?.description}>{description}</p>
-          }
-        </div>
+        {
+          title
+          &&
+          <div className={classes?.info}>
+            <h1 className={classes?.title}>{title}</h1>
+            {
+              description
+              &&
+              <p className={classes?.description}>{description}</p>
+            }
+          </div>
+        }
         <div className={classNames(contentClassName, classes?.content)}>
           {children}
         </div>
