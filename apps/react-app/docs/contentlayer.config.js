@@ -55,13 +55,13 @@ const computedFields = {
   // tocField
 };
 
-export const components = defineDocumentType(() => ({
-  name: 'Components',
-  filePathPattern: ['components/*.mdx'],
-  contentType: 'mdx',
-  fields,
-  computedFields
-}))
+// export const components = defineDocumentType(() => ({
+//   name: 'Components',
+//   filePathPattern: ['components/*.mdx'],
+//   contentType: 'mdx',
+//   fields,
+//   computedFields
+// }))
 
 export const guides = defineDocumentType(() => ({
   name: 'Guides',
@@ -81,7 +81,7 @@ export const theming = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: path.join(process.cwd(), './src/content/docs'),
-  documentTypes: [components, guides, theming],
+  documentTypes: [guides, theming],
   disableImportAliasWarning: true,
   mdx: {
     rehypePlugins: [

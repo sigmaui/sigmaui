@@ -8,20 +8,6 @@ export { isType } from 'contentlayer2/client'
 export type { Markdown, MDX, ImageFieldData, IsoDateTimeString }
 
 /** Document types */
-export type Components = {
-  /** File path relative to `contentDirPath` */
-  _id: string
-  _raw: Local.RawDocumentData
-  type: 'Components'
-  title?: string | undefined
-  description?: string | undefined
-  /** MDX file body */
-  body: MDX
-  name: string
-  dir: string
-  slug: string
-}
-
 export type Guides = {
   /** File path relative to `contentDirPath` */
   _id: string
@@ -58,15 +44,14 @@ export type Theming = {
 export type AllTypes = DocumentTypes | NestedTypes
 export type AllTypeNames = DocumentTypeNames | NestedTypeNames
 
-export type DocumentTypes = Components | Guides | Theming
-export type DocumentTypeNames = 'Components' | 'Guides' | 'Theming'
+export type DocumentTypes = Guides | Theming
+export type DocumentTypeNames = 'Guides' | 'Theming'
 
 export type NestedTypes = never
 export type NestedTypeNames = never
 
 export type DataExports = {
   allDocuments: DocumentTypes[]
-  allComponents: Components[]
   allGuides: Guides[]
   allThemings: Theming[]
 }
@@ -88,7 +73,6 @@ declare global {
 }
 
 export type DocumentTypeMap = {
-  Components: Components
   Guides: Guides
   Theming: Theming
 }
