@@ -1,6 +1,6 @@
 import { IProps } from './types'
 
-export const styles = ({ theme = {} }: IProps<any>) => {
+export const styles = ({ theme = {} }: IProps<any, any>) => {
   // console.log('theme', theme)
 
   return {
@@ -12,8 +12,3 @@ export const styles = ({ theme = {} }: IProps<any>) => {
     },
   }
 }
-
-export type ComponentPreviewTypes = ReturnType<typeof styles>
-export type ComponentPreviewKeys = keyof ComponentPreviewTypes
-
-export type ComponentPreviewProps = IProps<ComponentPreviewTypes>

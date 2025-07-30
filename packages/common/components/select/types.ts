@@ -10,4 +10,7 @@ export interface IProps<Styles> extends FCWithStylesProps<Styles> {
   placeholder?: string
   label?: string | ReactNode
   itemGroupLabel?: string | ReactNode
+  value?: string[]
+  onChange?: React.FormEventHandler<HTMLDivElement> | undefined
+  defaultValue?: string[]
 }

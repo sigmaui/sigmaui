@@ -14,6 +14,9 @@ const SigmaSelect: FC<SelectProps> = ({
   placeholder,
   label,
   itemGroupLabel,
+  onChange,
+  value,
+  defaultValue,
 }) => {
   const collection = createListCollection(options)
 
@@ -23,9 +26,9 @@ const SigmaSelect: FC<SelectProps> = ({
     <Select.Root
       className={classNames(prefixCls, className, classes?.wrapper)}
       collection={collection}
-      onSelect={(value) => {
-        console.log('onSelect', value)
-      }}
+      defaultValue={defaultValue}
+      value={value}
+      onChange={onChange}
     >
       {label && <Select.Label className={classes?.label}>{label}</Select.Label>}
       <Select.Control className={classes?.control}>
