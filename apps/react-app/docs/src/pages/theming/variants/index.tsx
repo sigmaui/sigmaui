@@ -6,7 +6,7 @@ import VariantsMdx from '@docs/content/docs/theming/variants.mdx'
 const VariantsPage = ({}) => {
   return (
     <DocPage>
-      <VariantsMdx/>
+      <VariantsMdx />
       <Box css={{ display: 'flex', gap: 12, alignItems: 'center' }}>
         <Button variant="solid">solid</Button>
         <Button variant="outlined">outlined</Button>

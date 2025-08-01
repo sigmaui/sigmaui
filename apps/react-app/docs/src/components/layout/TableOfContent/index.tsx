@@ -12,13 +12,11 @@ const TableOfContent: FC<TableOfContentProps> = ({
   className,
   classes,
   entries,
-  contentClassName
+  contentClassName,
 }) => {
-  const tocClassName = 'sm-toc';
+  const tocClassName = 'sm-toc'
 
-  let renderToc: any = (
-    <div className={classNames(tocClassName, classes?.toc)}></div>
-  );
+  let renderToc: any = <div className={classNames(tocClassName, classes?.toc)}></div>
 
   if (entries) {
     renderToc = (
@@ -37,7 +35,7 @@ const TableOfContent: FC<TableOfContentProps> = ({
         tocSelector: `.${tocClassName}`,
         contentSelector: `.${contentClassName}`,
         headingSelector: 'h2, h3',
-      });
+      })
     }
   }, [contentClassName])
 

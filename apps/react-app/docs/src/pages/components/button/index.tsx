@@ -6,7 +6,7 @@ console.log('ButtonMdx', ButtonMdx)
 const ButtonPage = ({}) => {
   return (
     <DocPage>
-      <ButtonMdx/>
+      <ButtonMdx />
     </DocPage>
   )
 }

@@ -13,11 +13,11 @@ export interface StyleProperties extends CSSProperties {
 export type Breakpoints = {
   breakpoints:
     | {
-    mediaType?: 'max' | 'min' | string
-  }
+        mediaType?: 'max' | 'min' | string
+      }
     | {
-    [key: string | number]: StyleProperties
-  }
+        [key: string | number]: StyleProperties
+      }
 }
 
 export type StylesProperties = Breakpoints | StyleProperties
@@ -27,17 +27,17 @@ export type StylesObject = { [key: string]: StyleProperties }
 export type Styles<T> =
   | { [K in keyof T]?: CSSProperties }
   | ((
-  theme: Theme,
-  props: any,
-) => {
-  [K in keyof T]?: CSSProperties
-})
+      theme: Theme,
+      props: any,
+    ) => {
+      [K in keyof T]?: CSSProperties
+    })
 
 export type Classes<T> = {
   [K in keyof T]: T[K] extends (...args: any[]) => any
     ? (...args: Parameters<T[K]>) => {
-      [key: string]: string
-    }
+        [key: string]: string
+      }
     : string
 }
 

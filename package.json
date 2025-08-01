@@ -24,7 +24,7 @@
     "dev:chart-maker": "cd apps/vue-app/chart-maker && yarn dev",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "postinstall": "husky install",
+    "postinstall": "husky",
     "commit": "npx git-cz",
     "prepare": "husky"
   },

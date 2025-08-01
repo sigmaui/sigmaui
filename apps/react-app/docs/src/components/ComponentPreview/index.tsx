@@ -1,13 +1,23 @@
-import React from 'react'
-import type { FC } from 'react'
+import React, { useState } from 'react'
+import type { FC, JSX } from 'react'
 import classNames from 'classnames'
 import { withStyles } from '@microui-kit/with-styles'
-import { styles, type ComponentPreviewProps } from './styles'
+import { styles } from './styles'
 import { CodeDemo, CodeEditor } from '../common'
-import { CodeEnum, IData } from './types'
-import CodePreview from './children/CodePreview'
+import { CodeEnum, ComponentPreviewProps, IData } from './types'
+import CodeContent from './children/CodeContent'
+import { ControlComponentType, useControl } from './shared/controls/declaration'
+import useMicroUI from '@microui-kit/use-micro-ui'
 
-export const transformTabsOptions = (data: IData) => {
+export const transformTabsOptions = (data: IData, previewProps: Record<string, any>) => {
+  const replaceProps = (code: string, input: Record<string, any>) => {
+    return code.replace(/{props\.(\w+)}/g, (_, key) => {
+      if (input[key] === '') {
+        return `${key}`
+      }
+      return Object.prototype.hasOwnProperty.call(input, key) ? `${key}={"${input[key]}"}` : `undefined`
+    })
+  }
   return [
     {
       label: 'React',
@@ -15,7 +25,7 @@ export const transformTabsOptions = (data: IData) => {
       content: (
         <CodeEditor
           displayLang="React"
-          content={data?.code?.[CodeEnum.REACT]}
+          content={replaceProps(data?.code?.[CodeEnum.REACT], previewProps)}
         />
       ),
     },
@@ -25,32 +35,40 @@ export const transformTabsOptions = (data: IData) => {
       content: (
         <CodeEditor
           displayLang="Vue"
-          content={data?.code?.[CodeEnum.VUE]}
+          content={replaceProps(data?.code?.[CodeEnum.VUE], previewProps)}
         />
       ),
     },
   ]
 }
-const ComponentPreview: FC<ComponentPreviewProps> = ({
+
+export type ReturnTypeUseControl<T extends Record<string, any>> = ReturnType<typeof useControl<T>>
+const ComponentPreview = <T extends Record<string, any>>({
   prefixCls = 'sm-component-preview',
   className,
   classes,
   data,
-}) => {
-  console.log('data', data)
+  items,
+  children,
+}: ComponentPreviewProps<T>) => {
+  const control = useControl<T>(items)
+  const { css } = useMicroUI()
   return (
     <div className={classNames(prefixCls, className, classes?.wrapper)}>
-      <CodeDemo
+      <CodeDemo<T>
+        control={control}
         data={data}
-        _style={{
-          wrapper: {
-            padding: 12,
-          },
-        }}
+        items={items}
+        className={css({
+          width: '100%',
+          display: 'flex',
+          padding: 12,
+        })}
       >
-        CodeDemo
+        {children({ control })}
       </CodeDemo>
-      <CodePreview
+      <CodeContent<T>
+        previewProps={control.state}
         containerClass={{
           background: 'black',
           padding: 12,
@@ -63,5 +81,7 @@ const ComponentPreview: FC<ComponentPreviewProps> = ({
 }
 
 ComponentPreview.displayName = 'ComponentPreview'
-
-export default withStyles<ComponentPreviewProps>(styles)(ComponentPreview)
+export default withStyles<any>(styles)(ComponentPreview) as {
+  <T>({ prefixCls, className, classes, data, items, children }: ComponentPreviewProps<T>): JSX.Element
+  displayName: string
+}

@@ -7,6 +7,7 @@ import { components } from './tokens/components'
 import { colors } from './tokens/colors'
 import { sizes, fontSizes, heights, radii } from './tokens/sizes'
 import { variants } from './tokens/variants'
+import { boxShadows } from './tokens/boxShadow'
 
 const themeMapping: any = {
   color: (theme: any) => theme.colors,
@@ -17,6 +18,7 @@ const themeMapping: any = {
   fontFamily: (theme: any) => theme.fontFamilies,
   borderRadius: (theme: any) => theme.radii,
   height: (theme: any) => theme.heights,
+  boxShadow: (theme: any) => theme.boxShadows,
 }
 
 export const felaRendererConfig = {
@@ -26,8 +28,14 @@ export const felaRendererConfig = {
   },
   clsBlackList: [],
 }
+type BoxShadow = keyof typeof boxShadows
+type Colors = keyof typeof colors
 
-const theme: Theme = {
+export type ITheme = Theme & {
+  shadows: Record<BoxShadow, string>
+  colors: Record<Colors, string>
+}
+const theme: ITheme = {
   base: {
     fontSize: 16,
     borderRadius: 8,
@@ -40,9 +48,34 @@ const theme: Theme = {
   fontSizes,
   heights,
   radii,
+  shadows: boxShadows,
 }
 
 export const globalStyle = ({ theme, renderer }: any) => {
+  const fadeIn = renderer.renderKeyframe(() => {
+    return {
+      '0%': {
+        opacity: 0,
+        transform: 'translateY(-4px)',
+      },
+      '100%': {
+        opacity: 1,
+        transform: 'translateY(0)',
+      },
+    }
+  })
+  const fadeOut = renderer.renderKeyframe(() => {
+    return {
+      '0%': {
+        opacity: 1,
+        transform: 'translateY(0)',
+      },
+      '100%': {
+        opacity: 0,
+        transform: 'translateY(-4px)',
+      },
+    }
+  })
   const platform = theme?.platform
 
   return {
@@ -95,16 +128,29 @@ export const globalStyle = ({ theme, renderer }: any) => {
     },
     '::-webkit-scrollbar': {
       backgroundColor: 'transparent',
-      width: 8,
-      height: 8,
-      borderRadius: 8,
+      width: 6,
+      height: 6,
+      borderRadius: 6,
     },
     '::-webkit-scrollbar-thumb': {
-      backgroundColor: 'rgba(255, 255, 255, 0.12)',
-      borderRadius: 8,
+      backgroundColor: 'rgb(50 50 50 / 45%)',
+      borderRadius: 6,
     },
     '::-webkit-scrollbar-corner': {
       background: 'transparent',
+    },
+    '[data-placeholder-shown] [data-part="value-text"]': {
+      color: '#999',
+    },
+    '.select__content:is([open],[data-open],[data-state=open])': {
+      animation: fadeIn,
+      animationDuration: '0.25s',
+      animationTimingFunction: 'ease-out',
+    },
+    '.select__content:is([closed],[data-closed],[data-state=closed])': {
+      animation: fadeOut,
+      animationDuration: '0.25s',
+      animationTimingFunction: 'ease-out',
     },
   }
 }

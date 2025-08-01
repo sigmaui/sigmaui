@@ -1,4 +1,6 @@
 import type { FCWithStylesProps } from 'packages/common/types'
+import { ControlComponentType } from './shared/controls/declaration'
+import { styles } from './styles'
 
 export enum CodeEnum {
   REACT = 'react',
@@ -10,7 +12,12 @@ export interface IData {
     [CodeEnum.VUE]: string
   }
 }
+export type ComponentPreviewTypes = ReturnType<typeof styles>
+export type ComponentPreviewKeys = keyof ComponentPreviewTypes
 
-export interface IProps<Styles> extends FCWithStylesProps<Styles> {
+export type ComponentPreviewProps<T> = IProps<ComponentPreviewTypes, T>
+
+export interface IProps<Styles, T> extends FCWithStylesProps<Styles> {
   data: IData
+  items: ControlComponentType<T>[]
 }

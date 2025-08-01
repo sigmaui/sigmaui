@@ -195,13 +195,13 @@ export default defineConfig(({ mode }) => {
             rehypeAutolinkHeadings,
             {
               properties: {
-                className: ["heading-anchor"],
-                ariaLabel: "Link to section",
+                className: ['heading-anchor'],
+                ariaLabel: 'Link to section',
               },
             },
           ],
-        ]
-      })
+        ],
+      }),
     ],
   }
 })

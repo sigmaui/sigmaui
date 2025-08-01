@@ -4,7 +4,7 @@ import TextMdx from '@docs/content/docs/components/text.mdx'
 const TextPage = ({}) => {
   return (
     <DocPage>
-      <TextMdx/>
+      <TextMdx />
     </DocPage>
   )
 }

@@ -34,10 +34,9 @@ export type Theming = {
   name: string
   dir: string
   slug: string
-}  
+}
 
 /** Nested types */
-  
 
 /** Helper types */
 
@@ -55,7 +54,6 @@ export type DataExports = {
   allGuides: Guides[]
   allThemings: Theming[]
 }
-
 
 export interface ContentlayerGenTypes {
   documentTypes: DocumentTypes
@@ -77,8 +75,4 @@ export type DocumentTypeMap = {
   Theming: Theming
 }
 
-export type NestedTypeMap = {
-
-}
-
- 
+export type NestedTypeMap = {}

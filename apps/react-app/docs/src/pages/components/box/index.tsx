@@ -4,7 +4,7 @@ import BoxMdx from '@docs/content/docs/components/box.mdx'
 const BoxPage = ({}) => {
   return (
     <DocPage>
-      <BoxMdx/>
+      <BoxMdx />
     </DocPage>
   )
 }
