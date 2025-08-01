@@ -45,17 +45,23 @@ const CodeDemo = <T extends Record<string, any>>({
               return (
                 <Select
                   onValueChange={(details) => {
-                    console.log('value', details)
+                    if (details?.value?.length <= 0) {
+                      control.setState({
+                        ...control.state,
+                        [item.prop]: item.initialValue,
+                      })
+                      return
+                    }
                     control.setState({
                       ...control.state,
                       [item.prop]: details?.value?.[0],
                     })
                   }}
                   label={item.label}
-                  placeholder="Select Option"
                   options={{
                     items: item.options,
                   }}
+                  defaultValue={[item.initialValue]}
                 ></Select>
               )
             default:

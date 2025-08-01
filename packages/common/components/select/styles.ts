@@ -17,13 +17,40 @@ type ClassNames =
   | 'clearTrigger'
   | 'chevronTopIcon'
   | 'itemText'
+  | 'trigger-small'
+  | 'trigger-middle'
+  | 'trigger-large'
 export const styles: ({
   theme,
   renderer,
 }: {
   theme: ITheme
   renderer: any
-}) => Record<ClassNames, StylesProperties> = ({ theme }: { theme: ITheme }) => {
+}) => Record<ClassNames, StylesProperties> = ({ theme, renderer }: { theme: ITheme; renderer: any }) => {
+  const fadeIn = renderer.renderKeyframe(() => {
+    return {
+      '0%': {
+        opacity: 0,
+        transform: 'translateY(-4px)',
+      },
+      '100%': {
+        opacity: 1,
+        transform: 'translateY(0)',
+      },
+    }
+  })
+  const fadeOut = renderer.renderKeyframe(() => {
+    return {
+      '0%': {
+        opacity: 1,
+        transform: 'translateY(0)',
+      },
+      '100%': {
+        opacity: 0,
+        transform: 'translateY(-4px)',
+      },
+    }
+  })
   return {
     wrapper: {
       position: 'relative',
@@ -39,18 +66,29 @@ export const styles: ({
     control: {
       position: 'relative',
     },
+    'trigger-small': {
+      height: 32,
+    },
+    'trigger-middle': {
+      height: 36,
+    },
+    'trigger-large': {
+      height: 40,
+    },
     positioner: {
       top: '-6px !important',
     },
     trigger: {
       paddingBlock: 8,
       paddingInline: 12,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
       borderRadius: 8,
       textAlign: 'left',
       backgroundColor: theme.colors.background,
       border: `1px solid ${theme.colors.border}`,
       cursor: 'pointer',
-      display: 'flex',
       overflow: 'hidden',
     },
     itemText: {
@@ -67,6 +105,7 @@ export const styles: ({
       position: 'absolute',
       right: 24,
       top: '50%',
+      height: '-webkit-fill-available',
       transform: 'translateY(-50%)',
     },
     valueText: {
@@ -87,6 +126,16 @@ export const styles: ({
       maxHeight: 200,
       overflowY: 'scroll',
       border: '1px solid rgba(41, 43, 51, 0.1)',
+      '&:is([data-state=open])': {
+        animation: fadeIn,
+        animationDuration: '0.25s',
+        animationTimingFunction: 'ease-out',
+      },
+      '&:is([data-state=closed])': {
+        animation: fadeOut,
+        animationDuration: '0.25s',
+        animationTimingFunction: 'ease-out',
+      },
     },
     itemGroup: {},
     itemGroupLabel: {},
@@ -113,9 +162,10 @@ export const styles: ({
     },
     chevronTopIcon: {
       position: 'absolute',
+      height: '-webkit-fill-available',
       right: 8,
-      top: '50%',
-      transform: 'translateY(-50%)',
+      top: '60%',
+      transform: 'translateY(-50%) rotate(180deg)',
     },
   }
 }

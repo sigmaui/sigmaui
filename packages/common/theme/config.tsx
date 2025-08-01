@@ -52,30 +52,6 @@ const theme: ITheme = {
 }
 
 export const globalStyle = ({ theme, renderer }: any) => {
-  const fadeIn = renderer.renderKeyframe(() => {
-    return {
-      '0%': {
-        opacity: 0,
-        transform: 'translateY(-4px)',
-      },
-      '100%': {
-        opacity: 1,
-        transform: 'translateY(0)',
-      },
-    }
-  })
-  const fadeOut = renderer.renderKeyframe(() => {
-    return {
-      '0%': {
-        opacity: 1,
-        transform: 'translateY(0)',
-      },
-      '100%': {
-        opacity: 0,
-        transform: 'translateY(-4px)',
-      },
-    }
-  })
   const platform = theme?.platform
 
   return {
@@ -141,16 +117,6 @@ export const globalStyle = ({ theme, renderer }: any) => {
     },
     '[data-placeholder-shown] [data-part="value-text"]': {
       color: '#999',
-    },
-    '.select__content:is([open],[data-open],[data-state=open])': {
-      animation: fadeIn,
-      animationDuration: '0.25s',
-      animationTimingFunction: 'ease-out',
-    },
-    '.select__content:is([closed],[data-closed],[data-state=closed])': {
-      animation: fadeOut,
-      animationDuration: '0.25s',
-      animationTimingFunction: 'ease-out',
     },
   }
 }
