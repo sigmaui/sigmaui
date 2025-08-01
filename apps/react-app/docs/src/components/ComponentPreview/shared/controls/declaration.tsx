@@ -1,6 +1,5 @@
 import { Fragment, useState } from 'react'
 import { ReturnTypeUseControl } from '../..'
-import { DemoControl } from './demo'
 import Select from '@sigmaui-kit/select'
 export type ControlType = 'select' | 'slider' | 'switch' | 'demo'
 

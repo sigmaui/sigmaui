@@ -16,6 +16,7 @@ export const routeMap = {
     button: `${componentPath}/button`,
     input: `${componentPath}/input`,
     text: `${componentPath}/text`,
+    select: `${componentPath}/select`,
   },
   themingPath,
   theming: {
