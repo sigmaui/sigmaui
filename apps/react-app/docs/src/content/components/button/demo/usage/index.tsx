@@ -19,11 +19,11 @@ export const ButonComponentPreview = () => {
           options: [
             {
               label: 'Default',
-              value: 'default',
+              value: '',
             },
             {
               label: 'Outline',
-              value: 'outline',
+              value: 'outlined',
             },
             {
               label: 'Filled',
