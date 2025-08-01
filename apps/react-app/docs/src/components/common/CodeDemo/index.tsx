@@ -6,6 +6,7 @@ import { IData } from '@docs/components/ComponentPreview/types'
 import { ControlComponentType } from '@docs/components/ComponentPreview/shared/controls/declaration'
 import { DemoControl } from '@docs/components/ComponentPreview/shared/controls/demo'
 import Box from '@microui-kit/box'
+import Select from '@sigmaui-kit/select'
 
 type CodeDemoProps<T extends Record<string, any>> = {
   prefixCls?: string
@@ -31,27 +32,37 @@ const CodeDemo = <T extends Record<string, any>>({
       >
         {children}
       </Box>
-      <div>
+      <Box
+        css={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 16,
+        }}
+      >
         {items?.map((item, idx) => {
           switch (item.type) {
-            case 'demo':
+            case 'select':
               return (
-                <DemoControl
-                  key={idx}
-                  {...item}
-                  onChange={(value) => {
+                <Select
+                  onValueChange={(details) => {
+                    console.log('value', details)
                     control.setState({
                       ...control.state,
-                      [item.prop]: value,
+                      [item.prop]: details?.value?.[0],
                     })
                   }}
-                />
+                  label={item.label}
+                  placeholder="Select Option"
+                  options={{
+                    items: item.options,
+                  }}
+                ></Select>
               )
             default:
               return null
           }
         })}
-      </div>
+      </Box>
     </div>
   )
 }

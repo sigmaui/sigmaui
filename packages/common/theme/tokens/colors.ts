@@ -7,5 +7,6 @@ export const colors = {
   warning: '#FF9500',
   success: '#34C759',
   border: '#ddd',
-  active: '#f77f00'
-}
+  active: '#f77f00',
+  fillWeak: 'rgba(41, 43, 51, 0.05)',
+} as const

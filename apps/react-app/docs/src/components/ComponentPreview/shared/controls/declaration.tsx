@@ -1,6 +1,7 @@
 import { Fragment, useState } from 'react'
 import { ReturnTypeUseControl } from '../..'
 import { DemoControl } from './demo'
+import Select from '@sigmaui-kit/select'
 export type ControlType = 'select' | 'slider' | 'switch' | 'demo'
 
 export type ControlCommonType<T> = {
@@ -10,7 +11,7 @@ export type ControlCommonType<T> = {
 }
 export type SelectControlType = {
   type: 'select'
-  items: {
+  options: {
     label: string
     value: string
   }[]
@@ -24,16 +25,8 @@ export type SliderControlType = {
 export type SwitchControlType = {
   type: 'switch'
 }
-export type DemoControlType = {
-  type: 'demo'
-  options: {
-    label: string
-    value: string
-  }[]
-}
 
-export type ControlComponentType<T> = (SelectControlType | SliderControlType | SwitchControlType | DemoControlType) &
-  ControlCommonType<T>
+export type ControlComponentType<T> = (SelectControlType | SliderControlType | SwitchControlType) & ControlCommonType<T>
 
 export const useControl = <T,>(items: ControlComponentType<T>[]) => {
   const [state, setState] = useState<T>(
@@ -46,40 +39,4 @@ export const useControl = <T,>(items: ControlComponentType<T>[]) => {
     state,
     setState,
   }
-}
-export const Control = <T extends Record<string, any>>({
-  control,
-  children,
-  items,
-}: {
-  control: ReturnTypeUseControl<T>
-  children: React.ReactNode
-  items: ControlComponentType<T>[]
-}) => {
-  return (
-    <div>
-      <div>
-        {items?.map((item, idx) => {
-          switch (item.type) {
-            case 'demo':
-              return (
-                <DemoControl
-                  key={idx}
-                  {...item}
-                  onChange={(value) => {
-                    control.setState((pre) => ({
-                      ...pre,
-                      [item.prop]: value,
-                    }))
-                  }}
-                />
-              )
-            default:
-              return <Fragment key={idx} />
-          }
-        })}
-        {children}
-      </div>
-    </div>
-  )
 }

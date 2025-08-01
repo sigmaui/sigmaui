@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import classNames from 'classnames'
 import type { FC } from 'react'
 import { Select, createListCollection } from '@ark-ui/react'
 import { withStyles } from '@microui-kit/with-styles'
 
 import { styles, type SelectProps } from 'packages/common/components/select/styles'
+import { CheckIcon, ChevronTopIcon, ClearIcon } from './icons'
 
-const SigmaSelect: FC<SelectProps> = ({
+const SigmaSelect = <T extends Record<string, any>>({
   prefixCls = 'sm-select',
   className,
   classes,
@@ -17,32 +18,61 @@ const SigmaSelect: FC<SelectProps> = ({
   onChange,
   value,
   defaultValue,
-}) => {
+  _style,
+  onValueChange,
+  onSelect,
+}: SelectProps<T>) => {
   const collection = createListCollection(options)
 
-  console.log('collection', collection)
-
+  const rootRef = useRef<HTMLDivElement>(null)
+  const triggerRef = useRef<HTMLButtonElement>(null)
+  const contentRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (rootRef.current) {
+      const { width } = rootRef.current.getBoundingClientRect()
+      if (contentRef.current) {
+        contentRef.current.style.width = `${width}px`
+      }
+      if (triggerRef.current) {
+        triggerRef.current.style.width = `${width}px`
+      }
+    }
+  }, [_style])
   return (
     <Select.Root
+      ref={rootRef}
       className={classNames(prefixCls, className, classes?.wrapper)}
       collection={collection}
       defaultValue={defaultValue}
       value={value}
       onChange={onChange}
+      onValueChange={onValueChange}
+      onSelect={onSelect}
     >
       {label && <Select.Label className={classes?.label}>{label}</Select.Label>}
       <Select.Control className={classes?.control}>
-        <Select.Trigger className={classes?.trigger}>
+        <Select.Trigger
+          ref={triggerRef}
+          className={classes?.trigger}
+        >
           <Select.ValueText
             className={classes?.valueText}
             placeholder={placeholder}
           />
           <Select.Indicator className={classes?.indicator} />
         </Select.Trigger>
-        <Select.ClearTrigger>Clear</Select.ClearTrigger>
+        <Select.ClearTrigger className={classes?.clearTrigger}>
+          <ClearIcon size={16} />
+        </Select.ClearTrigger>
+        <div className={classes?.chevronTopIcon}>
+          <ChevronTopIcon size={16} />
+        </div>
       </Select.Control>
-      <Select.Positioner>
-        <Select.Content className={classes?.content}>
+      <Select.Positioner className={classes?.positioner}>
+        <Select.Content
+          ref={contentRef}
+          className={classNames(classes?.content, 'select__content')}
+        >
           <Select.ItemGroup className={classes?.itemGroup}>
             {itemGroupLabel && (
               <Select.ItemGroupLabel className={classes?.itemGroupLabel}>{itemGroupLabel}</Select.ItemGroupLabel>
@@ -53,8 +83,10 @@ const SigmaSelect: FC<SelectProps> = ({
                 key={value}
                 item={value}
               >
-                <Select.ItemText>{label}</Select.ItemText>
-                <Select.ItemIndicator>✓</Select.ItemIndicator>
+                <Select.ItemText className={classes?.itemText}>{label}</Select.ItemText>
+                <Select.ItemIndicator className={classes?.indicator}>
+                  <CheckIcon />
+                </Select.ItemIndicator>
               </Select.Item>
             ))}
           </Select.ItemGroup>
@@ -67,4 +99,4 @@ const SigmaSelect: FC<SelectProps> = ({
 
 SigmaSelect.displayName = 'Select'
 
-export default withStyles<SelectProps>(styles)(SigmaSelect)
+export default withStyles<SelectProps<any>>(styles)(SigmaSelect)

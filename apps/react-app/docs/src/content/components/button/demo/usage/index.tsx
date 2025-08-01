@@ -12,18 +12,8 @@ export const ButonComponentPreview = () => {
       data={buttonContent.usage}
       items={[
         {
-          prop: 'abc',
-          type: 'demo',
-          initialValue: 'default',
-          label: 'ABC',
-          options: [
-            { label: 'Default', value: 'default' },
-            { label: '123', value: '123' },
-          ],
-        },
-        {
           prop: 'variant',
-          type: 'demo',
+          type: 'select',
           initialValue: 'default',
           label: 'Variant',
           options: [

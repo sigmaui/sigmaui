@@ -6,7 +6,7 @@ import tseslint from 'typescript-eslint'
 import eslintPluginPrettier from 'eslint-plugin-prettier'
 
 export default tseslint.config(
-  { ignores: ['dist', 'vite.config.ts', 'tsup.config.ts'] },
+  { ignores: ['dist', 'vite.config.ts', 'tsup.config.ts', '**/*.raw.tsx'] },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ['**/*.{ts,tsx}'],
