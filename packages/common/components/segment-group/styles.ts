@@ -37,8 +37,8 @@ export const styles = ({ theme = {} }: IProps<any>) => {
       transition: 'all 0.2s ease',
 
       '&[data-orientation=vertical]': {
-        paddingLeft: 12
-      }
+        paddingLeft: 12,
+      },
     } as StylesProperties,
     itemText: {
       pointerEvents: 'none',
@@ -58,7 +58,7 @@ export const styles = ({ theme = {} }: IProps<any>) => {
       '&[data-orientation=vertical]': {
         width: 2,
         height: 'var(--height)',
-      }
+      },
     } as StylesProperties,
   }
 }

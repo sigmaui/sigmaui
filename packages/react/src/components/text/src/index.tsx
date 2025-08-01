@@ -17,21 +17,20 @@ const SigmaText: FC<TextProps> = ({
   as: As = 'div',
   ...textProps
 }) => {
-  const restProps = getRestProps(textProps);
+  const restProps = getRestProps(textProps)
 
   const { css } = useMicroUI()
 
-  const classString = css({
-    displayName,
-    size,
-    ...restProps
-  }, { _class });
-
-  return (
-    <As className={classNames(prefixCls, className, classString)}>
-      {children}
-    </As>
+  const classString = css(
+    {
+      displayName,
+      size,
+      ...restProps,
+    },
+    { _class },
   )
+
+  return <As className={classNames(prefixCls, className, classString)}>{children}</As>
 }
 
 SigmaText.displayName = displayName

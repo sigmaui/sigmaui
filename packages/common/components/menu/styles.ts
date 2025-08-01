@@ -29,8 +29,8 @@ export const styles = ({ theme = {} }: IProps<any>) => {
       cursor: 'pointer',
 
       '&._active': {
-        color: 'active'
-      }
+        color: 'active',
+      },
     } as StylesProperties,
   }
 }

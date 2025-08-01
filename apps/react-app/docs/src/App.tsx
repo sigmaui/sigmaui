@@ -20,8 +20,8 @@ const App = ({}) => {
   const router = useRouter()
   const { pathname } = router
 
-  const route = getRoute({ routes, pathname });
-  const { routeProps = {}, name: pageName } = route;
+  const route = getRoute({ routes, pathname })
+  const { routeProps = {}, name: pageName } = route
 
   const theme = {
     ...themeConfig,
@@ -49,14 +49,14 @@ const App = ({}) => {
               marginTop: 24,
             },
           }}
-          header={<Header/>}
+          header={<Header />}
           isSidebar={isSidebar}
-          sidebar={isSidebar && <Sidebar/>}
+          sidebar={isSidebar && <Sidebar />}
         >
           <Outlet
             context={{
               pageName,
-              routeProps
+              routeProps,
             }}
           />
         </Layout>

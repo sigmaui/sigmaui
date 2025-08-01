@@ -7,8 +7,8 @@ export const styles = ({ theme = {} }: IProps<any>) => {
     wrapper: {
       '& > *:not(:last-child)': {
         marginBottom: 12,
-      }
-    }
+      },
+    },
   }
 }
 

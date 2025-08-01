@@ -5,10 +5,4 @@ import NotFound from './not-found/route'
 
 import components from './components'
 
-export default [
-  Home,
-  Introduction,
-  ...components,
-  Theming,
-  NotFound
-]
+export default [Home, Introduction, ...components, Theming, NotFound]

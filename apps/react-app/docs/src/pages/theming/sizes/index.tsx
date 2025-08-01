@@ -10,10 +10,8 @@ const SizesPage = ({}) => {
   console.log('theming', theming)
 
   return (
-    <DocPage
-
-    >
-      <SizesMdx/>
+    <DocPage>
+      <SizesMdx />
       <Box css={{ display: 'flex', gap: 12, alignItems: 'center' }}>
         <Button size="xs">xs</Button>
         <Button
@@ -58,11 +56,7 @@ const SizesPage = ({}) => {
       <Box css={{ display: 'flex', gap: 12, alignItems: 'center' }}>
         <Text size="xs">xs</Text>
         <Text size="sm">sm</Text>
-        <Text
-          size="lg"
-        >
-          lg
-        </Text>
+        <Text size="lg">lg</Text>
       </Box>
     </DocPage>
   )

@@ -4,6 +4,6 @@ import vue from './vue.raw.tsx?raw'
 export default {
   code: {
     react,
-    vue
-  }
+    vue,
+  },
 }

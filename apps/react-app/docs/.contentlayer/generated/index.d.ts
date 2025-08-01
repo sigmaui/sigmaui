@@ -9,5 +9,3 @@ export declare const allGuides: Guides[]
 export declare const allThemings: Theming[]
 
 export declare const allDocuments: DocumentTypes[]
-
-
