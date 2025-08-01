@@ -1,45 +1,53 @@
 import ComponentPreview from '@docs/components/ComponentPreview'
-import Button from '@sigmaui-kit/button'
-import { buttonContent } from '..'
-import { ThemeVariant } from '@packages/common/types'
-
+import { selectContent } from '..'
+import Select from '@sigmaui-kit/select'
 export const Demo: React.FC<any> = ({ control }) => {
-  return <Button variant={control.state.variant}>Demo</Button>
-}
-export const UsageButtonComponent = () => {
   return (
-    <ComponentPreview<{ variant: string; abc: string }>
-      data={buttonContent.usage}
+    <Select
+      size={control.state.size}
+      itemGroupLabel="Size"
+      placeholder="Select size"
+      options={{
+        items: [
+          {
+            label: 'Small',
+            value: 'small',
+          },
+          {
+            label: 'Middle',
+            value: 'middle',
+          },
+          {
+            label: 'Large',
+            value: 'large',
+          },
+        ],
+      }}
+    ></Select>
+  )
+}
+export const UsageSelectComponent = () => {
+  return (
+    <ComponentPreview<{ size: string }>
+      data={selectContent.usage}
       items={[
         {
-          prop: 'variant',
+          prop: 'size',
           type: 'select',
-          initialValue: '',
-          label: 'Variant',
+          initialValue: 'small',
+          label: 'Size',
           options: [
             {
-              label: 'Default',
-              value: '',
+              label: 'Small',
+              value: 'small',
             },
             {
-              label: 'Outline',
-              value: 'outlined',
+              label: 'Middle',
+              value: 'middle',
             },
             {
-              label: 'Filled',
-              value: 'filled',
-            },
-            {
-              label: 'Text',
-              value: 'text',
-            },
-            {
-              label: 'Link',
-              value: 'link',
-            },
-            {
-              label: 'Solid',
-              value: 'solid',
+              label: 'Large',
+              value: 'large',
             },
           ],
         },

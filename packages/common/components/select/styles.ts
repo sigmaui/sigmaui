@@ -70,10 +70,10 @@ export const styles: ({
       height: 32,
     },
     'trigger-middle': {
-      height: 36,
+      height: 38,
     },
     'trigger-large': {
-      height: 40,
+      height: 44,
     },
     positioner: {
       top: '-6px !important',
@@ -115,6 +115,7 @@ export const styles: ({
       whiteSpace: 'nowrap',
       overflow: 'hidden',
       marginRight: 32,
+      fontSize: 16,
     },
     content: {
       backgroundColor: 'white',
@@ -138,7 +139,13 @@ export const styles: ({
       },
     },
     itemGroup: {},
-    itemGroupLabel: {},
+    itemGroupLabel: {
+      fontSize: 14,
+      color: theme.colors.neutral,
+      marginBottom: 4,
+      fontWeight: 600,
+      paddingInline: 8,
+    },
     item: {
       paddingInline: 8,
       position: 'relative',
@@ -150,6 +157,9 @@ export const styles: ({
       whiteSpace: 'nowrap',
       overflow: 'hidden',
       borderRadius: 6,
+      '&:is([data-state=checked])': {
+        backgroundColor: theme?.colors.fillWeak,
+      },
       '&:hover': {
         backgroundColor: theme?.colors.fillWeak,
       },
@@ -162,9 +172,12 @@ export const styles: ({
     },
     chevronTopIcon: {
       position: 'absolute',
-      height: '-webkit-fill-available',
+      height: '100%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
       right: 8,
-      top: '60%',
+      top: '50%',
       transform: 'translateY(-50%) rotate(180deg)',
     },
   }

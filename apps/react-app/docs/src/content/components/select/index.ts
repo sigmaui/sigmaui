@@ -1,7 +1,5 @@
-import fullWidth from './full-width'
 import usage from './usage'
 
-export const buttonContent = {
+export const selectContent = {
   usage,
-  'full-width': fullWidth,
 }

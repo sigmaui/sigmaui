@@ -60,7 +60,7 @@ const SigmaSelect = <T extends Record<string, any>>({
           {clearIcon || <ClearIcon size={16} />}
         </Select.ClearTrigger>
         <div className={classNames('select__suffix', classes?.chevronTopIcon)}>
-          <ChevronTopIcon size={16} />
+          <ChevronTopIcon size={20} />
         </div>
       </Select.Control>
       <Select.Positioner className={classes?.positioner}>
@@ -80,7 +80,7 @@ const SigmaSelect = <T extends Record<string, any>>({
               >
                 <Select.ItemText className={classes?.itemText}>{label}</Select.ItemText>
                 <Select.ItemIndicator className={classes?.indicator}>
-                  <CheckIcon />
+                  <CheckIcon size={20} />
                 </Select.ItemIndicator>
               </Select.Item>
             ))}
