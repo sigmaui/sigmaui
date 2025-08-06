@@ -12,7 +12,7 @@ export type IProps<Styles> = React.RefAttributes<HTMLDivElement> &
   Omit<SliderRootProps, ''> &
   FCWithStylesProps<Styles> & {
     value?: number[]
-    marks: {
+    marks?: {
       items: {
         label?: string | ReactNode
         value: number

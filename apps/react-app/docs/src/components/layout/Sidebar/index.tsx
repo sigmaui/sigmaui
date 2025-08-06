@@ -68,6 +68,10 @@ const Sidebar: FC<SidebarProps> = ({ prefixCls = 'sm-sidebar', className, classe
                 label: 'Select',
                 value: routeMap.component.select,
               },
+              {
+                label: 'Slider',
+                value: routeMap.component.slider,
+              },
             ],
           },
         ]}
