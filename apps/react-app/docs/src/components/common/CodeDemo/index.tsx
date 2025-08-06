@@ -8,6 +8,7 @@ import Box from '@microui-kit/box'
 import Select from '@sigmaui-kit/select'
 import useMicroUI from '@microui-kit/use-micro-ui'
 import { ITheme } from '@packages/common/theme/config'
+import Slider from '@sigmaui-kit/slider'
 
 type CodeDemoProps<T extends Record<string, any>> = {
   prefixCls?: string
@@ -49,6 +50,25 @@ const CodeDemo = <T extends Record<string, any>>({
       >
         {items?.map((item, idx) => {
           switch (item.type) {
+            case 'slider':
+              return (
+                <Slider
+                  label={item.label}
+                  step={item.step}
+                  defaultValue={item.defaultValue}
+                  marks={{
+                    items: item.marks?.items || [],
+                  }}
+                  onValueChange={(details) => {
+                    const value = details?.value?.[0]
+                    const realValue = item.mappingData[value]
+                    control.setState({
+                      ...control.state,
+                      [item.prop]: realValue,
+                    })
+                  }}
+                />
+              )
             case 'select':
               return (
                 <Select
