@@ -1,12 +1,12 @@
 import ComponentPreview from '@docs/components/ComponentPreview'
 import Button from '@sigmaui-kit/button'
-import { buttonContent } from '../..'
+import { buttonContent } from '..'
 import { ThemeVariant } from '@packages/common/types'
 
 export const Demo: React.FC<any> = ({ control }) => {
   return <Button variant={control.state.variant}>Demo</Button>
 }
-export const ButonComponentPreview = () => {
+export const UsageButtonComponent = () => {
   return (
     <ComponentPreview<{ variant: string; abc: string }>
       data={buttonContent.usage}
@@ -14,7 +14,7 @@ export const ButonComponentPreview = () => {
         {
           prop: 'variant',
           type: 'select',
-          initialValue: 'default',
+          initialValue: '',
           label: 'Variant',
           options: [
             {

@@ -11,16 +11,15 @@ const SigmaSelect = <T extends Record<string, any>>({
   prefixCls = 'sm-select',
   className,
   classes,
-  options,
-  placeholder,
-  label,
-  itemGroupLabel,
-  onChange,
-  value,
-  defaultValue,
   _style,
-  onValueChange,
-  onSelect,
+  options,
+  label,
+  placeholder,
+  itemGroupLabel,
+  clearIcon,
+  renderItem,
+  size = 'small',
+  ...rest
 }: SelectProps<T>) => {
   const collection = createListCollection(options)
 
@@ -43,17 +42,13 @@ const SigmaSelect = <T extends Record<string, any>>({
       ref={rootRef}
       className={classNames(prefixCls, className, classes?.wrapper)}
       collection={collection}
-      defaultValue={defaultValue}
-      value={value}
-      onChange={onChange}
-      onValueChange={onValueChange}
-      onSelect={onSelect}
+      {...rest}
     >
       {label && <Select.Label className={classes?.label}>{label}</Select.Label>}
       <Select.Control className={classes?.control}>
         <Select.Trigger
           ref={triggerRef}
-          className={classes?.trigger}
+          className={classNames(classes?.trigger, classes?.[`trigger-${size}`])}
         >
           <Select.ValueText
             className={classes?.valueText}
@@ -62,10 +57,10 @@ const SigmaSelect = <T extends Record<string, any>>({
           <Select.Indicator className={classes?.indicator} />
         </Select.Trigger>
         <Select.ClearTrigger className={classes?.clearTrigger}>
-          <ClearIcon size={16} />
+          {clearIcon || <ClearIcon size={16} />}
         </Select.ClearTrigger>
-        <div className={classes?.chevronTopIcon}>
-          <ChevronTopIcon size={16} />
+        <div className={classNames('select__suffix', classes?.chevronTopIcon)}>
+          <ChevronTopIcon size={20} />
         </div>
       </Select.Control>
       <Select.Positioner className={classes?.positioner}>
@@ -85,7 +80,7 @@ const SigmaSelect = <T extends Record<string, any>>({
               >
                 <Select.ItemText className={classes?.itemText}>{label}</Select.ItemText>
                 <Select.ItemIndicator className={classes?.indicator}>
-                  <CheckIcon />
+                  <CheckIcon size={20} />
                 </Select.ItemIndicator>
               </Select.Item>
             ))}

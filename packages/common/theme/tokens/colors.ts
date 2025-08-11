@@ -9,4 +9,6 @@ export const colors = {
   border: '#ddd',
   active: '#f77f00',
   fillWeak: 'rgba(41, 43, 51, 0.05)',
+  neutral: 'rgba(41, 43, 51, 0.7)',
+  bgEmphasized: '#e9e8e6',
 } as const

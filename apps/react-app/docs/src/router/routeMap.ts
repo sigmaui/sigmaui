@@ -17,6 +17,7 @@ export const routeMap = {
     input: `${componentPath}/input`,
     text: `${componentPath}/text`,
     select: `${componentPath}/select`,
+    slider: `${componentPath}/slider`,
   },
   themingPath,
   theming: {

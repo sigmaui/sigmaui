@@ -1,6 +1,7 @@
 import { Fragment, useState } from 'react'
 import { ReturnTypeUseControl } from '../..'
 import Select from '@sigmaui-kit/select'
+import { SliderProps } from '@packages/common/components/slider/types'
 export type ControlType = 'select' | 'slider' | 'switch' | 'demo'
 
 export type ControlCommonType<T> = {
@@ -15,11 +16,12 @@ export type SelectControlType = {
     value: string
   }[]
 }
-export type SliderControlType = {
+export type SliderControlType = SliderProps & {
+  defaultValue: number[]
+  mappingData: {
+    [key in number]: string
+  }
   type: 'slider'
-  min: number
-  max: number
-  step: number
 }
 export type SwitchControlType = {
   type: 'switch'
