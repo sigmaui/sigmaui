@@ -10,7 +10,11 @@ export const styles = ({ theme = {} }: IProps<any>): Record<ClassKeys, StylesPro
       }
     },
     popup: {
-      position: 'fixed'
+      position: 'fixed',
+
+      '&[class*="-hidden"]': {
+        display: 'none'
+      }
     },
     prefix: {},
     suffix: {},
