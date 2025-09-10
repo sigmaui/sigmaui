@@ -36,7 +36,7 @@ export const styles = ({ theme = {} }: IProps<any>): Record<ClassKeys, StylesPro
       height: '2px',
       backgroundColor: theme?.colors?.base,
       bottom: 0,
-      transition: 'all 0.2s ease',
+      transition: 'width 0.2s, left 0.2s, right 0.2s',
     },
     content: {
       marginTop: 12,

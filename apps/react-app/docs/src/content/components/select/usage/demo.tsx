@@ -2,28 +2,27 @@ import ComponentPreview from '@docs/components/ComponentPreview'
 import { selectContent } from '..'
 import Select from '@sigmaui-kit/select'
 import { useState } from 'react'
+
 export const Demo: React.FC<any> = ({ control }) => {
   return (
     <Select
       size={control.state.size}
       itemGroupLabel="Size"
       placeholder="Select size"
-      options={{
-        items: [
-          {
-            label: 'Small',
-            value: 'small',
-          },
-          {
-            label: 'Middle',
-            value: 'middle',
-          },
-          {
-            label: 'Large',
-            value: 'large',
-          },
-        ],
-      }}
+      options={[
+        {
+          label: 'Small',
+          value: 'small',
+        },
+        {
+          label: 'Middle',
+          value: 'middle',
+        },
+        {
+          label: 'Large',
+          value: 'large',
+        },
+      ]}
     ></Select>
   )
 }
@@ -62,7 +61,7 @@ export const UsageSelectComponent = () => {
           },
         ]}
       >
-        {({ control }) => <Demo control={control} />}
+        {({ control }) => <Demo control={control}/>}
       </ComponentPreview>
     </>
   )
