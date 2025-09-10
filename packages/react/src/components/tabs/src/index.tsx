@@ -3,70 +3,46 @@ import type { FC } from 'react'
 import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 import { withStyles } from '@microui-kit/with-styles'
-import { Tabs, type TabTriggerProps } from '@ark-ui/react'
+import Tabs from '@rc-component/tabs'
 
 import { styles, type TabsProps } from 'packages/common/components/tabs/styles'
 
-const SigmaTabs: FC<TabsProps> = ({ prefixCls = 'sm-tabs', className, classes, options = [], rootProps = {} }) => {
+const SigmaTabs: FC<TabsProps> = ({ prefixCls = 'sm-tabs', className, classes, options = [] }) => {
   const onValueChange = ({ value }) => {
     console.log('onValueChange', value)
   }
 
-  const { lazyMount = true, unmountOnExit = true } = rootProps
-
-  const { triggers, contents } = useMemo(() => {
-    const triggers: any[] = []
-    const contents: any[] = []
-
-    options.forEach(({ label, value, content }) => {
+  const items = useMemo(() => {
+    return options.map(({ label, value, content }) => {
       const isLink = value.startsWith('/')
 
-      const triggerProps: TabTriggerProps = {
+      const tabPaneProps = {
         className: classes?.trigger,
         value,
       }
 
-      if (isLink) {
-        triggerProps.asChild = true
-        triggerProps.children = <Link to={value}>{label}</Link>
-      } else {
-        triggerProps.children = label
-      }
-
-      triggers.push(<Tabs.Trigger {...triggerProps} />)
-
-      if (content) {
-        contents.push(
-          <Tabs.Content
-            className={classes?.content}
-            value={value}
-          >
-            {content}
-          </Tabs.Content>,
-        )
+      return {
+        label,
+        key: value,
+        children: content
       }
     })
-
-    return {
-      triggers,
-      contents,
-    }
   }, [options])
 
   return (
-    <Tabs.Root
-      {...rootProps}
-      lazyMount={lazyMount}
-      unmountOnExit={unmountOnExit}
-      className={classNames(prefixCls, className, classes?.wrapper)}
-      onValueChange={onValueChange}
-    >
-      <Tabs.List className={classes?.list}>
-        {triggers}
-        <Tabs.Indicator className={classes?.indicator} />
-      </Tabs.List>
-      {contents}
-    </Tabs.Root>
+    <Tabs
+      destroyOnHidden
+      prefixCls={prefixCls}
+      className={classNames(className, classes?.wrapper)}
+      classNames={{
+        // pane: classes?.pane,
+        header: classes?.header,
+        item: classes?.item,
+        content: classes?.content,
+        indicator: classes?.indicator
+      }}
+      items={items}
+    />
   )
 }
 

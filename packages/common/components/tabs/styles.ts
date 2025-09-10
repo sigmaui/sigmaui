@@ -1,12 +1,33 @@
 import type { IProps, StylesProperties } from './types'
 
-export type ClassKeys = 'wrapper' | 'list' | 'trigger' | 'indicator' | 'content'
+export type ClassKeys = 'wrapper' | 'header' | 'item' | 'indicator' | 'content'
 
 export const styles = ({ theme = {} }: IProps<any>): Record<ClassKeys, StylesProperties> => {
   // console.log('theme', theme)
 
   return {
     wrapper: {},
+    header: {
+      position: 'relative',
+      display: 'flex',
+
+      '& .sm-tabs-nav-list': {
+        display: 'flex'
+      },
+
+      '& .sm-tabs-nav-operations-hidden': {
+        visibility: 'hidden',
+        pointerEvents: 'none'
+      }
+    },
+    item: {
+      position: 'relative',
+      color: '#fff',
+
+      '&.sm-tabs-tab-active': {
+        color: theme.colors?.base
+      }
+    },
     list: {
       position: 'relative',
       display: 'flex',
@@ -20,7 +41,7 @@ export const styles = ({ theme = {} }: IProps<any>): Record<ClassKeys, StylesPro
       cursor: 'pointer',
     },
     indicator: {
-      width: 'var(--width)',
+      position: 'absolute',
       height: '2px',
       backgroundColor: theme.colors?.base,
       bottom: 0,
