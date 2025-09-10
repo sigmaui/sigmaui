@@ -1,65 +1,56 @@
 import type { IProps, StylesProperties } from './types'
 
-export const styles = ({ theme = {} }: IProps<any>) => {
+export type ClassKeys = 'wrapper' | 'item' | 'label'
+
+export const styles = ({ theme = {}, isThumbLine }: IProps<any>): Record<ClassKeys, StylesProperties> => {
   return {
     wrapper: {
-      display: 'flex',
-      flexDirection: 'column',
-      gap: 8,
-
-      '&[data-orientation=horizontal]': {
-        flexDirection: 'row',
-        alignItems: 'center',
+      '& .sm-segment-group-group': {
+        display: 'flex',
+        position: 'relative'
       },
-      '&[data-orientation=vertical]': {
-        flexDirection: 'column',
-      },
-    } as StylesProperties,
-    label: {
-      fontSize: 14,
-      fontWeight: 500,
-      color: '#222',
-      marginBottom: 4,
-    } as StylesProperties,
-    control: {
-      display: 'flex',
-      gap: 8,
-    } as StylesProperties,
-    item: {
-      paddingBlock: 4,
-      fontSize: 14,
-      fontWeight: 500,
-      color: '#222',
-      backgroundColor: 'transparent',
-      border: 'none',
-      borderRadius: 6,
-      cursor: 'pointer',
-      transition: 'all 0.2s ease',
 
-      '&[data-orientation=vertical]': {
-        paddingLeft: 12,
+      '& .sm-segment-group-item-input': {
+        position: 'absolute',
+        width: 0,
+        height: 0
       },
-    } as StylesProperties,
-    itemText: {
-      pointerEvents: 'none',
-    } as StylesProperties,
-    itemHiddenInput: {},
-    indicator: {
-      display: 'block',
-      backgroundColor: theme.colors?.base,
-      transition: 'all 0.2s ease',
 
-      '&[data-orientation=horizontal]': {
-        width: 'var(--width)',
-        height: 2,
+      '& .sm-segment-group-thumb': {
+        backgroundColor: theme.colors?.base,
+        position: 'absolute',
+        width: 0,
+        height: isThumbLine ? 2 : '100%',
         bottom: 0,
+        transition: 'transform .3s cubic-bezier(.645,.045,.355,1),width .3s cubic-bezier(.645,.045,.355,1)'
+      }
+    },
+    item: {
+      position: 'relative',
+      height: 28,
+      zIndex: 2,
+      paddingInline: 12,
+      cursor: 'pointer',
+
+      '&[class*="-selected"]': {
+        backgroundColor: !isThumbLine ? theme.colors?.base : undefined,
+
+        '&:after': isThumbLine && {
+          content: '""',
+          position: 'absolute',
+          backgroundColor: theme.colors?.base,
+          width: '100%',
+          height: 2,
+          left: 0,
+          bottom: 0
+        }
       },
 
-      '&[data-orientation=vertical]': {
-        width: 2,
-        height: 'var(--height)',
-      },
-    } as StylesProperties,
+      '&[class*="-disabled"]': {
+        cursor: 'not-allowed'
+      }
+    },
+    label: {}
   }
 }
 

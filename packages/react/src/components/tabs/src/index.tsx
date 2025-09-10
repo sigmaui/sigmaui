@@ -8,18 +8,13 @@ import Tabs from '@rc-component/tabs'
 import { styles, type TabsProps } from 'packages/common/components/tabs/styles'
 
 const SigmaTabs: FC<TabsProps> = ({ prefixCls = 'sm-tabs', className, classes, options = [] }) => {
-  const onValueChange = ({ value }) => {
-    console.log('onValueChange', value)
+  const onChange = (value) => {
+    console.log('onChange', value)
   }
 
   const items = useMemo(() => {
     return options.map(({ label, value, content }) => {
       const isLink = value.startsWith('/')
-
-      const tabPaneProps = {
-        className: classes?.trigger,
-        value,
-      }
 
       return {
         label,
@@ -35,13 +30,13 @@ const SigmaTabs: FC<TabsProps> = ({ prefixCls = 'sm-tabs', className, classes, o
       prefixCls={prefixCls}
       className={classNames(className, classes?.wrapper)}
       classNames={{
-        // pane: classes?.pane,
         header: classes?.header,
         item: classes?.item,
         content: classes?.content,
         indicator: classes?.indicator
       }}
       items={items}
+      onChange={onChange}
     />
   )
 }

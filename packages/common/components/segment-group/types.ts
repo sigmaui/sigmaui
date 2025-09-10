@@ -6,13 +6,11 @@ export type { StylesProperties }
 export interface SegmentGroupOption {
   value: string
   label: string | ReactNode
+  disabled?: boolean
 }
 
 export interface IProps<Styles> extends FCWithStylesProps<Styles> {
   options: SegmentGroupOption[]
-  label?: string | ReactNode
   defaultValue?: string | null
-  orientation?: 'horizontal' | 'vertical'
-  valueName?: string
-  labelName?: string
+  isThumbLine?: boolean
 }

@@ -1,6 +1,6 @@
 import type { IProps, StylesProperties } from './types'
 
-export type ClassKeys = 'wrapper' | 'header' | 'item' | 'indicator' | 'content'
+export type ClassKeys = 'wrapper' | 'header' | 'item' | 'content' | 'indicator'
 
 export const styles = ({ theme = {} }: IProps<any>): Record<ClassKeys, StylesProperties> => {
   // console.log('theme', theme)

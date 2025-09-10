@@ -46,8 +46,8 @@ const Header: FC<HeaderProps> = ({ prefixCls = 'sm-header', className, classes }
       </div>
       {isShowSegmentDocs && (
         <SegmentGroup
+          isThumbLine
           defaultValue={pathname}
-          orientation="horizontal"
           options={[
             {
               label: 'Get Started',
@@ -64,6 +64,7 @@ const Header: FC<HeaderProps> = ({ prefixCls = 'sm-header', className, classes }
             {
               label: 'Charts',
               value: routeMap.chartPath,
+              disabled: true
             },
             {
               label: 'Templates',
