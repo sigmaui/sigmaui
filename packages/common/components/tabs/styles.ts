@@ -20,10 +20,13 @@ export const styles = ({ theme = {} }: IProps<any>): Record<ClassKeys, StylesPro
       cursor: 'pointer',
     },
     indicator: {
-      width: 'var(--width)',
-      height: '2px',
+      position: 'absolute',
+      width: 'var(--active-tab-width)',
+      height: 2,
       backgroundColor: theme.colors?.base,
+      left: 0,
       bottom: 0,
+      translate: 'var(--active-tab-left) -50%',
       transition: 'all 0.2s ease',
     },
     content: {

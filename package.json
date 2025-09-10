@@ -31,6 +31,7 @@
   "dependencies": {
     "@ark-ui/react": "^5.16.1",
     "@ark-ui/vue": "^5.16.1",
+    "@base-ui-components/react": "^1.0.0-beta.3",
     "@microui-kit/box": "^1.1.0",
     "@microui-kit/create-renderer": "^1.1.1",
     "@microui-kit/fela-plugin-theme-value": "^1.0.0",
