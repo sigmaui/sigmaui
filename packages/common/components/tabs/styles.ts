@@ -22,7 +22,10 @@ export const styles = ({ theme = {} }: IProps<any>): Record<ClassKeys, StylesPro
     },
     item: {
       position: 'relative',
+      height: 28,
+      paddingInline: 12,
       color: '#fff',
+      cursor: 'pointer',
 
       '&.sm-tabs-tab-active': {
         color: theme.colors?.base
