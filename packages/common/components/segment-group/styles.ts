@@ -2,21 +2,25 @@ import type { IProps, StylesProperties } from './types'
 
 export type ClassKeys = 'wrapper' | 'item' | 'label'
 
-export const styles = ({ theme = {}, isThumbLine }: IProps<any>): Record<ClassKeys, StylesProperties> => {
+export const styles = ({
+  prefixCls,
+  theme = {},
+  isThumbLine
+}: IProps<any>): Partial<Record<ClassKeys, StylesProperties>> => {
   return {
     wrapper: {
-      '& .sm-segment-group-group': {
+      [`& .${prefixCls}-group`]: {
         display: 'flex',
         position: 'relative'
       },
 
-      '& .sm-segment-group-item-input': {
+      [`& .${prefixCls}-item-input`]: {
         position: 'absolute',
         width: 0,
         height: 0
       },
 
-      '& .sm-segment-group-thumb': {
+      [`& .${prefixCls}-thumb`]: {
         backgroundColor: theme.colors?.base,
         position: 'absolute',
         width: 0,
@@ -47,6 +51,7 @@ export const styles = ({ theme = {}, isThumbLine }: IProps<any>): Record<ClassKe
       },
 
       '&[class*="-disabled"]': {
+        opacity: 0.5,
         cursor: 'not-allowed'
       }
     },

@@ -37,6 +37,7 @@ const App = ({}) => {
       theme={theme}
       themeMode={THEME_MODE.LIGHT}
       globalStyle={globalStyle}
+      prefix="sm"
     >
       <MDXProvider components={MDXComponents}>
         <Layout
@@ -49,9 +50,9 @@ const App = ({}) => {
               marginTop: 24,
             },
           }}
-          header={<Header />}
+          header={<Header/>}
           isSidebar={isSidebar}
-          sidebar={isSidebar && <Sidebar />}
+          sidebar={isSidebar && <Sidebar/>}
         >
           <Outlet
             context={{

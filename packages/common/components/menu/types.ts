@@ -3,14 +3,14 @@ import type { FCWithStylesProps, StylesProperties } from 'packages/common/types'
 
 export type { StylesProperties }
 
-export interface MenuOption {
-  value: string
+export interface MenuItemOption {
+  key: string
   label: string | ReactNode
-  options?: MenuOption[]
+  children?: MenuItemOption[]
 }
 
 export interface IProps<Styles> extends FCWithStylesProps<Styles> {
-  options?: MenuOption[]
+  items?: MenuItemOption[]
   value?: string
-  orientation?: 'horizontal' | 'vertical'
+  mode?: string
 }

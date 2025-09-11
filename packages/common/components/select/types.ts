@@ -3,6 +3,8 @@ import type { FCWithStylesProps, StylesProperties, ThemeSize, ThemeVariant } fro
 
 export type { StylesProperties }
 
+export type selectPrefixCls = 'sm-select'
+
 export interface SelectOption {
   value: string
   label: string | ReactNode

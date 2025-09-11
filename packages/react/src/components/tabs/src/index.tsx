@@ -2,13 +2,18 @@ import React, { useMemo } from 'react'
 import type { FC } from 'react'
 import classNames from 'classnames'
 import { Link } from 'react-router-dom'
-import { withStyles } from '@microui-kit/with-styles'
+import { withStyles } from '@sigmaui-kit/with-styles'
 import Tabs from '@rc-component/tabs'
 
 import { styles, type TabsProps } from 'packages/common/components/tabs/styles'
 
-const SigmaTabs: FC<TabsProps> = ({ prefixCls = 'sm-tabs', className, classes, options = [] }) => {
-  const onChange = (value) => {
+const SigmaTabs: FC<TabsProps> = ({
+  prefixCls,
+  className,
+  classes,
+  options = []
+}) => {
+  const onChange = (value: string | number) => {
     console.log('onChange', value)
   }
 
@@ -29,12 +34,7 @@ const SigmaTabs: FC<TabsProps> = ({ prefixCls = 'sm-tabs', className, classes, o
       destroyOnHidden
       prefixCls={prefixCls}
       className={classNames(className, classes?.wrapper)}
-      classNames={{
-        header: classes?.header,
-        item: classes?.item,
-        content: classes?.content,
-        indicator: classes?.indicator
-      }}
+      classNames={classes}
       items={items}
       onChange={onChange}
     />

@@ -1,17 +1,21 @@
-import React, { FC, useEffect, useRef } from 'react'
+import React, { FC } from 'react'
 import classNames from 'classnames'
 import RcSelect from '@rc-component/select'
-import { withStyles } from '@microui-kit/with-styles'
+import { withStyles } from '@sigmaui-kit/with-styles'
+import { getRestProps } from '@microui-kit/helpers'
 
 import { styles, type SelectProps } from 'packages/common/components/select/styles'
 
 const SigmaSelect: FC<SelectProps> = ({
-  prefixCls = 'sm-select',
+  prefixCls,
   className,
   classes,
   options,
-  placeholder
+  placeholder,
+  ...selectProps
 }) => {
+  const restProps = getRestProps(selectProps)
+
   return (
     <RcSelect
       prefixCls={prefixCls}
@@ -20,6 +24,7 @@ const SigmaSelect: FC<SelectProps> = ({
       options={options}
       placeholder={placeholder}
       classNames={{}}
+      {...restProps}
     />
   )
 }

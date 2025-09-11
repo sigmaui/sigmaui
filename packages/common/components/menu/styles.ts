@@ -1,37 +1,37 @@
 import type { IProps, StylesProperties } from './types'
 
-export const styles = ({ theme = {} }: IProps<any>) => {
+export type ClassKeys = 'wrapper' | 'list' | 'listTitle'
+
+export const styles = ({ prefixCls, theme = {} }: IProps<any>): Partial<Record<ClassKeys, StylesProperties>> => {
   // console.log('theme', theme)
 
   return {
     wrapper: {
-      '&[data-orientation="vertical"]': {
-        display: 'block',
-      },
-      '&[data-orientation="horizontal"]': {
-        display: 'flex',
-        gap: 12,
-      },
-    } as StylesProperties,
-    itemGroup: {
-      '&:not(:last-child)': {
-        marginBottom: 24,
-      },
-    } as StylesProperties,
-    itemGroupLabel: {
-      opacity: 0.5,
-      lineHeight: 32,
-    } as StylesProperties,
-    item: {
-      display: 'block',
-      height: 32,
-      lineHeight: 32,
-      cursor: 'pointer',
+      listStyle: 'none',
 
-      '&._active': {
-        color: 'active',
+      [`&.${prefixCls}-horizontal`]: {
+        display: 'flex',
       },
-    } as StylesProperties,
+
+      [`& .${prefixCls}-item`]: {
+        paddingInline: 12,
+        cursor: 'pointer',
+
+        '&[class*="-selected"]': {
+          color: theme.colors?.base
+        }
+      },
+
+      [`& .${prefixCls}-hidden`]: {
+        display: 'none'
+      },
+
+      '& ul': {
+        listStyle: 'none',
+      }
+    },
+    list: {},
+    listTitle: {}
   }
 }
 

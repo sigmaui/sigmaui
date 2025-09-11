@@ -1,61 +1,42 @@
 import React from 'react'
 import type { FC } from 'react'
 import classNames from 'classnames'
-import { Link } from 'react-router-dom'
-import { withStyles } from '@microui-kit/with-styles'
-import { Menu, type MenuItemProps } from '@ark-ui/react'
+import { useRouter } from '@microui-kit/use-router'
+import { withStyles } from '@sigmaui-kit/with-styles'
+import RcMenu, { SubMenu as RcSubMenu } from '@rc-component/menu'
+import { getRestProps } from '@microui-kit/helpers'
 
 import { styles, type MenuProps } from 'packages/common/components/menu/styles'
-import type { MenuOption } from 'packages/common/components/menu/types'
 
 const SigmaMenu: FC<MenuProps> = ({
-  prefixCls = 'sm-menu',
+  prefixCls,
   className,
   classes,
-  options = [],
-  orientation = 'horizontal',
-  value: valueFromProp,
+  items = [],
+  ...menuProps
 }) => {
-  const renderItems = ({ items = [] }: { items: MenuOption[] }) => {
-    return items.map(({ label, value, options }) => {
-      if (options) {
-        return (
-          <Menu.ItemGroup className={classes?.itemGroup}>
-            <Menu.ItemGroupLabel className={classes?.itemGroupLabel}>{label}</Menu.ItemGroupLabel>
-            {renderItems({ items: options })}
-          </Menu.ItemGroup>
-        )
-      }
+  const restProps = getRestProps(menuProps)
+  const router = useRouter()
 
-      const itemProps: MenuItemProps = {
-        className: classNames(classes?.item, {
-          ['_active']: value === valueFromProp,
-        }),
-        value,
-      }
+  const onSelect = ({ key }) => {
+    console.log('onSelect', key)
 
-      const isLink = value.startsWith('/')
+    const isLink = key?.startsWith?.('/');
 
-      if (isLink) {
-        itemProps.asChild = true
-        itemProps.children = <Link to={value}>{label}</Link>
-      } else {
-        itemProps.children = label
-      }
-
-      return <Menu.Item {...itemProps} />
-    })
+    if (isLink) {
+      router.push(key)
+    }
   }
 
   return (
-    <Menu.Root>
-      <Menu.Content
-        className={classNames(prefixCls, className, classes?.wrapper)}
-        data-orientation={orientation}
-      >
-        {renderItems({ items: options })}
-      </Menu.Content>
-    </Menu.Root>
+    <RcMenu
+      prefixCls={prefixCls}
+      className={classNames(className, classes?.wrapper)}
+      items={items}
+      classNames={classes}
+      onSelect={onSelect}
+      {...restProps}
+    />
   )
 }
 

@@ -2,7 +2,7 @@ import type { IProps, StylesProperties } from './types'
 
 export type ClassKeys = 'wrapper' | 'header' | 'item' | 'content' | 'indicator'
 
-export const styles = ({ theme = {} }: IProps<any>): Record<ClassKeys, StylesProperties> => {
+export const styles = ({ prefixCls, theme = {} }: IProps<any>): Partial<Record<ClassKeys, StylesProperties>> => {
   // console.log('theme', theme)
 
   return {
@@ -11,11 +11,11 @@ export const styles = ({ theme = {} }: IProps<any>): Record<ClassKeys, StylesPro
       position: 'relative',
       display: 'flex',
 
-      '& .sm-tabs-nav-list': {
+      [`& .${prefixCls}-nav-list`]: {
         display: 'flex'
       },
 
-      '& .sm-tabs-nav-operations-hidden': {
+      [`& .${prefixCls}-nav-operations-hidden`]: {
         visibility: 'hidden',
         pointerEvents: 'none'
       }
@@ -27,7 +27,7 @@ export const styles = ({ theme = {} }: IProps<any>): Record<ClassKeys, StylesPro
       color: '#fff',
       cursor: 'pointer',
 
-      '&.sm-tabs-tab-active': {
+      '&[class*="-active"]': {
         color: theme.colors?.base
       }
     },

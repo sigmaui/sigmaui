@@ -26,19 +26,19 @@ const Header: FC<HeaderProps> = ({ prefixCls = 'sm-header', className, classes }
             />
           </div>
           <Menu
-            orientation="horizontal"
-            options={[
+            mode="horizontal"
+            items={[
               {
                 label: 'Docs',
-                value: routeMap.introductionPath,
+                key: routeMap.introductionPath,
               },
               {
                 label: 'Playground',
-                value: routeMap.playgroundPath,
+                key: routeMap.playgroundPath,
               },
               {
                 label: 'Blogs',
-                value: routeMap.blogPath,
+                key: routeMap.blogPath,
               },
             ]}
           />

@@ -11,6 +11,6 @@ export interface SegmentGroupOption {
 
 export interface IProps<Styles> extends FCWithStylesProps<Styles> {
   options: SegmentGroupOption[]
-  defaultValue?: string | null
+  defaultValue?: string
   isThumbLine?: boolean
 }

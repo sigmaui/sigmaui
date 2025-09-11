@@ -3,12 +3,12 @@ import type { FC } from 'react'
 import classNames from 'classnames'
 import { useRouter } from '@microui-kit/use-router'
 import Segmented from '@rc-component/segmented'
-import { withStyles } from '@microui-kit/with-styles'
+import { withStyles } from '@sigmaui-kit/with-styles'
 
 import { styles, type SegmentGroupProps } from 'packages/common/components/segment-group/styles'
 
 const SigmaSegmentGroup: FC<SegmentGroupProps> = ({
-  prefixCls = 'sm-segment-group',
+  prefixCls,
   className,
   classes,
   options,
@@ -16,7 +16,7 @@ const SigmaSegmentGroup: FC<SegmentGroupProps> = ({
 }) => {
   const router = useRouter()
 
-  const onChange = (value) => {
+  const onChange = (value: string) => {
     console.log('onChange', value);
     const isLink = value?.startsWith?.('/');
 
@@ -32,10 +32,7 @@ const SigmaSegmentGroup: FC<SegmentGroupProps> = ({
       options={options}
       defaultValue={defaultValue}
       onChange={onChange}
-      classNames={{
-        item: classes?.item,
-        label: classes?.label
-      }}
+      classNames={classes}
     />
   )
 }

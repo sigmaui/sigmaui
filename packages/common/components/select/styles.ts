@@ -1,18 +1,22 @@
 import type { IProps, StylesProperties } from './types'
-import { heights } from "../../theme/tokens/sizes.ts";
 
 export type ClassKeys = 'wrapper' | 'popup' | 'prefix' | 'suffix' | 'input'
 
-export const styles = ({ theme = {}, size, variant }: IProps<any>): Record<ClassKeys, StylesProperties> => {
-  console.log('size', size)
+export const styles = ({
+  prefixCls,
+  theme = {},
+  size,
+  variant
+}: IProps<any>): Partial<Record<ClassKeys, StylesProperties>> => {
+  console.log('prefixCls', prefixCls)
 
   return {
     wrapper: {
       cursor: 'pointer',
 
-      '&.sm-select-single': {},
+      [`&.${prefixCls}-single`]: {},
 
-      '& .sm-select-selector': {
+      [`& .${prefixCls}-selector`]: {
         position: 'relative',
         border: '1px solid',
         borderColor: theme.colors?.border,
@@ -21,7 +25,7 @@ export const styles = ({ theme = {}, size, variant }: IProps<any>): Record<Class
         variant
       },
 
-      '& .sm-select-selection-search': {
+      [`& .${prefixCls}-selection-search`]: {
         position: 'absolute',
         left: 0,
         width: '100%',
@@ -37,7 +41,7 @@ export const styles = ({ theme = {}, size, variant }: IProps<any>): Record<Class
         }
       },
 
-      '& .sm-select-selection-placeholder, & .sm-select-selection-item': {
+      [`& .${prefixCls}-selection-placeholder, & .${prefixCls}-selection-item`]: {
         display: 'flex',
         alignItems: 'center',
         width: '100%',
@@ -45,27 +49,33 @@ export const styles = ({ theme = {}, size, variant }: IProps<any>): Record<Class
         pointerEvents: 'none'
       },
 
-      '& .sm-select-selection-placeholder': {
+      [`& .${prefixCls}-selection-placeholder`]: {
         color: theme.colors?.placeholder,
       },
 
       '&[class*="-focused"]': {
-        '& .sm-select-selector': {
+        [`& .${prefixCls}-selector`]: {
           boxShadow: theme.shadows?.focused,
           borderColor: theme.colors?.base
         },
       }
     },
     popup: {
-      position: 'fixed',
+      position: 'absolute',
+      backgroundColor: theme.colors?.popup,
+      border: '1px solid',
+      borderColor: theme.colors?.border,
+      boxShadow: theme.shadows?.popup,
+      height: 'auto',
+      size,
 
       '&[class*="-hidden"]': {
         display: 'none'
       }
     },
-    prefix: {},
-    suffix: {},
-    input: {}
+    // prefix: {},
+    // suffix: {},
+    // input: {}
   }
 }
 

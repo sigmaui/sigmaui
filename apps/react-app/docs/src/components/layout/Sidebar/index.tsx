@@ -16,61 +16,61 @@ const Sidebar: FC<SidebarProps> = ({ prefixCls = 'sm-sidebar', className, classe
   return (
     <div className={classNames(prefixCls, className, classes?.wrapper)}>
       <Menu
-        orientation="vertical"
+        mode="inline"
         value={pathname}
-        options={[
+        items={[
           {
             label: 'Get Started',
-            options: [
+            children: [
               {
                 label: 'Introduction',
-                value: routeMap.introductionPath,
+                key: routeMap.introductionPath,
               },
               {
                 label: 'Installation',
-                value: routeMap.installationPath,
+                key: routeMap.installationPath,
               },
             ],
           },
           {
             label: 'Theming',
-            options: [
+            children: [
               {
                 label: 'Sizes',
-                value: routeMap.theming.sizes,
+                key: routeMap.theming.sizes,
               },
               {
                 label: 'Variants',
-                value: routeMap.theming.variants,
+                key: routeMap.theming.variants,
               },
             ],
           },
           {
             label: 'Components',
-            options: [
+            children: [
               {
                 label: 'Box',
-                value: routeMap.component.box,
+                key: routeMap.component.box,
               },
               {
                 label: 'Button',
-                value: routeMap.component.button,
+                key: routeMap.component.button,
               },
               {
                 label: 'Input',
-                value: routeMap.component.input,
+                key: routeMap.component.input,
               },
               {
                 label: 'Text',
-                value: routeMap.component.text,
+                key: routeMap.component.text,
               },
               {
                 label: 'Select',
-                value: routeMap.component.select,
+                key: routeMap.component.select,
               },
               {
                 label: 'Slider',
-                value: routeMap.component.slider,
+                key: routeMap.component.slider,
               },
             ],
           },
