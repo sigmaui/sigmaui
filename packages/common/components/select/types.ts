@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import type { FCWithStylesProps, StylesProperties } from 'packages/common/types'
+import type { FCWithStylesProps, StylesProperties, ThemeSize, ThemeVariant } from 'packages/common/types'
 
 export type { StylesProperties }
 
@@ -11,5 +11,7 @@ export interface SelectOption {
 
 export interface IProps<Styles> extends FCWithStylesProps<Styles> {
   options: SelectOption[]
-  placeholder?: string
+  placeholder?: string,
+  size?: ThemeSize
+  variant?: ThemeVariant
 }

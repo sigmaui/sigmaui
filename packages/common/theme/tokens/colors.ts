@@ -8,6 +8,7 @@ export const colors = {
   success: '#34C759',
   border: '#ddd',
   active: '#f77f00',
+  placeholder: 'rgba(0,0,0,0.25)',
   fillWeak: 'rgba(41, 43, 51, 0.05)',
   neutral: 'rgba(41, 43, 51, 0.7)',
   bgEmphasized: '#e9e8e6',

@@ -1,13 +1,14 @@
+import React, { useState } from 'react'
+import Select from '@sigmaui-kit/select'
 import ComponentPreview from '@docs/components/ComponentPreview'
 import { selectContent } from '..'
-import Select from '@sigmaui-kit/select'
-import { useState } from 'react'
 
 export const Demo: React.FC<any> = ({ control }) => {
+  console.log('control', control)
+
   return (
     <Select
       size={control.state.size}
-      itemGroupLabel="Size"
       placeholder="Select size"
       options={[
         {
@@ -39,9 +40,9 @@ export const UsageSelectComponent = () => {
             type: 'slider',
             defaultValue: [0],
             mappingData: {
-              0: 'small',
-              50: 'middle',
-              100: 'large',
+              0: 'sm',
+              50: 'md',
+              100: 'lg',
             },
             label: 'Size',
             step: 50,

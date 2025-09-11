@@ -22,7 +22,7 @@ export const styles = ({ theme = {} }: IProps<any>): Record<ClassKeys, StylesPro
     },
     item: {
       position: 'relative',
-      height: 28,
+      height: theme.heights?.default,
       paddingInline: 12,
       color: '#fff',
       cursor: 'pointer',

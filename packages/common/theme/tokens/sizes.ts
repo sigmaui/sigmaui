@@ -1,6 +1,7 @@
 import type { StylesObject } from 'packages/common/types'
 
 export const fontSizes = {
+  default: 14,
   xs: 12,
   sm: 13,
   md: 14,
@@ -10,6 +11,7 @@ export const fontSizes = {
 }
 
 export const heights = {
+  default: 32,
   xs: 32,
   sm: 36,
   md: 40,
@@ -19,6 +21,7 @@ export const heights = {
 }
 
 export const radii = {
+  default: 6,
   xs: 6,
   sm: 6,
   md: 8,
@@ -128,6 +131,42 @@ export const buttonSizes = {
   } as StylesObject,
 }
 
+export const selectSizes = {
+  Select: {
+    _: {
+      fontSize: fontSizes.default,
+      height: heights.default,
+      borderRadius: radii.default,
+    },
+    xs: {
+      fontSize: fontSizes.xs,
+      height: heights.xs,
+      borderRadius: radii.xs,
+    },
+    sm: {
+      fontSize: fontSizes.sm,
+      height: heights.sm,
+      borderRadius: radii.sm,
+    },
+    md: {
+      fontSize: fontSizes.md,
+      height: heights.md,
+      borderRadius: radii.md,
+    },
+    lg: {
+      fontSize: fontSizes.lg,
+      height: heights.lg,
+      borderRadius: radii.lg,
+    },
+    xl: {
+      fontSize: fontSizes.xl,
+      height: heights.xl,
+      borderRadius: radii.xl,
+    },
+    '2xl': {},
+  } as StylesObject,
+}
+
 export const switchSizes = {
   Switch: {
     _: {},
@@ -145,4 +184,5 @@ export const sizes = {
   ...textSizes,
   ...inputSizes,
   ...buttonSizes,
+  ...selectSizes,
 }

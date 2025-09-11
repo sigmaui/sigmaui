@@ -9,7 +9,8 @@ const SigmaSelect: FC<SelectProps> = ({
   prefixCls = 'sm-select',
   className,
   classes,
-  options
+  options,
+  placeholder
 }) => {
   return (
     <RcSelect
@@ -17,6 +18,7 @@ const SigmaSelect: FC<SelectProps> = ({
       className={classNames(className, classes?.wrapper)}
       popupClassName={classes?.popup}
       options={options}
+      placeholder={placeholder}
       classNames={{}}
     />
   )

@@ -27,7 +27,7 @@ export const styles = ({ theme = {}, isThumbLine }: IProps<any>): Record<ClassKe
     },
     item: {
       position: 'relative',
-      height: 28,
+      height: theme.heights?.default,
       zIndex: 2,
       paddingInline: 12,
       cursor: 'pointer',
