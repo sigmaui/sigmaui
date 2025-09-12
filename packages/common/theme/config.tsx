@@ -8,6 +8,7 @@ import { colors } from './tokens/colors'
 import { sizes, fontSizes, heights, radii } from './tokens/sizes'
 import { variants } from './tokens/variants'
 import { boxShadows } from './tokens/boxShadow'
+import { zIndex } from './tokens/zIndex'
 
 const themeMapping: any = {
   color: (theme: any) => theme.colors,
@@ -49,6 +50,7 @@ const theme: ITheme = {
   heights,
   radii,
   shadows: boxShadows,
+  zIndex
 }
 
 export const globalStyle = ({ theme, renderer }: any) => {

@@ -1,9 +1,8 @@
 import type { ReactNode } from 'react'
+import { SelectProps as RcSelectProps } from '@rc-component/select'
 import type { FCWithStylesProps, StylesProperties, ThemeSize, ThemeVariant } from 'packages/common/types'
 
 export type { StylesProperties }
-
-export type selectPrefixCls = 'sm-select'
 
 export interface SelectOption {
   value: string
@@ -16,4 +15,5 @@ export interface IProps<Styles> extends FCWithStylesProps<Styles> {
   placeholder?: string,
   size?: ThemeSize
   variant?: ThemeVariant
+  allowClear?: RcSelectProps['allowClear']
 }

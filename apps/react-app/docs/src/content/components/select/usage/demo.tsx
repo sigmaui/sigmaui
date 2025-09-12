@@ -8,12 +8,14 @@ export const Demo: React.FC<any> = ({ control }) => {
 
   return (
     <Select
+      allowClear
       size={control.state.size}
-      placeholder="Select size"
+      placeholder="Select size Select size Select size Select size"
       options={[
         {
-          label: 'Small',
+          label: 'Small Small Small Small Small Small',
           value: 'small',
+          // disabled: true
         },
         {
           label: 'Middle',
@@ -24,6 +26,11 @@ export const Demo: React.FC<any> = ({ control }) => {
           value: 'large',
         },
       ]}
+      _style={{
+        wrapper: {
+          width: 200
+        }
+      }}
     ></Select>
   )
 }

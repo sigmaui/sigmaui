@@ -12,6 +12,7 @@ export const styles = ({ theme = {} }: IProps<any>) => {
     },
     left: {
       display: 'flex',
+      width: '100%'
     },
     right: {},
     logo: {

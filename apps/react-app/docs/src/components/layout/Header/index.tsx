@@ -41,6 +41,11 @@ const Header: FC<HeaderProps> = ({ prefixCls = 'sm-header', className, classes }
                 key: routeMap.blogPath,
               },
             ]}
+            _style={{
+              wrapper: {
+                width: '100%'
+              }
+            }}
           />
         </div>
       </div>

@@ -1,4 +1,4 @@
-import type { CSSProperties } from 'fela'
+import type { CSSProperties, IRenderer } from 'fela'
 import { type Theme } from '@microui-kit/theme'
 
 import { type Tailwind } from './tailwind'
@@ -16,13 +16,13 @@ export type Breakpoints = {
     | { [key: string | number]: StyleProperties }
 }
 
-export type StylesProperties = Breakpoints | StyleProperties | StylesObject
+export type StylesProperties = { _className: string } | Breakpoints | StyleProperties | StylesObject
 
 export type StylesObject = { [key: string]: StyleProperties | StylesObject | false | number }
 
 export type Styles<T> =
-  | { [K in keyof T]?: CSSProperties }
-  | ((theme: Theme, props: any,) => { [K in keyof T]?: CSSProperties })
+  | { [K in keyof T]?: StylesProperties }
+  | ((theme: Theme, props: any,) => { [K in keyof T]?: StylesProperties })
 
 export type Classes<T> = {
   [K in keyof T]: T[K] extends (...args: any[]) => any
@@ -45,6 +45,7 @@ export interface FCProps extends FCDefaultProps {
 export interface FCWithStylesProps<IStyles> extends FCProps {
   classes?: Classes<IStyles>
   theme?: Theme
+  renderer?: IRenderer
   _style?: Styles<IStyles>
   extendStyle?: Styles<IStyles>
 }

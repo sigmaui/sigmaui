@@ -73,6 +73,7 @@ export default defineConfig(({ mode }) => {
         '@sigmaui-kit/input': path.resolve(__dirname, '../../../packages/react/src/components/input/src'),
         '@sigmaui-kit/text': path.resolve(__dirname, '../../../packages/react/src/components/text/src'),
         '@sigmaui-kit/select': path.resolve(__dirname, '../../../packages/react/src/components/select/src'),
+        '@sigmaui-kit/icon': path.resolve(__dirname, '../../../packages/react/src/components/icon/src'),
         '@sigmaui-kit/slider': path.resolve(__dirname, '../../../packages/react/src/components/slider/src'),
         '@sigmaui-kit/tabs': path.resolve(__dirname, '../../../packages/react/src/components/tabs/src'),
         '@sigmaui-kit/segment-group': path.resolve(

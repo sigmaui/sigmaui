@@ -1,19 +1,20 @@
 import type { IProps, StylesProperties } from './types'
 
-export type ClassKeys = 'wrapper' | 'list' | 'listTitle'
+export type ClassKeys = 'wrapper' | 'popup' | 'list' | 'listTitle'
 
 export const styles = ({ prefixCls, theme = {} }: IProps<any>): Partial<Record<ClassKeys, StylesProperties>> => {
   // console.log('theme', theme)
-
   return {
     wrapper: {
       listStyle: 'none',
 
       [`&.${prefixCls}-horizontal`]: {
-        display: 'flex',
+        display: 'flex'
       },
 
       [`& .${prefixCls}-item`]: {
+        display: 'inline-flex',
+        alignItems: 'center',
         paddingInline: 12,
         cursor: 'pointer',
 
@@ -28,10 +29,27 @@ export const styles = ({ prefixCls, theme = {} }: IProps<any>): Partial<Record<C
 
       '& ul': {
         listStyle: 'none',
-      }
+      },
+
+      [`&.${prefixCls}-inline`]: {
+        [`& .${prefixCls}-item`]: {
+          width: '100%'
+        }
+      },
     },
     list: {},
-    listTitle: {}
+    listTitle: {},
+    popup: {
+      position: 'absolute',
+
+      '&[class*="-hidden"]': {
+        display: 'none'
+      },
+
+      '& ul': {
+        listStyle: 'none',
+      }
+    }
   }
 }
 

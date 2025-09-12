@@ -3,7 +3,7 @@ import type { FC } from 'react'
 import classNames from 'classnames'
 import { useRouter } from '@microui-kit/use-router'
 import { withStyles } from '@sigmaui-kit/with-styles'
-import RcMenu, { SubMenu as RcSubMenu } from '@rc-component/menu'
+import RcMenu from '@rc-component/menu'
 import { getRestProps } from '@microui-kit/helpers'
 
 import { styles, type MenuProps } from 'packages/common/components/menu/styles'
@@ -35,6 +35,7 @@ const SigmaMenu: FC<MenuProps> = ({
       items={items}
       classNames={classes}
       onSelect={onSelect}
+      overflowedIndicatorPopupClassName={classes?.popup}
       {...restProps}
     />
   )

@@ -59,11 +59,17 @@
       "@sigmaui-kit/layout": [
         "packages/react/src/components/layout/src"
       ],
+      "@sigmaui-kit/input": [
+        "packages/react/src/components/input/src"
+      ],
       "@sigmaui-kit/button": [
         "packages/react/src/components/button/src"
       ],
       "@sigmaui-kit/select": [
         "packages/react/src/components/select/src"
+      ],
+      "@sigmaui-kit/icon": [
+        "packages/react/src/components/icon/src"
       ],
       "@sigmaui-kit/slider": [
         "packages/react/src/components/slider/src"

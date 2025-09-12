@@ -30,6 +30,8 @@ export const styles = ({
       }
     },
     item: {
+      display: 'flex',
+      alignItems: 'center',
       position: 'relative',
       height: theme.heights?.default,
       zIndex: 2,

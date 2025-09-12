@@ -1,6 +1,13 @@
 import { IProps, StylesProperties } from './types'
 
-export const styles = ({ theme = {}, size, variant }: IProps<any>) => {
+export type ClassKeys = 'wrapper'
+
+export const styles = ({
+  prefixCls,
+  theme = {},
+  size,
+  variant
+}: IProps<any>): Partial<Record<ClassKeys, StylesProperties>> => {
   // console.log('theme', theme)
 
   return {
@@ -16,7 +23,7 @@ export const styles = ({ theme = {}, size, variant }: IProps<any>) => {
       '&[disabled]': {
         cursor: 'not-allowed',
       },
-    } as StylesProperties,
+    }
   }
 }
 

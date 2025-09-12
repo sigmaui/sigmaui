@@ -1,17 +1,26 @@
 import React from 'react'
 import type { FC } from 'react'
 import classNames from 'classnames'
-import { Field } from '@ark-ui/react'
+import RcInput from '@rc-component/input'
 import { withStyles } from '@microui-kit/with-styles'
+import { getRestProps } from '@microui-kit/helpers';
 
 import { styles, type InputProps } from 'packages/common/components/input/styles'
 
-const SigmaInput: FC<InputProps> = ({ prefixCls = 'sm-input', className, classes, placeholder, disabled }) => {
+const SigmaInput: FC<InputProps> = ({
+  prefixCls,
+  className,
+  classes,
+  ...inputProps
+}) => {
+  const restProps = getRestProps(inputProps)
+
   return (
-    <Field.Input
-      className={classNames(prefixCls, className, classes?.wrapper)}
-      placeholder={placeholder}
-      disabled={disabled}
+    <RcInput
+      prefixCls={prefixCls}
+      className={classNames(className, classes.wrapper)}
+      classNames={classes}
+      {...restProps}
     />
   )
 }

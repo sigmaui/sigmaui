@@ -64,7 +64,12 @@ export const textSizes = {
 
 export const inputSizes = {
   Input: {
-    _: {},
+    _: {
+      fontSize: fontSizes.default,
+      height: heights.default,
+      borderRadius: radii.default,
+      paddingInline: 6,
+    },
     xs: {
       fontSize: fontSizes.xs,
       height: heights.xs,
