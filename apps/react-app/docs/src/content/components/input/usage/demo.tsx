@@ -5,7 +5,10 @@ import { inputContent } from '..'
 
 export const Demo: React.FC<any> = ({ control }) => {
   return (
-    <Input size={control.state.size}/>
+    <Input
+      size={control.state.size}
+      placeholder="Basic usage"
+    />
   )
 }
 export const UsageButtonComponent = () => {

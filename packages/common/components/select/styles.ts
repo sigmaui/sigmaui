@@ -25,7 +25,7 @@ export const styles = ({
       [`& .${prefixCls}-selector`]: {
         position: 'relative',
         border: '1px solid',
-        borderColor: theme.colors?.border,
+        borderColor: 'border',
         paddingInline: 12,
         size,
         variant
@@ -63,7 +63,7 @@ export const styles = ({
       },
 
       [`& .${prefixCls}-selection-placeholder`]: {
-        color: theme.colors?.placeholder,
+        color: 'placeholder',
       },
 
       [`& .${prefixCls}-arrow, & .${prefixCls}-clear`]: {
@@ -87,17 +87,17 @@ export const styles = ({
 
       '&[class*="-focused"]': {
         [`& .${prefixCls}-selector`]: {
-          boxShadow: theme.shadows?.focused,
-          borderColor: theme.colors?.base
+          boxShadow: 'focused',
+          borderColor: 'base'
         },
       }
     },
     popup: {
       position: 'absolute',
-      backgroundColor: theme.colors?.popup,
+      backgroundColor: 'popup',
       border: '1px solid',
-      borderColor: theme.colors?.border,
-      boxShadow: theme.shadows?.popup,
+      borderColor: 'border',
+      boxShadow: 'popup',
       zIndex: theme.zIndex?.popup?.select,
       height: 'auto',
       paddingBlock: 6,

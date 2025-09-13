@@ -18,7 +18,7 @@ const SigmaInput: FC<InputProps> = ({
   return (
     <RcInput
       prefixCls={prefixCls}
-      className={classNames(className, classes.wrapper)}
+      className={classNames(className, classes?.wrapper)}
       classNames={classes}
       {...restProps}
     />

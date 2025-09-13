@@ -15,7 +15,7 @@ export const transformTabsOptions = (data: IData, previewProps: Record<string, a
       if (input[key] === '') {
         return `${key}`
       }
-      return Object.prototype.hasOwnProperty.call(input, key) ? `${key}={"${input[key]}"}` : `undefined`
+      return Object.prototype.hasOwnProperty.call(input, key) ? `${key}="${input[key]}"` : `undefined`
     })
   }
   return [

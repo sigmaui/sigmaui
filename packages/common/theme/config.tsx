@@ -19,7 +19,7 @@ const themeMapping: any = {
   fontFamily: (theme: any) => theme.fontFamilies,
   borderRadius: (theme: any) => theme.radii,
   height: (theme: any) => theme.heights,
-  boxShadow: (theme: any) => theme.boxShadows,
+  boxShadow: (theme: any) => theme.shadows,
 }
 
 export const felaRendererConfig = {

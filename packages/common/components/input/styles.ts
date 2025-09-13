@@ -16,13 +16,26 @@ export const styles = ({
       borderColor: 'border',
       borderStyle: 'solid',
       borderWidth: 1,
-      paddingInline: 12,
+      transition: 'all .2s',
       size,
       variant,
 
+      '&:hover': {
+        borderColor: 'base'
+      },
+
+      '&:focus': {
+        boxShadow: 'focused',
+        borderColor: 'base'
+      },
+
+      '&::placeholder': {
+        color: 'rgba(0,0,0,0.25)'
+      },
+
       '&[disabled]': {
         cursor: 'not-allowed',
-      },
+      }
     }
   }
 }

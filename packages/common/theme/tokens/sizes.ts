@@ -68,7 +68,7 @@ export const inputSizes = {
       fontSize: fontSizes.default,
       height: heights.default,
       borderRadius: radii.default,
-      paddingInline: 6,
+      paddingInline: 10,
     },
     xs: {
       fontSize: fontSizes.xs,
