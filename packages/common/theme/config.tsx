@@ -23,7 +23,7 @@ const themeMapping: any = {
 }
 
 export const felaRendererConfig = {
-  plugins: [themeValuePlugin(themeMapping)],
+  themeMapping,
   customProperties: {
     borderWidth: formatProperty('borderWidth'),
   },

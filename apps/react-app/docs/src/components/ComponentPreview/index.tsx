@@ -9,15 +9,16 @@ import CodeContent from './children/CodeContent'
 import { ControlComponentType, useControl } from './shared/controls/declaration'
 import useMicroUI from '@microui-kit/use-micro-ui'
 
+export const replaceProps = (code: string, input: Record<string, any>) => {
+  return code.replace(/{props\.(\w+)}/g, (_, key) => {
+    if (input[key] === '') {
+      return `${key}`
+    }
+    return Object.prototype.hasOwnProperty.call(input, key) ? `${key}="${input[key]}"` : `undefined`
+  })
+}
+
 export const transformTabsOptions = (data: IData, previewProps: Record<string, any>) => {
-  const replaceProps = (code: string, input: Record<string, any>) => {
-    return code.replace(/{props\.(\w+)}/g, (_, key) => {
-      if (input[key] === '') {
-        return `${key}`
-      }
-      return Object.prototype.hasOwnProperty.call(input, key) ? `${key}="${input[key]}"` : `undefined`
-    })
-  }
   return [
     {
       label: 'React',

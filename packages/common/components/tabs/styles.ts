@@ -22,19 +22,19 @@ export const styles = ({ prefixCls, theme = {} }: IProps<any>): Partial<Record<C
     },
     item: {
       position: 'relative',
-      height: theme.heights?.default,
+      height: 'default',
       paddingInline: 12,
       color: '#fff',
       cursor: 'pointer',
 
       '&[class*="-active"]': {
-        color: theme.colors?.base
+        color: 'base'
       }
     },
     indicator: {
       position: 'absolute',
       height: '2px',
-      backgroundColor: theme?.colors?.base,
+      backgroundColor: 'base',
       bottom: 0,
       transition: 'width 0.2s, left 0.2s, right 0.2s',
     },
