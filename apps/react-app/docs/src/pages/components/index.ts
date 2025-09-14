@@ -4,5 +4,6 @@ import InputComponent from './input/route'
 import TextComponent from './text/route'
 import SelectComponent from './select/route'
 import SliderComponent from './slider/route'
+import FormComponent from './form/route'
 
-export default [BoxComponent, ButtonComponent, InputComponent, TextComponent, SelectComponent, SliderComponent]
+export default [BoxComponent, ButtonComponent, InputComponent, TextComponent, SelectComponent, SliderComponent, FormComponent]

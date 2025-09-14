@@ -22,7 +22,7 @@ Pages.forEach((route: any) => {
 })
 
 export const createRouter = (props: any = {}) => {
-  const { App, ...restProps } = props
+  const { App, ...restProps } = props;
 
   return createBrowserRouter([
     {

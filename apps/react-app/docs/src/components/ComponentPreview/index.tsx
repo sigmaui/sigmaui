@@ -30,16 +30,16 @@ export const transformTabsOptions = (data: IData, previewProps: Record<string, a
         />
       ),
     },
-    {
-      label: 'Vue',
-      value: CodeEnum.VUE,
-      content: (
-        <CodeEditor
-          displayLang="Vue"
-          content={replaceProps(data?.code?.[CodeEnum.VUE], previewProps)}
-        />
-      ),
-    },
+    // {
+    //   label: 'Vue',
+    //   value: CodeEnum.VUE,
+    //   content: (
+    //     <CodeEditor
+    //       displayLang="Vue"
+    //       content={replaceProps(data?.code?.[CodeEnum.VUE], previewProps)}
+    //     />
+    //   ),
+    // },
   ]
 }
 

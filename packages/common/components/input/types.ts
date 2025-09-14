@@ -6,6 +6,7 @@ export interface IProps<Styles> extends FCWithStylesProps<Styles> {
   href?: string
   size?: ThemeSize
   variant?: ThemeVariant
+  status?: string
   placeholder?: string
   disabled?: boolean
 }

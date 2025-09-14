@@ -1,0 +1,109 @@
+import React, { Fragment, useMemo } from 'react'
+import type { FC } from 'react'
+import classNames from 'classnames'
+import RcForm, { useWatch } from '@rc-component/form'
+import { ValidateErrorEntity } from '@rc-component/form/lib/interface'
+import { StoreProvider } from '@microui-kit/use-store'
+import { getRestProps } from '@microui-kit/helpers'
+import { withStyles } from '@sigmaui-kit/with-styles'
+
+import { styles, type FormProps } from './styles'
+
+import FormItem from '../FormItem'
+import useForm from '../hooks/useForm'
+
+export {
+  useForm,
+  useWatch
+}
+
+const Form: FC<FormProps> = ({
+  prefixCls,
+  className,
+  classes,
+  children,
+  name,
+  form: customForm,
+  items = [],
+  customRender,
+  formRules,
+  disabled,
+  ...formProps
+}) => {
+  const restProps = getRestProps(formProps)
+
+  const [form] = useForm(customForm);
+
+  const onValuesChange = ({ key }) => {
+
+  }
+
+  const onFinish = (values) => {
+    console.log('onFinish', values)
+  }
+
+  const onFinishFailed = (errorInfo: ValidateErrorEntity) => {
+    console.log('onFinishFailed', errorInfo)
+  }
+
+  const renderChildren = useMemo(() => {
+    return (
+      <Fragment>
+        {
+          items.map(({ name, type, label, render, rules, ...formItemProps }) => {
+            let childNode: React.ReactNode = null;
+
+            if (render) {
+              childNode = typeof render === 'function' ? render({ form }) : render;
+            } else {
+              if (type && customRender) {
+                childNode = customRender({ type })
+              }
+            }
+
+            return (
+              <FormItem
+                name={name}
+                type={type}
+                label={label}
+                formRules={formRules}
+                fieldRules={rules}
+                disabled={disabled}
+                {...formItemProps}
+              >
+                {childNode}
+              </FormItem>
+            )
+          })
+        }
+        {children}
+      </Fragment>
+    )
+  }, [children, items])
+
+  return (
+    <StoreProvider<{ formName?: string }>
+      storeKey={`${prefixCls}:${name || 'store'}`}
+      initialState={{
+        formName: name
+      }}
+    >
+      <RcForm
+        id={name}
+        name={name}
+        form={form}
+        className={classNames(prefixCls, className, classes?.wrapper)}
+        onValuesChange={onValuesChange}
+        onFinishFailed={onFinishFailed}
+        onFinish={onFinish}
+        {...restProps}
+      >
+        {renderChildren}
+      </RcForm>
+    </StoreProvider>
+  )
+}
+
+Form.displayName = 'Form'
+
+export default withStyles<FormProps>(styles)(Form)

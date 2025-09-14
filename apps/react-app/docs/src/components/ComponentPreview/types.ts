@@ -9,7 +9,7 @@ export enum CodeEnum {
 export interface IData {
   code: {
     [CodeEnum.REACT]: string
-    [CodeEnum.VUE]: string
+    // [CodeEnum.VUE]: string
   }
 }
 export type ComponentPreviewTypes = ReturnType<typeof styles>

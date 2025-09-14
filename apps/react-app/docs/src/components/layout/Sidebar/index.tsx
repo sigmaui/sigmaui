@@ -72,6 +72,10 @@ const Sidebar: FC<SidebarProps> = ({ prefixCls = 'sm-sidebar', className, classe
                 label: 'Slider',
                 key: routeMap.component.slider,
               },
+              {
+                label: 'Form',
+                key: routeMap.component.form,
+              },
             ],
           },
         ]}

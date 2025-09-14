@@ -76,11 +76,9 @@ export default defineConfig(({ mode }) => {
         '@sigmaui-kit/icon': path.resolve(__dirname, '../../../packages/react/src/components/icon/src'),
         '@sigmaui-kit/slider': path.resolve(__dirname, '../../../packages/react/src/components/slider/src'),
         '@sigmaui-kit/tabs': path.resolve(__dirname, '../../../packages/react/src/components/tabs/src'),
-        '@sigmaui-kit/segment-group': path.resolve(
-          __dirname,
-          '../../../packages/react/src/components/segment-group/src',
-        ),
+        '@sigmaui-kit/segment-group': path.resolve(__dirname, '../../../packages/react/src/components/segment-group/src',),
         '@sigmaui-kit/menu': path.resolve(__dirname, '../../../packages/react/src/components/menu/src'),
+        '@sigmaui-kit/form': path.resolve(__dirname, '../../../packages/react/src/components/form/src'),
       },
     },
     build: {

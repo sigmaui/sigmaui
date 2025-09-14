@@ -2,7 +2,11 @@ import type { FCWithStylesProps, StylesProperties, ThemeSize, ThemeVariant } fro
 
 export type { StylesProperties }
 
+const _ButtonHTMLTypes = ['submit', 'button', 'reset'] as const;
+export type ButtonHTMLType = (typeof _ButtonHTMLTypes)[number];
+
 export interface IProps<Styles> extends FCWithStylesProps<Styles> {
+  htmlType?: ButtonHTMLType
   href?: string
   size?: ThemeSize
   variant?: ThemeVariant

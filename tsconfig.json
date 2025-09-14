@@ -83,6 +83,9 @@
       "@sigmaui-kit/menu": [
         "packages/react/src/components/menu/src"
       ],
+      "@sigmaui-kit/form": [
+        "packages/react/src/components/form/src"
+      ],
       "@packages/vue/types": [
         "packages/vue/src/types"
       ],

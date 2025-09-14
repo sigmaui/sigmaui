@@ -1,4 +1,5 @@
 import type { CSSProperties, IRenderer } from 'fela'
+import type { WithTranslation } from 'react-i18next'
 import { type Theme } from '@microui-kit/theme'
 
 import { type Tailwind } from './tailwind'
@@ -46,6 +47,7 @@ export interface FCWithStylesProps<IStyles> extends FCProps {
   classes?: Classes<IStyles>
   theme?: Theme
   renderer?: IRenderer
+  t?: WithTranslation['t']
   _style?: Styles<IStyles>
   extendStyle?: Styles<IStyles>
 }

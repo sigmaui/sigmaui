@@ -35,6 +35,15 @@ export const styles = ({
 
       '&[disabled]': {
         cursor: 'not-allowed',
+      },
+
+      '&._error': {
+        borderColor: 'error',
+
+        '&:focus': {
+          boxShadow: 'focused',
+          borderColor: 'error'
+        }
       }
     }
   }

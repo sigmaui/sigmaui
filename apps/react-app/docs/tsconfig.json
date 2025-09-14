@@ -36,7 +36,7 @@
       "@sigmaui-kit/select": [
         "../../../packages/react/src/components/select/src"
       ],
-      "@sigmaui-kit/iocn": [
+      "@sigmaui-kit/icon": [
         "../../../packages/react/src/components/icon/src"
       ],
       "@sigmaui-kit/slider": [
@@ -50,6 +50,9 @@
       ],
       "@sigmaui-kit/menu": [
         "../../../packages/react/src/components/menu/src"
+      ],
+      "@sigmaui-kit/form": [
+        "../../../packages/react/src/components/form/src"
       ]
     }
   },

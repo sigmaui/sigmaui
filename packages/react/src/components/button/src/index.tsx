@@ -2,16 +2,17 @@ import React from 'react'
 import type { FC } from 'react'
 import classNames from 'classnames'
 import { Link } from 'react-router-dom'
-import { withStyles } from '@microui-kit/with-styles'
+import { withStyles } from '@sigmaui-kit/with-styles'
 import Loading from '@microui-kit/loading'
 
 import { styles, type ButtonProps } from 'packages/common/components/button/styles'
 
 const SigmaButton: FC<ButtonProps> = ({
-  prefixCls = 'sm-button',
+  prefixCls,
   className,
   children,
   classes,
+  htmlType,
   href,
   loading,
   locking,
@@ -43,6 +44,7 @@ const SigmaButton: FC<ButtonProps> = ({
 
   const buttonEl = (
     <button
+      type={htmlType}
       className={classNames(prefixCls, className, classes?.wrapper)}
       disabled={disabled || loading || locking}
     >

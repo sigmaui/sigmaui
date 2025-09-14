@@ -18,6 +18,7 @@ export const routeMap = {
     text: `${componentPath}/text`,
     select: `${componentPath}/select`,
     slider: `${componentPath}/slider`,
+    form: `${componentPath}/form`,
   },
   themingPath,
   theming: {

@@ -1,0 +1,23 @@
+import InternalForm, { useForm, useWatch } from './Form';
+import FormItem from './FormItem';
+import { FormItemTypeEnum } from './FormItem/types';
+
+export * from './helpers';
+
+type InternalFormType = typeof InternalForm;
+
+type CompoundedComponent = InternalFormType & {
+  useForm: typeof useForm;
+  useWatch: typeof useWatch;
+  Item: typeof FormItem;
+};
+
+const Form = InternalForm as CompoundedComponent;
+
+Form.Item = FormItem;
+
+export {
+  FormItemTypeEnum
+}
+
+export default Form
