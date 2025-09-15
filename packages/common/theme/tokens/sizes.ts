@@ -62,6 +62,33 @@ export const textSizes = {
   } as StylesObject,
 }
 
+export const iconSizes = {
+  _: {
+    width: 16,
+    height: 16
+  },
+  xs: {
+    width: 18,
+    height: 18
+  },
+  sm: {
+    width: 20,
+    height: 20
+  },
+  md: {
+    width: 22,
+    height: 22
+  },
+  lg: {
+    width: 24,
+    height: 24
+  },
+  xl: {
+    width: 26,
+    height: 26
+  }
+}
+
 export const inputSizes = {
   Input: {
     _: {
@@ -102,6 +129,9 @@ export const inputSizes = {
     },
     '2xl': {},
   } as StylesObject,
+  Password: {
+    icon: iconSizes
+  }
 }
 
 export const buttonSizes = {
@@ -190,4 +220,5 @@ export const sizes = {
   ...inputSizes,
   ...buttonSizes,
   ...selectSizes,
+  Icon: iconSizes
 }

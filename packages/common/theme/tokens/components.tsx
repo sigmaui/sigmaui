@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import { FormItemTypeEnum, checkEmail } from '@sigmaui-kit/form';
 import Input from '@sigmaui-kit/input';
+import Password from '@sigmaui-kit/password';
 
 import iconMap from './iconMap';
 
@@ -14,6 +15,12 @@ export const components = {
   Icon: {
     defaultProps: {
       iconMap
+    },
+  },
+  Password: {
+    defaultProps: {
+      // action: 'pointer'
+      // size: 'lg'
     },
   },
   Form: {
@@ -30,7 +37,7 @@ export const components = {
 
           case FormItemTypeEnum.PASSWORD:
             controller = (
-              <Input/>
+              <Password/>
             );
             break;
 

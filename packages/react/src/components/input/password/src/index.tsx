@@ -21,14 +21,15 @@ const Password: FC<PasswordProps> = ({
   suffix,
   action = 'click',
   iconRender = defaultIconRender,
+  size,
   ...inputProps
 }) => {
   const restProps = getRestProps(inputProps);
 
-  const [visible, setVisible] = useState(() => false);
+  const [visible, setVisible] = useState(false);
   const inputRef = useRef<InputRef>(null);
 
-  const onVisibleChange = useCallback(() => {
+  const handleVisibleChange = useCallback(() => {
     setVisible((visible) => !visible);
   }, []);
 
@@ -50,7 +51,7 @@ const Password: FC<PasswordProps> = ({
   }
 
   if (action === 'click') {
-    (iconProps as any).onClick = onVisibleChange
+    (iconProps as any).onClick = handleVisibleChange
   }
 
   if (action === 'pointer') {
@@ -75,8 +76,7 @@ const Password: FC<PasswordProps> = ({
             },
 
             '& svg': {
-              width: 16,
-              height: 16
+              size
             }
           }
         }}
@@ -89,6 +89,7 @@ const Password: FC<PasswordProps> = ({
     <Input
       className={className}
       inputRef={inputRef}
+      size={size}
       {...restProps}
     />
   )

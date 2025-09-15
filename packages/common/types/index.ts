@@ -33,6 +33,12 @@ export type Classes<T> = {
     : string
 }
 
+export type ThemeColor = 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'info' | 'error' | 'disabled'
+
+export type ThemeSize = 'default' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+
+export type ThemeVariant = 'default' | 'solid' | 'outlined' | 'dashed' | 'filled' | 'text' | 'link'
+
 export interface FCDefaultProps {
   prefixCls?: string
   className?: string
@@ -47,13 +53,9 @@ export interface FCWithStylesProps<IStyles> extends FCProps {
   classes?: Classes<IStyles>
   theme?: Theme
   renderer?: IRenderer
+  size?: ThemeSize
+  variant?: ThemeVariant
   t?: WithTranslation['t']
   _style?: Styles<IStyles>
   extendStyle?: Styles<IStyles>
 }
-
-export type ThemeColor = 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'info' | 'error' | 'disabled'
-
-export type ThemeSize = 'default' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
-
-export type ThemeVariant = 'default' | 'solid' | 'outlined' | 'dashed' | 'filled' | 'text' | 'link'

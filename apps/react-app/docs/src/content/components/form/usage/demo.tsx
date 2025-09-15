@@ -26,7 +26,11 @@ export const Demo: React.FC<any> = ({ control }) => {
           label: 'Password',
           name: 'password',
           type: FormItemTypeEnum.PASSWORD,
-          required: true
+          required: true,
+          fieldProps: {
+            placeholder: 'Enter password',
+            action: 'pointer'
+          }
         }
       ]}
     >

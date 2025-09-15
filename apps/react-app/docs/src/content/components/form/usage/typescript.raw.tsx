@@ -18,7 +18,10 @@ export default function Demo() {
           label: 'Password',
           name: 'password',
           type: FormItemTypeEnum.PASSWORD,
-          required: true
+          required: true,
+          fieldProps: {
+            placeholder: 'Enter password'
+          }
         }
       ]}
     />

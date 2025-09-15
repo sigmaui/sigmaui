@@ -12,6 +12,7 @@ export const styles = ({
 
   return {
     wrapper: {
+      width: '100%',
       outline: 0,
       borderColor: 'border',
       borderStyle: 'solid',
@@ -56,6 +57,7 @@ export const styles = ({
 
       '& input': {
         background: 'transparent',
+        width: '100%',
         height: '100%',
         padding: 0,
         border: 'none',

@@ -10,6 +10,38 @@ import { variants } from './tokens/variants'
 import { boxShadows } from './tokens/boxShadow'
 import { zIndex } from './tokens/zIndex'
 
+export const getProperty = (property: string) => {
+  return (value: any, params: any = {}) => {
+    const { theme, displayName, itemStyle, customProperty } = params;
+
+    const properties = theme?.[property]?.[displayName];
+
+    console.log('getProperty', value, properties, property, theme?.[property], displayName)
+
+    if (displayName && properties) {
+      const pureStyles = properties?.[value] || (value !== 'none' && (properties?.default || properties?.['_']));
+
+      if (pureStyles) {
+        const styles: any = {};
+
+        Object.keys(pureStyles).forEach(key => {
+          if (!itemStyle[key]) {
+            styles[key] = pureStyles[key]
+          }
+        })
+
+        return customProperty(styles)
+      }
+    }
+
+    const styles = {
+      ...theme?.[property][value]
+    };
+
+    return customProperty(styles)
+  }
+}
+
 const themeMapping: any = {
   color: (theme: any) => theme.colors,
   backgroundColor: (theme: any) => theme.colors,
@@ -26,6 +58,7 @@ export const felaRendererConfig = {
   themeMapping,
   customProperties: {
     borderWidth: formatProperty('borderWidth'),
+    size: getProperty('sizes'),
   },
   clsBlackList: [],
 }
