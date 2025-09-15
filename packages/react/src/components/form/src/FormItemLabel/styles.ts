@@ -13,7 +13,7 @@ export const styles = ({ prefixCls, theme = {} }: IProps<any>): Partial<Record<C
         content: '"*"',
         display: 'inline-block',
         marginRight: 4,
-        color: 'requiredMark'
+        color: 'form.requiredMark'
       }
     }
   }

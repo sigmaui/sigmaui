@@ -30,6 +30,9 @@
       "@sigmaui-kit/input": [
         "../../../packages/react/src/components/input/src"
       ],
+      "@sigmaui-kit/password": [
+        "../../../packages/react/src/components/input/password/src"
+      ],
       "@sigmaui-kit/text": [
         "../../../packages/react/src/components/text/src"
       ],

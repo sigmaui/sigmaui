@@ -12,7 +12,7 @@ export const styles = ({ prefixCls, theme = {} }: IProps<any>): Partial<Record<C
       marginBottom: -24
     },
     note: {
-      color: 'note'
+      color: 'form.note'
     }
   }
 }

@@ -4,7 +4,9 @@ export type ClassKeys = 'wrapper' | 'image'
 
 export const styles = ({}: IProps<any>): Partial<Record<ClassKeys, StylesProperties>> => {
   return {
-    wrapper: {},
+    wrapper: {
+      lineHeight: 0
+    },
     image: {}
   }
 }

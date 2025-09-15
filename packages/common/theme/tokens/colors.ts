@@ -3,6 +3,11 @@ export const formColors = {
   note: 'rgba(0,0,0,0.45)'
 }
 
+export const iconColors = {
+  default: 'rgba(0,0,0,0.45)',
+  hover: 'rgba(0,0,0,0.88)'
+}
+
 export const colors = {
   base: '#f77f00',
   secondary: '#5856D6',
@@ -19,6 +24,5 @@ export const colors = {
   neutral: 'rgba(41, 43, 51, 0.7)',
   bgEmphasized: '#e9e8e6',
   form: formColors,
-  requiredMark: '#FF3B30',
-  note: 'rgba(0,0,0,0.45)'
+  icon: iconColors
 } as const

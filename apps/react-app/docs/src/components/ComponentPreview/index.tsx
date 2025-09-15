@@ -21,22 +21,22 @@ export const replaceProps = (code: string, input: Record<string, any>) => {
 export const transformTabsOptions = (data: IData, previewProps: Record<string, any>) => {
   return [
     {
-      label: 'React',
-      value: CodeEnum.REACT,
+      label: 'Typescript',
+      value: CodeEnum.TYPESCRIPT,
       content: (
         <CodeEditor
           displayLang="React"
-          content={replaceProps(data?.code?.[CodeEnum.REACT], previewProps)}
+          content={replaceProps(data?.code?.[CodeEnum.TYPESCRIPT], previewProps)}
         />
       ),
     },
     // {
-    //   label: 'Vue',
-    //   value: CodeEnum.VUE,
+    //   label: 'Javascript',
+    //   value: CodeEnum.JAVASCRIPT,
     //   content: (
     //     <CodeEditor
     //       displayLang="Vue"
-    //       content={replaceProps(data?.code?.[CodeEnum.VUE], previewProps)}
+    //       content={replaceProps(data?.code?.[CodeEnum.JAVASCRIPT], previewProps)}
     //     />
     //   ),
     // },

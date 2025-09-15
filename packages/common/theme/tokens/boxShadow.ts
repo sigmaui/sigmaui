@@ -1,3 +1,7 @@
+export const errorShadows = {
+  focused: '0 0 0 2px rgba(255, 59, 48, 0.1)'
+}
+
 export const boxShadows = {
   xs: '0px 1px 2px 0px rgba(41, 43, 51, 0.05)',
   md: '0px 4px 8px -2px rgba(41, 43, 51, 0.1), 0px 2px 4px -2px rgba(41, 43, 51, 0.05)',
@@ -7,7 +11,5 @@ export const boxShadows = {
   '3xl': '0px 32px 64px -12px rgba(41, 43, 51, 0.1)',
   focused: '0 0 0 2px rgba(247, 127, 0, 0.1)',
   popup: '0px 1px 2px 0px rgba(41, 43, 51, 0.05)',
-  error: {
-    focused: '0 0 0 2px rgba(247, 127, 0, 0.1)'
-  }
+  error: errorShadows
 } as const

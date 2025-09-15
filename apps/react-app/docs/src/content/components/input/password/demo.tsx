@@ -1,21 +1,21 @@
 import React from 'react'
 import ComponentPreview from '@docs/components/ComponentPreview'
-import Input from '@sigmaui-kit/input'
+import Password from '@sigmaui-kit/password'
 import { inputContent } from '..'
 
 export const Demo: React.FC<any> = ({ control }) => {
   return (
-    <Input
+    <Password
       size={control.state.size}
-      placeholder="Basic usage"
+      placeholder="Password"
     />
   )
 }
-export const UsageInputComponent = () => {
+export const UsagePasswordComponent = () => {
   return (
     <>
       <ComponentPreview<{ size: string }>
-        data={inputContent.usage}
+        data={inputContent.password}
         items={[
           {
             initialValue: 'small',

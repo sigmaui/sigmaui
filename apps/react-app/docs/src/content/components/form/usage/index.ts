@@ -1,7 +1,7 @@
-import react from './react.raw.tsx?raw'
+import typescript from './typescript.raw.tsx?raw'
 
 export default {
   code: {
-    react
+    typescript,
   },
 }

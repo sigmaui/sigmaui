@@ -18,42 +18,48 @@ const SigmaIcon: FC<IconProps> = ({
   let iconClasName: string | undefined;
 
   if (icon) {
-    if (
-      icon.startsWith?.('/') ||
-      icon.startsWith?.('http') ||
-      icon.startsWith?.('data:image')
-    ) {
-      iconElement = (
-        <img className={classes?.image} src={icon} alt="icon"/>
-      );
-    } else {
-      iconClasName = `icon-${icon}`;
-      const iconString = iconMap[icon];
+    if (React.isValidElement(icon)) {
+      iconElement = icon
+    }
 
-      if (iconString) {
-        if (React.isValidElement(iconString)) {
-          iconElement = iconString
-        } else {
-          if (typeof iconString === 'string') {
-            if (
-              iconString.startsWith('/') ||
-              iconString.startsWith('http') ||
-              iconString.startsWith('data:image')
-            ) {
-              iconElement = (
-                <img className={classes?.image} src={iconString} alt="icon"/>
-              );
-            } else {
-              iconProps.dangerouslySetInnerHTML = { __html: iconString };
-            }
+    if (typeof icon === 'string') {
+      if (
+        icon.startsWith?.('/') ||
+        icon.startsWith?.('http') ||
+        icon.startsWith?.('data:image')
+      ) {
+        iconElement = (
+          <img className={classes?.image} src={icon} alt="icon"/>
+        );
+      } else {
+        iconClasName = `icon-${icon}`;
+        const iconString = iconMap[icon];
+
+        if (iconString) {
+          if (React.isValidElement(iconString)) {
+            iconElement = iconString
           } else {
-            const IconElement = iconString;
+            if (typeof iconString === 'string') {
+              if (
+                iconString.startsWith('/') ||
+                iconString.startsWith('http') ||
+                iconString.startsWith('data:image')
+              ) {
+                iconElement = (
+                  <img className={classes?.image} src={iconString} alt="icon"/>
+                );
+              } else {
+                iconProps.dangerouslySetInnerHTML = { __html: iconString };
+              }
+            } else {
+              const IconElement = iconString;
 
-            iconElement = (
-              <IconElement
-                {...svgProps}
-              />
-            );
+              iconElement = (
+                <IconElement
+                  {...svgProps}
+                />
+              );
+            }
           }
         }
       }

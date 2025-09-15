@@ -1,17 +1,20 @@
-import React from 'react'
-import type { FC } from 'react'
-import classNames from 'classnames'
-import RcInput from '@rc-component/input'
-import { withStyles } from '@sigmaui-kit/with-styles'
+import React from 'react';
+import type { FC } from 'react';
+import classNames from 'classnames';
+import RcInput, { type InputRef } from '@rc-component/input';
+import { withStyles } from '@sigmaui-kit/with-styles';
 import { getRestProps } from '@microui-kit/helpers';
 
-import { styles, type InputProps } from 'packages/common/components/input/styles'
+import { styles, type InputProps } from './styles';
 
-const SigmaInput: FC<InputProps> = ({
+export type { InputRef };
+
+const Input: FC<InputProps> = ({
   prefixCls,
   className,
   classes,
   status,
+  inputRef,
   ...inputProps
 }) => {
   const restProps = getRestProps(inputProps)
@@ -23,6 +26,7 @@ const SigmaInput: FC<InputProps> = ({
   return (
     <RcInput
       prefixCls={prefixCls}
+      ref={inputRef}
       className={classNames(className, classes?.wrapper, {
         [`_${status}`]: status
       })}
@@ -32,6 +36,6 @@ const SigmaInput: FC<InputProps> = ({
   )
 }
 
-SigmaInput.displayName = 'Input'
+Input.displayName = 'Input'
 
-export default withStyles<InputProps>(styles)(SigmaInput)
+export default withStyles<InputProps>(styles)(Input)
