@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router'
 import { MDXProvider } from '@mdx-js/react'
-import { MicroUIProvider, THEME_MODE } from '@microui-kit/provider'
+import { SigmaUIProvider, THEME_MODE } from '@sigmaui-kit/provider'
 import { useRouter } from '@microui-kit/use-router'
 import Layout from '@sigmaui-kit/layout'
 import { getRoute } from '@docs/helpers'
@@ -27,7 +27,7 @@ const App = ({ renderer }) => {
   // console.log('renderer', renderer);
 
   return (
-    <MicroUIProvider
+    <SigmaUIProvider
       renderer={renderer}
       theme={theme}
       themeMode={THEME_MODE.LIGHT}
@@ -57,7 +57,7 @@ const App = ({ renderer }) => {
           />
         </Layout>
       </MDXProvider>
-    </MicroUIProvider>
+    </SigmaUIProvider>
   )
 }
 

@@ -1,5 +1,5 @@
-import React, { ReactNode, createContext, useContext, FC } from 'react'
-import { usePlatformDetect, PlatformInfo, PlatformDetectResult } from '@sigmaui-kit/use-platform-detect'
+import React, { ReactNode, createContext, useContext, FC } from 'react';
+import { usePlatformDetect, PlatformInfo, PlatformDetectResult } from '@sigmaui-kit/use-platform-detect';
 
 export type { PlatformInfo, PlatformDetectResult }
 

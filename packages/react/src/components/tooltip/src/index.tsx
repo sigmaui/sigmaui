@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import type { FC } from 'react';
 import classNames from 'classnames';
 import { withStyles } from '@sigmaui-kit/with-styles';

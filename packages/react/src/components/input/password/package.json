@@ -31,13 +31,17 @@
     "prepublishOnly": "node ../../../../../../scripts/prepublish.js",
     "postpublish": "node ../../../../../../scripts/postpublish.js"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": ">=18",
-    "react-dom": ">=18"
+    "classnames": "latest",
+    "@sigmaui-kit/input": "latest",
+    "@sigmaui-kit/with-styles": "latest",
+    "@microui-kit/helpers": "latest",
+    "@sigmaui-kit/icons": "latest",
+    "@sigmaui-kit/icon": "latest",
+    "@sigmaui-kit/tooltip": "latest"
   },
-  "devDependencies": {
-  },
-  "clean-package": "../../../../../clean-package.config.json"
+  "devDependencies": {},
+  "clean-package": "../../../../../../clean-package.config.json"
 }

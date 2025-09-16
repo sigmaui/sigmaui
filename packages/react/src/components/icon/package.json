@@ -31,13 +31,13 @@
     "prepublishOnly": "node ../../../../../scripts/prepublish.js",
     "postpublish": "node ../../../../../scripts/postpublish.js"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": ">=18",
-    "react-dom": ">=18"
+    "classnames": "latest",
+    "@sigmaui-kit/with-styles": "latest",
+    "@microui-kit/helpers": "latest"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "clean-package": "../../../../../clean-package.config.json"
 }

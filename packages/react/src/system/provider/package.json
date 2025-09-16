@@ -31,9 +31,16 @@
     "prepublishOnly": "node ../../../../../scripts/prepublish.js",
     "postpublish": "node ../../../../../scripts/postpublish.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@microui-kit/use-theme-mode": "latest",
+    "@microui-kit/types": "latest",
+    "@microui-kit/utils": "latest"
+  },
   "peerDependencies": {
-    "vue": ">=3.0.0"
+    "react": ">=18",
+    "react-fela": "12.2.1",
+    "@microui-kit/theme": "latest",
+    "@microui-kit/platform": "latest"
   },
   "devDependencies": {},
   "clean-package": "../../../../../clean-package.config.json"

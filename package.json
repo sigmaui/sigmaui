@@ -48,6 +48,7 @@
     "@rc-component/input": "^1.1.1",
     "@rc-component/select": "^1.1.5",
     "@sigmaui-kit/icons": "^0.0.5",
+    "@sigmaui-kit/provider": "^0.0.1",
     "@sigmaui-kit/theme-tailwind": "^0.1.1",
     "@sigmaui-kit/use-platform-detect": "^0.0.1",
     "@sigmaui-kit/use-stylex": "^0.0.5",

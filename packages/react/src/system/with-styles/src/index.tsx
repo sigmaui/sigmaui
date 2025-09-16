@@ -1,4 +1,4 @@
-import { withStyles as microWithStyles } from '@microui-kit/with-styles'
+import { withStyles as microWithStyles } from '@microui-kit/with-styles';
 
 export const withStyles = <T extends unknown>(
   styles: any,
