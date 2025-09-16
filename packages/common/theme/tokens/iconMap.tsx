@@ -4,7 +4,7 @@ import {
   CheckFilledIcon,
   EyeVisibilityOutlinedIcon,
   EyeHiddenOutlinedIcon
-} from '../../icons'
+} from '../../icons/src'
 
 export default {
   'chevron-down': ChevronDownSingleIcon,

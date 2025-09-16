@@ -22,11 +22,12 @@ const Form: FC<FormProps> = ({
   className,
   classes,
   children,
+  t,
   name,
   form: customForm,
   items = [],
   customRender,
-  formRules,
+  formRules: customFormRules,
   disabled,
   ...formProps
 }) => {
@@ -44,6 +45,12 @@ const Form: FC<FormProps> = ({
 
   const onFinishFailed = (errorInfo: ValidateErrorEntity) => {
     console.log('onFinishFailed', errorInfo)
+  }
+
+  let formRules = customFormRules;
+
+  if (typeof customFormRules === 'function') {
+    formRules = customFormRules?.({ t })
   }
 
   const renderChildren = useMemo(() => {

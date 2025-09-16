@@ -1,5 +1,5 @@
 import { type Theme } from '@microui-kit/theme'
-import themeValuePlugin from '@microui-kit/fela-plugin-theme-value'
+import { customRenderer } from '@microui-kit/fela-custom-renderer';
 import { formatProperty } from '@microui-kit/create-renderer'
 
 import { modes } from './modes'
@@ -61,6 +61,9 @@ export const felaRendererConfig = {
     size: getProperty('sizes'),
   },
   clsBlackList: [],
+  enhancers: [
+    customRenderer()
+  ]
 }
 type BoxShadow = keyof typeof boxShadows
 type Colors = keyof typeof colors

@@ -2,6 +2,8 @@ import React, { Fragment, useState, useRef, useCallback } from 'react';
 import type { FC } from 'react';
 import { withStyles } from '@sigmaui-kit/with-styles';
 import Input, { type InputRef } from '@sigmaui-kit/input';
+import EyeVisibilityOutlinedIcon from '@sigmaui-kit/icons/EyeVisibilityOutlinedIcon';
+import EyeHiddenOutlinedIcon from '@sigmaui-kit/icons/EyeHiddenOutlinedIcon';
 import Icon from '@sigmaui-kit/icon';
 import { getRestProps } from '@microui-kit/helpers';
 
@@ -9,10 +11,10 @@ import { styles, type PasswordProps } from './styles';
 
 const defaultIconRender = (visible: boolean): React.ReactNode => {
   if (visible) {
-    return 'eye'
+    return <EyeVisibilityOutlinedIcon/>
   }
 
-  return 'eye-off'
+  return <EyeHiddenOutlinedIcon/>
 };
 
 const Password: FC<PasswordProps> = ({

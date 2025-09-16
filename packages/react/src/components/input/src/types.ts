@@ -1,9 +1,9 @@
-import type { InputRef } from '@rc-component/input';
-import type { FCWithStylesProps, StylesProperties, ThemeSize, ThemeVariant } from 'packages/common/types';
+import type { InputRef, InputProps } from '@rc-component/input';
+import type { FCWithStylesProps, StylesProperties } from 'packages/common/types';
 
 export type { StylesProperties }
 
-export interface IProps<Styles> extends FCWithStylesProps<Styles> {
+export interface IProps<Styles> extends Omit<InputProps, 'children' | 'classes'>, FCWithStylesProps<Styles> {
   href?: string
   status?: string
   placeholder?: string

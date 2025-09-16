@@ -1,0 +1,508 @@
+{
+  "remove": [
+    "devDependencies"
+  ],
+  "replace": {
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.js"
+      },
+      "./package.json": "./package.json",
+      "./AddressBookOutlinedIcon": {
+        "types": "./dist/AddressBookOutlinedIcon.d.ts",
+        "import": "./dist/AddressBookOutlinedIcon.mjs",
+        "require": "./dist/AddressBookOutlinedIcon.js"
+      },
+      "./AirplayOutlinedIcon": {
+        "types": "./dist/AirplayOutlinedIcon.d.ts",
+        "import": "./dist/AirplayOutlinedIcon.mjs",
+        "require": "./dist/AirplayOutlinedIcon.js"
+      },
+      "./AlertCircleOutlineIcon": {
+        "types": "./dist/AlertCircleOutlineIcon.d.ts",
+        "import": "./dist/AlertCircleOutlineIcon.mjs",
+        "require": "./dist/AlertCircleOutlineIcon.js"
+      },
+      "./AlertErrorIcon": {
+        "types": "./dist/AlertErrorIcon.d.ts",
+        "import": "./dist/AlertErrorIcon.mjs",
+        "require": "./dist/AlertErrorIcon.js"
+      },
+      "./AlertInformationIcon": {
+        "types": "./dist/AlertInformationIcon.d.ts",
+        "import": "./dist/AlertInformationIcon.mjs",
+        "require": "./dist/AlertInformationIcon.js"
+      },
+      "./AlertNormalIcon": {
+        "types": "./dist/AlertNormalIcon.d.ts",
+        "import": "./dist/AlertNormalIcon.mjs",
+        "require": "./dist/AlertNormalIcon.js"
+      },
+      "./AlertSuccessIcon": {
+        "types": "./dist/AlertSuccessIcon.d.ts",
+        "import": "./dist/AlertSuccessIcon.mjs",
+        "require": "./dist/AlertSuccessIcon.js"
+      },
+      "./AlertTriangleOutlinedIcon": {
+        "types": "./dist/AlertTriangleOutlinedIcon.d.ts",
+        "import": "./dist/AlertTriangleOutlinedIcon.mjs",
+        "require": "./dist/AlertTriangleOutlinedIcon.js"
+      },
+      "./AlertWarningIcon": {
+        "types": "./dist/AlertWarningIcon.d.ts",
+        "import": "./dist/AlertWarningIcon.mjs",
+        "require": "./dist/AlertWarningIcon.js"
+      },
+      "./ArchiveOutlinedIcon": {
+        "types": "./dist/ArchiveOutlinedIcon.d.ts",
+        "import": "./dist/ArchiveOutlinedIcon.mjs",
+        "require": "./dist/ArchiveOutlinedIcon.js"
+      },
+      "./AwardOutlinedIcon": {
+        "types": "./dist/AwardOutlinedIcon.d.ts",
+        "import": "./dist/AwardOutlinedIcon.mjs",
+        "require": "./dist/AwardOutlinedIcon.js"
+      },
+      "./BookOpenOutlined": {
+        "types": "./dist/BookOpenOutlined.d.ts",
+        "import": "./dist/BookOpenOutlined.mjs",
+        "require": "./dist/BookOpenOutlined.js"
+      },
+      "./CalenderDaysOutlined": {
+        "types": "./dist/CalenderDaysOutlined.d.ts",
+        "import": "./dist/CalenderDaysOutlined.mjs",
+        "require": "./dist/CalenderDaysOutlined.js"
+      },
+      "./CalenderOutlinedIcon": {
+        "types": "./dist/CalenderOutlinedIcon.d.ts",
+        "import": "./dist/CalenderOutlinedIcon.mjs",
+        "require": "./dist/CalenderOutlinedIcon.js"
+      },
+      "./CaretDownFilledIcon": {
+        "types": "./dist/CaretDownFilledIcon.d.ts",
+        "import": "./dist/CaretDownFilledIcon.mjs",
+        "require": "./dist/CaretDownFilledIcon.js"
+      },
+      "./CaretUpFilledIcon copy": {
+        "types": "./dist/CaretUpFilledIcon copy.d.ts",
+        "import": "./dist/CaretUpFilledIcon copy.mjs",
+        "require": "./dist/CaretUpFilledIcon copy.js"
+      },
+      "./ChartSimpleOutlineIcon": {
+        "types": "./dist/ChartSimpleOutlineIcon.d.ts",
+        "import": "./dist/ChartSimpleOutlineIcon.mjs",
+        "require": "./dist/ChartSimpleOutlineIcon.js"
+      },
+      "./CheckCircleFilledIcon": {
+        "types": "./dist/CheckCircleFilledIcon.d.ts",
+        "import": "./dist/CheckCircleFilledIcon.mjs",
+        "require": "./dist/CheckCircleFilledIcon.js"
+      },
+      "./CheckCircleOutlinedIcon": {
+        "types": "./dist/CheckCircleOutlinedIcon.d.ts",
+        "import": "./dist/CheckCircleOutlinedIcon.mjs",
+        "require": "./dist/CheckCircleOutlinedIcon.js"
+      },
+      "./CheckFilledIcon": {
+        "types": "./dist/CheckFilledIcon.d.ts",
+        "import": "./dist/CheckFilledIcon.mjs",
+        "require": "./dist/CheckFilledIcon.js"
+      },
+      "./CheckIcon": {
+        "types": "./dist/CheckIcon.d.ts",
+        "import": "./dist/CheckIcon.mjs",
+        "require": "./dist/CheckIcon.js"
+      },
+      "./ChevronDownSingleIcon": {
+        "types": "./dist/ChevronDownSingleIcon.d.ts",
+        "import": "./dist/ChevronDownSingleIcon.mjs",
+        "require": "./dist/ChevronDownSingleIcon.js"
+      },
+      "./ChevronLeftDoubleIcon": {
+        "types": "./dist/ChevronLeftDoubleIcon.d.ts",
+        "import": "./dist/ChevronLeftDoubleIcon.mjs",
+        "require": "./dist/ChevronLeftDoubleIcon.js"
+      },
+      "./ChevronLeftSingleIcon": {
+        "types": "./dist/ChevronLeftSingleIcon.d.ts",
+        "import": "./dist/ChevronLeftSingleIcon.mjs",
+        "require": "./dist/ChevronLeftSingleIcon.js"
+      },
+      "./ChevronRightDoubleIcon": {
+        "types": "./dist/ChevronRightDoubleIcon.d.ts",
+        "import": "./dist/ChevronRightDoubleIcon.mjs",
+        "require": "./dist/ChevronRightDoubleIcon.js"
+      },
+      "./ChevronRightSingleIcon": {
+        "types": "./dist/ChevronRightSingleIcon.d.ts",
+        "import": "./dist/ChevronRightSingleIcon.mjs",
+        "require": "./dist/ChevronRightSingleIcon.js"
+      },
+      "./ChevronUpSingleIcon": {
+        "types": "./dist/ChevronUpSingleIcon.d.ts",
+        "import": "./dist/ChevronUpSingleIcon.mjs",
+        "require": "./dist/ChevronUpSingleIcon.js"
+      },
+      "./CircleQuestionOutlinedIcon": {
+        "types": "./dist/CircleQuestionOutlinedIcon.d.ts",
+        "import": "./dist/CircleQuestionOutlinedIcon.mjs",
+        "require": "./dist/CircleQuestionOutlinedIcon.js"
+      },
+      "./CircleXMarkFilledIcon": {
+        "types": "./dist/CircleXMarkFilledIcon.d.ts",
+        "import": "./dist/CircleXMarkFilledIcon.mjs",
+        "require": "./dist/CircleXMarkFilledIcon.js"
+      },
+      "./ClockRotateLeftOutlinedIcon": {
+        "types": "./dist/ClockRotateLeftOutlinedIcon.d.ts",
+        "import": "./dist/ClockRotateLeftOutlinedIcon.mjs",
+        "require": "./dist/ClockRotateLeftOutlinedIcon.js"
+      },
+      "./CloseFilledIcon": {
+        "types": "./dist/CloseFilledIcon.d.ts",
+        "import": "./dist/CloseFilledIcon.mjs",
+        "require": "./dist/CloseFilledIcon.js"
+      },
+      "./CodeOutlinedIcon": {
+        "types": "./dist/CodeOutlinedIcon.d.ts",
+        "import": "./dist/CodeOutlinedIcon.mjs",
+        "require": "./dist/CodeOutlinedIcon.js"
+      },
+      "./ContactIDCardOutlinedIcon": {
+        "types": "./dist/ContactIDCardOutlinedIcon.d.ts",
+        "import": "./dist/ContactIDCardOutlinedIcon.mjs",
+        "require": "./dist/ContactIDCardOutlinedIcon.js"
+      },
+      "./CopyOutlinedIcon": {
+        "types": "./dist/CopyOutlinedIcon.d.ts",
+        "import": "./dist/CopyOutlinedIcon.mjs",
+        "require": "./dist/CopyOutlinedIcon.js"
+      },
+      "./DeviceOutlineIcon": {
+        "types": "./dist/DeviceOutlineIcon.d.ts",
+        "import": "./dist/DeviceOutlineIcon.mjs",
+        "require": "./dist/DeviceOutlineIcon.js"
+      },
+      "./DownloadFilledIcon": {
+        "types": "./dist/DownloadFilledIcon.d.ts",
+        "import": "./dist/DownloadFilledIcon.mjs",
+        "require": "./dist/DownloadFilledIcon.js"
+      },
+      "./DropdownLeftIcon": {
+        "types": "./dist/DropdownLeftIcon.d.ts",
+        "import": "./dist/DropdownLeftIcon.mjs",
+        "require": "./dist/DropdownLeftIcon.js"
+      },
+      "./DropdownRightIcon": {
+        "types": "./dist/DropdownRightIcon.d.ts",
+        "import": "./dist/DropdownRightIcon.mjs",
+        "require": "./dist/DropdownRightIcon.js"
+      },
+      "./EditIcon": {
+        "types": "./dist/EditIcon.d.ts",
+        "import": "./dist/EditIcon.mjs",
+        "require": "./dist/EditIcon.js"
+      },
+      "./EnglishCircleIcon": {
+        "types": "./dist/EnglishCircleIcon.d.ts",
+        "import": "./dist/EnglishCircleIcon.mjs",
+        "require": "./dist/EnglishCircleIcon.js"
+      },
+      "./ExternalLinkIcon": {
+        "types": "./dist/ExternalLinkIcon.d.ts",
+        "import": "./dist/ExternalLinkIcon.mjs",
+        "require": "./dist/ExternalLinkIcon.js"
+      },
+      "./EyeHiddenOutlinedIcon": {
+        "types": "./dist/EyeHiddenOutlinedIcon.d.ts",
+        "import": "./dist/EyeHiddenOutlinedIcon.mjs",
+        "require": "./dist/EyeHiddenOutlinedIcon.js"
+      },
+      "./EyeVisibilityOutlinedIcon": {
+        "types": "./dist/EyeVisibilityOutlinedIcon.d.ts",
+        "import": "./dist/EyeVisibilityOutlinedIcon.mjs",
+        "require": "./dist/EyeVisibilityOutlinedIcon.js"
+      },
+      "./FileOutlinedIcon": {
+        "types": "./dist/FileOutlinedIcon.d.ts",
+        "import": "./dist/FileOutlinedIcon.mjs",
+        "require": "./dist/FileOutlinedIcon.js"
+      },
+      "./FileTextOutlinedIcon": {
+        "types": "./dist/FileTextOutlinedIcon.d.ts",
+        "import": "./dist/FileTextOutlinedIcon.mjs",
+        "require": "./dist/FileTextOutlinedIcon.js"
+      },
+      "./GearFilledIcon": {
+        "types": "./dist/GearFilledIcon.d.ts",
+        "import": "./dist/GearFilledIcon.mjs",
+        "require": "./dist/GearFilledIcon.js"
+      },
+      "./GearOutlinedIcon": {
+        "types": "./dist/GearOutlinedIcon.d.ts",
+        "import": "./dist/GearOutlinedIcon.mjs",
+        "require": "./dist/GearOutlinedIcon.js"
+      },
+      "./Grid2FilledIcon": {
+        "types": "./dist/Grid2FilledIcon.d.ts",
+        "import": "./dist/Grid2FilledIcon.mjs",
+        "require": "./dist/Grid2FilledIcon.js"
+      },
+      "./IDCardClipOutlinedIcon": {
+        "types": "./dist/IDCardClipOutlinedIcon.d.ts",
+        "import": "./dist/IDCardClipOutlinedIcon.mjs",
+        "require": "./dist/IDCardClipOutlinedIcon.js"
+      },
+      "./KeySkeletonFilledIcon": {
+        "types": "./dist/KeySkeletonFilledIcon.d.ts",
+        "import": "./dist/KeySkeletonFilledIcon.mjs",
+        "require": "./dist/KeySkeletonFilledIcon.js"
+      },
+      "./LanguageGlobeOutlinedIcon": {
+        "types": "./dist/LanguageGlobeOutlinedIcon.d.ts",
+        "import": "./dist/LanguageGlobeOutlinedIcon.mjs",
+        "require": "./dist/LanguageGlobeOutlinedIcon.js"
+      },
+      "./LaptopMobileOutlinedIcon": {
+        "types": "./dist/LaptopMobileOutlinedIcon.d.ts",
+        "import": "./dist/LaptopMobileOutlinedIcon.mjs",
+        "require": "./dist/LaptopMobileOutlinedIcon.js"
+      },
+      "./LockFilledIcon": {
+        "types": "./dist/LockFilledIcon.d.ts",
+        "import": "./dist/LockFilledIcon.mjs",
+        "require": "./dist/LockFilledIcon.js"
+      },
+      "./LogoSigmaFilledIcon": {
+        "types": "./dist/LogoSigmaFilledIcon.d.ts",
+        "import": "./dist/LogoSigmaFilledIcon.mjs",
+        "require": "./dist/LogoSigmaFilledIcon.js"
+      },
+      "./LogoutIcon": {
+        "types": "./dist/LogoutIcon.d.ts",
+        "import": "./dist/LogoutIcon.mjs",
+        "require": "./dist/LogoutIcon.js"
+      },
+      "./MenuGrid2OutlinedIcon": {
+        "types": "./dist/MenuGrid2OutlinedIcon.d.ts",
+        "import": "./dist/MenuGrid2OutlinedIcon.mjs",
+        "require": "./dist/MenuGrid2OutlinedIcon.js"
+      },
+      "./MessageoutlinedIcon": {
+        "types": "./dist/MessageoutlinedIcon.d.ts",
+        "import": "./dist/MessageoutlinedIcon.mjs",
+        "require": "./dist/MessageoutlinedIcon.js"
+      },
+      "./MinusIconFilled": {
+        "types": "./dist/MinusIconFilled.d.ts",
+        "import": "./dist/MinusIconFilled.mjs",
+        "require": "./dist/MinusIconFilled.js"
+      },
+      "./MoreVerticalIcon": {
+        "types": "./dist/MoreVerticalIcon.d.ts",
+        "import": "./dist/MoreVerticalIcon.mjs",
+        "require": "./dist/MoreVerticalIcon.js"
+      },
+      "./MultimediaControlPlayFilledIcon": {
+        "types": "./dist/MultimediaControlPlayFilledIcon.d.ts",
+        "import": "./dist/MultimediaControlPlayFilledIcon.mjs",
+        "require": "./dist/MultimediaControlPlayFilledIcon.js"
+      },
+      "./MultimediaControlPlayOutlinedIcon": {
+        "types": "./dist/MultimediaControlPlayOutlinedIcon.d.ts",
+        "import": "./dist/MultimediaControlPlayOutlinedIcon.mjs",
+        "require": "./dist/MultimediaControlPlayOutlinedIcon.js"
+      },
+      "./MultimediaControlShieldOutlineIcon": {
+        "types": "./dist/MultimediaControlShieldOutlineIcon.d.ts",
+        "import": "./dist/MultimediaControlShieldOutlineIcon.mjs",
+        "require": "./dist/MultimediaControlShieldOutlineIcon.js"
+      },
+      "./MultimediaControlWifiFilledIcon": {
+        "types": "./dist/MultimediaControlWifiFilledIcon.d.ts",
+        "import": "./dist/MultimediaControlWifiFilledIcon.mjs",
+        "require": "./dist/MultimediaControlWifiFilledIcon.js"
+      },
+      "./NoDataIcon": {
+        "types": "./dist/NoDataIcon.d.ts",
+        "import": "./dist/NoDataIcon.mjs",
+        "require": "./dist/NoDataIcon.js"
+      },
+      "./OctagonXMarkOutlinedIcon": {
+        "types": "./dist/OctagonXMarkOutlinedIcon.d.ts",
+        "import": "./dist/OctagonXMarkOutlinedIcon.mjs",
+        "require": "./dist/OctagonXMarkOutlinedIcon.js"
+      },
+      "./PenToSquareOutlinedIcon": {
+        "types": "./dist/PenToSquareOutlinedIcon.d.ts",
+        "import": "./dist/PenToSquareOutlinedIcon.mjs",
+        "require": "./dist/PenToSquareOutlinedIcon.js"
+      },
+      "./PlusAddIconFilled": {
+        "types": "./dist/PlusAddIconFilled.d.ts",
+        "import": "./dist/PlusAddIconFilled.mjs",
+        "require": "./dist/PlusAddIconFilled.js"
+      },
+      "./RemoveMinusOutlinedIcon": {
+        "types": "./dist/RemoveMinusOutlinedIcon.d.ts",
+        "import": "./dist/RemoveMinusOutlinedIcon.mjs",
+        "require": "./dist/RemoveMinusOutlinedIcon.js"
+      },
+      "./RemoveOutlinedIcon": {
+        "types": "./dist/RemoveOutlinedIcon.d.ts",
+        "import": "./dist/RemoveOutlinedIcon.mjs",
+        "require": "./dist/RemoveOutlinedIcon.js"
+      },
+      "./RepeatOutlinedIcon": {
+        "types": "./dist/RepeatOutlinedIcon.d.ts",
+        "import": "./dist/RepeatOutlinedIcon.mjs",
+        "require": "./dist/RepeatOutlinedIcon.js"
+      },
+      "./RolesOutlinedIcon": {
+        "types": "./dist/RolesOutlinedIcon.d.ts",
+        "import": "./dist/RolesOutlinedIcon.mjs",
+        "require": "./dist/RolesOutlinedIcon.js"
+      },
+      "./RotateOutlinedIcon": {
+        "types": "./dist/RotateOutlinedIcon.d.ts",
+        "import": "./dist/RotateOutlinedIcon.mjs",
+        "require": "./dist/RotateOutlinedIcon.js"
+      },
+      "./SearchOutlinedIcon": {
+        "types": "./dist/SearchOutlinedIcon.d.ts",
+        "import": "./dist/SearchOutlinedIcon.mjs",
+        "require": "./dist/SearchOutlinedIcon.js"
+      },
+      "./SecurityGearOutlinedIcon": {
+        "types": "./dist/SecurityGearOutlinedIcon.d.ts",
+        "import": "./dist/SecurityGearOutlinedIcon.mjs",
+        "require": "./dist/SecurityGearOutlinedIcon.js"
+      },
+      "./SecurityShieldHalvedFilledIcon": {
+        "types": "./dist/SecurityShieldHalvedFilledIcon.d.ts",
+        "import": "./dist/SecurityShieldHalvedFilledIcon.mjs",
+        "require": "./dist/SecurityShieldHalvedFilledIcon.js"
+      },
+      "./SelectionCheckSquareCheckIcon": {
+        "types": "./dist/SelectionCheckSquareCheckIcon.d.ts",
+        "import": "./dist/SelectionCheckSquareCheckIcon.mjs",
+        "require": "./dist/SelectionCheckSquareCheckIcon.js"
+      },
+      "./SelectionCheckSquareUnCheckIcon": {
+        "types": "./dist/SelectionCheckSquareUnCheckIcon.d.ts",
+        "import": "./dist/SelectionCheckSquareUnCheckIcon.mjs",
+        "require": "./dist/SelectionCheckSquareUnCheckIcon.js"
+      },
+      "./SelectionRadioCircleDotIcon": {
+        "types": "./dist/SelectionRadioCircleDotIcon.d.ts",
+        "import": "./dist/SelectionRadioCircleDotIcon.mjs",
+        "require": "./dist/SelectionRadioCircleDotIcon.js"
+      },
+      "./SettingGearFilledIcon": {
+        "types": "./dist/SettingGearFilledIcon.d.ts",
+        "import": "./dist/SettingGearFilledIcon.mjs",
+        "require": "./dist/SettingGearFilledIcon.js"
+      },
+      "./SettingGearOutlinedIcon": {
+        "types": "./dist/SettingGearOutlinedIcon.d.ts",
+        "import": "./dist/SettingGearOutlinedIcon.mjs",
+        "require": "./dist/SettingGearOutlinedIcon.js"
+      },
+      "./ShieldCheckOutlinedIcon": {
+        "types": "./dist/ShieldCheckOutlinedIcon.d.ts",
+        "import": "./dist/ShieldCheckOutlinedIcon.mjs",
+        "require": "./dist/ShieldCheckOutlinedIcon.js"
+      },
+      "./ShieldHalvedOutlinedIcon": {
+        "types": "./dist/ShieldHalvedOutlinedIcon.d.ts",
+        "import": "./dist/ShieldHalvedOutlinedIcon.mjs",
+        "require": "./dist/ShieldHalvedOutlinedIcon.js"
+      },
+      "./ShieldOutlinedIcon": {
+        "types": "./dist/ShieldOutlinedIcon.d.ts",
+        "import": "./dist/ShieldOutlinedIcon.mjs",
+        "require": "./dist/ShieldOutlinedIcon.js"
+      },
+      "./ShieldPlusOutlinedIcon": {
+        "types": "./dist/ShieldPlusOutlinedIcon.d.ts",
+        "import": "./dist/ShieldPlusOutlinedIcon.mjs",
+        "require": "./dist/ShieldPlusOutlinedIcon.js"
+      },
+      "./ShuffleFilledIcon": {
+        "types": "./dist/ShuffleFilledIcon.d.ts",
+        "import": "./dist/ShuffleFilledIcon.mjs",
+        "require": "./dist/ShuffleFilledIcon.js"
+      },
+      "./SlidersFilledIcon": {
+        "types": "./dist/SlidersFilledIcon.d.ts",
+        "import": "./dist/SlidersFilledIcon.mjs",
+        "require": "./dist/SlidersFilledIcon.js"
+      },
+      "./SocialAppleFilledIcon": {
+        "types": "./dist/SocialAppleFilledIcon.d.ts",
+        "import": "./dist/SocialAppleFilledIcon.mjs",
+        "require": "./dist/SocialAppleFilledIcon.js"
+      },
+      "./SocialGoogleFilledIcon": {
+        "types": "./dist/SocialGoogleFilledIcon.d.ts",
+        "import": "./dist/SocialGoogleFilledIcon.mjs",
+        "require": "./dist/SocialGoogleFilledIcon.js"
+      },
+      "./SpinnerScaleFilledIcon": {
+        "types": "./dist/SpinnerScaleFilledIcon.d.ts",
+        "import": "./dist/SpinnerScaleFilledIcon.mjs",
+        "require": "./dist/SpinnerScaleFilledIcon.js"
+      },
+      "./ToolOutlinedIcon": {
+        "types": "./dist/ToolOutlinedIcon.d.ts",
+        "import": "./dist/ToolOutlinedIcon.mjs",
+        "require": "./dist/ToolOutlinedIcon.js"
+      },
+      "./TrashCanOutlinedIcon": {
+        "types": "./dist/TrashCanOutlinedIcon.d.ts",
+        "import": "./dist/TrashCanOutlinedIcon.mjs",
+        "require": "./dist/TrashCanOutlinedIcon.js"
+      },
+      "./UploadIcon": {
+        "types": "./dist/UploadIcon.d.ts",
+        "import": "./dist/UploadIcon.mjs",
+        "require": "./dist/UploadIcon.js"
+      },
+      "./UserGroupFilledIcon": {
+        "types": "./dist/UserGroupFilledIcon.d.ts",
+        "import": "./dist/UserGroupFilledIcon.mjs",
+        "require": "./dist/UserGroupFilledIcon.js"
+      },
+      "./UserGroupOutlinedIcon": {
+        "types": "./dist/UserGroupOutlinedIcon.d.ts",
+        "import": "./dist/UserGroupOutlinedIcon.mjs",
+        "require": "./dist/UserGroupOutlinedIcon.js"
+      },
+      "./UserOutlinedIcon": {
+        "types": "./dist/UserOutlinedIcon.d.ts",
+        "import": "./dist/UserOutlinedIcon.mjs",
+        "require": "./dist/UserOutlinedIcon.js"
+      },
+      "./VietnameseCircleIcon": {
+        "types": "./dist/VietnameseCircleIcon.d.ts",
+        "import": "./dist/VietnameseCircleIcon.mjs",
+        "require": "./dist/VietnameseCircleIcon.js"
+      },
+      "./ViewMenuOutlinedIcon": {
+        "types": "./dist/ViewMenuOutlinedIcon.d.ts",
+        "import": "./dist/ViewMenuOutlinedIcon.mjs",
+        "require": "./dist/ViewMenuOutlinedIcon.js"
+      },
+      "./XMarkIcon": {
+        "types": "./dist/XMarkIcon.d.ts",
+        "import": "./dist/XMarkIcon.mjs",
+        "require": "./dist/XMarkIcon.js"
+      }
+    }
+  }
+}

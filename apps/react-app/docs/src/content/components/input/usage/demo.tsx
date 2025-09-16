@@ -1,14 +1,29 @@
 import React from 'react'
+import Box from '@microui-kit/box'
 import ComponentPreview from '@docs/components/ComponentPreview'
 import Input from '@sigmaui-kit/input'
 import { inputContent } from '..'
 
 export const Demo: React.FC<any> = ({ control }) => {
   return (
-    <Input
-      size={control.state.size}
-      placeholder="Basic usage"
-    />
+    <Box
+      css={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 12
+      }}
+    >
+      <Input
+        size={control.state.size}
+        placeholder="Basic usage"
+      />
+      <Input
+        showCount
+        maxLength={10}
+        size={control.state.size}
+        placeholder="Show count"
+      />
+    </Box>
   )
 }
 export const UsageInputComponent = () => {

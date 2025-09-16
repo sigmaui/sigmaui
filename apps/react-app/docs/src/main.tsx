@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router';
 import { createRenderer } from '@microui-kit/create-renderer';
 import { PlatformProvider } from '@microui-kit/platform';
-import themeConfig, { globalStyle, felaRendererConfig } from 'packages/common/theme/config';
+import { felaRendererConfig } from 'packages/common/theme/config';
 
 const renderer = createRenderer(felaRendererConfig)
 

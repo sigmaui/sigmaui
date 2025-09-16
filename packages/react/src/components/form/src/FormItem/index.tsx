@@ -1,19 +1,20 @@
-import React from 'react'
-import type { FC } from 'react'
-import classNames from 'classnames'
-import { Field as RcFieldForm, FormInstance } from '@rc-component/form'
-import { InternalNamePath, Meta } from '@rc-component/form/lib/interface'
-import { FieldProps } from '@rc-component/form/lib/Field'
-import { useStoreContext } from '@microui-kit/use-store'
-import { getRestProps } from '@microui-kit/helpers'
-import { withStyles } from '@sigmaui-kit/with-styles'
+import React from 'react';
+import type { FC } from 'react';
+import classNames from 'classnames';
+import { WithTranslation } from 'react-i18next';
+import { Field as RcFieldForm, FormInstance } from '@rc-component/form';
+import { InternalNamePath, Meta } from '@rc-component/form/lib/interface';
+import { FieldProps } from '@rc-component/form/lib/Field';
+import { useStoreContext } from '@microui-kit/use-store';
+import { getRestProps } from '@microui-kit/helpers';
+import { withStyles } from '@sigmaui-kit/with-styles';
 
-import FormItemLabel from '../FormItemLabel'
-import FormItemControl from '../FormItemControl'
+import FormItemLabel from '../FormItemLabel';
+import FormItemControl from '../FormItemControl';
 
-import { styles, type FormItemProps } from './styles'
+import { styles, type FormItemProps } from './styles';
 
-import { FormItemType } from './types'
+import { FormItemType } from './types';
 
 export type {
   FormItemType
@@ -60,7 +61,7 @@ const getFieldId = (namePath: InternalNamePath, formName?: string) => {
 }
 
 const getRules = ({ t = (text: string) => text, type, required, formRules = {}, fieldRules = [] }: {
-  t?: (text: string) => string,
+  t?: WithTranslation['t'],
   type?: string,
   required?: boolean,
   formRules?: { [key: string]: any },
@@ -74,7 +75,9 @@ const getRules = ({ t = (text: string) => text, type, required, formRules = {}, 
 
   const requiredRule = {
     required,
-    message: t('form.message.required')
+    message: t('form.message.required', {
+      defaultValue: 'Please do not leave blank'
+    })
   };
 
   return [

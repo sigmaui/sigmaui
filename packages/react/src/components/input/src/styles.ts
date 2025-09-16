@@ -1,6 +1,14 @@
 import { IProps, StylesProperties } from './types'
 
-export type ClassKeys = 'wrapper'
+export type ClassKeys =
+  | 'wrapper'
+  | 'affixWrapper'
+  | 'prefix'
+  | 'suffix'
+  | 'groupWrapper'
+  | 'variant'
+  | 'input'
+  | 'count'
 
 export const styles = ({
   prefixCls,
@@ -70,7 +78,14 @@ export const styles = ({
         alignItems: 'center',
         gap: 4,
         marginLeft: 4
-      }
+      },
+    },
+    suffix: {
+      [`& .${prefixCls}-show-count-suffix`]: {
+        whiteSpace: 'nowrap',
+        // color: `var(description, rgba(0,0,0,0.45))`,
+        color: 'description'
+      },
     }
   }
 }
