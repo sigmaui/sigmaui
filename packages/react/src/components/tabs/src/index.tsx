@@ -1,18 +1,21 @@
-import React, { useMemo } from 'react'
-import type { FC } from 'react'
-import classNames from 'classnames'
-import { Link } from 'react-router-dom'
-import { withStyles } from '@sigmaui-kit/with-styles'
-import Tabs from '@rc-component/tabs'
+import React, { useMemo } from 'react';
+import type { FC } from 'react';
+import classNames from 'classnames';
+import RcTabs from '@rc-component/tabs';
+import { withStyles } from '@sigmaui-kit/with-styles';
+import { getRestProps } from '@microui-kit/helpers';
 
-import { styles, type TabsProps } from 'packages/common/components/tabs/styles'
+import { styles, type TabsProps } from './styles';
 
-const SigmaTabs: FC<TabsProps> = ({
+const Tabs: FC<TabsProps> = ({
   prefixCls,
   className,
   classes,
-  options = []
+  options = [],
+  ...tabsProps
 }) => {
+  const restProps = getRestProps(tabsProps);
+
   const onChange = (value: string | number) => {
     console.log('onChange', value)
   }
@@ -30,17 +33,18 @@ const SigmaTabs: FC<TabsProps> = ({
   }, [options])
 
   return (
-    <Tabs
+    <RcTabs
       destroyOnHidden
       prefixCls={prefixCls}
       className={classNames(className, classes?.wrapper)}
       classNames={classes}
       items={items}
       onChange={onChange}
+      {...restProps}
     />
   )
 }
 
-SigmaTabs.displayName = 'Tabs'
+Tabs.displayName = 'Tabs';
 
-export default withStyles<TabsProps>(styles)(SigmaTabs)
+export default withStyles<TabsProps>(styles)(Tabs)

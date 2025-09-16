@@ -1,13 +1,13 @@
-import React from 'react'
-import type { FC } from 'react'
-import classNames from 'classnames'
-import { Link } from 'react-router-dom'
-import { withStyles } from '@sigmaui-kit/with-styles'
-import Loading from '@microui-kit/loading'
+import React from 'react';
+import type { FC } from 'react';
+import classNames from 'classnames';
+import { Link } from 'react-router-dom';
+import { withStyles } from '@sigmaui-kit/with-styles';
+import Loading from '@microui-kit/loading';
 
-import { styles, type ButtonProps } from 'packages/common/components/button/styles'
+import { styles, type ButtonProps } from './styles';
 
-const SigmaButton: FC<ButtonProps> = ({
+const Button: FC<ButtonProps> = ({
   prefixCls,
   className,
   children,
@@ -39,7 +39,7 @@ const SigmaButton: FC<ButtonProps> = ({
   }
 
   if (locking) {
-    prefix = <Loading isDot />
+    prefix = <Loading isDot/>
   }
 
   const buttonEl = (
@@ -61,6 +61,6 @@ const SigmaButton: FC<ButtonProps> = ({
   return buttonEl
 }
 
-SigmaButton.displayName = 'Button'
+Button.displayName = 'Button';
 
-export default withStyles<ButtonProps>(styles)(SigmaButton)
+export default withStyles<ButtonProps>(styles)(Button)

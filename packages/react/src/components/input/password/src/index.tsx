@@ -4,6 +4,7 @@ import { withStyles } from '@sigmaui-kit/with-styles';
 import Input, { type InputRef } from '@sigmaui-kit/input';
 import EyeVisibilityOutlinedIcon from '@sigmaui-kit/icons/EyeVisibilityOutlinedIcon';
 import EyeHiddenOutlinedIcon from '@sigmaui-kit/icons/EyeHiddenOutlinedIcon';
+import Tooltip from '@sigmaui-kit/tooltip';
 import Icon from '@sigmaui-kit/icon';
 import { getRestProps } from '@microui-kit/helpers';
 
@@ -20,10 +21,12 @@ const defaultIconRender = (visible: boolean): React.ReactNode => {
 const Password: FC<PasswordProps> = ({
   className,
   classes,
+  t,
   suffix,
   action = 'click',
   iconRender = defaultIconRender,
   size,
+  isTooltip = true,
   ...inputProps
 }) => {
   const restProps = getRestProps(inputProps);
@@ -62,27 +65,43 @@ const Password: FC<PasswordProps> = ({
     (iconProps as any).onPointerLeave = handleHide;
   }
 
+  let suffixIcon = (
+    <Icon
+      icon={iconRender(visible)}
+      {...iconProps}
+      _style={{
+        wrapper: {
+          cursor: 'pointer',
+          color: visible ? 'base' : 'icon.default',
+
+          '&:hover': {
+            color: !visible ? 'icon.hover' : undefined
+          }
+        }
+      }}
+    />
+  )
+
+  if (isTooltip) {
+    const overlay = t(visible ? 'password.message.show' : 'password.message.show', {
+      defaultValue: visible ? 'Show password' : 'Hide password'
+    });
+
+    suffixIcon = (
+      <Tooltip
+        overlay={overlay}
+        placement="top"
+        size={size}
+      >
+        {suffixIcon}
+      </Tooltip>
+    )
+  }
+
   restProps.type = visible ? 'text' : 'password';
   restProps.suffix = (
     <Fragment>
-      <Icon
-        icon={iconRender(visible)}
-        {...iconProps}
-        _style={{
-          wrapper: {
-            cursor: 'pointer',
-            color: visible ? 'base' : 'icon.default',
-
-            '&:hover': {
-              color: !visible ? 'icon.hover' : undefined
-            },
-
-            '& svg': {
-              size
-            }
-          }
-        }}
-      />
+      {suffixIcon}
       {suffix}
     </Fragment>
   )

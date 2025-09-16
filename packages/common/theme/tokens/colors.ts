@@ -1,5 +1,5 @@
 export const formColors = {
-  requiredMark: '#FF3B30',
+  requiredMark: '#d70015',
   note: 'rgba(0,0,0,0.45)'
 }
 
@@ -8,22 +8,28 @@ export const iconColors = {
   hover: 'rgba(0,0,0,0.88)'
 }
 
+export const tooltipColors = {
+  background: 'rgba(0,0,0,0.85)',
+  text: '#fff'
+}
+
 export const colors = {
   base: '#f77f00',
   secondary: '#5856D6',
   background: '#fff',
   text: '#fff',
-  error: '#FF3B30',
+  error: '#d70015',
   warning: '#FF9500',
   success: '#34C759',
   border: '#ddd',
   active: '#f77f00',
   placeholder: 'rgba(0,0,0,0.25)',
+  description: 'rgba(0,0,0,0.45)',
   popup: '#fff',
   fillWeak: 'rgba(41, 43, 51, 0.05)',
   neutral: 'rgba(41, 43, 51, 0.7)',
   bgEmphasized: '#e9e8e6',
   form: formColors,
   icon: iconColors,
-  description: 'rgba(0,0,0,0.45)'
+  tooltip: tooltipColors
 } as const

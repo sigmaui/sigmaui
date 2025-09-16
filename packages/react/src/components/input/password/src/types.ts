@@ -7,4 +7,5 @@ export interface IProps<Styles> extends FCWithStylesProps<Styles> {
   suffix?: ReactNode
   action?: 'click' | 'pointer'
   iconRender?: (visible: boolean) => ReactNode;
+  isTooltip?: boolean;
 }

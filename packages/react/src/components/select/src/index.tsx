@@ -1,11 +1,11 @@
-import React, { FC } from 'react'
-import classNames from 'classnames'
-import RcSelect from '@rc-component/select'
-import { getRestProps } from '@microui-kit/helpers'
-import { withStyles } from '@sigmaui-kit/with-styles'
-import Icon from '@sigmaui-kit/icon'
+import React, { FC } from 'react';
+import classNames from 'classnames';
+import RcSelect from '@rc-component/select';
+import { getRestProps } from '@microui-kit/helpers';
+import { withStyles } from '@sigmaui-kit/with-styles';
+import Icon from '@sigmaui-kit/icon';
 
-import { styles, type SelectProps } from 'packages/common/components/select/styles'
+import { styles, type SelectProps } from './styles';
 
 const SigmaSelect: FC<SelectProps> = ({
   prefixCls,

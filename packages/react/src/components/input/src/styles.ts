@@ -56,11 +56,11 @@ export const styles = ({
         '&:focus': {
           boxShadow: 'error.focused',
           borderColor: 'error'
-        }
-      },
+        },
 
-      [`&.${prefixCls}-affix-wrapper`]: {
-        display: 'flex'
+        [`& .${prefixCls}-prefix`]: {
+          color: 'error'
+        },
       },
 
       '& input': {
@@ -71,21 +71,35 @@ export const styles = ({
         border: 'none',
         borderRadius: 0,
         outline: 'none',
-      },
+      }
+    },
+    affixWrapper: {
+      display: 'flex'
+    },
+    prefix: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 4,
+      marginRight: 4,
 
-      [`& .${prefixCls}-suffix`]: {
-        display: 'flex',
-        alignItems: 'center',
-        gap: 4,
-        marginLeft: 4
-      },
+      '& svg': {
+        size: `icon.${size}`
+      }
     },
     suffix: {
-      [`& .${prefixCls}-show-count-suffix`]: {
-        whiteSpace: 'nowrap',
-        // color: `var(description, rgba(0,0,0,0.45))`,
-        color: 'description'
-      },
+      display: 'flex',
+      alignItems: 'center',
+      gap: 4,
+      marginLeft: 4,
+
+      '& svg': {
+        size: `icon.${size}`
+      }
+    },
+    count: {
+      whiteSpace: 'nowrap',
+      // color: `var(description, rgba(0,0,0,0.45))`,
+      color: 'description'
     }
   }
 }

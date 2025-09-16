@@ -11,6 +11,7 @@ export enum FormItemTypeEnum {
   PASSWORD = 'password',
   TEXTAREA = 'textarea',
   EMAIL = 'email',
+  URL = 'url',
   NUMBER = 'number',
   CHECKBOX = 'checkbox',
   SELECT = 'select',
@@ -32,7 +33,7 @@ export interface FormItemOption {
   fieldProps?: { [key: string]: any }
 }
 
-export interface IProps<Styles> extends Omit<FormItemOption, 'controller' | 'render' | 'rules'>, FCWithStylesProps<Styles> {
+export interface IProps<Styles> extends Omit<FieldProps, 'children'>, Omit<FormItemOption, 'controller' | 'render' | 'rules' | 'children' | 'name'>, FCWithStylesProps<Styles> {
   formRules?: { [key: string]: any }
   fieldRules?: FieldProps['rules']
   labelProps?: any

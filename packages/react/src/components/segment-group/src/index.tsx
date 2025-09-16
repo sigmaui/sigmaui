@@ -1,19 +1,22 @@
-import React, { Fragment } from 'react'
-import type { FC } from 'react'
-import classNames from 'classnames'
-import { useRouter } from '@microui-kit/use-router'
-import Segmented from '@rc-component/segmented'
-import { withStyles } from '@sigmaui-kit/with-styles'
+import React from 'react';
+import type { FC } from 'react';
+import classNames from 'classnames';
+import { useRouter } from '@microui-kit/use-router';
+import Segmented from '@rc-component/segmented';
+import { withStyles } from '@sigmaui-kit/with-styles';
+import { getRestProps } from '@microui-kit/helpers';
 
-import { styles, type SegmentGroupProps } from 'packages/common/components/segment-group/styles'
+import { styles, type SegmentGroupProps } from './styles';
 
-const SigmaSegmentGroup: FC<SegmentGroupProps> = ({
+const SegmentGroup: FC<SegmentGroupProps> = ({
   prefixCls,
   className,
   classes,
   options,
-  defaultValue
+  defaultValue,
+  ...segmentGroupProps
 }) => {
+  const restProps = getRestProps(segmentGroupProps);
   const router = useRouter()
 
   const onChange = (value: string) => {
@@ -33,10 +36,11 @@ const SigmaSegmentGroup: FC<SegmentGroupProps> = ({
       defaultValue={defaultValue}
       onChange={onChange}
       classNames={classes}
+      {...restProps}
     />
   )
 }
 
-SigmaSegmentGroup.displayName = 'SegmentGroup'
+SegmentGroup.displayName = 'SegmentGroup'
 
-export default withStyles<SegmentGroupProps>(styles)(SigmaSegmentGroup)
+export default withStyles<SegmentGroupProps>(styles)(SegmentGroup)

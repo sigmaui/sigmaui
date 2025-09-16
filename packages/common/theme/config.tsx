@@ -1,46 +1,14 @@
-import { type Theme } from '@microui-kit/theme'
+import { type Theme } from '@microui-kit/theme';
 import { customRenderer } from '@microui-kit/fela-custom-renderer';
-import { formatProperty } from '@microui-kit/create-renderer'
+import { formatProperty } from '@microui-kit/create-renderer';
 
-import { modes } from './modes'
-import { components } from './tokens/components'
-import { colors } from './tokens/colors'
-import { sizes, fontSizes, heights, radii } from './tokens/sizes'
-import { variants } from './tokens/variants'
-import { boxShadows } from './tokens/boxShadow'
-import { zIndex } from './tokens/zIndex'
-
-export const getProperty = (property: string) => {
-  return (value: any, params: any = {}) => {
-    const { theme, displayName, itemStyle, customProperty } = params;
-
-    const properties = theme?.[property]?.[displayName];
-
-    console.log('getProperty', value, properties, property, theme?.[property], displayName)
-
-    if (displayName && properties) {
-      const pureStyles = properties?.[value] || (value !== 'none' && (properties?.default || properties?.['_']));
-
-      if (pureStyles) {
-        const styles: any = {};
-
-        Object.keys(pureStyles).forEach(key => {
-          if (!itemStyle[key]) {
-            styles[key] = pureStyles[key]
-          }
-        })
-
-        return customProperty(styles)
-      }
-    }
-
-    const styles = {
-      ...theme?.[property][value]
-    };
-
-    return customProperty(styles)
-  }
-}
+import { modes } from './modes';
+import { components } from './tokens/components';
+import { colors } from './tokens/colors';
+import { sizes, fontSizes, heights, radii } from './tokens/sizes';
+import { variants } from './tokens/variants';
+import { boxShadows } from './tokens/boxShadow';
+import { zIndex } from './tokens/zIndex';
 
 const themeMapping: any = {
   color: (theme: any) => theme.colors,
@@ -52,13 +20,13 @@ const themeMapping: any = {
   borderRadius: (theme: any) => theme.radii,
   height: (theme: any) => theme.heights,
   boxShadow: (theme: any) => theme.shadows,
+  zIndex: (theme: any) => theme.zIndex,
 }
 
 export const felaRendererConfig = {
   themeMapping,
   customProperties: {
-    borderWidth: formatProperty('borderWidth'),
-    size: getProperty('sizes'),
+    borderWidth: formatProperty('borderWidth')
   },
   clsBlackList: [],
   enhancers: [

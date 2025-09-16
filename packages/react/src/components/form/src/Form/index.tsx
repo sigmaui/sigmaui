@@ -8,6 +8,7 @@ import { getRestProps } from '@microui-kit/helpers'
 import { withStyles } from '@sigmaui-kit/with-styles'
 
 import { styles, type FormProps } from './styles'
+import { StoreProviderProps } from './types'
 
 import FormItem from '../FormItem'
 import useForm from '../hooks/useForm'
@@ -29,6 +30,7 @@ const Form: FC<FormProps> = ({
   customRender,
   formRules: customFormRules,
   disabled,
+  isAutoTrim = true,
   ...formProps
 }) => {
   const restProps = getRestProps(formProps)
@@ -36,7 +38,6 @@ const Form: FC<FormProps> = ({
   const [form] = useForm(customForm);
 
   const onValuesChange = ({ key }) => {
-
   }
 
   const onFinish = (values) => {
@@ -89,10 +90,12 @@ const Form: FC<FormProps> = ({
   }, [children, items])
 
   return (
-    <StoreProvider<{ formName?: string }>
+    <StoreProvider<StoreProviderProps>
       storeKey={`${prefixCls}:${name || 'store'}`}
       initialState={{
-        formName: name
+        formName: name,
+        form,
+        isAutoTrim
       }}
     >
       <RcForm

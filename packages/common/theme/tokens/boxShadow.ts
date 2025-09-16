@@ -1,5 +1,5 @@
 export const errorShadows = {
-  focused: '0 0 0 2px rgba(255, 59, 48, 0.1)'
+  focused: '0 0 0 2px rgba(215, 0, 21, 0.1)'
 }
 
 export const boxShadows = {

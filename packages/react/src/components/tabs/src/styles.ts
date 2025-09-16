@@ -1,6 +1,6 @@
-import type { IProps, StylesProperties } from './types'
+import type { IProps, StylesProperties } from './types';
 
-export type ClassKeys = 'wrapper' | 'header' | 'item' | 'content' | 'indicator'
+export type ClassKeys = 'wrapper' | 'header' | 'item' | 'content' | 'indicator';
 
 export const styles = ({ prefixCls, theme = {} }: IProps<any>): Partial<Record<ClassKeys, StylesProperties>> => {
   // console.log('theme', theme)

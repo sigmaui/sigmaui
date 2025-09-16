@@ -1,9 +1,9 @@
-import React, { FC } from 'react'
-import classNames from 'classnames'
-import { withStyles } from '@sigmaui-kit/with-styles'
-import { getRestProps } from '@microui-kit/helpers'
+import React, { FC } from 'react';
+import classNames from 'classnames';
+import { withStyles } from '@sigmaui-kit/with-styles';
+import { getRestProps } from '@microui-kit/helpers';
 
-import { styles, type IconProps } from 'packages/common/components/icon/styles'
+import { styles, type IconProps } from './styles';
 
 const SigmaIcon: FC<IconProps> = ({
   prefixCls,

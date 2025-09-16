@@ -80,6 +80,7 @@ export default defineConfig(({ mode }) => {
         '@sigmaui-kit/segment-group': path.resolve(__dirname, '../../../packages/react/src/components/segment-group/src',),
         '@sigmaui-kit/menu': path.resolve(__dirname, '../../../packages/react/src/components/menu/src'),
         '@sigmaui-kit/form': path.resolve(__dirname, '../../../packages/react/src/components/form/src'),
+        '@sigmaui-kit/tooltip': path.resolve(__dirname, '../../../packages/react/src/components/tooltip/src'),
       },
     },
     build: {

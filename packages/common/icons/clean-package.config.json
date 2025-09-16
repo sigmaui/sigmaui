@@ -88,11 +88,6 @@
         "import": "./dist/CaretDownFilledIcon.mjs",
         "require": "./dist/CaretDownFilledIcon.js"
       },
-      "./CaretUpFilledIcon copy": {
-        "types": "./dist/CaretUpFilledIcon copy.d.ts",
-        "import": "./dist/CaretUpFilledIcon copy.mjs",
-        "require": "./dist/CaretUpFilledIcon copy.js"
-      },
       "./ChartSimpleOutlineIcon": {
         "types": "./dist/ChartSimpleOutlineIcon.d.ts",
         "import": "./dist/ChartSimpleOutlineIcon.mjs",

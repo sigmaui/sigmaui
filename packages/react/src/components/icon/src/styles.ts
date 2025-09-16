@@ -1,6 +1,6 @@
-import type { IProps, StylesProperties } from './types'
+import type { IProps, StylesProperties } from './types';
 
-export type ClassKeys = 'wrapper' | 'image'
+export type ClassKeys = 'wrapper' | 'image';
 
 export const styles = ({}: IProps<any>): Partial<Record<ClassKeys, StylesProperties>> => {
   return {

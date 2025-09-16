@@ -89,6 +89,9 @@
       "@sigmaui-kit/form": [
         "packages/react/src/components/form/src"
       ],
+      "@sigmaui-kit/tooltip": [
+        "packages/react/src/components/tooltip/src"
+      ],
       "@packages/vue/types": [
         "packages/vue/src/types"
       ],

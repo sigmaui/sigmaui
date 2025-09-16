@@ -76,6 +76,10 @@ const Sidebar: FC<SidebarProps> = ({ prefixCls = 'sm-sidebar', className, classe
                 label: 'Form',
                 key: routeMap.component.form,
               },
+              {
+                label: 'Tooltip',
+                key: routeMap.component.tooltip,
+              },
             ],
           },
         ]}

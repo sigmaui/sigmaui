@@ -74,7 +74,7 @@ const ComponentPreview = <T extends Record<string, any>>({
           background: 'black',
           padding: 12,
         }}
-        rootProps={{ defaultValue: CodeEnum.REACT }}
+        // rootProps={{ defaultValue: CodeEnum.REACT }}
         data={data}
       />
     </div>

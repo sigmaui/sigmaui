@@ -1,6 +1,6 @@
-import type { IProps, StylesProperties } from './types'
+import type { IProps, StylesProperties } from './types';
 
-export type ClassKeys = 'wrapper' | 'popup' | 'prefix' | 'suffix' | 'input'
+export type ClassKeys = 'wrapper' | 'popup' | 'prefix' | 'suffix' | 'input';
 
 export const styles = ({
   prefixCls,
@@ -98,7 +98,7 @@ export const styles = ({
       border: '1px solid',
       borderColor: 'border',
       boxShadow: 'popup',
-      zIndex: theme.zIndex?.popup?.select,
+      zIndex: 'popup.select',
       height: 'auto',
       paddingBlock: 6,
       size,

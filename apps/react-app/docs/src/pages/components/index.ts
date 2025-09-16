@@ -5,5 +5,15 @@ import TextComponent from './text/route'
 import SelectComponent from './select/route'
 import SliderComponent from './slider/route'
 import FormComponent from './form/route'
+import TooltipComponent from './tooltip/route'
 
-export default [BoxComponent, ButtonComponent, InputComponent, TextComponent, SelectComponent, SliderComponent, FormComponent]
+export default [
+  BoxComponent,
+  ButtonComponent,
+  InputComponent,
+  TextComponent,
+  SelectComponent,
+  SliderComponent,
+  FormComponent,
+  TooltipComponent
+]

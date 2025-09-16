@@ -1,22 +1,22 @@
-import React from 'react'
-import type { FC } from 'react'
-import classNames from 'classnames'
-import { useRouter } from '@microui-kit/use-router'
-import { withStyles } from '@sigmaui-kit/with-styles'
-import RcMenu from '@rc-component/menu'
-import { getRestProps } from '@microui-kit/helpers'
+import React from 'react';
+import type { FC } from 'react';
+import classNames from 'classnames';
+import { useRouter } from '@microui-kit/use-router';
+import { withStyles } from '@sigmaui-kit/with-styles';
+import RcMenu from '@rc-component/menu';
+import { getRestProps } from '@microui-kit/helpers';
 
-import { styles, type MenuProps } from 'packages/common/components/menu/styles'
+import { styles, type MenuProps } from './styles';
 
-const SigmaMenu: FC<MenuProps> = ({
+const Menu: FC<MenuProps> = ({
   prefixCls,
   className,
   classes,
   items = [],
   ...menuProps
 }) => {
-  const restProps = getRestProps(menuProps)
-  const router = useRouter()
+  const restProps = getRestProps(menuProps);
+  const router = useRouter();
 
   const onSelect = ({ key }) => {
     console.log('onSelect', key)
@@ -41,6 +41,6 @@ const SigmaMenu: FC<MenuProps> = ({
   )
 }
 
-SigmaMenu.displayName = 'Menu'
+Menu.displayName = 'Menu';
 
-export default withStyles<MenuProps>(styles)(SigmaMenu)
+export default withStyles<MenuProps>(styles)(Menu)

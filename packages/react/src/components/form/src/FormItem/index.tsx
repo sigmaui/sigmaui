@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import type { FC } from 'react';
 import classNames from 'classnames';
 import { WithTranslation } from 'react-i18next';
@@ -14,7 +14,8 @@ import FormItemControl from '../FormItemControl';
 
 import { styles, type FormItemProps } from './styles';
 
-import { FormItemType } from './types';
+import { FormItemType, FormItemTypeEnum } from './types';
+import { StoreProviderProps } from '../Form/types';
 
 export type {
   FormItemType
@@ -125,13 +126,19 @@ const FormItem: FC<FormItemProps> = ({
   ...formItemProps
 }) => {
   const restProps = getRestProps(formItemProps);
-  const { useStoreSelector } = useStoreContext();
+  const { useStoreSelector, handlers } = useStoreContext<StoreProviderProps>();
 
-  const formName = useStoreSelector((state: any) => state?.formName);
-
-  // console.log('formName', formName);
+  const form = useStoreSelector((state) => state.form);
+  const formName = useStoreSelector((state) => state.formName);
+  const isAutoTrim = useStoreSelector((state) => state.isAutoTrim);
 
   const rules = getRules({ t, type, required, formRules, fieldRules });
+
+  const handleSetFieldValue = useCallback((key: string | Meta['name'], value: any) => {
+    form.setFieldValue(key, value);
+
+
+  }, [form, handlers]);
 
   return (
     <RcFieldForm
@@ -164,6 +171,22 @@ const FormItem: FC<FormItemProps> = ({
 
         if (childProps.disabled) {
           childProps['aria-disabled'] = 'true';
+        }
+
+        if (isAutoTrim) {
+          childProps.onBlur = (e: React.MouseEvent) => {
+            fieldProps.onBlur?.(e);
+
+            if (type) {
+              if (type === FormItemTypeEnum.INPUT || type === FormItemTypeEnum.TEXTAREA || type === FormItemTypeEnum.EMAIL || type === FormItemTypeEnum.URL) {
+                const value = (e.target as HTMLInputElement).value;
+
+                if (value) {
+                  handleSetFieldValue(meta.name, value.trim());
+                }
+              }
+            }
+          }
         }
 
         return (

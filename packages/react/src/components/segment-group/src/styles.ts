@@ -1,6 +1,6 @@
-import type { IProps, StylesProperties } from './types'
+import type { IProps, StylesProperties } from './types';
 
-export type ClassKeys = 'wrapper' | 'item' | 'label'
+export type ClassKeys = 'wrapper' | 'item' | 'label';
 
 export const styles = ({
   prefixCls,
@@ -21,7 +21,7 @@ export const styles = ({
       },
 
       [`& .${prefixCls}-thumb`]: {
-        backgroundColor: theme.colors?.base,
+        backgroundColor: 'base',
         position: 'absolute',
         width: 0,
         height: isThumbLine ? 2 : '100%',
@@ -33,18 +33,18 @@ export const styles = ({
       display: 'flex',
       alignItems: 'center',
       position: 'relative',
-      height: theme.heights?.default,
+      height: 'default',
       zIndex: 2,
       paddingInline: 12,
       cursor: 'pointer',
 
       '&[class*="-selected"]': {
-        backgroundColor: !isThumbLine ? theme.colors?.base : undefined,
+        backgroundColor: !isThumbLine ? 'base' : undefined,
 
         '&:after': isThumbLine && {
           content: '""',
           position: 'absolute',
-          backgroundColor: theme.colors?.base,
+          backgroundColor: 'base',
           width: '100%',
           height: 2,
           left: 0,

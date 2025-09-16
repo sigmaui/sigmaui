@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
-import Form, { FormItemTypeEnum } from '@sigmaui-kit/form'
-import Button from '@sigmaui-kit/button'
-import ComponentPreview from '@docs/components/ComponentPreview'
-import { formContent } from '..'
+import React, { useState } from 'react';
+import Form, { FormItemTypeEnum } from '@sigmaui-kit/form';
+import LockFilledIcon from '@sigmaui-kit/icons/LockFilledIcon';
+import Button from '@sigmaui-kit/button';
+import ComponentPreview from '@docs/components/ComponentPreview';
+import { formContent } from '..';
 
 export const Demo: React.FC<any> = ({ control }) => {
   console.log('control', control)
@@ -29,7 +30,10 @@ export const Demo: React.FC<any> = ({ control }) => {
           required: true,
           fieldProps: {
             placeholder: 'Enter password',
-            action: 'pointer'
+            action: 'pointer',
+            prefix: (
+              <LockFilledIcon/>
+            )
           }
         }
       ]}

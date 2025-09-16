@@ -41,25 +41,25 @@ export const defaultSizes = {
 }
 
 export const textSizes = {
-  Text: {
-    _: {},
-    xs: {
-      fontSize: fontSizes.xs,
-    },
-    sm: {
-      fontSize: fontSizes.sm,
-    },
-    md: {
-      fontSize: fontSizes.md,
-    },
-    lg: {
-      fontSize: fontSizes.lg,
-    },
-    xl: {
-      fontSize: fontSizes.xl,
-    },
-    '2xl': {},
-  } as StylesObject,
+  _: {
+    fontSize: fontSizes.md
+  },
+  xs: {
+    fontSize: fontSizes.xs,
+  },
+  sm: {
+    fontSize: fontSizes.sm,
+  },
+  md: {
+    fontSize: fontSizes.md,
+  },
+  lg: {
+    fontSize: fontSizes.lg,
+  },
+  xl: {
+    fontSize: fontSizes.xl,
+  },
+  '2xl': {}
 }
 
 export const iconSizes = {
@@ -128,6 +128,7 @@ export const inputSizes = {
       paddingInline: 18,
     },
     '2xl': {},
+    icon: iconSizes
   } as StylesObject,
   Password: {
     icon: iconSizes
@@ -214,11 +215,50 @@ export const switchSizes = {
   } as StylesObject,
 }
 
+export const tooltipSizes = {
+  Tooltip: {
+    _: {
+      fontSize: fontSizes.default,
+      height: heights.default,
+      borderRadius: radii.default,
+    },
+    xs: {
+      fontSize: fontSizes.xs,
+      height: heights.xs,
+      borderRadius: radii.xs,
+    },
+    sm: {
+      fontSize: fontSizes.sm,
+      height: heights.sm,
+      borderRadius: radii.sm,
+    },
+    md: {
+      fontSize: fontSizes.md,
+      height: heights.md,
+      borderRadius: radii.md,
+    },
+    lg: {
+      fontSize: fontSizes.lg,
+      height: heights.lg,
+      borderRadius: radii.lg,
+    },
+    xl: {
+      fontSize: fontSizes.xl,
+      height: heights.xl,
+      borderRadius: radii.xl,
+    },
+    '2xl': {},
+    text: textSizes
+  } as StylesObject,
+}
+
 export const sizes = {
   ...defaultSizes,
   ...textSizes,
   ...inputSizes,
   ...buttonSizes,
   ...selectSizes,
+  ...tooltipSizes,
+  Text: textSizes,
   Icon: iconSizes
 }
