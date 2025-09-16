@@ -1,13 +1,12 @@
-import React, { Fragment } from 'react'
-import type { FC } from 'react'
-import classNames from 'classnames'
-import { withStyles } from '@sigmaui-kit/with-styles'
-import { Field as RcFieldForm } from '@rc-component/form'
-import { getRestProps } from '@microui-kit/helpers'
+import React, { Fragment } from 'react';
+import type { FC } from 'react';
+import classNames from 'classnames';
+import { withStyles } from '@sigmaui-kit/with-styles';
+import { getRestProps } from '@microui-kit/helpers';
 
-import FormItemError from '../FormItemError'
+import FormItemError from '../FormItemError';
 
-import { styles, type FormItemControlProps } from './styles'
+import { styles, type FormItemControlProps } from './styles';
 
 const FormItemControl: FC<FormItemControlProps> = ({
   prefixCls,

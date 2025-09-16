@@ -1,17 +1,17 @@
-import React, { Fragment, useMemo } from 'react'
-import type { FC } from 'react'
-import classNames from 'classnames'
-import RcForm, { useWatch } from '@rc-component/form'
-import { ValidateErrorEntity } from '@rc-component/form/lib/interface'
-import { StoreProvider } from '@microui-kit/use-store'
-import { getRestProps } from '@microui-kit/helpers'
-import { withStyles } from '@sigmaui-kit/with-styles'
+import React, { Fragment, useMemo } from 'react';
+import type { FC } from 'react';
+import classNames from 'classnames';
+import RcForm, { useWatch } from '@rc-component/form';
+import { ValidateErrorEntity } from '@rc-component/form/lib/interface';
+import { StoreProvider } from '@microui-kit/use-store';
+import { getRestProps } from '@microui-kit/helpers';
+import { withStyles } from '@sigmaui-kit/with-styles';
 
-import { styles, type FormProps } from './styles'
-import { StoreProviderProps } from './types'
+import { styles, type FormProps } from './styles';
+import { StoreProviderProps } from './types';
 
-import FormItem from '../FormItem'
-import useForm from '../hooks/useForm'
+import FormItem from '../FormItem';
+import useForm from '../hooks/useForm';
 
 export {
   useForm,

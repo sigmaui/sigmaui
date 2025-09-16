@@ -1,10 +1,10 @@
-import React from 'react'
-import type { FC } from 'react'
-import classNames from 'classnames'
-import { withStyles } from '@sigmaui-kit/with-styles'
-import { getRestProps } from '@microui-kit/helpers'
+import React from 'react';
+import type { FC } from 'react';
+import classNames from 'classnames';
+import { withStyles } from '@sigmaui-kit/with-styles';
+import { getRestProps } from '@microui-kit/helpers';
 
-import { styles, type FormItemErrorProps } from './styles'
+import { styles, type FormItemErrorProps } from './styles';
 
 const FormItemError: FC<FormItemErrorProps> = ({
   prefixCls,

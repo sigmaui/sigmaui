@@ -1,11 +1,10 @@
-import React from 'react'
-import type { FC } from 'react'
-import classNames from 'classnames'
-import { withStyles } from '@sigmaui-kit/with-styles'
-import { Field as RcFieldForm } from '@rc-component/form'
-import { getRestProps } from '@microui-kit/helpers'
+import React from 'react';
+import type { FC } from 'react';
+import classNames from 'classnames';
+import { withStyles } from '@sigmaui-kit/with-styles';
+import { getRestProps } from '@microui-kit/helpers';
 
-import { styles, type FormItemLabelProps } from './styles'
+import { styles, type FormItemLabelProps } from './styles';
 
 const FormItemLabel: FC<FormItemLabelProps> = ({
   prefixCls,

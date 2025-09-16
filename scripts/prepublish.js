@@ -8,7 +8,7 @@ const backupPackageJsonPath = './package-backup.json';
 fs.writeFileSync(backupPackageJsonPath, JSON.stringify(packageJson, null, 2));
 
 Object.keys(packageJson.dependencies).forEach((pkg) => {
-  if (pkg.startsWith('@sigmaui-kit/') && packageJson.dependencies[pkg] === 'latest') {
+  if ((pkg.startsWith('@sigmaui-kit/') || pkg.startsWith('@microui-kit/')) && packageJson.dependencies[pkg] === 'latest') {
     const latestVersion = execSync(`npm show ${pkg}@latest version`, { encoding: 'utf8' }).trim();
     
     console.log('latestVersion', pkg, latestVersion)
