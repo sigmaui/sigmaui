@@ -3,6 +3,11 @@ export const formColors = {
   note: 'rgba(0,0,0,0.45)'
 }
 
+export const inputColors = {
+  text: 'rgba(0, 0, 0, 0.88)',
+  placeholder: 'rgba(0,0,0,0.25)',
+}
+
 export const iconColors = {
   default: 'rgba(0,0,0,0.45)',
   hover: 'rgba(0,0,0,0.88)'
@@ -30,6 +35,7 @@ export const colors = {
   neutral: 'rgba(41, 43, 51, 0.7)',
   bgEmphasized: '#e9e8e6',
   form: formColors,
+  input: inputColors,
   icon: iconColors,
   tooltip: tooltipColors
 } as const

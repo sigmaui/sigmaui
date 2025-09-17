@@ -31,11 +31,11 @@ export interface FormItemOption {
   note?: ReactNode
   tooltip?: LabelTooltipType
   fieldProps?: { [key: string]: any }
+  labelProps?: { [key: string]: any }
+  controlProps?: { [key: string]: any }
 }
 
 export interface IProps<Styles> extends Omit<FieldProps, 'children'>, Omit<FormItemOption, 'controller' | 'render' | 'rules' | 'children' | 'name'>, FCWithStylesProps<Styles> {
   formRules?: { [key: string]: any }
   fieldRules?: FieldProps['rules']
-  labelProps?: any
-  controlProps?: any
 }

@@ -83,8 +83,8 @@ const Password: FC<PasswordProps> = ({
   )
 
   if (isTooltip) {
-    const overlay = t(visible ? 'password.message.show' : 'password.message.show', {
-      defaultValue: visible ? 'Show password' : 'Hide password'
+    const overlay = t(visible ? 'password.message.hide' : 'password.message.show', {
+      defaultValue: visible ? 'Hide password' : 'Show password'
     });
 
     suffixIcon = (

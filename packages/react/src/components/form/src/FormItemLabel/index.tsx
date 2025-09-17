@@ -14,6 +14,8 @@ const FormItemLabel: FC<FormItemLabelProps> = ({
   children,
   required,
   htmlFor,
+  requiredMark = '*',
+  isSuffixMark,
   ...formItemLabelProps
 }) => {
   const restProps = getRestProps(formItemLabelProps)
@@ -22,6 +24,10 @@ const FormItemLabel: FC<FormItemLabelProps> = ({
 
   if (required && classes?.required) {
     (classArgs as any)[classes?.required] = true
+  }
+
+  if (requiredMark) {
+    restProps['data-required-mark'] = requiredMark;
   }
 
   return (
@@ -36,6 +42,6 @@ const FormItemLabel: FC<FormItemLabelProps> = ({
   )
 }
 
-FormItemLabel.displayName = 'FormItemLabel'
+FormItemLabel.displayName = 'FormItemLabel';
 
 export default withStyles<FormItemLabelProps>(styles)(FormItemLabel)

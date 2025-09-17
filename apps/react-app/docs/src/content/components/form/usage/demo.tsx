@@ -21,6 +21,10 @@ export const Demo: React.FC<any> = ({ control }) => {
           // note: 'Email',
           fieldProps: {
             placeholder: 'Enter email'
+          },
+          labelProps: {
+            requiredMark: '1234',
+            isSuffixMark: true
           }
         },
         {

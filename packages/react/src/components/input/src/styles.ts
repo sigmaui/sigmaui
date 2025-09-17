@@ -1,4 +1,4 @@
-import { IProps, StylesProperties } from './types'
+import { IProps, StylesProperties } from './types';
 
 export type ClassKeys =
   | 'wrapper'
@@ -8,7 +8,7 @@ export type ClassKeys =
   | 'groupWrapper'
   | 'variant'
   | 'input'
-  | 'count'
+  | 'count';
 
 export const styles = ({
   prefixCls,
@@ -26,6 +26,8 @@ export const styles = ({
       borderStyle: 'solid',
       borderWidth: 1,
       transition: 'borderColor .2s, boxShadow .2s',
+      color: 'input.text',
+      fontFamily: 'inherit',
       size,
       variant,
 
@@ -39,7 +41,7 @@ export const styles = ({
       },
 
       '&::placeholder': {
-        color: 'rgba(0,0,0,0.25)'
+        color: 'input.placeholder'
       },
 
       '&[disabled]': {
@@ -53,7 +55,7 @@ export const styles = ({
           borderColor: 'error'
         },
 
-        '&:focus': {
+        '&:focus, &[class*="-focused"]': {
           boxShadow: 'error.focused',
           borderColor: 'error'
         },
@@ -71,6 +73,11 @@ export const styles = ({
         border: 'none',
         borderRadius: 0,
         outline: 'none',
+        fontFamily: 'inherit',
+
+        '&::placeholder': {
+          color: 'input.placeholder'
+        }
       }
     },
     affixWrapper: {

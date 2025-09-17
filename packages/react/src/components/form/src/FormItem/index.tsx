@@ -134,10 +134,16 @@ const FormItem: FC<FormItemProps> = ({
 
   const rules = getRules({ t, type, required, formRules, fieldRules });
 
-  const handleSetFieldValue = useCallback((key: string | Meta['name'], value: any) => {
+  const handleSetFieldValue = useCallback((key: string | Meta['name'], value: any, params: {
+    isValidateField?: boolean
+  } = {}) => {
+    const { isValidateField } = params;
+
     form.setFieldValue(key, value);
 
-
+    if (isValidateField) {
+      form.validateFields([key]);
+    }
   }, [form, handlers]);
 
   return (
@@ -182,7 +188,9 @@ const FormItem: FC<FormItemProps> = ({
                 const value = (e.target as HTMLInputElement).value;
 
                 if (value) {
-                  handleSetFieldValue(meta.name, value.trim());
+                  handleSetFieldValue(meta.name, value.trim(), {
+                    isValidateField: true
+                  });
                 }
               }
             }
@@ -193,14 +201,18 @@ const FormItem: FC<FormItemProps> = ({
           <div className={classNames(prefixCls, className, classes?.wrapper, {
             ['has-error']: hasError
           })}>
-            <FormItemLabel
-              {...labelProps}
-              id={`${fieldId}_label`}
-              htmlFor={fieldId}
-              required={isRequired}
-            >
-              {label}
-            </FormItemLabel>
+            {
+              label
+              &&
+              <FormItemLabel
+                {...labelProps}
+                id={`${fieldId}_label`}
+                htmlFor={fieldId}
+                required={isRequired}
+              >
+                {label}
+              </FormItemLabel>
+            }
             {
               children
               &&
@@ -221,6 +233,6 @@ const FormItem: FC<FormItemProps> = ({
   )
 }
 
-FormItem.displayName = 'FormItem'
+FormItem.displayName = 'FormItem';
 
 export default withStyles<FormItemProps>(styles)(FormItem)

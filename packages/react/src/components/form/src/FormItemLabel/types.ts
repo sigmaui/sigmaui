@@ -1,5 +1,5 @@
-import type { ReactNode } from 'react'
-import type { FCWithStylesProps, StylesProperties } from 'packages/common/types'
+import type { ReactNode } from 'react';
+import type { FCWithStylesProps, StylesProperties } from 'packages/common/types';
 
 export type { StylesProperties }
 
@@ -16,5 +16,7 @@ export interface IProps<Styles> extends FCWithStylesProps<Styles> {
   id?: string
   htmlFor?: string
   required?: boolean
+  requiredMark?: string
+  isSuffixMark?: boolean
   tooltip?: LabelTooltipType
 }
