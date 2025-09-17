@@ -37,17 +37,6 @@ const Form: FC<FormProps> = ({
 
   const [form] = useForm(customForm);
 
-  const onValuesChange = ({ key }) => {
-  }
-
-  const onFinish = (values) => {
-    console.log('onFinish', values)
-  }
-
-  const onFinishFailed = (errorInfo: ValidateErrorEntity) => {
-    console.log('onFinishFailed', errorInfo)
-  }
-
   let formRules = customFormRules;
 
   if (typeof customFormRules === 'function') {
@@ -103,9 +92,6 @@ const Form: FC<FormProps> = ({
         name={name}
         form={form}
         className={classNames(prefixCls, className, classes?.wrapper)}
-        onValuesChange={onValuesChange}
-        onFinishFailed={onFinishFailed}
-        onFinish={onFinish}
         {...restProps}
       >
         {renderChildren}

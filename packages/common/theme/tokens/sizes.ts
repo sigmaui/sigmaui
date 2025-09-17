@@ -137,7 +137,11 @@ export const inputSizes = {
 
 export const buttonSizes = {
   Button: {
-    _: {},
+    _: {
+      fontSize: fontSizes.default,
+      height: heights.default,
+      borderRadius: radii.default,
+    },
     xs: {
       fontSize: fontSizes.xs,
       height: heights.xs,

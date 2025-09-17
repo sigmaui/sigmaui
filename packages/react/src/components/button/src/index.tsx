@@ -1,7 +1,6 @@
 import React from 'react';
 import type { FC } from 'react';
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
 import { withStyles } from '@sigmaui-kit/with-styles';
 import Loading from '@microui-kit/loading';
 
@@ -13,12 +12,11 @@ const Button: FC<ButtonProps> = ({
   children,
   classes,
   htmlType,
-  href,
   loading,
   locking,
   disabled,
   prefix,
-  suffix,
+  suffix
 }) => {
   if (loading) {
     prefix = (
@@ -42,7 +40,7 @@ const Button: FC<ButtonProps> = ({
     prefix = <Loading isDot/>
   }
 
-  const buttonEl = (
+  return (
     <button
       type={htmlType}
       className={classNames(prefixCls, className, classes?.wrapper)}
@@ -53,12 +51,6 @@ const Button: FC<ButtonProps> = ({
       {suffix && <div className={classes?.suffix}>{suffix}</div>}
     </button>
   )
-
-  if (href) {
-    return <Link to={href}>{buttonEl}</Link>
-  }
-
-  return buttonEl
 }
 
 Button.displayName = 'Button';

@@ -44,6 +44,11 @@ export const Demo: React.FC<any> = ({ control }) => {
     >
       <Button
         htmlType="submit"
+        _style={{
+          wrapper: {
+            width: '100%'
+          }
+        }}
       >
         Submit
       </Button>

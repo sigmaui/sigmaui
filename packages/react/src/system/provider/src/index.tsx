@@ -106,7 +106,8 @@ export const SigmaUIProvider: FC<SigmaUIProviderProps> = ({
   extra,
   themeMode: themeModeFromProp,
   providerProps = {},
-  prefix
+  prefix,
+
 }) => {
   const rendererRef = useRef(false);
   const { platform }: any = usePlatform();

@@ -8,6 +8,11 @@ export const inputColors = {
   placeholder: 'rgba(0,0,0,0.25)',
 }
 
+export const buttonColors = {
+  text: '#fff',
+  background: '#f77f00',
+}
+
 export const iconColors = {
   default: 'rgba(0,0,0,0.45)',
   hover: 'rgba(0,0,0,0.88)'
@@ -36,6 +41,7 @@ export const colors = {
   bgEmphasized: '#e9e8e6',
   form: formColors,
   input: inputColors,
+  button: buttonColors,
   icon: iconColors,
   tooltip: tooltipColors
 } as const

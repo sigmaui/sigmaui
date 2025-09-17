@@ -1,36 +1,42 @@
 import { IProps, StylesProperties } from './types';
 
-export const styles = ({ theme = {}, size, variant }: IProps<any>) => {
+export type ClassKeys = 'wrapper' | 'prefix' | 'suffix';
+
+export const styles = ({ theme = {}, size, variant }: IProps<any>): Partial<Record<ClassKeys, StylesProperties>> => {
   // console.log('theme', theme)
 
   return {
     wrapper: {
       display: 'inline-flex',
       alignItems: 'center',
+      justifyContent: 'center',
       border: 0,
       paddingBlock: 8,
       paddingInline: 12,
       cursor: 'pointer',
-      backgroundColor: !variant && theme.colors?.base,
-      color: !variant && theme.colors?.text,
-      borderRadius: theme.base?.borderRadius,
+      background: !variant ? 'button.background' : undefined,
+      color: !variant ? 'button.text' : undefined,
       size,
       variant,
 
       ':hover': {
-        backgroundColor: theme.fn?.lighten?.(theme.colors?.base, 0.1),
+        background: 'button.hover.background',
+      },
+
+      ':active': {
+        background: 'button.active.background',
       },
 
       '&[disabled]': {
         cursor: 'not-allowed',
       },
-    } as StylesProperties,
+    },
     prefix: {
       marginRight: 6,
-    } as StylesProperties,
+    },
     suffix: {
       marginLeft: 6,
-    } as StylesProperties,
+    },
   }
 }
 
