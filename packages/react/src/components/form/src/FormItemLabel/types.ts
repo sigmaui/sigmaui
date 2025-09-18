@@ -1,16 +1,14 @@
 import type { ReactNode } from 'react';
+import type { TooltipProps } from '@sigmaui-kit/tooltip';
 import type { FCWithStylesProps, StylesProperties } from 'packages/common/types';
 
-export type { StylesProperties }
+export type { StylesProperties };
 
-interface TooltipProps {
+export interface WrapperTooltipProps extends TooltipProps {
+  icon?: string | ReactNode;
 }
 
-export type WrapperTooltipProps = TooltipProps & {
-  icon?: string | ReactNode;
-};
-
-export type LabelTooltipType = WrapperTooltipProps | ReactNode
+export type LabelTooltipType = WrapperTooltipProps | ReactNode;
 
 export interface IProps<Styles> extends FCWithStylesProps<Styles> {
   id?: string

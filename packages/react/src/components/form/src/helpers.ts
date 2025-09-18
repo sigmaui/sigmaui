@@ -1,3 +1,5 @@
+import { WithTranslation } from 'react-i18next';
+
 export const checkNumber = (str: string) => {
   const re = /^[0-9]*$/;
   return re.test(str);
@@ -15,4 +17,31 @@ export const checkUrl = (str: string) => {
 
 export const checkOnlySpace = (str: string) => {
   return str.trim().length === 0;
+}
+
+export const isObject = (val: any) => {
+  return val !== null && typeof val === 'object' && Array.isArray(val) === false;
+};
+
+export const getValidateMessage = ({ t, prefix, key, defaultValue }: {
+  t?: WithTranslation['t']
+  prefix?: string,
+  key: string,
+  defaultValue?: string
+}) => {
+  let validateMessage = '';
+
+  if (!prefix) {
+    prefix = '${label}'
+  }
+
+  if (prefix) {
+    validateMessage += `${prefix} `;
+  }
+
+  if (key) {
+    validateMessage += (t ? `${t(key, { defaultValue })}` : (defaultValue || key));
+  }
+
+  return validateMessage
 }

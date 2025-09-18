@@ -1,5 +1,6 @@
 export const formColors = {
   requiredMark: '#d70015',
+  help: 'rgba(0,0,0,0.45)',
   note: 'rgba(0,0,0,0.45)'
 }
 

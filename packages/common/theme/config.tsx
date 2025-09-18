@@ -13,6 +13,7 @@ import { zIndex } from './tokens/zIndex';
 const themeMapping: any = {
   color: (theme: any) => theme.colors,
   backgroundColor: (theme: any) => theme.colors,
+  background: (theme: any) => theme.colors,
   borderColor: (theme: any) => theme.colors,
   fontSize: (theme: any) => theme.fontSizes,
   fontWeight: (theme: any) => theme.fontWeights,

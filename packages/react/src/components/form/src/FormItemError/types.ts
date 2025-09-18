@@ -7,4 +7,5 @@ export type { StylesProperties }
 export interface IProps<Styles> extends FCWithStylesProps<Styles> {
   id?: string
   errors?: Meta['errors']
+  icon?: ReactNode
 }

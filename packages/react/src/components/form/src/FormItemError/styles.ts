@@ -7,6 +7,16 @@ export const styles = ({ prefixCls, theme = {} }: IProps<any>): Partial<Record<C
   return {
     wrapper: {
       color: 'error'
+    },
+    errorLine: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 4,
+
+      '& svg': {
+        width: 16,
+        height: 16
+      }
     }
   }
 }

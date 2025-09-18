@@ -1,6 +1,6 @@
 {
   "name": "@sigmaui-kit/form",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "",
   "keywords": [],
   "author": "",
@@ -39,7 +39,9 @@
     "react-dom": ">=18",
     "@sigmaui-kit/with-styles": "latest",
     "@microui-kit/helpers": "latest",
-    "@microui-kit/use-store": "latest"
+    "@microui-kit/use-store": "latest",
+    "@sigmaui-kit/icons": "latest",
+    "@sigmaui-kit/tooltip": "latest"
   },
   "devDependencies": {},
   "clean-package": "../../../../../clean-package.config.json"

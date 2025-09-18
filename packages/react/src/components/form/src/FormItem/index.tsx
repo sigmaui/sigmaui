@@ -1,20 +1,21 @@
 import React, { useCallback } from 'react';
 import type { FC } from 'react';
 import classNames from 'classnames';
-import { WithTranslation } from 'react-i18next';
 import { Field as RcFieldForm, FormInstance } from '@rc-component/form';
-import { InternalNamePath, Meta } from '@rc-component/form/lib/interface';
+import { InternalNamePath, Meta, RuleObject } from '@rc-component/form/lib/interface';
 import { FieldProps } from '@rc-component/form/lib/Field';
 import { useStoreContext } from '@microui-kit/use-store';
 import { getRestProps } from '@microui-kit/helpers';
 import { withStyles } from '@sigmaui-kit/with-styles';
+
+import { isObject } from '../helpers';
 
 import FormItemLabel from '../FormItemLabel';
 import FormItemControl from '../FormItemControl';
 
 import { styles, type FormItemProps } from './styles';
 
-import { FormItemType, FormItemTypeEnum } from './types';
+import { type FormItemType, FormItemTypeEnum, type FormItemOption } from './types';
 import { StoreProviderProps } from '../Form/types';
 
 export type {
@@ -22,12 +23,12 @@ export type {
 }
 
 const getIsRequired = ({ required, rules, form }: {
-  required?: boolean,
+  required?: boolean | RuleObject,
   rules?: FieldProps['rules'],
   form: FormInstance
 }) => {
   if (required !== undefined) {
-    return required
+    return Boolean(required)
   }
 
   if (rules) {
@@ -61,31 +62,70 @@ const getFieldId = (namePath: InternalNamePath, formName?: string) => {
   return mergedId
 }
 
-const getRules = ({ t = (text: string) => text, type, required, formRules = {}, fieldRules = [] }: {
-  t?: WithTranslation['t'],
-  type?: string,
-  required?: boolean,
+const getRules = ({
+  type,
+  required,
+  formRules = {},
+  fieldRules = [],
+  validateMessages = {}
+}: {
+  // t?: WithTranslation['t'],
+  // label?: FormItemOption['label'],
+  // name?: FormItemOption['name'],
+  type?: FormItemOption['type'],
+  required?: boolean | RuleObject,
   formRules?: { [key: string]: any },
   fieldRules?: FieldProps['rules'],
+  validateMessages?: FormItemOption['validateMessages'],
 }) => {
   const hasRequired = fieldRules.some?.((rule) => 'required' in rule);
 
   const rulesByType = type && formRules?.[type] || [];
 
-  console.log('rulesByType', rulesByType, type)
+  // console.log('rulesByType', rulesByType, type);
 
-  const requiredRule = {
-    required,
-    message: t('form.message.required', {
-      defaultValue: 'Please do not leave blank'
-    })
-  };
+  let requiredRule: any;
 
-  return [
+  if (!hasRequired) {
+    if (typeof required === 'boolean') {
+      requiredRule = {
+        required,
+        message: validateMessages.required
+      }
+    } else {
+      if (isObject(required)) {
+        requiredRule = {
+          required: true,
+          message: validateMessages.required,
+          ...required
+        }
+      }
+    }
+  }
+
+  const allRules = [
     ...fieldRules,
     ...(hasRequired ? [] : [requiredRule]),
     ...rulesByType
-  ]
+  ];
+
+  if (rulesByType.length === 0) {
+    if (type === FormItemTypeEnum.EMAIL) {
+      allRules.push({
+        type,
+        message: validateMessages.email
+      })
+    }
+
+    if (type === FormItemTypeEnum.URL) {
+      allRules.push({
+        type,
+        message: validateMessages.url
+      })
+    }
+  }
+
+  return allRules
 }
 
 const getStatus = ({ meta, validateStatus }: { meta?: Meta, validateStatus?: string }) => {
@@ -123,6 +163,8 @@ const FormItem: FC<FormItemProps> = ({
   fieldProps = {},
   labelProps = {},
   controlProps = {},
+  validateMessages = {},
+  tooltip,
   ...formItemProps
 }) => {
   const restProps = getRestProps(formItemProps);
@@ -132,7 +174,7 @@ const FormItem: FC<FormItemProps> = ({
   const formName = useStoreSelector((state) => state.formName);
   const isAutoTrim = useStoreSelector((state) => state.isAutoTrim);
 
-  const rules = getRules({ t, type, required, formRules, fieldRules });
+  const rules = getRules({ type, required, formRules, fieldRules, validateMessages });
 
   const handleSetFieldValue = useCallback((key: string | Meta['name'], value: any, params: {
     isValidateField?: boolean
@@ -146,11 +188,18 @@ const FormItem: FC<FormItemProps> = ({
     }
   }, [form, handlers]);
 
+  const { messageVariables = {} } = restProps;
+
   return (
     <RcFieldForm
       name={name}
       rules={rules}
       {...restProps}
+      messageVariables={{
+        label,
+        name: label,
+        ...messageVariables
+      }}
     >
       {(control, meta, form) => {
         const isRequired = getIsRequired({ required, rules, form });
@@ -205,6 +254,7 @@ const FormItem: FC<FormItemProps> = ({
               label
               &&
               <FormItemLabel
+                tooltip={tooltip}
                 {...labelProps}
                 id={`${fieldId}_label`}
                 htmlFor={fieldId}

@@ -5,9 +5,13 @@ import RcInput, { type InputRef } from '@rc-component/input';
 import { withStyles } from '@sigmaui-kit/with-styles';
 import { getRestProps } from '@microui-kit/helpers';
 
-import { styles, type InputProps } from './styles';
+import { styles, type InputProps, type InputTypes } from './styles';
 
-export type { InputRef };
+export type {
+  InputRef,
+  InputTypes,
+  InputProps
+};
 
 const Input: FC<InputProps> = ({
   prefixCls,

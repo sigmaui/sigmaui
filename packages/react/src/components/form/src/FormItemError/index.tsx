@@ -14,6 +14,7 @@ const FormItemError: FC<FormItemErrorProps> = ({
   t,
   children,
   errors = [],
+  icon,
   ...formItemErrorProps
 }) => {
   const restProps = getRestProps(formItemErrorProps);
@@ -27,7 +28,9 @@ const FormItemError: FC<FormItemErrorProps> = ({
       {
         errors.map((error) => {
           return (
-            <div className={classNames(`${prefixCls}-line`, classes?.errorLine)}>{t(error)}</div>
+            <div className={classNames(`${prefixCls}-line`, classes?.errorLine)}>
+              {icon}{t(error)}
+            </div>
           )
         })
       }

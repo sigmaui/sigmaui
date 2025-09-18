@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import type { FC } from 'react';
 import classNames from 'classnames';
 import { withStyles } from '@sigmaui-kit/with-styles';
+import Tooltip, { type TooltipProps } from '@sigmaui-kit/tooltip';
+import CircleQuestionOutlinedIcon from '@sigmaui-kit/icons/CircleQuestionOutlinedIcon';
 import { getRestProps } from '@microui-kit/helpers';
 
 import { styles, type FormItemLabelProps } from './styles';
+
+function getTooltipProps<P extends TooltipProps>(tooltip: P | ReactNode): P | null {
+  if (tooltip === undefined || tooltip === null) {
+    return null;
+  }
+
+  if (typeof tooltip === 'object' && !React.isValidElement(tooltip)) {
+    return tooltip as P;
+  }
+
+  return {
+    overlay: tooltip
+  } as P;
+}
 
 const FormItemLabel: FC<FormItemLabelProps> = ({
   prefixCls,
@@ -16,6 +32,7 @@ const FormItemLabel: FC<FormItemLabelProps> = ({
   htmlFor,
   requiredMark = '*',
   isSuffixMark,
+  tooltip,
   ...formItemLabelProps
 }) => {
   const restProps = getRestProps(formItemLabelProps)
@@ -30,6 +47,37 @@ const FormItemLabel: FC<FormItemLabelProps> = ({
     restProps['data-required-mark'] = requiredMark;
   }
 
+  let tooltipNode: ReactNode;
+
+  if (tooltip) {
+    const tooltipProps = getTooltipProps(tooltip);
+
+    if (tooltipProps) {
+      const { icon = <CircleQuestionOutlinedIcon/>, ...restTooltipProps } = tooltipProps;
+
+      tooltipNode = (
+        <Tooltip
+          placement="top"
+          {...restTooltipProps}
+          _style={{
+            inner: {
+              lineHeight: 0,
+              marginLeft: 2,
+              color: 'form.help',
+
+              '& svg': {
+                width: 16,
+                height: 16
+              }
+            }
+          }}
+        >
+          {icon}
+        </Tooltip>
+      )
+    }
+  }
+
   return (
     <label
       htmlFor={htmlFor}
@@ -38,6 +86,7 @@ const FormItemLabel: FC<FormItemLabelProps> = ({
       {...restProps}
     >
       {children}
+      {tooltipNode}
     </label>
   )
 }

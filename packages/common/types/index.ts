@@ -39,6 +39,11 @@ export type ThemeSize = 'default' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 
 export type ThemeVariant = 'default' | 'solid' | 'outlined' | 'dashed' | 'filled' | 'text' | 'link'
 
+export interface IStylesProps<IStyles> {
+  _style?: Styles<IStyles>
+  extendStyle?: Styles<IStyles>
+}
+
 export interface FCDefaultProps {
   prefixCls?: string
   className?: string

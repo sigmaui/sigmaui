@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import Form, { FormItemTypeEnum } from '@sigmaui-kit/form';
+import Form, { FormItemTypeEnum, FormItemOption } from '@sigmaui-kit/form';
 import LockFilledIcon from '@sigmaui-kit/icons/LockFilledIcon';
 import Button from '@sigmaui-kit/button';
+import type { InputTypes } from '@sigmaui-kit/input';
 import ComponentPreview from '@docs/components/ComponentPreview';
 import { formContent } from '..';
 
@@ -23,10 +24,13 @@ export const Demo: React.FC<any> = ({ control }) => {
             placeholder: 'Enter email'
           },
           labelProps: {
-            requiredMark: '1234',
             isSuffixMark: true
-          }
-        },
+          },
+          tooltip: '123',
+          // validateMessages: {
+          //   required: 'Please do not leave blank',
+          // }
+        } as FormItemOption<InputTypes>,
         {
           label: 'Password',
           name: 'password',

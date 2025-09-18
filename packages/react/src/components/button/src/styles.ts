@@ -16,6 +16,7 @@ export const styles = ({ theme = {}, size, variant }: IProps<any>): Partial<Reco
       cursor: 'pointer',
       background: !variant ? 'button.background' : undefined,
       color: !variant ? 'button.text' : undefined,
+      fontFamily: 'inherit',
       size,
       variant,
 

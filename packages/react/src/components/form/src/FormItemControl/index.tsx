@@ -1,12 +1,14 @@
 import React, { Fragment } from 'react';
 import type { FC } from 'react';
 import classNames from 'classnames';
+import { useStoreContext } from '@microui-kit/use-store';
 import { withStyles } from '@sigmaui-kit/with-styles';
 import { getRestProps } from '@microui-kit/helpers';
 
 import FormItemError from '../FormItemError';
 
 import { styles, type FormItemControlProps } from './styles';
+import { StoreProviderProps } from '../Form/types';
 
 const FormItemControl: FC<FormItemControlProps> = ({
   prefixCls,
@@ -20,6 +22,10 @@ const FormItemControl: FC<FormItemControlProps> = ({
   ...formItemLabelProps
 }) => {
   const restProps = getRestProps(formItemLabelProps);
+  const { useStoreSelector } = useStoreContext<StoreProviderProps>();
+
+  const validateIcons = useStoreSelector((state) => state.validateIcons) || {};
+
   const errors = meta?.errors || [];
 
   const hasError = errors.length > 0;
@@ -54,6 +60,7 @@ const FormItemControl: FC<FormItemControlProps> = ({
               <FormItemError
                 id={`${fieldId}_error`}
                 errors={errors}
+                icon={validateIcons['error']}
               />
             }
           </div>

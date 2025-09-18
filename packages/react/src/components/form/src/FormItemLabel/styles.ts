@@ -25,6 +25,7 @@ export const styles = ({ isSuffixMark }: IProps<any>): Partial<Record<ClassKeys,
   return {
     wrapper: {
       display: 'inline-flex',
+      alignItems: 'center',
       fontSize: 14
     },
     required: requiredStyle

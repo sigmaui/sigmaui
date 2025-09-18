@@ -1,6 +1,6 @@
 import InternalForm, { useForm, useWatch } from './Form';
 import FormItem from './FormItem';
-import { FormItemTypeEnum, type FormItemType } from './FormItem/types';
+import { FormItemTypeEnum, type FormItemType, type FormItemOption } from './FormItem/types';
 
 export * from './helpers';
 
@@ -21,7 +21,8 @@ export {
 }
 
 export type {
-  FormItemType
+  FormItemType,
+  FormItemOption
 }
 
 export default Form

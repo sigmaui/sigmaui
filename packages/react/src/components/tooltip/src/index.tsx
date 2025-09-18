@@ -7,6 +7,10 @@ import { getRestProps } from '@microui-kit/helpers';
 
 import { styles, type TooltipProps } from './styles';
 
+export type {
+  TooltipProps
+}
+
 // function isFragment(child: any): boolean {
 //   return child && React.isValidElement(child) && child.type === React.Fragment;
 // }
@@ -24,10 +28,14 @@ const Tooltip: FC<TooltipProps> = ({
     <RcTooltip
       prefixCls={prefixCls}
       className={classNames(className, classes?.wrapper)}
-      classNames={classes}
+      classNames={{
+        root: classes?.root,
+        arrow: classes?.arrow,
+        body: classes?.body
+      }}
       {...restProps}
     >
-      <span>
+      <span className={classes?.inner}>
         {children}
       </span>
     </RcTooltip>

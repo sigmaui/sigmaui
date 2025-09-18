@@ -7,6 +7,8 @@ import { StoreProvider } from '@microui-kit/use-store';
 import { getRestProps } from '@microui-kit/helpers';
 import { withStyles } from '@sigmaui-kit/with-styles';
 
+import { getValidateMessage } from '../helpers';
+
 import { styles, type FormProps } from './styles';
 import { StoreProviderProps } from './types';
 
@@ -17,6 +19,8 @@ export {
   useForm,
   useWatch
 }
+
+const displayName = 'Form';
 
 const Form: FC<FormProps> = ({
   prefixCls,
@@ -29,6 +33,7 @@ const Form: FC<FormProps> = ({
   items = [],
   customRender,
   formRules: customFormRules,
+  validateIcons,
   disabled,
   isAutoTrim = true,
   ...formProps
@@ -76,7 +81,31 @@ const Form: FC<FormProps> = ({
         {children}
       </Fragment>
     )
-  }, [children, items])
+  }, [children, items]);
+
+  const { validateMessages = {} } = restProps;
+
+  const defaultValidateMessages = useMemo(() => {
+    return {
+      required: getValidateMessage({
+        t,
+        key: `${displayName}.message.required`,
+        defaultValue: 'is required'
+      }),
+      types: {
+        email: getValidateMessage({
+          t,
+          key: `${displayName}.message.email.invalid`,
+          defaultValue: 'is invalid'
+        }),
+        url: getValidateMessage({
+          t,
+          key: `${displayName}.message.url.invalid`,
+          defaultValue: 'is invalid'
+        })
+      }
+    }
+  }, [])
 
   return (
     <StoreProvider<StoreProviderProps>
@@ -84,7 +113,8 @@ const Form: FC<FormProps> = ({
       initialState={{
         formName: name,
         form,
-        isAutoTrim
+        isAutoTrim,
+        validateIcons
       }}
     >
       <RcForm
@@ -93,6 +123,10 @@ const Form: FC<FormProps> = ({
         form={form}
         className={classNames(prefixCls, className, classes?.wrapper)}
         {...restProps}
+        validateMessages={{
+          ...defaultValidateMessages,
+          ...validateMessages
+        }}
       >
         {renderChildren}
       </RcForm>
@@ -100,6 +134,6 @@ const Form: FC<FormProps> = ({
   )
 }
 
-Form.displayName = 'Form'
+Form.displayName = displayName;
 
 export default withStyles<FormProps>(styles)(Form)

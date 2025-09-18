@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import { WithTranslation } from 'react-i18next';
-import { FormItemTypeEnum, checkEmail } from '@sigmaui-kit/form';
+import { FormItemTypeEnum } from '@sigmaui-kit/form';
+import { AlertErrorIcon } from '@sigmaui-kit/icons';
 import Input from '@sigmaui-kit/input';
 import Password from '@sigmaui-kit/password';
 
@@ -25,6 +26,12 @@ const formCustomRender = ({ type }) => {
     case FormItemTypeEnum.EMAIL:
       controller = (
         <Input/>
+      );
+      break;
+
+    case FormItemTypeEnum.URL:
+      controller = (
+        <Input/>
       )
   }
 
@@ -35,19 +42,19 @@ const formRules = (params: { t?: WithTranslation['t'] } = {}) => {
   const { t = (text: string) => text } = params;
 
   return {
-    email: [
-      () => ({
-        validator(rule, value) {
-          if (!value || checkEmail(value)) {
-            return Promise.resolve();
-          }
-
-          return Promise.reject(t('form.message.notValidEmail', {
-            defaultValue: 'The input is not valid E-mail'
-          }));
-        }
-      })
-    ]
+    // email: [
+    //   () => ({
+    //     validator(rule, value) {
+    //       if (!value || checkEmail(value)) {
+    //         return Promise.resolve();
+    //       }
+    //
+    //       return Promise.reject(t('form.message.notValidEmail', {
+    //         defaultValue: '${label} the input is not valid E-mail'
+    //       }));
+    //     }
+    //   })
+    // ]
   }
 }
 
@@ -72,7 +79,10 @@ export const components = {
   Form: {
     defaultProps: {
       customRender: formCustomRender,
-      formRules
+      formRules,
+      validateIcons: {
+        error: <AlertErrorIcon/>
+      }
     },
   }
 }

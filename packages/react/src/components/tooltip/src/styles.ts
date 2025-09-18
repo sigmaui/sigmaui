@@ -1,6 +1,6 @@
 import type { IProps, StylesProperties } from './types';
 
-export type ClassKeys = 'wrapper' | 'root' | 'body';
+export type ClassKeys = 'wrapper' | 'inner' | 'arrow' | 'root' | 'body';
 
 export const styles = ({ prefixCls, theme = {}, size }: IProps<any>): Partial<Record<ClassKeys, StylesProperties>> => {
   // console.log('theme', theme)
@@ -14,7 +14,7 @@ export const styles = ({ prefixCls, theme = {}, size }: IProps<any>): Partial<Re
         display: 'none'
       },
 
-      [`& .${prefixCls}-inner`]: {
+      [`& .${prefixCls}-body`]: {
         backgroundColor: 'tooltip.background',
         color: 'tooltip.text',
         paddingBlock: 6,
