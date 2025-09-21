@@ -35,9 +35,10 @@
   "peerDependencies": {
     "react": ">=18",
     "classnames": "latest",
-    "@sigmaui-kit/input": "latest",
+    "@sigmaui-kit/types": "latest",
     "@sigmaui-kit/with-styles": "latest",
     "@microui-kit/helpers": "latest",
+    "@sigmaui-kit/input": "latest",
     "@sigmaui-kit/icons": "latest",
     "@sigmaui-kit/icon": "latest",
     "@sigmaui-kit/tooltip": "latest"

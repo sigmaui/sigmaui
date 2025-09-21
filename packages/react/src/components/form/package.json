@@ -1,6 +1,6 @@
 {
   "name": "@sigmaui-kit/form",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "",
   "keywords": [],
   "author": "",
@@ -36,7 +36,8 @@
   },
   "peerDependencies": {
     "react": ">=18",
-    "react-dom": ">=18",
+    "@sigmaui-kit/types": "latest",
+    "@sigmaui-kit/locale": "latest",
     "@sigmaui-kit/with-styles": "latest",
     "@microui-kit/helpers": "latest",
     "@microui-kit/use-store": "latest",

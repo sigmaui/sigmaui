@@ -1,5 +1,5 @@
 import type { InputRef, InputProps } from '@rc-component/input';
-import type { FCWithStylesProps, StylesProperties } from 'packages/common/types';
+import type { FCWithStylesProps, StylesProperties } from '@sigmaui-kit/types';
 
 export type { StylesProperties }
 

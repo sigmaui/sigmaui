@@ -6,6 +6,8 @@ import SelectComponent from './select/route'
 import SliderComponent from './slider/route'
 import FormComponent from './form/route'
 import TooltipComponent from './tooltip/route'
+import SwitchComponent from './switch/route'
+import LoadingComponent from './loading/route'
 
 export default [
   BoxComponent,
@@ -15,5 +17,7 @@ export default [
   SelectComponent,
   SliderComponent,
   FormComponent,
-  TooltipComponent
+  TooltipComponent,
+  SwitchComponent,
+  LoadingComponent
 ]

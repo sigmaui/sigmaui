@@ -1,8 +1,9 @@
-import React from 'react'
-import Box from '@microui-kit/box'
-import ComponentPreview from '@docs/components/ComponentPreview'
-import Input from '@sigmaui-kit/input'
-import { inputContent } from '..'
+import React from 'react';
+import Box from '@microui-kit/box';
+import ComponentPreview from '@docs/components/ComponentPreview';
+import Input from '@sigmaui-kit/input';
+import InputNumber from '@sigmaui-kit/input-number';
+import { inputContent } from '..';
 
 export const Demo: React.FC<any> = ({ control }) => {
   return (
@@ -23,6 +24,7 @@ export const Demo: React.FC<any> = ({ control }) => {
         size={control.state.size}
         placeholder="Show count"
       />
+      <InputNumber/>
     </Box>
   )
 }

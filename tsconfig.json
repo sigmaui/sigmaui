@@ -56,11 +56,17 @@
       "@packages/react/components/button": [
         "packages/react/src/components/button/src"
       ],
+      "@sigmaui-kit/locale": [
+        "packages/common/locale/src"
+      ],
       "@sigmaui-kit/layout": [
         "packages/react/src/components/layout/src"
       ],
       "@sigmaui-kit/input": [
         "packages/react/src/components/input/src"
+      ],
+      "@sigmaui-kit/input-number": [
+        "packages/react/src/components/input/number/src"
       ],
       "@sigmaui-kit/password": [
         "packages/react/src/components/input/password/src"
@@ -91,6 +97,18 @@
       ],
       "@sigmaui-kit/tooltip": [
         "packages/react/src/components/tooltip/src"
+      ],
+      "@sigmaui-kit/switch": [
+        "packages/react/src/components/switch/src"
+      ],
+      "@sigmaui-kit/animate": [
+        "packages/react/src/components/animate/src"
+      ],
+      "@sigmaui-kit/loading": [
+        "packages/react/src/components/loading/src"
+      ],
+      "@sigmaui-kit/loading-dots": [
+        "packages/react/src/components/loading/dots/src"
       ],
       "@packages/vue/types": [
         "packages/vue/src/types"

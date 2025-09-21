@@ -1,12 +1,13 @@
 import React, { Fragment, useState, useRef, useCallback } from 'react';
 import type { FC } from 'react';
+import { getRestProps } from '@microui-kit/helpers';
 import { withStyles } from '@sigmaui-kit/with-styles';
 import Input, { type InputRef } from '@sigmaui-kit/input';
 import EyeVisibilityOutlinedIcon from '@sigmaui-kit/icons/EyeVisibilityOutlinedIcon';
 import EyeHiddenOutlinedIcon from '@sigmaui-kit/icons/EyeHiddenOutlinedIcon';
 import Tooltip from '@sigmaui-kit/tooltip';
 import Icon from '@sigmaui-kit/icon';
-import { getRestProps } from '@microui-kit/helpers';
+import { Locales } from '@sigmaui-kit/locale';
 
 import { styles, type PasswordProps } from './styles';
 
@@ -17,6 +18,10 @@ const defaultIconRender = (visible: boolean): React.ReactNode => {
 
   return <EyeHiddenOutlinedIcon/>
 };
+
+export type {
+  PasswordProps
+}
 
 const Password: FC<PasswordProps> = ({
   className,
@@ -83,7 +88,7 @@ const Password: FC<PasswordProps> = ({
   )
 
   if (isTooltip) {
-    const overlay = t(visible ? 'password.message.hide' : 'password.message.show', {
+    const overlay = t(visible ? Locales.Password.message.hide : Locales.Password.message.show, {
       defaultValue: visible ? 'Hide password' : 'Show password'
     });
 

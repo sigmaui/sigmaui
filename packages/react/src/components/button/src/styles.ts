@@ -1,6 +1,6 @@
 import { IProps, StylesProperties } from './types';
 
-export type ClassKeys = 'wrapper' | 'prefix' | 'suffix';
+export type ClassKeys = 'wrapper' | 'prefix' | 'suffix' | 'link';
 
 export const styles = ({ theme = {}, size, variant }: IProps<any>): Partial<Record<ClassKeys, StylesProperties>> => {
   // console.log('theme', theme)
@@ -38,6 +38,9 @@ export const styles = ({ theme = {}, size, variant }: IProps<any>): Partial<Reco
     suffix: {
       marginLeft: 6,
     },
+    link: {
+      display: 'inline-block'
+    }
   }
 }
 

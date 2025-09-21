@@ -1,6 +1,6 @@
-import type { ReactNode } from 'react'
-import type { Meta } from '@rc-component/form/lib/interface'
-import type { FCWithStylesProps, StylesProperties } from 'packages/common/types'
+import type { ReactNode } from 'react';
+import type { Meta } from '@rc-component/form/lib/interface';
+import type { FCWithStylesProps, StylesProperties } from '@sigmaui-kit/types';
 
 export type { StylesProperties }
 

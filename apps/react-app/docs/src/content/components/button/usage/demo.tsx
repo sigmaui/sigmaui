@@ -4,7 +4,14 @@ import { buttonContent } from '..'
 import { ThemeVariant } from '@packages/common/types'
 
 export const Demo: React.FC<any> = ({ control }) => {
-  return <Button variant={control.state.variant}>Demo</Button>
+  return (
+    <Button
+      variant={control.state.variant}
+      locking
+    >
+      Demo
+    </Button>
+  )
 }
 export const UsageButtonComponent = () => {
   return (

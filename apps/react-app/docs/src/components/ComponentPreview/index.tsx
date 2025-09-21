@@ -63,6 +63,7 @@ const ComponentPreview = <T extends Record<string, any>>({
         className={css({
           width: '100%',
           display: 'flex',
+          gap: 12,
           padding: 12,
         })}
       >

@@ -7,12 +7,20 @@ import ComponentPreview from '@docs/components/ComponentPreview';
 import { formContent } from '..';
 
 export const Demo: React.FC<any> = ({ control }) => {
-  console.log('control', control)
+  console.log('control', control);
+
+  const onFinish = (value) => {
+    console.log('onFinish', value);
+  }
 
   return (
     <Form
       name="basic"
       disabled={control.state.disabled}
+      onFinish={onFinish}
+      initialValues={{
+        email: 'donglh@gviet.vn'
+      }}
       items={[
         {
           label: 'Email',
@@ -46,16 +54,23 @@ export const Demo: React.FC<any> = ({ control }) => {
         }
       ]}
     >
-      <Button
-        htmlType="submit"
-        _style={{
-          wrapper: {
-            width: '100%'
-          }
-        }}
-      >
-        Submit
-      </Button>
+      {
+        ({ isSubmitting }) => {
+          return (
+            <Button
+              htmlType="submit"
+              locking={isSubmitting}
+              _style={{
+                wrapper: {
+                  width: '100%'
+                }
+              }}
+            >
+              Submit
+            </Button>
+          )
+        }
+      }
     </Form>
   )
 }

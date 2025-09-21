@@ -2,9 +2,13 @@ import React from 'react';
 import type { FC } from 'react';
 import classNames from 'classnames';
 import { withStyles } from '@sigmaui-kit/with-styles';
-import Loading from '@microui-kit/loading';
+import Loading from '@sigmaui-kit/loading';
 
 import { styles, type ButtonProps } from './styles';
+
+export type {
+  ButtonProps
+}
 
 const Button: FC<ButtonProps> = ({
   prefixCls,
@@ -12,35 +16,51 @@ const Button: FC<ButtonProps> = ({
   children,
   classes,
   htmlType,
+  href,
+  asLink: Link,
   loading,
   locking,
   disabled,
   prefix,
-  suffix
+  suffix,
+  loadingProps = {}
 }) => {
   if (loading) {
     prefix = (
       <Loading
-        isLoader
-        loaderProps={{
-          size: 20,
-          _style: (theme: any) => ({
-            loader: {
-              borderColor: theme.fn.rgba('#fff', 0.2),
-              borderLeftColor: '#fff!important',
-              borderWidth: 2,
-            },
-          }),
-        }}
+        size={20}
+        _style={(theme: any) => ({
+          loader: {
+            borderColor: theme.fn.rgba('#fff', 0.2),
+            borderLeftColor: '#fff!important',
+            borderWidth: 2,
+          }
+        })}
+        {...loadingProps}
       />
     )
   }
 
   if (locking) {
-    prefix = <Loading isDot/>
+    suffix = (
+      <Loading
+        dot
+        size={6}
+        dotProps={{
+          animateProps: {
+            extendStyle: {
+              wrapper: {
+                backgroundColor: '#fff'
+              }
+            }
+          }
+        }}
+        {...loadingProps}
+      />
+    )
   }
 
-  return (
+  let buttonNode = (
     <button
       type={htmlType}
       className={classNames(prefixCls, className, classes?.wrapper)}
@@ -50,7 +70,20 @@ const Button: FC<ButtonProps> = ({
       {children}
       {suffix && <div className={classes?.suffix}>{suffix}</div>}
     </button>
-  )
+  );
+
+  if (href && Link) {
+    return (
+      <Link
+        to={href}
+        className={classes?.link}
+      >
+        {buttonNode}
+      </Link>
+    )
+  }
+
+  return buttonNode
 }
 
 Button.displayName = 'Button';

@@ -1,4 +1,4 @@
-import type { IProps, StylesProperties } from './types.ts';
+import type { IProps, StylesProperties } from './types';
 
 export type ClassKeys = 'wrapper' | 'popup' | 'list' | 'listTitle';
 

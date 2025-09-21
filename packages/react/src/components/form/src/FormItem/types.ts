@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import type { FieldProps } from '@rc-component/form/lib/Field';
-import type { RuleObject } from '@rc-component/form/lib/interface';
-import type { FCWithStylesProps, StylesProperties, IStylesProps } from 'packages/common/types';
+import type { RuleObject, FormInstance } from '@rc-component/form/lib/interface';
+import type { FCWithStylesProps, StylesProperties, IStylesProps } from '@sigmaui-kit/types';
 
 import type { LabelTooltipType } from '../FormItemLabel/types';
 
@@ -27,12 +27,17 @@ export interface ValidateMessages {
   url?: string
 }
 
-export interface FormItemOption<Styles = any> extends IStylesProps<Styles> {
+export interface ValidateFieldArgs {
+  form?: FormInstance
+}
+
+export interface FormItemOption<Styles = any> extends FieldProps, IStylesProps<Styles> {
   name: string
   label?: ReactNode
   type?: FormItemType
   required?: boolean | RuleObject
   disabled?: boolean
+  noStyle?: boolean
   render?: ReactNode | ((...args: any) => ReactNode)
   rules?: FieldProps['rules']
   note?: ReactNode
@@ -40,7 +45,9 @@ export interface FormItemOption<Styles = any> extends IStylesProps<Styles> {
   validateMessages?: ValidateMessages
   fieldProps?: { [key: string]: any }
   labelProps?: { [key: string]: any }
-  controlProps?: { [key: string]: any }
+  controlProps?: { [key: string]: any },
+  validateField?: ({ form }: ValidateFieldArgs) => any
+  shouldUpdateKey?: string | string[]
 }
 
 export interface IProps<Styles> extends Omit<FieldProps, 'children'>, Omit<FormItemOption, 'controller' | 'render' | 'rules' | 'children' | 'name' | '_style' | 'extendStyle'>, FCWithStylesProps<Styles> {

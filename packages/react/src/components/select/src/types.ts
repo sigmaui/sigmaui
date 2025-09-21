@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { SelectProps as RcSelectProps } from '@rc-component/select';
-import type { FCWithStylesProps, StylesProperties, ThemeSize, ThemeVariant } from 'packages/common/types';
+import type { FCWithStylesProps, StylesProperties, ThemeSize, ThemeVariant } from '@sigmaui-kit/types';
 
 export type { StylesProperties }
 
@@ -11,7 +11,7 @@ export interface SelectOption {
 }
 
 export interface IProps<Styles> extends Omit<RcSelectProps, 'children'>, FCWithStylesProps<Styles> {
-  options: SelectOption[]
+  options?: SelectOption[]
   placeholder?: string,
   size?: ThemeSize
   variant?: ThemeVariant

@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { Fragment, useCallback } from 'react';
 import type { FC } from 'react';
 import classNames from 'classnames';
 import { Field as RcFieldForm, FormInstance } from '@rc-component/form';
@@ -19,7 +19,8 @@ import { type FormItemType, FormItemTypeEnum, type FormItemOption } from './type
 import { StoreProviderProps } from '../Form/types';
 
 export type {
-  FormItemType
+  FormItemType,
+  FormItemProps
 }
 
 const getIsRequired = ({ required, rules, form }: {
@@ -165,6 +166,8 @@ const FormItem: FC<FormItemProps> = ({
   controlProps = {},
   validateMessages = {},
   tooltip,
+  validateField,
+  noStyle,
   ...formItemProps
 }) => {
   const restProps = getRestProps(formItemProps);
@@ -175,6 +178,8 @@ const FormItem: FC<FormItemProps> = ({
   const isAutoTrim = useStoreSelector((state) => state.isAutoTrim);
 
   const rules = getRules({ type, required, formRules, fieldRules, validateMessages });
+
+  console.log('form FormItem', form)
 
   const handleSetFieldValue = useCallback((key: string | Meta['name'], value: any, params: {
     isValidateField?: boolean
@@ -190,6 +195,89 @@ const FormItem: FC<FormItemProps> = ({
 
   const { messageVariables = {} } = restProps;
 
+  let renderChildren: FieldProps['children'];
+
+  if (noStyle) {
+    renderChildren = children
+  } else {
+    renderChildren = (control, meta, form) => {
+      const isRequired = getIsRequired({ required, rules, form });
+      const fieldId = getFieldId(meta.name, formName);
+      const status = getStatus({ meta });
+      const errors = meta?.errors || [];
+      const hasError = errors.length > 0;
+
+      const childProps: React.ReactElement<any>['props'] = {
+        disabled,
+        status,
+        ...fieldProps,
+        ...(children?.props || {}),
+        ...control
+      };
+
+      if (!childProps.id) {
+        childProps.id = fieldId;
+      }
+
+      if (isRequired) {
+        childProps['aria-required'] = 'true';
+      }
+
+      if (childProps.disabled) {
+        childProps['aria-disabled'] = 'true';
+      }
+
+      if (isAutoTrim) {
+        childProps.onBlur = (e: React.MouseEvent) => {
+          fieldProps.onBlur?.(e);
+
+          if (!type || type === FormItemTypeEnum.INPUT || type === FormItemTypeEnum.TEXTAREA || type === FormItemTypeEnum.EMAIL || type === FormItemTypeEnum.URL) {
+            const value = (e.target as HTMLInputElement).value;
+
+            if (value) {
+              handleSetFieldValue(meta.name, value.trim(), {
+                isValidateField: true
+              });
+            }
+          }
+        }
+      }
+
+      return (
+        <div className={classNames(prefixCls, className, classes?.wrapper, {
+          ['has-error']: hasError
+        })}>
+          {
+            label
+            &&
+            <FormItemLabel
+              tooltip={tooltip}
+              {...labelProps}
+              id={`${fieldId}_label`}
+              htmlFor={fieldId}
+              required={isRequired}
+            >
+              {label}
+            </FormItemLabel>
+          }
+          {
+            children
+            &&
+            <FormItemControl
+              {...controlProps}
+              fieldId={fieldId}
+              formItemPrefixCls={prefixCls}
+              meta={meta}
+              note={note}
+            >
+              {React.cloneElement(children, childProps)}
+            </FormItemControl>
+          }
+        </div>
+      )
+    }
+  }
+
   return (
     <RcFieldForm
       name={name}
@@ -201,84 +289,7 @@ const FormItem: FC<FormItemProps> = ({
         ...messageVariables
       }}
     >
-      {(control, meta, form) => {
-        const isRequired = getIsRequired({ required, rules, form });
-        const fieldId = getFieldId(meta.name, formName);
-        const status = getStatus({ meta });
-        const errors = meta?.errors || [];
-        const hasError = errors.length > 0;
-
-        const childProps: React.ReactElement<any>['props'] = {
-          disabled,
-          status,
-          ...fieldProps,
-          ...(children?.props || {}),
-          ...control
-        };
-
-        if (!childProps.id) {
-          childProps.id = fieldId;
-        }
-
-        if (isRequired) {
-          childProps['aria-required'] = 'true';
-        }
-
-        if (childProps.disabled) {
-          childProps['aria-disabled'] = 'true';
-        }
-
-        if (isAutoTrim) {
-          childProps.onBlur = (e: React.MouseEvent) => {
-            fieldProps.onBlur?.(e);
-
-            if (type) {
-              if (type === FormItemTypeEnum.INPUT || type === FormItemTypeEnum.TEXTAREA || type === FormItemTypeEnum.EMAIL || type === FormItemTypeEnum.URL) {
-                const value = (e.target as HTMLInputElement).value;
-
-                if (value) {
-                  handleSetFieldValue(meta.name, value.trim(), {
-                    isValidateField: true
-                  });
-                }
-              }
-            }
-          }
-        }
-
-        return (
-          <div className={classNames(prefixCls, className, classes?.wrapper, {
-            ['has-error']: hasError
-          })}>
-            {
-              label
-              &&
-              <FormItemLabel
-                tooltip={tooltip}
-                {...labelProps}
-                id={`${fieldId}_label`}
-                htmlFor={fieldId}
-                required={isRequired}
-              >
-                {label}
-              </FormItemLabel>
-            }
-            {
-              children
-              &&
-              <FormItemControl
-                {...controlProps}
-                fieldId={fieldId}
-                formItemPrefixCls={prefixCls}
-                meta={meta}
-                note={note}
-              >
-                {React.cloneElement(children, childProps)}
-              </FormItemControl>
-            }
-          </div>
-        )
-      }}
+      {renderChildren}
     </RcFieldForm>
   )
 }

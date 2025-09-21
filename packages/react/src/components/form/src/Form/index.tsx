@@ -2,12 +2,14 @@ import React, { Fragment, useMemo } from 'react';
 import type { FC } from 'react';
 import classNames from 'classnames';
 import RcForm, { useWatch } from '@rc-component/form';
-import { ValidateErrorEntity } from '@rc-component/form/lib/interface';
-import { StoreProvider } from '@microui-kit/use-store';
+import type { FormProps as RcFormProps, FormInstance } from '@rc-component/form';
+import { FieldProps, ShouldUpdate } from '@rc-component/form/lib/Field';
+import { StoreProvider, useStoreContext } from '@microui-kit/use-store';
 import { getRestProps } from '@microui-kit/helpers';
 import { withStyles } from '@sigmaui-kit/with-styles';
+import { Locales } from '@sigmaui-kit/locale';
 
-import { getValidateMessage } from '../helpers';
+import { getValidateMessage, checkShouldUpdate } from '../helpers';
 
 import { styles, type FormProps } from './styles';
 import { StoreProviderProps } from './types';
@@ -20,7 +22,18 @@ export {
   useWatch
 }
 
-const displayName = 'Form';
+const Children = ({ children }: { children?: FormProps['children'] }) => {
+  const { useStoreSelector } = useStoreContext<StoreProviderProps>();
+
+  const form = useStoreSelector((state) => state.form);
+  const isSubmitting = useStoreSelector((state) => state.isSubmitting);
+
+  if (typeof children === 'function') {
+    children = children({ form, isSubmitting })
+  }
+
+  return children
+}
 
 const Form: FC<FormProps> = ({
   prefixCls,
@@ -31,16 +44,32 @@ const Form: FC<FormProps> = ({
   name,
   form: customForm,
   items = [],
-  customRender,
+  customRenderItem,
   formRules: customFormRules,
   validateIcons,
   disabled,
   isAutoTrim = true,
+  onFinish: onFinishCustom,
+  initialValues,
   ...formProps
 }) => {
-  const restProps = getRestProps(formProps)
+  const restProps = getRestProps(formProps);
 
-  const [form] = useForm(customForm);
+  const initialState = {
+    formName: name,
+    isAutoTrim,
+    validateIcons,
+    isSubmitting: false
+  };
+
+  const storeKey = `${prefixCls}:${name || 'store'}`;
+
+  const [form, storeMethods] = useForm(customForm, {
+    storeKey,
+    initialState
+  });
+
+  // console.log('storeMethods', storeMethods);
 
   let formRules = customFormRules;
 
@@ -48,29 +77,96 @@ const Form: FC<FormProps> = ({
     formRules = customFormRules?.({ t })
   }
 
+  const onFinish: RcFormProps['onFinish'] = async (values) => {
+    const storeState = storeMethods.getState();
+
+    storeMethods.setState({
+      isSubmitting: true
+    });
+
+    await onFinishCustom?.(values);
+
+    storeMethods.setState({
+      isSubmitting: false
+    });
+  }
+
   const renderChildren = useMemo(() => {
+    const getChildNode = ({ render, type }) => {
+      let childNode: React.ReactNode = null;
+
+      if (render) {
+        childNode = typeof render === 'function' ? render({ form }) : render;
+      } else {
+        if (customRenderItem) {
+          childNode = customRenderItem({ type })
+        }
+      }
+
+      return childNode
+    }
+
     return (
       <Fragment>
         {
-          items.map(({ name, type, label, render, rules, ...formItemProps }) => {
-            let childNode: React.ReactNode = null;
+          items.map(({ type, render, rules, validateField, shouldUpdate, shouldUpdateKey, ...formItemProps }) => {
+            let childNode = getChildNode({ render, type });
 
-            if (render) {
-              childNode = typeof render === 'function' ? render({ form }) : render;
+            const itemProps = {
+              type,
+              formRules,
+              fieldRules: rules,
+              disabled
+            }
+
+            let shouldUpdateFunc: ShouldUpdate | undefined;
+
+            if (shouldUpdate) {
+              shouldUpdateFunc = shouldUpdate;
             } else {
-              if (type && customRender) {
-                childNode = customRender({ type })
-              }
+              shouldUpdateFunc = (prevValues, currentValues) => checkShouldUpdate(shouldUpdateKey, prevValues, currentValues);
+            }
+
+            if (validateField && shouldUpdateFunc) {
+              return (
+                <FormItem
+                  noStyle
+                  shouldUpdate={shouldUpdateFunc}
+                >
+                  {
+                    ((control, meta, form: FormInstance) => {
+                      const validate = validateField({ form });
+
+                      console.log('validateField Form');
+
+                      if (validate) {
+                        const { render, ...validateProps } = validate;
+
+                        const type = validateProps.type;
+
+                        if (type || render) {
+                          childNode = getChildNode({ render, type });
+                        }
+
+                        return (
+                          <FormItem
+                            {...itemProps}
+                            {...formItemProps}
+                            {...validateProps}
+                          >
+                            {childNode}
+                          </FormItem>
+                        )
+                      }
+                    }) as FieldProps['children']
+                  }
+                </FormItem>
+              )
             }
 
             return (
               <FormItem
-                name={name}
-                type={type}
-                label={label}
-                formRules={formRules}
-                fieldRules={rules}
-                disabled={disabled}
+                {...itemProps}
                 {...formItemProps}
               >
                 {childNode}
@@ -78,7 +174,9 @@ const Form: FC<FormProps> = ({
             )
           })
         }
-        {children}
+        <Children>
+          {children}
+        </Children>
       </Fragment>
     )
   }, [children, items]);
@@ -89,33 +187,27 @@ const Form: FC<FormProps> = ({
     return {
       required: getValidateMessage({
         t,
-        key: `${displayName}.message.required`,
+        key: Locales.Form.message.required,
         defaultValue: 'is required'
       }),
       types: {
         email: getValidateMessage({
           t,
-          key: `${displayName}.message.email.invalid`,
+          key: Locales.Form.message.email.invalid,
           defaultValue: 'is invalid'
         }),
         url: getValidateMessage({
           t,
-          key: `${displayName}.message.url.invalid`,
+          key: Locales.Form.message.url.invalid,
           defaultValue: 'is invalid'
         })
       }
     }
-  }, [])
+  }, []);
 
   return (
     <StoreProvider<StoreProviderProps>
-      storeKey={`${prefixCls}:${name || 'store'}`}
-      initialState={{
-        formName: name,
-        form,
-        isAutoTrim,
-        validateIcons
-      }}
+      storeKey={storeKey}
     >
       <RcForm
         id={name}
@@ -123,6 +215,8 @@ const Form: FC<FormProps> = ({
         form={form}
         className={classNames(prefixCls, className, classes?.wrapper)}
         {...restProps}
+        onFinish={onFinish}
+        initialValues={initialValues}
         validateMessages={{
           ...defaultValidateMessages,
           ...validateMessages
@@ -134,6 +228,6 @@ const Form: FC<FormProps> = ({
   )
 }
 
-Form.displayName = displayName;
+Form.displayName = 'Form';
 
 export default withStyles<FormProps>(styles)(Form)

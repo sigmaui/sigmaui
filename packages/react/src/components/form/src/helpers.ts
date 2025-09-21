@@ -1,5 +1,7 @@
 import { WithTranslation } from 'react-i18next';
 
+export type Values = Record<string, any>;
+
 export const checkNumber = (str: string) => {
   const re = /^[0-9]*$/;
   return re.test(str);
@@ -44,4 +46,24 @@ export const getValidateMessage = ({ t, prefix, key, defaultValue }: {
   }
 
   return validateMessage
-}
+};
+
+export const checkShouldUpdate = (keys?: string | string[], prevValues: Values = {}, currentValues: Values = {}) => {
+  if (!keys) {
+    return true
+  }
+
+  console.log('checkShouldUpdate', prevValues, currentValues)
+
+  if (keys instanceof Array) {
+    return keys.some(key => {
+      return prevValues[key] !== currentValues[key]
+    })
+  }
+
+  if (typeof keys === 'string') {
+    return prevValues[keys] !== currentValues[keys]
+  }
+
+  return false
+};

@@ -1,6 +1,6 @@
 {
   "name": "@sigmaui-kit/button",
-  "version": "0.0.4",
+  "version": "0.0.7",
   "description": "",
   "keywords": [],
   "author": "",
@@ -35,8 +35,9 @@
   "peerDependencies": {
     "react": ">=18",
     "classnames": "latest",
-    "@microui-kit/loading": "latest",
-    "@sigmaui-kit/with-styles": "latest"
+    "@sigmaui-kit/types": "latest",
+    "@sigmaui-kit/with-styles": "latest",
+    "@sigmaui-kit/loading": "latest"
   },
   "devDependencies": {},
   "clean-package": "../../../../../clean-package.config.json"

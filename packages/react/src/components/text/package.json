@@ -35,7 +35,8 @@
   },
   "peerDependencies": {
     "react": ">=18",
-    "react-dom": ">=18"
+    "@sigmaui-kit/types": "latest",
+    "@microui-kit/helpers": "latest"
   },
   "devDependencies": {
   },

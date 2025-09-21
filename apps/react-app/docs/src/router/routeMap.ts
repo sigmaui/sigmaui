@@ -20,6 +20,8 @@ export const routeMap = {
     slider: `${componentPath}/slider`,
     form: `${componentPath}/form`,
     tooltip: `${componentPath}/tooltip`,
+    switch: `${componentPath}/switch`,
+    loading: `${componentPath}/loading`,
   },
   themingPath,
   theming: {

@@ -1,13 +1,15 @@
 import { ReactNode } from 'react';
 import { WithTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { FormItemTypeEnum } from '@sigmaui-kit/form';
 import { AlertErrorIcon } from '@sigmaui-kit/icons';
 import Input from '@sigmaui-kit/input';
 import Password from '@sigmaui-kit/password';
+import Select from '@sigmaui-kit/select';
 
 import iconMap from './iconMap';
 
-const formCustomRender = ({ type }) => {
+const formCustomRenderItem = ({ type }) => {
   let controller: ReactNode;
 
   switch (type) {
@@ -32,7 +34,13 @@ const formCustomRender = ({ type }) => {
     case FormItemTypeEnum.URL:
       controller = (
         <Input/>
-      )
+      );
+      break;
+
+    case FormItemTypeEnum.SELECT:
+      controller = (
+        <Select/>
+      );
   }
 
   return controller;
@@ -60,7 +68,9 @@ const formRules = (params: { t?: WithTranslation['t'] } = {}) => {
 
 export const components = {
   Button: {
-    defaultProps: {},
+    defaultProps: {
+      asLink: Link
+    },
     _style: {
       wrapper: {},
     },
@@ -78,7 +88,7 @@ export const components = {
   },
   Form: {
     defaultProps: {
-      customRender: formCustomRender,
+      customRenderItem: formCustomRenderItem,
       formRules,
       validateIcons: {
         error: <AlertErrorIcon/>

@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import type { TabsProps } from '@rc-component/tabs';
-import type { FCWithStylesProps, StylesProperties } from 'packages/common/types';
+import type { FCWithStylesProps, StylesProperties } from '@sigmaui-kit/types';
 
 export type { StylesProperties }
 

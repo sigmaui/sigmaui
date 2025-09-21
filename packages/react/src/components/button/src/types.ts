@@ -1,4 +1,6 @@
-import type { FCWithStylesProps, StylesProperties } from 'packages/common/types';
+import type { ComponentType } from 'react';
+import type { LoadingProps } from '@sigmaui-kit/loading';
+import type { FCWithStylesProps, StylesProperties } from '@sigmaui-kit/types';
 
 export type { StylesProperties };
 
@@ -7,9 +9,12 @@ export type ButtonHTMLType = (typeof _ButtonHTMLTypes)[number];
 
 export interface IProps<Styles> extends FCWithStylesProps<Styles> {
   htmlType?: ButtonHTMLType
+  href?: string
+  asLink?: ComponentType<any>
   loading?: boolean
   locking?: boolean
   disabled?: boolean
   prefix?: any
   suffix?: any
+  loadingProps?: LoadingProps
 }

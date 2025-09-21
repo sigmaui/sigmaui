@@ -80,6 +80,14 @@ const Sidebar: FC<SidebarProps> = ({ prefixCls = 'sm-sidebar', className, classe
                 label: 'Tooltip',
                 key: routeMap.component.tooltip,
               },
+              {
+                label: 'Switch',
+                key: routeMap.component.switch,
+              },
+              {
+                label: 'Loading',
+                key: routeMap.component.loading,
+              },
             ],
           },
         ]}

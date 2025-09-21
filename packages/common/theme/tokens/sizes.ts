@@ -130,6 +130,46 @@ export const inputSizes = {
     '2xl': {},
     icon: iconSizes
   } as StylesObject,
+  InputNumber: {
+    _: {
+      fontSize: fontSizes.default,
+      height: heights.default,
+      borderRadius: radii.default,
+      paddingInline: 10,
+    },
+    xs: {
+      fontSize: fontSizes.xs,
+      height: heights.xs,
+      borderRadius: radii.xs,
+      paddingInline: 6,
+    },
+    sm: {
+      fontSize: fontSizes.sm,
+      height: heights.sm,
+      borderRadius: radii.sm,
+      paddingInline: 8,
+    },
+    md: {
+      fontSize: fontSizes.md,
+      height: heights.md,
+      borderRadius: radii.md,
+      paddingInline: 12,
+    },
+    lg: {
+      fontSize: fontSizes.lg,
+      height: heights.lg,
+      borderRadius: radii.lg,
+      paddingInline: 16,
+    },
+    xl: {
+      fontSize: fontSizes.xl,
+      height: heights.xl,
+      borderRadius: radii.xl,
+      paddingInline: 18,
+    },
+    '2xl': {},
+    icon: iconSizes
+  } as StylesObject,
   Password: {
     icon: iconSizes
   }
@@ -207,18 +247,6 @@ export const selectSizes = {
   } as StylesObject,
 }
 
-export const switchSizes = {
-  Switch: {
-    _: {},
-    xs: {},
-    sm: {},
-    md: {},
-    lg: {},
-    xl: {},
-    '2xl': {},
-  } as StylesObject,
-}
-
 export const tooltipSizes = {
   Tooltip: {
     _: {
@@ -256,6 +284,54 @@ export const tooltipSizes = {
   } as StylesObject,
 }
 
+export const switchSizes = {
+  Switch: {
+    _: {
+      width: 50,
+      // height: heights.default,
+      height: 28,
+    },
+    xs: {
+      height: heights.xs,
+    },
+    sm: {
+      height: heights.sm,
+    },
+    md: {
+      height: heights.md,
+    },
+    lg: {
+      height: heights.lg,
+    },
+    xl: {
+      height: heights.xl,
+    },
+    '2xl': {},
+    handle: {
+      _: {
+        // height: heights.default,
+        width: 28,
+      },
+      xs: {
+        width: heights.xs,
+      },
+      sm: {
+        width: heights.sm,
+      },
+      md: {
+        width: heights.md,
+      },
+      lg: {
+        width: heights.lg,
+      },
+      xl: {
+        width: heights.xl,
+      },
+      '2xl': {},
+    }
+  } as StylesObject,
+}
+
 export const sizes = {
   ...defaultSizes,
   ...textSizes,
@@ -263,6 +339,7 @@ export const sizes = {
   ...buttonSizes,
   ...selectSizes,
   ...tooltipSizes,
+  ...switchSizes,
   Text: textSizes,
   Icon: iconSizes
 }

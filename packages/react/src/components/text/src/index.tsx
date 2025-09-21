@@ -1,12 +1,12 @@
-import React from 'react'
-import type { FC } from 'react'
-import classNames from 'classnames'
-import { useMicroUI } from '@microui-kit/use-micro-ui'
-import { getRestProps } from '@microui-kit/helpers'
+import React from 'react';
+import type { FC } from 'react';
+import classNames from 'classnames';
+import { useMicroUI } from '@microui-kit/use-micro-ui';
+import { getRestProps } from '@microui-kit/helpers';
 
-import { type TextProps } from 'packages/common/components/text/types'
+import { type TextProps } from './types';
 
-const displayName = 'Text'
+const displayName = 'Text';
 
 const SigmaText: FC<TextProps> = ({
   prefixCls = 'sm-text',
@@ -17,9 +17,9 @@ const SigmaText: FC<TextProps> = ({
   as: As = 'div',
   ...textProps
 }) => {
-  const restProps = getRestProps(textProps)
+  const restProps = getRestProps(textProps);
 
-  const { css } = useMicroUI()
+  const { css } = useMicroUI();
 
   const classString = css(
     {
@@ -30,9 +30,11 @@ const SigmaText: FC<TextProps> = ({
     { _class },
   )
 
-  return <As className={classNames(prefixCls, className, classString)}>{children}</As>
+  return (
+    <As className={classNames(prefixCls, className, classString)}>{children}</As>
+  )
 }
 
-SigmaText.displayName = displayName
+SigmaText.displayName = displayName;
 
 export default SigmaText

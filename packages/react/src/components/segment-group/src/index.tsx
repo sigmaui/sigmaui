@@ -14,6 +14,7 @@ const SegmentGroup: FC<SegmentGroupProps> = ({
   classes,
   options,
   defaultValue,
+  isThumbLine,
   ...segmentGroupProps
 }) => {
   const restProps = getRestProps(segmentGroupProps);
