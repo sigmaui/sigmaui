@@ -19,7 +19,8 @@ export const Demo: React.FC<any> = ({ control }) => {
       disabled={control.state.disabled}
       onFinish={onFinish}
       initialValues={{
-        email: 'donglh@gviet.vn'
+        email: 'donglh@gviet.vn',
+        status: false
       }}
       items={[
         {
@@ -59,6 +60,7 @@ export const Demo: React.FC<any> = ({ control }) => {
           name: 'scope',
           type: FormItemTypeEnum.SELECT,
           required: true,
+          defaultValue: 'admin',
           fieldProps: {
             placeholder: 'Select scope',
             allowClear: true,
@@ -82,6 +84,7 @@ export const Demo: React.FC<any> = ({ control }) => {
           name: 'merchant',
           type: FormItemTypeEnum.SELECT,
           required: true,
+          defaultValue: 'merchant1',
           fieldProps: {
             placeholder: 'Select merchant',
             options: [
@@ -111,24 +114,33 @@ export const Demo: React.FC<any> = ({ control }) => {
             }
           }
         },
-      ]}
-      _style={(theme, { prefixCls }) => {
-        console.log('prefixCls', prefixCls)
-
-        return {
-          wrapper: {
-            display: 'flex',
-            flexWrap: 'wrap',
-            width: '100%',
-            marginLeft: -8,
-            marginRight: -8,
-
-            [`& .${prefixCls}-item`]: {
-              width: '50%',
-              paddingInline: 8
+        {
+          label: 'Description',
+          name: 'description',
+          type: FormItemTypeEnum.TEXTAREA,
+          required: true,
+          _style: {
+            wrapper: {
+              width: '100%!important'
             }
           }
-        }
+        },
+        {
+          label: 'Active status',
+          name: 'status',
+          type: FormItemTypeEnum.SWITCH,
+          required: true,
+          defaultValue: true,
+          _style: {
+            wrapper: {
+              width: '100%!important'
+            }
+          }
+        },
+      ]}
+      layout={{
+        col: 2,
+        space: 16
       }}
     >
       {
@@ -139,13 +151,12 @@ export const Demo: React.FC<any> = ({ control }) => {
               locking={isSubmitting}
               _style={{
                 wrapper: {
-                  width: '100%',
-                  marginInline: 8
+                  width: '100%'
                 }
               }}
               onClick={form?.handleSubmit(onFinish)}
             >
-              Submit1
+              Submit
             </Button>
           )
         }

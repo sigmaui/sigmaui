@@ -172,6 +172,8 @@ const FormItem: FC<FormItemProps> = ({
   onChange: onChangeCustom,
   valuePropName,
   getValueFromEvent: getValueFromEventCustom,
+  defaultValue,
+  initialValue,
   ...formItemProps
 }) => {
   const restProps = getRestProps(formItemProps);
@@ -301,6 +303,7 @@ const FormItem: FC<FormItemProps> = ({
       valuePropName={valuePropName}
       getValueFromEvent={getValueFromEventCustom}
       {...restProps}
+      initialValue={defaultValue ?? initialValue}
       messageVariables={{
         label,
         name: label,

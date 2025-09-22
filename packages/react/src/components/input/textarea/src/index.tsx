@@ -1,50 +1,49 @@
 import React from 'react';
 import type { FC } from 'react';
 import classNames from 'classnames';
-import RcInput, { type InputRef } from '@rc-component/input';
+import RcTextArea from '@rc-component/textarea';
 import { getRestProps } from '@microui-kit/helpers';
 import { withStyles } from '@sigmaui-kit/with-styles';
 import XMarkIcon from '@sigmaui-kit/icons/XMarkIcon';
 
-import { styles, type InputProps, type InputTypes } from './styles';
+import { styles, type TextareaProps } from './styles';
 
-export type {
-  InputRef,
-  InputTypes,
-  InputProps
-};
-
-const Input: FC<InputProps> = ({
+const Textarea: FC<TextareaProps> = ({
   prefixCls,
   className,
   classes,
+  t,
   status,
-  inputRef,
+  maxLength,
   allowClear,
   ...inputProps
 }) => {
-  const restProps = getRestProps(inputProps)
+  const restProps = getRestProps(inputProps);
 
-  // if (status) {
-  //   restProps['data-status'] = status
-  // }
+  if (maxLength) {
+    restProps.showCount = true;
+  }
 
   const mergedAllowClear = allowClear === true ? { clearIcon: <XMarkIcon/> } : allowClear;
 
   return (
-    <RcInput
+    <RcTextArea
       prefixCls={prefixCls}
-      ref={inputRef}
       className={classNames(className, classes?.wrapper, {
         [`_${status}`]: status
       })}
-      classNames={classes}
+      classNames={{
+        affixWrapper: classes?.affixWrapper,
+        suffix: classes?.suffix,
+        count: classes?.count
+      }}
+      maxLength={maxLength}
       allowClear={mergedAllowClear}
       {...restProps}
     />
   )
 }
 
-Input.displayName = 'Input'
+Textarea.displayName = 'Textarea';
 
-export default withStyles<InputProps>(styles)(Input)
+export default withStyles<TextareaProps>(styles)(Textarea)

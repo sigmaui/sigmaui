@@ -18,6 +18,9 @@ export const heights = {
   lg: 44,
   xl: 48,
   '2xl': 56,
+  switch: {
+    default: 20
+  }
 }
 
 export const radii = {
@@ -172,6 +175,45 @@ export const inputSizes = {
   } as StylesObject,
   Password: {
     icon: iconSizes
+  },
+  Textarea: {
+    _: {
+      fontSize: fontSizes.default,
+      borderRadius: radii.default,
+      paddingBlock: 4,
+      paddingInline: 10,
+    },
+    xs: {
+      fontSize: fontSizes.xs,
+      borderRadius: radii.xs,
+      paddingBlock: 4,
+      paddingInline: 6,
+    },
+    sm: {
+      fontSize: fontSizes.sm,
+      borderRadius: radii.sm,
+      paddingBlock: 4,
+      paddingInline: 8,
+    },
+    md: {
+      fontSize: fontSizes.md,
+      borderRadius: radii.md,
+      paddingBlock: 4,
+      paddingInline: 12,
+    },
+    lg: {
+      fontSize: fontSizes.lg,
+      borderRadius: radii.lg,
+      paddingBlock: 4,
+      paddingInline: 16,
+    },
+    xl: {
+      fontSize: fontSizes.xl,
+      borderRadius: radii.xl,
+      paddingBlock: 4,
+      paddingInline: 18,
+    },
+    '2xl': {}
   }
 }
 
@@ -287,30 +329,33 @@ export const tooltipSizes = {
 export const switchSizes = {
   Switch: {
     _: {
-      width: 50,
-      // height: heights.default,
-      height: 28,
+      width: heights.switch.default * 1.8,
+      height: heights.switch.default,
     },
     xs: {
+      width: heights.xs * 1.8,
       height: heights.xs,
     },
     sm: {
+      width: heights.sm * 1.8,
       height: heights.sm,
     },
     md: {
+      width: heights.md * 1.8,
       height: heights.md,
     },
     lg: {
+      width: heights.lg * 1.8,
       height: heights.lg,
     },
     xl: {
+      width: heights.xl * 1.8,
       height: heights.xl,
     },
     '2xl': {},
     handle: {
       _: {
-        // height: heights.default,
-        width: 28,
+        width: heights.switch.default,
       },
       xs: {
         width: heights.xs,

@@ -71,6 +71,9 @@
       "@sigmaui-kit/password": [
         "packages/react/src/components/input/password/src"
       ],
+      "@sigmaui-kit/textarea": [
+        "packages/react/src/components/input/textarea/src"
+      ],
       "@sigmaui-kit/button": [
         "packages/react/src/components/button/src"
       ],

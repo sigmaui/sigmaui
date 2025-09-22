@@ -6,6 +6,8 @@ import { AlertErrorIcon } from '@sigmaui-kit/icons';
 import Input from '@sigmaui-kit/input';
 import Password from '@sigmaui-kit/password';
 import Select from '@sigmaui-kit/select';
+import Textarea from '@sigmaui-kit/textarea';
+import Switch from '@sigmaui-kit/switch';
 
 import iconMap from './iconMap';
 
@@ -41,6 +43,22 @@ const formCustomRenderItem = ({ type }) => {
       controller = (
         <Select/>
       );
+      break;
+
+    case FormItemTypeEnum.TEXTAREA:
+      controller = (
+        <Textarea/>
+      );
+      break;
+
+    case FormItemTypeEnum.SWITCH:
+      controller = (
+        <Switch
+          checkedChildren="Bật"
+          unCheckedChildren="Tắt"
+        />
+      );
+      break;
   }
 
   return controller;
@@ -90,9 +108,9 @@ export const components = {
     defaultProps: {
       customRenderItem: formCustomRenderItem,
       formRules,
-      validateIcons: {
-        error: <AlertErrorIcon/>
-      }
+      // validateIcons: {
+      //   error: <AlertErrorIcon/>
+      // }
     },
   }
 }

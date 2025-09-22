@@ -101,6 +101,26 @@ export const styles = ({
 
       '& svg': {
         size: `icon.${size}`
+      },
+
+      [`& .${prefixCls}-clear-icon`]: {
+        backgroundColor: 'icon',
+        borderRadius: '50%',
+        border: 'none',
+        outline: 'none',
+        margin: 0,
+        padding: 2,
+        lineHeight: 0,
+        cursor: 'pointer',
+
+        '&[class*="-hidden"]': {
+          visibility: 'hidden'
+        },
+
+        '& svg': {
+          width: 10,
+          height: 10
+        }
       }
     },
     count: {

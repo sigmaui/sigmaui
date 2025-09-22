@@ -1,21 +1,21 @@
 import React from 'react';
 import ComponentPreview from '@docs/components/ComponentPreview';
-import Switch from '@sigmaui-kit/switch';
-import { switchContent } from '..';
+import Textarea from '@sigmaui-kit/textarea';
+import { inputContent } from '..';
 
 export const Demo: React.FC<any> = ({ control }) => {
   return (
-    <Switch
-      checkedChildren="Bật"
-      unCheckedChildren="Tắt"
+    <Textarea
+      size={control.state.size}
+      placeholder="Textarea"
     />
   )
 }
-export const UsageSwitchComponent = () => {
+export const UsageTextareaComponent = () => {
   return (
     <>
       <ComponentPreview<{ size: string }>
-        data={switchContent.usage}
+        data={inputContent.textarea}
         items={[
           {
             initialValue: 'small',

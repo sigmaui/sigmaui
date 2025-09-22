@@ -1,8 +1,8 @@
-import Password from '@sigmaui-kit/password';
+import Textarea from '@sigmaui-kit/textarea';
 
 export default function Demo() {
   return (
-    <Password
+    <Textarea
       {props.size}
     />
   )

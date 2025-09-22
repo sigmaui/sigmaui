@@ -16,6 +16,7 @@ export enum FormItemTypeEnum {
   URL = 'url',
   NUMBER = 'number',
   CHECKBOX = 'checkbox',
+  SWITCH = 'switch',
   SELECT = 'select',
   TAG = 'tag'
 }
@@ -45,7 +46,9 @@ export interface ChildProps {
   [name: string]: any;
 }
 
-export type FieldChildrenType = React.ReactElement | ((control: ChildProps, meta: Meta, form: FormInstance) => React.ReactNode);
+export type FieldChildrenType =
+  React.ReactElement
+  | ((control: ChildProps, meta: Meta, form: FormInstance) => React.ReactNode);
 
 export interface FormItemOption<Styles = any> extends FieldProps, IStylesProps<Styles> {
   name: string
@@ -53,6 +56,7 @@ export interface FormItemOption<Styles = any> extends FieldProps, IStylesProps<S
   type?: FormItemType
   required?: boolean | RuleObject
   disabled?: boolean
+  defaultValue?: any
   noStyle?: boolean
   render?: ReactNode | ((...args: any) => ReactNode)
   rules?: FieldProps['rules']

@@ -39,6 +39,9 @@
       "@sigmaui-kit/password": [
         "../../../packages/react/src/components/input/password/src"
       ],
+      "@sigmaui-kit/textarea": [
+        "../../../packages/react/src/components/input/textarea/src"
+      ],
       "@sigmaui-kit/text": [
         "../../../packages/react/src/components/text/src"
       ],

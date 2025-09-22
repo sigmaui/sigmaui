@@ -22,7 +22,7 @@ export {
   useWatch
 }
 
-const Children = ({ children }: { children?: FormProps['children'] }) => {
+const Children = ({ children, className }: { children?: FormProps['children'], className?: string }) => {
   const { useStoreSelector } = useStoreContext<StoreProviderProps>();
 
   const form = useStoreSelector((state) => state.form);
@@ -32,7 +32,11 @@ const Children = ({ children }: { children?: FormProps['children'] }) => {
     children = children({ form, isSubmitting })
   }
 
-  return children
+  return (
+    <div className={className}>
+      {children}
+    </div>
+  )
 }
 
 const Form: FC<FormProps> = ({
@@ -51,6 +55,7 @@ const Form: FC<FormProps> = ({
   isAutoTrim = true,
   onFinish: onFinishCustom,
   initialValues,
+  layout,
   ...formProps
 }) => {
   const restProps = getRestProps(formProps);
@@ -193,7 +198,7 @@ const Form: FC<FormProps> = ({
             )
           })
         }
-        <Children>
+        <Children className={classNames(`${prefixCls}-extra`, classes?.extra)}>
           {children}
         </Children>
       </Fragment>

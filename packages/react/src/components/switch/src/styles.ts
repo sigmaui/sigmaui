@@ -11,15 +11,21 @@ export const styles = ({
   // console.log('theme', theme)
   return {
     wrapper: {
-      position: 'relative',
-      backgroundColor: 'rgba(0,0,0,0.25)',
+      display: 'flex',
+      alignItems: 'center',
+      backgroundColor: 'transparent',
       border: 0,
-      borderRadius: 100,
-      minWidth: 44,
-      size,
-      variant,
+      padding: 0,
       cursor: 'pointer',
-      userSelect: 'none',
+
+      [`& .${prefixCls}-content`]: {
+        position: 'relative',
+        backgroundColor: 'rgba(0,0,0,0.25)',
+        borderRadius: 100,
+        size,
+        variant,
+        userSelect: 'none',
+      },
 
       [`& .${prefixCls}-handle`]: {
         position: 'absolute',
@@ -43,15 +49,40 @@ export const styles = ({
       },
 
       [`&.${prefixCls}-checked`]: {
-        backgroundColor: 'base',
+        [`& .${prefixCls}-content`]: {
+          backgroundColor: 'base',
+        },
 
         [`& .${prefixCls}-handle`]: {
-          left: `calc(100% - 28px)`
+          left: '100%',
+          transform: 'translateX(-100%)'
+        },
+
+        [`& .${prefixCls}-inner-checked`]: {
+          display: 'inline-block'
+        },
+
+        [`& .${prefixCls}-inner-unchecked`]: {
+          display: 'none'
         }
       },
 
+      [`& .${prefixCls}-inner`]: {
+        paddingLeft: 12,
+        pointerEvents: 'none'
+      },
+
+      [`& .${prefixCls}-inner-checked`]: {
+        display: 'none'
+      },
+
+      [`& .${prefixCls}-inner-unchecked`]: {
+        display: 'inline-block'
+      },
+
       '&:active': {}
-    }
+    },
+    content: {}
   }
 }
 

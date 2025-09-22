@@ -3,6 +3,7 @@ import Box from '@microui-kit/box';
 import ComponentPreview from '@docs/components/ComponentPreview';
 import Input from '@sigmaui-kit/input';
 import InputNumber from '@sigmaui-kit/input-number';
+import Textarea from '@sigmaui-kit/textarea';
 import { inputContent } from '..';
 
 export const Demo: React.FC<any> = ({ control }) => {
@@ -20,11 +21,22 @@ export const Demo: React.FC<any> = ({ control }) => {
       />
       <Input
         showCount
+        allowClear
         maxLength={10}
         size={control.state.size}
         placeholder="Show count"
       />
-      <InputNumber/>
+      <InputNumber
+        placeholder="Number"
+      />
+      <Textarea
+        // maxLength={1000}
+        // autoSize={{
+        //   minRows: 2
+        // }}
+        allowClear
+        placeholder="Textarea"
+      />
     </Box>
   )
 }

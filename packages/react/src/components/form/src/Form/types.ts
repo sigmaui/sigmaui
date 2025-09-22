@@ -36,4 +36,5 @@ export interface IProps<Styles, Values = any> extends Omit<FormProps, 'children'
   isAutoTrim?: boolean
   onFinish?: (values: Values) => unknown | Promise<unknown>
   children?: RenderProps | ReactNode
+  layout?: { col?: number, space?: number }
 }
