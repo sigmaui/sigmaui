@@ -1,21 +1,22 @@
 import React, { Fragment, useCallback } from 'react';
 import type { FC } from 'react';
 import classNames from 'classnames';
-import { Field as RcFieldForm, FormInstance } from '@rc-component/form';
-import { InternalNamePath, Meta, RuleObject } from '@rc-component/form/lib/interface';
+import { Field as RcFieldForm } from '@rc-component/form';
+import type { InternalNamePath, Meta, RuleObject, EventArgs, StoreValue } from '@rc-component/form/lib/interface';
 import { FieldProps } from '@rc-component/form/lib/Field';
 import { useStoreContext } from '@microui-kit/use-store';
 import { getRestProps } from '@microui-kit/helpers';
 import { withStyles } from '@sigmaui-kit/with-styles';
 
-import { isObject } from '../helpers';
+import { isObject, getValueFromEvent } from '../helpers';
 
 import FormItemLabel from '../FormItemLabel';
 import FormItemControl from '../FormItemControl';
+import { FormInstance } from '../hooks/useForm';
 
 import { styles, type FormItemProps } from './styles';
 
-import { type FormItemType, FormItemTypeEnum, type FormItemOption } from './types';
+import { type FormItemType, FormItemTypeEnum, type FormItemOption, type FieldChildrenType } from './types';
 import { StoreProviderProps } from '../Form/types';
 
 export type {
@@ -168,6 +169,9 @@ const FormItem: FC<FormItemProps> = ({
   tooltip,
   validateField,
   noStyle,
+  onChange: onChangeCustom,
+  valuePropName,
+  getValueFromEvent: getValueFromEventCustom,
   ...formItemProps
 }) => {
   const restProps = getRestProps(formItemProps);
@@ -181,21 +185,9 @@ const FormItem: FC<FormItemProps> = ({
 
   console.log('form FormItem', form)
 
-  const handleSetFieldValue = useCallback((key: string | Meta['name'], value: any, params: {
-    isValidateField?: boolean
-  } = {}) => {
-    const { isValidateField } = params;
-
-    form.setFieldValue(key, value);
-
-    if (isValidateField) {
-      form.validateFields([key]);
-    }
-  }, [form, handlers]);
-
   const { messageVariables = {} } = restProps;
 
-  let renderChildren: FieldProps['children'];
+  let renderChildren: FieldChildrenType;
 
   if (noStyle) {
     renderChildren = children
@@ -207,12 +199,36 @@ const FormItem: FC<FormItemProps> = ({
       const errors = meta?.errors || [];
       const hasError = errors.length > 0;
 
+      const onChange = (...args: EventArgs) => {
+        // console.log('control', args);
+        control.onChange?.(...args);
+
+        if (typeof onChangeCustom === 'function') {
+          let value: StoreValue;
+
+          if (getValueFromEventCustom) {
+            value = getValueFromEventCustom(...args);
+          } else {
+            value = getValueFromEvent(args, {
+              valuePropName
+            })
+          }
+
+          onChangeCustom?.({
+            form,
+            value,
+            preValue: control.value
+          });
+        }
+      }
+
       const childProps: React.ReactElement<any>['props'] = {
         disabled,
         status,
         ...fieldProps,
         ...(children?.props || {}),
-        ...control
+        ...control,
+        onChange
       };
 
       if (!childProps.id) {
@@ -235,7 +251,7 @@ const FormItem: FC<FormItemProps> = ({
             const value = (e.target as HTMLInputElement).value;
 
             if (value) {
-              handleSetFieldValue(meta.name, value.trim(), {
+              form.handleSetFieldValue?.(meta.name, value.trim(), {
                 isValidateField: true
               });
             }
@@ -282,6 +298,8 @@ const FormItem: FC<FormItemProps> = ({
     <RcFieldForm
       name={name}
       rules={rules}
+      valuePropName={valuePropName}
+      getValueFromEvent={getValueFromEventCustom}
       {...restProps}
       messageVariables={{
         label,

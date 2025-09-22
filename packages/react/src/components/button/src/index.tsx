@@ -3,6 +3,7 @@ import type { FC } from 'react';
 import classNames from 'classnames';
 import { withStyles } from '@sigmaui-kit/with-styles';
 import Loading from '@sigmaui-kit/loading';
+import { getRestProps } from '@microui-kit/helpers';
 
 import { styles, type ButtonProps } from './styles';
 
@@ -23,8 +24,11 @@ const Button: FC<ButtonProps> = ({
   disabled,
   prefix,
   suffix,
-  loadingProps = {}
+  loadingProps = {},
+  ...buttonProps
 }) => {
+  const restProps = getRestProps(buttonProps);
+
   if (loading) {
     prefix = (
       <Loading
@@ -65,6 +69,7 @@ const Button: FC<ButtonProps> = ({
       type={htmlType}
       className={classNames(prefixCls, className, classes?.wrapper)}
       disabled={disabled || loading || locking}
+      {...restProps}
     >
       {prefix && <div className={classes?.prefix}>{prefix}</div>}
       {children}

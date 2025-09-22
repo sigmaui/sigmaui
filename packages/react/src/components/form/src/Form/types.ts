@@ -1,13 +1,14 @@
 import type { ReactNode } from 'react';
-import type { FormInstance, FormProps } from '@rc-component/form';
+import type { FormProps } from '@rc-component/form';
 import type { FCWithStylesProps, StylesProperties } from '@sigmaui-kit/types';
 
 import type { FormItemOption } from '../FormItem/types';
+import type { FormInstance } from '../hooks/useForm';
 
 export type { StylesProperties }
 
 export interface StoreProviderProps {
-  form: FormInstance
+  form?: FormInstance
   formName?: string
   isAutoTrim?: boolean
   fieldChanges?: { [key: string]: boolean }
@@ -20,7 +21,7 @@ export interface RenderControlArgs {
 }
 
 type RenderProps = ({ form, isSubmitting }: {
-  form: FormInstance,
+  form?: FormInstance,
   isSubmitting: StoreProviderProps['isSubmitting']
 }) => ReactNode;
 

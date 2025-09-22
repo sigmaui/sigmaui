@@ -1,4 +1,8 @@
-import { WithTranslation } from 'react-i18next';
+import type { WithTranslation } from 'react-i18next';
+import type { FormInstance } from '@rc-component/form';
+import type { EventArgs } from '@rc-component/form/lib/interface';
+
+import { type FormItemOption, FormItemTypeEnum } from './FormItem/types';
 
 export type Values = Record<string, any>;
 
@@ -48,7 +52,15 @@ export const getValidateMessage = ({ t, prefix, key, defaultValue }: {
   return validateMessage
 };
 
-export const checkShouldUpdate = (keys?: string | string[], prevValues: Values = {}, currentValues: Values = {}) => {
+export const checkShouldUpdate = (keys?: string | string[], prevValues: Values = {}, currentValues: Values = {}, params = {}) => {
+  const { form, isAutoResetValue, name, autoResetValue }: {
+    info?: any,
+    form?: FormInstance,
+    name?: FormItemOption['name'],
+    isAutoResetValue?: boolean,
+    autoResetValue?: FormItemOption['autoResetValue']
+  } = params;
+
   if (!keys) {
     return true
   }
@@ -57,13 +69,51 @@ export const checkShouldUpdate = (keys?: string | string[], prevValues: Values =
 
   if (keys instanceof Array) {
     return keys.some(key => {
-      return prevValues[key] !== currentValues[key]
+      if (prevValues[key] !== currentValues[key]) {
+        if (isAutoResetValue) {
+          form?.setFieldValue(name, autoResetValue);
+        }
+
+        return true
+      }
+
+      return false
     })
   }
 
   if (typeof keys === 'string') {
-    return prevValues[keys] !== currentValues[keys]
+    if (prevValues[keys] !== currentValues[keys]) {
+      if (isAutoResetValue) {
+        form?.setFieldValue(name, autoResetValue);
+      }
+
+      return true
+    }
+
+    return false
   }
 
   return false
+};
+
+export const getValueFromEvent = (args: EventArgs, params = {}) => {
+  const { valuePropName, type }: { valuePropName?: string, type?: string } = params;
+
+  const event = args[0];
+
+  if (event && event.target && typeof event.target === 'object') {
+    if (valuePropName && valuePropName in event.target) {
+      return (event.target as HTMLInputElement)[valuePropName];
+    }
+
+    if (type) {
+      if (type === FormItemTypeEnum.CHECKBOX) {
+        return (event.target as HTMLInputElement).checked;
+      }
+
+      return (event.target as HTMLInputElement).value
+    }
+  }
+
+  return event;
 };

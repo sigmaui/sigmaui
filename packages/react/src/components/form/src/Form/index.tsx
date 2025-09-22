@@ -1,8 +1,8 @@
-import React, { Fragment, useMemo } from 'react';
+import React, { Fragment, useMemo, useCallback } from 'react';
 import type { FC } from 'react';
 import classNames from 'classnames';
 import RcForm, { useWatch } from '@rc-component/form';
-import type { FormProps as RcFormProps, FormInstance } from '@rc-component/form';
+import type { FormProps as RcFormProps } from '@rc-component/form';
 import { FieldProps, ShouldUpdate } from '@rc-component/form/lib/Field';
 import { StoreProvider, useStoreContext } from '@microui-kit/use-store';
 import { getRestProps } from '@microui-kit/helpers';
@@ -15,7 +15,7 @@ import { styles, type FormProps } from './styles';
 import { StoreProviderProps } from './types';
 
 import FormItem from '../FormItem';
-import useForm from '../hooks/useForm';
+import useForm, { type FormInstance } from '../hooks/useForm';
 
 export {
   useForm,
@@ -55,7 +55,7 @@ const Form: FC<FormProps> = ({
 }) => {
   const restProps = getRestProps(formProps);
 
-  const initialState = {
+  const initialState: StoreProviderProps = {
     formName: name,
     isAutoTrim,
     validateIcons,
@@ -64,7 +64,7 @@ const Form: FC<FormProps> = ({
 
   const storeKey = `${prefixCls}:${name || 'store'}`;
 
-  const [form, storeMethods] = useForm(customForm, {
+  const [form, storeMethods] = useForm<any, StoreProviderProps>(customForm, {
     storeKey,
     initialState
   });
@@ -89,30 +89,43 @@ const Form: FC<FormProps> = ({
     storeMethods.setState({
       isSubmitting: false
     });
-  }
+  };
 
-  const renderChildren = useMemo(() => {
-    const getChildNode = ({ render, type }) => {
-      let childNode: React.ReactNode = null;
+  const getChildNode = useCallback(({ render, type }) => {
+    let childNode: React.ReactNode = null;
 
-      if (render) {
-        childNode = typeof render === 'function' ? render({ form }) : render;
-      } else {
-        if (customRenderItem) {
-          childNode = customRenderItem({ type })
-        }
+    if (render) {
+      childNode = typeof render === 'function' ? render({ form }) : render;
+    } else {
+      if (customRenderItem) {
+        childNode = customRenderItem({ type })
       }
-
-      return childNode
     }
 
+    return childNode
+  }, [customRenderItem])
+
+  const renderChildren = useMemo(() => {
     return (
       <Fragment>
         {
-          items.map(({ type, render, rules, validateField, shouldUpdate, shouldUpdateKey, ...formItemProps }) => {
+          items.map((item) => {
+            const {
+              name,
+              type,
+              render,
+              rules,
+              validateField,
+              shouldUpdate,
+              shouldUpdateKey,
+              autoResetValue,
+              ...formItemProps
+            } = item;
+
             let childNode = getChildNode({ render, type });
 
             const itemProps = {
+              name,
               type,
               formRules,
               fieldRules: rules,
@@ -124,7 +137,15 @@ const Form: FC<FormProps> = ({
             if (shouldUpdate) {
               shouldUpdateFunc = shouldUpdate;
             } else {
-              shouldUpdateFunc = (prevValues, currentValues) => checkShouldUpdate(shouldUpdateKey, prevValues, currentValues);
+              const isAutoResetValue = item.hasOwnProperty('autoResetValue');
+
+              shouldUpdateFunc = (prevValues, currentValues, info) => checkShouldUpdate(shouldUpdateKey, prevValues, currentValues, {
+                info,
+                form,
+                name,
+                isAutoResetValue,
+                autoResetValue
+              });
             }
 
             if (validateField && shouldUpdateFunc) {
@@ -136,8 +157,6 @@ const Form: FC<FormProps> = ({
                   {
                     ((control, meta, form: FormInstance) => {
                       const validate = validateField({ form });
-
-                      console.log('validateField Form');
 
                       if (validate) {
                         const { render, ...validateProps } = validate;

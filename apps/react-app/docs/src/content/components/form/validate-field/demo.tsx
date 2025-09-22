@@ -15,7 +15,7 @@ export const Demo: React.FC<any> = ({ control }) => {
 
   return (
     <Form
-      name="basic"
+      name="validate-field"
       disabled={control.state.disabled}
       onFinish={onFinish}
       initialValues={{
@@ -73,10 +73,8 @@ export const Demo: React.FC<any> = ({ control }) => {
               }
             ]
           },
-          shouldUpdateKey: 'email',
-          validateField: () => {
-            console.log('validateField')
-            return {}
+          onChange: ({ form }) => {
+            form?.handleSetFieldValue('merchant', undefined)
           }
         },
         {
@@ -97,7 +95,8 @@ export const Demo: React.FC<any> = ({ control }) => {
               }
             ]
           },
-          shouldUpdateKey: 'scope',
+          shouldUpdateKey: ['scope'],
+          autoResetValue: null,
           validateField: ({ form }) => {
             const scope = form?.getFieldValue('scope');
 
@@ -108,7 +107,7 @@ export const Demo: React.FC<any> = ({ control }) => {
             console.log('scope', scope)
 
             return {
-              type: FormItemTypeEnum.INPUT
+              // type: FormItemTypeEnum.INPUT
             }
           }
         },
@@ -133,7 +132,7 @@ export const Demo: React.FC<any> = ({ control }) => {
       }}
     >
       {
-        ({ isSubmitting }) => {
+        ({ form, isSubmitting }) => {
           return (
             <Button
               htmlType="submit"
@@ -144,8 +143,9 @@ export const Demo: React.FC<any> = ({ control }) => {
                   marginInline: 8
                 }
               }}
+              onClick={form?.handleSubmit(onFinish)}
             >
-              Submit
+              Submit1
             </Button>
           )
         }
