@@ -94,9 +94,10 @@ export const styles = ({
     },
     popup: {
       position: 'absolute',
-      backgroundColor: 'popup',
-      border: '1px solid',
-      borderColor: 'border',
+      backgroundColor: 'popup.background',
+      borderWidth: 1,
+      borderStyle: 'solid',
+      borderColor: 'popup.border',
       boxShadow: 'popup',
       zIndex: 'popup.select',
       height: 'auto',
