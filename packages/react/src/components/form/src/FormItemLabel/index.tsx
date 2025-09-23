@@ -8,6 +8,10 @@ import { getRestProps } from '@microui-kit/helpers';
 
 import { styles, type FormItemLabelProps } from './styles';
 
+export type {
+  FormItemLabelProps
+}
+
 function getTooltipProps<P extends TooltipProps>(tooltip: P | ReactNode): P | null {
   if (tooltip === undefined || tooltip === null) {
     return null;

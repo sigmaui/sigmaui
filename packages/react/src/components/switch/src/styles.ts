@@ -17,6 +17,7 @@ export const styles = ({
       border: 0,
       padding: 0,
       cursor: 'pointer',
+      fontFamily: 'inherit',
 
       [`& .${prefixCls}-content`]: {
         position: 'relative',
@@ -37,13 +38,12 @@ export const styles = ({
 
         '&:before': {
           content: '""',
-          position: 'absolute',
-          top: 2,
-          left: 2,
-          width: `calc(100% - 4px)`,
-          height: `calc(100% - 4px)`,
+          display: 'inline-block',
+          width: '100%',
+          height: '100%',
           backgroundColor: '#fff',
           borderRadius: 14,
+          verticalAlign: 'top',
           transition: 'all .2s ease-in-out'
         }
       },

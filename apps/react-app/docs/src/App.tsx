@@ -27,6 +27,8 @@ const App = ({ renderer }) => {
 
   // console.log('renderer', renderer);
 
+  console.log('Locales', Locales.Custom.message.required)
+
   return (
     <SigmaUIProvider
       renderer={renderer}

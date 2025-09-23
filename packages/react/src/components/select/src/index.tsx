@@ -7,6 +7,10 @@ import Icon from '@sigmaui-kit/icon';
 
 import { styles, type SelectProps } from './styles';
 
+export type {
+  SelectProps
+}
+
 const SigmaSelect: FC<SelectProps> = ({
   prefixCls,
   className,

@@ -1,5 +1,6 @@
-import InternalForm, { useForm, useWatch } from './Form';
+import InternalForm, { useWatch } from './Form';
 import FormItem from './FormItem';
+import useForm from './hooks/useForm';
 import { FormItemTypeEnum, type FormItemType, type FormItemOption } from './FormItem/types';
 
 export * from './helpers';
@@ -17,6 +18,7 @@ const Form = InternalForm as CompoundedComponent;
 Form.Item = FormItem;
 
 export {
+  useForm,
   FormItemTypeEnum
 }
 

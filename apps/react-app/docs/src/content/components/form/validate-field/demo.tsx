@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Form, { FormItemTypeEnum, FormItemOption } from '@sigmaui-kit/form';
 import LockFilledIcon from '@sigmaui-kit/icons/LockFilledIcon';
 import Button from '@sigmaui-kit/button';
-import type { InputTypes } from '@sigmaui-kit/input';
+import type { InputTypes, InputProps } from '@sigmaui-kit/input';
 import ComponentPreview from '@docs/components/ComponentPreview';
 import { formContent } from '..';
 
@@ -40,7 +40,7 @@ export const Demo: React.FC<any> = ({ control }) => {
           // validateMessages: {
           //   required: 'Please do not leave blank',
           // }
-        } as FormItemOption<InputTypes>,
+        } as FormItemOption<InputTypes, InputProps>,
         {
           label: 'Password',
           name: 'password',

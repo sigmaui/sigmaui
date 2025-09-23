@@ -1,8 +1,10 @@
 import React, { ReactNode } from 'react';
 import type { FieldProps } from '@rc-component/form/lib/Field';
-import type { RuleObject, Meta } from '@rc-component/form/lib/interface';
+import type { RuleObject, Meta, Rule } from '@rc-component/form/lib/interface';
 import type { FCWithStylesProps, StylesProperties, IStylesProps } from '@sigmaui-kit/types';
 
+import type { FormItemLabelProps } from '../FormItemLabel';
+import type { FormItemControlProps } from '../FormItemControl';
 import type { LabelTooltipType } from '../FormItemLabel/types';
 import type { FormInstance } from '../hooks/useForm';
 
@@ -50,7 +52,9 @@ export type FieldChildrenType =
   React.ReactElement
   | ((control: ChildProps, meta: Meta, form: FormInstance) => React.ReactNode);
 
-export interface FormItemOption<Styles = any> extends FieldProps, IStylesProps<Styles> {
+export interface FormItemOption<Styles = any, IFieldProps = {
+  [key: string]: any
+}> extends FieldProps, IStylesProps<Styles> {
   name: string
   label?: ReactNode
   type?: FormItemType
@@ -63,9 +67,9 @@ export interface FormItemOption<Styles = any> extends FieldProps, IStylesProps<S
   note?: ReactNode
   tooltip?: LabelTooltipType
   validateMessages?: ValidateMessages
-  fieldProps?: { [key: string]: any }
-  labelProps?: { [key: string]: any }
-  controlProps?: { [key: string]: any },
+  fieldProps?: IFieldProps
+  labelProps?: FormItemLabelProps
+  controlProps?: FormItemControlProps,
   onChange?: ({ form, preValue }: OnChangeArgs) => any
   validateField?: ({ form }: ValidateFieldArgs) => any
   shouldUpdateKey?: string | string[]
@@ -73,6 +77,6 @@ export interface FormItemOption<Styles = any> extends FieldProps, IStylesProps<S
 }
 
 export interface IProps<Styles> extends Omit<FieldProps, 'children'>, Omit<FormItemOption, 'controller' | 'render' | 'rules' | 'children' | 'name' | '_style' | 'extendStyle'>, FCWithStylesProps<Styles> {
-  formRules?: { [key: string]: any }
+  formRules?: { [key: string]: FieldProps['rules'] }
   fieldRules?: FieldProps['rules']
 }

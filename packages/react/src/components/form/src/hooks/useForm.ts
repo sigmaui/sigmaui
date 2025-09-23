@@ -19,7 +19,7 @@ export interface FormInstance<Values = any> extends RcFormInstance<Values> {
   storeMethods?: StoreMethods<any>;
 }
 
-export default function useForm<Values = any, T extends object = any>(form?: FormInstance<Values>, params: {
+export function useForm<Values = any, T extends object = any>(form?: FormInstance<Values>, params: {
   storeKey?: string
   initialState?: T
 } = {}): [FormInstance<Values>, StoreMethods<T>] {
@@ -97,3 +97,5 @@ export default function useForm<Values = any, T extends object = any>(form?: For
 
   return [wrapForm, storeMethods]
 }
+
+export default useForm

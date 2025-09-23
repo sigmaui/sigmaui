@@ -356,6 +356,7 @@ export const switchSizes = {
     handle: {
       _: {
         width: heights.switch.default,
+        padding: 2
       },
       xs: {
         width: heights.xs,

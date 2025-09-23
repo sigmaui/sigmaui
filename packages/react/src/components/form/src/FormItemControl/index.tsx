@@ -10,6 +10,10 @@ import FormItemError from '../FormItemError';
 import { styles, type FormItemControlProps } from './styles';
 import { StoreProviderProps } from '../Form/types';
 
+export type {
+  FormItemControlProps
+}
+
 const FormItemControl: FC<FormItemControlProps> = ({
   prefixCls,
   className,
