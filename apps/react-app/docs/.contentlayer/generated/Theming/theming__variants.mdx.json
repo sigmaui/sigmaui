@@ -1,8 +1,8 @@
 {
   "title": "Variants",
-  "description": "The list of available variant tokens\r",
+  "description": "The list of available variant tokens",
   "body": {
-    "raw": "\r\n## Usage",
+    "raw": "\n## Usage",
     "code": "var Component=(()=>{var u=Object.create;var o=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var d=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var _=(n,a)=>()=>(a||n((a={exports:{}}).exports,a),a.exports),j=(n,a)=>{for(var t in a)o(n,t,{get:a[t],enumerable:!0})},r=(n,a,t,i)=>{if(a&&typeof a==\"object\"||typeof a==\"function\")for(let s of d(a))!p.call(n,s)&&s!==t&&o(n,s,{get:()=>a[s],enumerable:!(i=x(a,s))||i.enumerable});return n};var g=(n,a,t)=>(t=n!=null?u(f(n)):{},r(a||!n||!n.__esModule?o(t,\"default\",{value:n,enumerable:!0}):t,n)),k=n=>r(o({},\"__esModule\",{value:!0}),n);var l=_((C,c)=>{c.exports=_jsx_runtime});var M={};j(M,{default:()=>m,frontmatter:()=>v});var e=g(l()),v={name:\"variants\",title:\"Variants\",description:\"The list of available variant tokens\"};function h(n){let a={a:\"a\",h2:\"h2\",span:\"span\",...n.components};return(0,e.jsxs)(a.h2,{id:\"usage\",children:[(0,e.jsx)(a.a,{className:\"heading-anchor\",\"aria-label\":\"Link to section\",href:\"#usage\",children:(0,e.jsx)(a.span,{className:\"icon icon-link\"})}),\"Usage\"]})}function m(n={}){let{wrapper:a}=n.components||{};return a?(0,e.jsx)(a,{...n,children:(0,e.jsx)(h,{...n})}):h(n)}return k(M);})();\n;return Component;"
   },
   "_id": "theming/variants.mdx",
