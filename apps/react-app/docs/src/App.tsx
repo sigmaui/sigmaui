@@ -1,15 +1,16 @@
-import { Outlet } from 'react-router'
-import { MDXProvider } from '@mdx-js/react'
-import { SigmaUIProvider, THEME_MODE } from '@sigmaui-kit/provider'
-import { useRouter } from '@microui-kit/use-router'
-import Layout from '@sigmaui-kit/layout'
-import { getRoute } from '@docs/helpers'
-import themeConfig, { globalStyle } from 'packages/common/theme/config'
-import { routes } from './router'
+import { Outlet } from 'react-router';
+import { MDXProvider } from '@mdx-js/react';
+import { SigmaUIProvider, THEME_MODE } from '@sigmaui-kit/provider';
+import { useRouter } from '@microui-kit/use-router';
+import Layout from '@sigmaui-kit/layout';
+import { Locales } from '@sigmaui-kit/locale';
+import { getRoute } from '@docs/helpers';
+import themeConfig, { globalStyle } from 'packages/common/theme/config';
+import { routes } from './router';
 
-import { MDXComponents } from './components/mdx'
-import Header from './components/layout/Header'
-import Sidebar from './components/layout/Sidebar'
+import { MDXComponents } from './components/mdx';
+import Header from './components/layout/Header';
+import Sidebar from './components/layout/Sidebar';
 
 const App = ({ renderer }) => {
   const router = useRouter()

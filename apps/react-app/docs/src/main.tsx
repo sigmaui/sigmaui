@@ -3,7 +3,10 @@ import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router';
 import { createRenderer } from '@microui-kit/create-renderer';
 import { PlatformProvider } from '@microui-kit/platform';
+import { Locales } from '@sigmaui-kit/locale';
 import { felaRendererConfig } from 'packages/common/theme/config';
+
+import en from './locales/en';
 
 const renderer = createRenderer(felaRendererConfig)
 
@@ -13,7 +16,9 @@ import App from './App'
 const router = createRouter({
   renderer,
   App,
-})
+});
+
+Locales.__INIT__(en);
 
 const app = (
   <PlatformProvider>
