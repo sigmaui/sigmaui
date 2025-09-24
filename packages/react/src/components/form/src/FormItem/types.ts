@@ -55,7 +55,7 @@ export type FieldChildrenType =
 export interface FormItemOption<Styles = any, IFieldProps = {
   [key: string]: any
 }> extends FieldProps, IStylesProps<Styles> {
-  name: FieldProps['name']
+  name: string | FieldProps['name']
   label?: ReactNode
   type?: FormItemType
   required?: boolean | RuleObject
@@ -76,7 +76,8 @@ export interface FormItemOption<Styles = any, IFieldProps = {
   autoResetValue?: null | number | boolean | ''
 }
 
-export interface IProps<Styles> extends Omit<FieldProps, 'children' | 'name'>, Omit<FormItemOption, 'controller' | 'render' | 'rules' | 'children' | '_style' | 'extendStyle'>, FCWithStylesProps<Styles> {
+export interface IProps<Styles> extends Omit<FieldProps, 'children' | 'name'>, Omit<FormItemOption, 'controller' | 'render' | 'rules' | 'name' | 'children' | '_style' | 'extendStyle'>, FCWithStylesProps<Styles> {
+  name?: string | FieldProps['name']
   formRules?: { [key: string]: FieldProps['rules'] }
   fieldRules?: FieldProps['rules']
 }
