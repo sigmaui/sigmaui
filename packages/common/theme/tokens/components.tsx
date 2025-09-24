@@ -106,6 +106,7 @@ export const components = {
   },
   Form: {
     defaultProps: {
+      isBlurAutoValidate: true,
       customRenderItem: formCustomRenderItem,
       formRules,
       // validateIcons: {

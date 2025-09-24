@@ -24,6 +24,12 @@ export const tooltipColors = {
   text: '#fff'
 }
 
+export const popupColors = {
+  background: '#fff',
+  text: '#000',
+  border: 'rgba(41, 43, 51, 0.5)'
+}
+
 export const colors = {
   base: '#f77f00',
   secondary: '#5856D6',
@@ -36,7 +42,6 @@ export const colors = {
   active: '#f77f00',
   placeholder: 'rgba(0,0,0,0.25)',
   description: 'rgba(0,0,0,0.45)',
-  popup: '#fff',
   fillWeak: 'rgba(41, 43, 51, 0.05)',
   neutral: 'rgba(41, 43, 51, 0.7)',
   bgEmphasized: '#e9e8e6',
@@ -44,5 +49,6 @@ export const colors = {
   input: inputColors,
   button: buttonColors,
   icon: iconColors,
-  tooltip: tooltipColors
+  tooltip: tooltipColors,
+  popup: popupColors
 } as const

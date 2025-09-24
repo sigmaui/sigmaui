@@ -23,7 +23,7 @@ export enum FormItemTypeEnum {
   TAG = 'tag'
 }
 
-export type FormItemType = `${FormItemTypeEnum}`;
+export type FormItemType = `${FormItemTypeEnum}` | (string & {});
 
 export interface ValidateMessages {
   required?: string

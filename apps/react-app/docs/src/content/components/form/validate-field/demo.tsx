@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Form, { FormItemTypeEnum, FormItemOption } from '@sigmaui-kit/form';
+import Form, { FormItemTypeEnum, FormItemOption, useForm } from '@sigmaui-kit/form';
 import LockFilledIcon from '@sigmaui-kit/icons/LockFilledIcon';
 import Button from '@sigmaui-kit/button';
 import type { InputTypes, InputProps } from '@sigmaui-kit/input';
@@ -9,12 +9,24 @@ import { formContent } from '..';
 export const Demo: React.FC<any> = ({ control }) => {
   console.log('control', control);
 
+  const [form] = useForm({
+    name: 'validate-field'
+  });
+
+  const { useStoreSelector } = form.storeMethods;
+
+  const isDirty = useStoreSelector((state) => state.isDirty);
+  const isSubmitting = useStoreSelector((state) => state.isSubmitting);
+
+  console.log('isDirty', isDirty, isSubmitting, form)
+
   const onFinish = (values) => {
     console.log('onFinish', values);
   }
 
   return (
     <Form
+      form={form}
       name="validate-field"
       disabled={control.state.disabled}
       onFinish={onFinish}
@@ -84,7 +96,7 @@ export const Demo: React.FC<any> = ({ control }) => {
           name: 'merchant',
           type: FormItemTypeEnum.SELECT,
           required: true,
-          defaultValue: 'merchant1',
+          // defaultValue: 'merchant1',
           fieldProps: {
             placeholder: 'Select merchant',
             options: [
@@ -144,7 +156,9 @@ export const Demo: React.FC<any> = ({ control }) => {
       }}
     >
       {
-        ({ form, isSubmitting }) => {
+        ({ form, isSubmitting, isDirty }) => {
+          console.log('isDirty', isDirty)
+
           return (
             <Button
               htmlType="submit"

@@ -1,7 +1,9 @@
-import React, { useCallback } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useForm as useRcForm, type FormInstance as RcFormInstance } from '@rc-component/form';
 import { useStore, StoreMethods } from '@microui-kit/use-store';
-import type { Meta, NamePath } from '@rc-component/form/lib/interface';
+import type { NamePath } from '@rc-component/form/lib/interface';
+
+import type { StoreInitialState } from '../Form/types';
 
 export type FieldValues = Record<string, any>;
 export type SubmitHandler<T> = (data: T, event?: React.BaseSyntheticEvent) => unknown | Promise<unknown>;
@@ -10,31 +12,68 @@ export type SubmitErrorHandler<T> = (errors: T, event?: React.BaseSyntheticEvent
 export type UseFormHandleSubmit<TFieldValues = any, TTransformedValues = TFieldValues> = (onValid: SubmitHandler<TTransformedValues>, onInvalid?: SubmitErrorHandler<TFieldValues>) => (e?: React.BaseSyntheticEvent) => Promise<void>;
 
 export interface FormInstance<Values = any> extends RcFormInstance<Values> {
+  name?: string;
   storeKey?: string;
   scrollToField?: (name: NamePath, options?: ScrollOptions) => void;
   focusField?: (name: NamePath) => void;
   getFieldInstance?: (name: NamePath) => any;
   handleSetFieldValue: (name: NamePath, value: any, params?: { isValidateField?: boolean }) => any;
   handleSubmit: UseFormHandleSubmit<Values, any>;
-  storeMethods?: StoreMethods<any>;
+  storeMethods: StoreMethods<any>;
 }
 
-export function useForm<Values = any, T extends object = any>(form?: FormInstance<Values>, params: {
+export function useForm<Values = any, T extends StoreInitialState = any>(params: {
+  name: string
+  form?: FormInstance<Values>,
   storeKey?: string
   initialState?: T
-} = {}): [FormInstance<Values>, StoreMethods<T>] {
+}): [FormInstance<Values>] {
   const [rcForm] = useRcForm();
-  const { initialState } = params;
+  const { name, form, initialState } = params;
 
-  const storeKey = params.storeKey || form?.storeKey;
+  let storeKey = params.storeKey || form?.storeKey;
+
+  if (!storeKey) {
+    storeKey = `form-store:${name}`;
+  }
 
   const storeMethods: StoreMethods<T> = useStore<T>({
     storeKey,
-    initialState
+    initialState: {
+      formName: name,
+      ...initialState
+    } as T,
+    handlers: ({ setState }) => {
+      return {
+        updateState: (dataState: any) => {
+          setState(dataState);
+        },
+        updateFieldChange: (key: any) => {
+          setState(({ changedFields = {} }) => {
+            if (typeof key === 'object') {
+              return {
+                ...changedFields,
+                ...key
+              }
+            }
+
+            return {
+              ...changedFields,
+              [key]: true
+            }
+          });
+        }
+      };
+    }
   });
 
-  const wrapForm: FormInstance<Values> = React.useMemo(() => {
+  useEffect(() => {
+    storeMethods.setState(initialState as any)
+  }, [initialState])
+
+  const wrapForm: FormInstance<Values> = useMemo(() => {
     const newForm = form ?? {
+      name,
       storeKey,
       ...rcForm,
       scrollToField: (name: NamePath) => {
@@ -59,9 +98,8 @@ export function useForm<Values = any, T extends object = any>(form?: FormInstanc
           }
 
           storeMethods.setState({
-            // @ts-ignore
             isSubmitting: true
-          });
+          } as any);
 
           try {
             const values = await wrapForm.validateFields();
@@ -80,9 +118,8 @@ export function useForm<Values = any, T extends object = any>(form?: FormInstanc
           }
 
           storeMethods.setState({
-            // @ts-ignore
             isSubmitting: false
-          });
+          } as any);
         }
       },
       storeMethods
@@ -95,7 +132,7 @@ export function useForm<Values = any, T extends object = any>(form?: FormInstanc
     return newForm
   }, [form, rcForm])
 
-  return [wrapForm, storeMethods]
+  return [wrapForm]
 }
 
 export default useForm

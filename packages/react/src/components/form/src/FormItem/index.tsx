@@ -17,7 +17,7 @@ import { FormInstance } from '../hooks/useForm';
 import { styles, type FormItemProps } from './styles';
 
 import { type FormItemType, FormItemTypeEnum, type FormItemOption, type FieldChildrenType } from './types';
-import { StoreProviderProps } from '../Form/types';
+import { StoreInitialState } from '../Form/types';
 
 export type {
   FormItemType,
@@ -177,11 +177,12 @@ const FormItem: FC<FormItemProps> = ({
   ...formItemProps
 }) => {
   const restProps = getRestProps(formItemProps);
-  const { useStoreSelector, handlers } = useStoreContext<StoreProviderProps>();
+  const { useStoreSelector, handlers, setState } = useStoreContext<StoreInitialState>();
 
   const form = useStoreSelector((state) => state.form);
   const formName = useStoreSelector((state) => state.formName);
   const isAutoTrim = useStoreSelector((state) => state.isAutoTrim);
+  const isBlurAutoValidate = useStoreSelector((state) => state.isBlurAutoValidate);
 
   const rules = getRules({ type, required, formRules, fieldRules, validateMessages });
 
@@ -204,6 +205,10 @@ const FormItem: FC<FormItemProps> = ({
       const onChange = (...args: EventArgs) => {
         // console.log('control', args);
         control.onChange?.(...args);
+
+        setState?.({
+          isDirty: true
+        });
 
         if (typeof onChangeCustom === 'function') {
           let value: StoreValue;
@@ -245,18 +250,24 @@ const FormItem: FC<FormItemProps> = ({
         childProps['aria-disabled'] = 'true';
       }
 
-      if (isAutoTrim) {
+      if (isAutoTrim || isBlurAutoValidate) {
         childProps.onBlur = (e: React.MouseEvent) => {
           fieldProps.onBlur?.(e);
 
-          if (!type || type === FormItemTypeEnum.INPUT || type === FormItemTypeEnum.TEXTAREA || type === FormItemTypeEnum.EMAIL || type === FormItemTypeEnum.URL) {
-            const value = (e.target as HTMLInputElement).value;
+          if (isAutoTrim) {
+            if (!type || type === FormItemTypeEnum.INPUT || type === FormItemTypeEnum.TEXTAREA || type === FormItemTypeEnum.EMAIL || type === FormItemTypeEnum.URL) {
+              const value = (e.target as HTMLInputElement).value;
 
-            if (value) {
-              form.handleSetFieldValue?.(meta.name, value.trim(), {
-                isValidateField: true
-              });
+              if (value) {
+                form.handleSetFieldValue?.(meta.name, value.trim(), {
+                  isValidateField: true
+                });
+              }
             }
+          }
+
+          if (isBlurAutoValidate) {
+            form.validateFields(meta.name);
           }
         }
       }

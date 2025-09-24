@@ -7,11 +7,13 @@ import type { FormInstance } from '../hooks/useForm';
 
 export type { StylesProperties }
 
-export interface StoreProviderProps {
+export interface StoreInitialState {
   form?: FormInstance
   formName?: string
   isAutoTrim?: boolean
-  fieldChanges?: { [key: string]: boolean }
+  isBlurAutoValidate?: boolean
+  isDirty?: boolean
+  changedFields?: { [key: string]: boolean }
   validateIcons?: IProps<any>['validateIcons']
   isSubmitting?: boolean
 }
@@ -22,7 +24,8 @@ export interface RenderControlArgs {
 
 type RenderProps = ({ form, isSubmitting }: {
   form?: FormInstance,
-  isSubmitting: StoreProviderProps['isSubmitting']
+  isSubmitting: StoreInitialState['isSubmitting']
+  isDirty: StoreInitialState['isDirty']
 }) => ReactNode;
 
 export interface IProps<Styles, Values = any> extends Omit<FormProps, 'children'>, Omit<FCWithStylesProps<Styles>, 'children'> {
@@ -34,6 +37,7 @@ export interface IProps<Styles, Values = any> extends Omit<FormProps, 'children'
   validateIcons?: { [key: string]: ReactNode }
   disabled?: boolean
   isAutoTrim?: boolean
+  isBlurAutoValidate?: boolean
   onFinish?: (values: Values) => unknown | Promise<unknown>
   children?: RenderProps | ReactNode
   layout?: { col?: number, space?: number }

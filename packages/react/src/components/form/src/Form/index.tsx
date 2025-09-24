@@ -1,7 +1,7 @@
 import React, { Fragment, useMemo, useCallback } from 'react';
 import type { FC } from 'react';
 import classNames from 'classnames';
-import RcForm, { useWatch } from '@rc-component/form';
+import RcForm, { useWatch, FormProvider } from '@rc-component/form';
 import type { FormProps as RcFormProps } from '@rc-component/form';
 import { FieldProps, ShouldUpdate } from '@rc-component/form/lib/Field';
 import { StoreProvider, useStoreContext } from '@microui-kit/use-store';
@@ -12,24 +12,30 @@ import { Locales } from '@sigmaui-kit/locale';
 import { getValidateMessage, checkShouldUpdate } from '../helpers';
 
 import { styles, type FormProps } from './styles';
-import { StoreProviderProps } from './types';
+import { StoreInitialState } from './types';
 
 import FormItem from '../FormItem';
 import useForm, { type FormInstance } from '../hooks/useForm';
 
 export {
+  FormProvider,
   useForm,
   useWatch
 }
 
+export type {
+  FormProps
+}
+
 const Children = ({ children, className }: { children?: FormProps['children'], className?: string }) => {
-  const { useStoreSelector } = useStoreContext<StoreProviderProps>();
+  const { useStoreSelector } = useStoreContext<StoreInitialState>();
 
   const form = useStoreSelector((state) => state.form);
   const isSubmitting = useStoreSelector((state) => state.isSubmitting);
+  const isDirty = useStoreSelector((state) => state.isDirty);
 
   if (typeof children === 'function') {
-    children = children({ form, isSubmitting })
+    children = children({ form, isSubmitting, isDirty })
   }
 
   return (
@@ -53,6 +59,7 @@ const Form: FC<FormProps> = ({
   validateIcons,
   disabled,
   isAutoTrim = true,
+  isBlurAutoValidate,
   onFinish: onFinishCustom,
   initialValues,
   layout,
@@ -60,19 +67,25 @@ const Form: FC<FormProps> = ({
 }) => {
   const restProps = getRestProps(formProps);
 
-  const initialState: StoreProviderProps = {
+  const initialState: StoreInitialState = {
     formName: name,
     isAutoTrim,
+    isBlurAutoValidate,
     validateIcons,
-    isSubmitting: false
+    isSubmitting: false,
+    isDirty: false
   };
 
   const storeKey = `${prefixCls}:${name || 'store'}`;
 
-  const [form, storeMethods] = useForm<any, StoreProviderProps>(customForm, {
+  const [form] = useForm<any, StoreInitialState>({
+    name,
+    form: customForm,
     storeKey,
     initialState
   });
+
+  const storeMethods = form.storeMethods;
 
   // console.log('storeMethods', storeMethods);
 
@@ -229,13 +242,15 @@ const Form: FC<FormProps> = ({
     }
   }, []);
 
+  const formName = form?.name;
+
   return (
-    <StoreProvider<StoreProviderProps>
-      storeKey={storeKey}
+    <StoreProvider<StoreInitialState>
+      storeKey={form.storeKey}
     >
       <RcForm
-        id={name}
-        name={name}
+        id={formName}
+        name={formName}
         form={form}
         className={classNames(prefixCls, className, classes?.wrapper)}
         {...restProps}
