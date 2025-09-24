@@ -109,9 +109,9 @@ export const components = {
       isBlurAutoValidate: true,
       customRenderItem: formCustomRenderItem,
       formRules,
-      // validateIcons: {
-      //   error: <AlertErrorIcon/>
-      // }
+      validateIcons: {
+        error: <AlertErrorIcon/>
+      }
     },
   }
 }

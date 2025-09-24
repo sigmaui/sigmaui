@@ -68,22 +68,16 @@ const Form: FC<FormProps> = ({
   const restProps = getRestProps(formProps);
 
   const initialState: StoreInitialState = {
-    formName: name,
     isAutoTrim,
     isBlurAutoValidate,
-    validateIcons,
-    isSubmitting: false,
-    isDirty: false
+    validateIcons
   };
-
-  const storeKey = `${prefixCls}:${name || 'store'}`;
 
   const [form] = useForm<any, StoreInitialState>({
     name,
     form: customForm,
-    storeKey,
     initialState
-  });
+  } as any);
 
   const storeMethods = form.storeMethods;
 
@@ -96,8 +90,6 @@ const Form: FC<FormProps> = ({
   }
 
   const onFinish: RcFormProps['onFinish'] = async (values) => {
-    const storeState = storeMethods.getState();
-
     storeMethods.setState({
       isSubmitting: true
     });
@@ -247,6 +239,7 @@ const Form: FC<FormProps> = ({
   return (
     <StoreProvider<StoreInitialState>
       storeKey={form.storeKey}
+      handlers={storeMethods.handlers}
     >
       <RcForm
         id={formName}

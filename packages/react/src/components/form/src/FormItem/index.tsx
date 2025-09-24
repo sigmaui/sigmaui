@@ -12,7 +12,7 @@ import { isObject, getValueFromEvent } from '../helpers';
 
 import FormItemLabel from '../FormItemLabel';
 import FormItemControl from '../FormItemControl';
-import { FormInstance } from '../hooks/useForm';
+import type { FormInstance, Handlers } from '../hooks/useForm';
 
 import { styles, type FormItemProps } from './styles';
 
@@ -176,17 +176,18 @@ const FormItem: FC<FormItemProps> = ({
   initialValue,
   ...formItemProps
 }) => {
-  const restProps = getRestProps(formItemProps);
-  const { useStoreSelector, handlers, setState } = useStoreContext<StoreInitialState>();
+  if (typeof name === 'string' && name.includes('.')) {
+    name = name.split('.')
+  }
 
-  const form = useStoreSelector((state) => state.form);
+  const restProps = getRestProps(formItemProps);
+  const { useStoreSelector, handlers, setState } = useStoreContext<StoreInitialState, Handlers>();
+
   const formName = useStoreSelector((state) => state.formName);
   const isAutoTrim = useStoreSelector((state) => state.isAutoTrim);
   const isBlurAutoValidate = useStoreSelector((state) => state.isBlurAutoValidate);
 
-  const rules = getRules({ type, required, formRules, fieldRules, validateMessages });
-
-  console.log('form FormItem', form)
+  const rules = getRules({ type, required, formRules, fieldRules, validateMessages })
 
   const { messageVariables = {} } = restProps;
 
@@ -209,6 +210,8 @@ const FormItem: FC<FormItemProps> = ({
         setState?.({
           isDirty: true
         });
+
+        handlers?.updateFieldChange?.(meta.name);
 
         if (typeof onChangeCustom === 'function') {
           let value: StoreValue;
@@ -250,6 +253,8 @@ const FormItem: FC<FormItemProps> = ({
         childProps['aria-disabled'] = 'true';
       }
 
+      console.log('isBlurAutoValidate', isBlurAutoValidate)
+
       if (isAutoTrim || isBlurAutoValidate) {
         childProps.onBlur = (e: React.MouseEvent) => {
           fieldProps.onBlur?.(e);
@@ -271,6 +276,8 @@ const FormItem: FC<FormItemProps> = ({
           }
         }
       }
+
+      console.log('childProps', childProps)
 
       return (
         <div className={classNames(prefixCls, className, classes?.wrapper, {

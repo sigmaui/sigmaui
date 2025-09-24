@@ -16,12 +16,15 @@ export const Demo: React.FC<any> = ({ control }) => {
   const { useStoreSelector } = form.storeMethods;
 
   const isDirty = useStoreSelector((state) => state.isDirty);
-  const isSubmitting = useStoreSelector((state) => state.isSubmitting);
+  // const isSubmitting = useStoreSelector((state) => state.isSubmitting);
 
-  console.log('isDirty', isDirty, isSubmitting, form)
+  console.log('isDirty', isDirty)
 
   const onFinish = (values) => {
-    console.log('onFinish', values);
+    console.log('values', values)
+
+    const changedValues = form.getChangedValues();
+    console.log('changedValues', changedValues);
   }
 
   return (
@@ -114,6 +117,9 @@ export const Demo: React.FC<any> = ({ control }) => {
           autoResetValue: null,
           validateField: ({ form }) => {
             const scope = form?.getFieldValue('scope');
+            const description = form?.getFieldValue('extra.description');
+
+            console.log('description', description)
 
             if (!scope) {
               return
@@ -128,7 +134,7 @@ export const Demo: React.FC<any> = ({ control }) => {
         },
         {
           label: 'Description',
-          name: 'description',
+          name: 'extra.description',
           type: FormItemTypeEnum.TEXTAREA,
           required: true,
           _style: {
@@ -157,7 +163,7 @@ export const Demo: React.FC<any> = ({ control }) => {
     >
       {
         ({ form, isSubmitting, isDirty }) => {
-          console.log('isDirty', isDirty)
+          // console.log('isDirty', isDirty);
 
           return (
             <Button

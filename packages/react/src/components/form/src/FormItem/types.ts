@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import type { FieldProps } from '@rc-component/form/lib/Field';
-import type { RuleObject, Meta, Rule } from '@rc-component/form/lib/interface';
+import type { RuleObject, Meta } from '@rc-component/form/lib/interface';
 import type { FCWithStylesProps, StylesProperties, IStylesProps } from '@sigmaui-kit/types';
 
 import type { FormItemLabelProps } from '../FormItemLabel';
@@ -55,7 +55,7 @@ export type FieldChildrenType =
 export interface FormItemOption<Styles = any, IFieldProps = {
   [key: string]: any
 }> extends FieldProps, IStylesProps<Styles> {
-  name: string
+  name: FieldProps['name']
   label?: ReactNode
   type?: FormItemType
   required?: boolean | RuleObject
@@ -76,7 +76,7 @@ export interface FormItemOption<Styles = any, IFieldProps = {
   autoResetValue?: null | number | boolean | ''
 }
 
-export interface IProps<Styles> extends Omit<FieldProps, 'children'>, Omit<FormItemOption, 'controller' | 'render' | 'rules' | 'children' | 'name' | '_style' | 'extendStyle'>, FCWithStylesProps<Styles> {
+export interface IProps<Styles> extends Omit<FieldProps, 'children' | 'name'>, Omit<FormItemOption, 'controller' | 'render' | 'rules' | 'children' | '_style' | 'extendStyle'>, FCWithStylesProps<Styles> {
   formRules?: { [key: string]: FieldProps['rules'] }
   fieldRules?: FieldProps['rules']
 }

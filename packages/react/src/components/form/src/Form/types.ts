@@ -10,12 +10,12 @@ export type { StylesProperties }
 export interface StoreInitialState {
   form?: FormInstance
   formName?: string
+  isDirty?: boolean
+  isSubmitting?: boolean
+  changedFields?: { [key: string]: boolean }
   isAutoTrim?: boolean
   isBlurAutoValidate?: boolean
-  isDirty?: boolean
-  changedFields?: { [key: string]: boolean }
   validateIcons?: IProps<any>['validateIcons']
-  isSubmitting?: boolean
 }
 
 export interface RenderControlArgs {
@@ -28,9 +28,15 @@ type RenderProps = ({ form, isSubmitting }: {
   isDirty: StoreInitialState['isDirty']
 }) => ReactNode;
 
-export interface IProps<Styles, Values = any> extends Omit<FormProps, 'children'>, Omit<FCWithStylesProps<Styles>, 'children'> {
-  name: string
-  form?: FormInstance<Values>
+type Props<Values> = | {
+  name: string;
+  form?: undefined;
+} | {
+  name?: string;
+  form: FormInstance<Values>;
+};
+
+interface BaseProps<Styles, Values> extends Omit<FormProps, 'children'>, Omit<FCWithStylesProps<Styles>, 'children'> {
   items?: FormItemOption[]
   customRenderItem?: (args: RenderControlArgs) => ReactNode
   formRules?: { [key: string]: any }
@@ -42,3 +48,7 @@ export interface IProps<Styles, Values = any> extends Omit<FormProps, 'children'
   children?: RenderProps | ReactNode
   layout?: { col?: number, space?: number }
 }
+
+export type IProps<Styles, Values = any> =
+  | (BaseProps<Styles, Values> & { form?: FormInstance<Values>; name: string })
+  | (BaseProps<Styles, Values> & { form: FormInstance<Values>; name?: string });
