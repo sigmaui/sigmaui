@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
+import Box from '@microui-kit/box'
 import Select from '@sigmaui-kit/select'
 import ComponentPreview from '@docs/components/ComponentPreview'
 import { selectContent } from '..'
@@ -7,31 +8,65 @@ export const Demo: React.FC<any> = ({ control }) => {
   console.log('control', control)
 
   return (
-    <Select
-      allowClear
-      size={control.state.size}
-      placeholder="Select size Select size Select size Select size"
-      options={[
-        {
-          label: 'Small Small Small Small Small Small',
-          value: 'small',
-          // disabled: true
-        },
-        {
-          label: 'Middle',
-          value: 'middle',
-        },
-        {
-          label: 'Large',
-          value: 'large',
-        },
-      ]}
-      _style={{
-        wrapper: {
-          width: 200
-        }
+    <Box
+      css={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 12
       }}
-    ></Select>
+    >
+      <Select
+        allowClear
+        size={control.state.size}
+        placeholder="Select size Select size Select size Select size"
+        options={[
+          {
+            label: 'Small Small Small Small Small Small',
+            value: 'small',
+            // disabled: true
+          },
+          {
+            label: 'Middle',
+            value: 'middle',
+          },
+          {
+            label: 'Large',
+            value: 'large',
+          },
+        ]}
+        _style={{
+          wrapper: {
+            width: 200
+          }
+        }}
+      />
+      <Select
+        allowClear
+        mode="tags"
+        size={control.state.size}
+        placeholder="Select size Select size Select size Select size"
+        options={[
+          {
+            label: 'Small Small Small Small Small Small',
+            value: 'small',
+            // disabled: true
+          },
+          {
+            label: 'Middle',
+            value: 'middle',
+          },
+          {
+            label: 'Large',
+            value: 'large',
+          },
+        ]}
+        _style={{
+          wrapper: {
+            width: 200
+          }
+        }}
+      />
+    </Box>
   )
 }
 export const UsageSelectComponent = () => {

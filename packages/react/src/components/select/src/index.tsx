@@ -3,7 +3,9 @@ import classNames from 'classnames';
 import RcSelect from '@rc-component/select';
 import { getRestProps } from '@microui-kit/helpers';
 import { withStyles } from '@sigmaui-kit/with-styles';
-import Icon from '@sigmaui-kit/icon';
+import ChevronDownSingleIcon from '@sigmaui-kit/icons/ChevronDownSingleIcon';
+import XMarkIcon from '@sigmaui-kit/icons/XMarkIcon';
+import CheckIcon from '@sigmaui-kit/icons/CheckIcon';
 
 import { styles, type SelectProps } from './styles';
 
@@ -23,45 +25,15 @@ const SigmaSelect: FC<SelectProps> = ({
   const restProps = getRestProps(selectProps)
 
   const suffixIcon = (
-    <Icon
-      icon="chevron-down"
-      _style={{
-        wrapper: {
-          '& svg': {
-            width: 14,
-            height: 14
-          }
-        }
-      }}
-    />
+    <ChevronDownSingleIcon/>
   )
 
   const clearIcon = (
-    <Icon
-      icon="x-mark"
-      _style={{
-        wrapper: {
-          '& svg': {
-            width: 14,
-            height: 14
-          }
-        }
-      }}
-    />
+    <XMarkIcon/>
   )
 
   const menuItemSelectedIcon = (
-    <Icon
-      icon="check"
-      _style={{
-        wrapper: {
-          '& svg': {
-            width: 14,
-            height: 14
-          }
-        }
-      }}
-    />
+    <CheckIcon/>
   )
 
   const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear

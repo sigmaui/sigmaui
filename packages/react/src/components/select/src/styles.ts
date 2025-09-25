@@ -72,7 +72,12 @@ export const styles = ({
         right: 10,
         transform: 'translateY(-50%)',
         color: 'rgba(0,0,0,0.25)',
-        lineHeight: 0
+        lineHeight: 0,
+
+        '& svg': {
+          width: 14,
+          height: 14
+        }
       },
 
       [`& .${prefixCls}-clear`]: {
@@ -135,7 +140,12 @@ export const styles = ({
         display: 'flex',
         alignItems: 'center',
         lineHeight: 0,
-        flex: 'none'
+        flex: 'none',
+
+        '& svg': {
+          width: 14,
+          height: 14
+        }
       },
     },
     // prefix: {},

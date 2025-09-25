@@ -21,6 +21,7 @@ export interface FormInstance<Values = any> extends RcFormInstance<Values> {
   getFieldInstance?: (name: NamePath) => any;
   handleSetFieldValue: (name: NamePath, value: any, params?: { isValidateField?: boolean }) => any;
   handleSubmit: UseFormHandleSubmit<Values, any>;
+  reset: () => void;
   storeMethods: StoreMethods<any, any>;
 }
 
@@ -41,6 +42,12 @@ function getName(name: string | NamePath) {
   return name
 }
 
+const defaultInitialState = {
+  isSubmitting: false,
+  isDirty: false,
+  changedFields: {}
+}
+
 export function useForm<Values = any, T extends StoreInitialState = any>(params: UseFormParams<Values, T>): [FormInstance<Values>] {
   const [rcForm] = useRcForm();
   const { form, initialState } = params;
@@ -56,9 +63,7 @@ export function useForm<Values = any, T extends StoreInitialState = any>(params:
     storeKey,
     initialState: {
       formName: name,
-      isSubmitting: false,
-      isDirty: false,
-      changedFields: {},
+      ...defaultInitialState,
       ...initialState
     } as T,
     handlers: ({ setState }) => {
@@ -67,6 +72,8 @@ export function useForm<Values = any, T extends StoreInitialState = any>(params:
           setState(dataState);
         },
         updateFieldChange: (key: Meta['name']) => {
+          console.log('updateFieldChange', key)
+
           setState(({ changedFields }) => {
             if (Array.isArray(key)) {
               return {
@@ -112,7 +119,8 @@ export function useForm<Values = any, T extends StoreInitialState = any>(params:
           return getFieldValue(getName(name))
         },
         setFieldValue: (name: string | NamePath, value) => {
-          return setFieldValue(getName(name), value)
+          setFieldValue(getName(name), value);
+          storeMethods.handlers?.updateFieldChange?.(name);
         },
         getFieldError: (name: string | NamePath) => {
           return getFieldError(getName(name))
@@ -146,13 +154,13 @@ export function useForm<Values = any, T extends StoreInitialState = any>(params:
         },
         getFieldInstance: (name: NamePath) => {
         },
-        handleSetFieldValue: (name: NamePath, value: any, params: { isValidateField?: boolean } = {}) => {
+        handleSetFieldValue: (name: string | NamePath, value: any, params: { isValidateField?: boolean } = {}) => {
           const { isValidateField } = params;
 
           wrapForm.setFieldValue(name, value);
 
           if (isValidateField) {
-            wrapForm.validateFields(name);
+            wrapForm.validateFields([name]);
           }
         },
         handleSubmit: (onValid, onInvalid) => {
@@ -186,11 +194,15 @@ export function useForm<Values = any, T extends StoreInitialState = any>(params:
             } as T);
           }
         },
+        reset: () => {
+          wrapForm.resetFields();
+          storeMethods.setState(defaultInitialState as T);
+        },
         storeMethods
       };
     }
 
-    console.log('newForm', newForm)
+    // console.log('newForm', newForm);
 
     storeMethods.setState({
       form: newForm

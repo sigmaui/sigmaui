@@ -181,7 +181,9 @@ const FormItem: FC<FormItemProps> = ({
   }
 
   const restProps = getRestProps(formItemProps);
-  const { useStoreSelector, handlers, setState } = useStoreContext<StoreInitialState, Handlers>();
+  const storeMethods = useStoreContext<StoreInitialState, Handlers>();
+
+  const { useStoreSelector, handlers, setState } = storeMethods;
 
   const formName = useStoreSelector((state) => state.formName);
   const isAutoTrim = useStoreSelector((state) => state.isAutoTrim);
@@ -272,12 +274,12 @@ const FormItem: FC<FormItemProps> = ({
           }
 
           if (isBlurAutoValidate) {
-            form.validateFields(meta.name);
+            form.validateFields([meta.name]);
           }
         }
       }
 
-      console.log('childProps', childProps)
+      // console.log('childProps', childProps);
 
       return (
         <div className={classNames(prefixCls, className, classes?.wrapper, {

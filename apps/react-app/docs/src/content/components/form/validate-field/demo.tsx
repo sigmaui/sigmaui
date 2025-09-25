@@ -175,6 +175,10 @@ export const Demo: React.FC<any> = ({ control }) => {
                 }
               }}
               onClick={form?.handleSubmit(onFinish)}
+              // onClick={(event) => {
+              //   event.preventDefault();
+              //   form?.reset();
+              // }}
             >
               Submit
             </Button>
