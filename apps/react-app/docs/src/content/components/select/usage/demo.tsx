@@ -59,6 +59,22 @@ export const Demo: React.FC<any> = ({ control }) => {
             label: 'Large',
             value: 'large',
           },
+          {
+            label: 'Large2',
+            value: 'large2',
+          },
+          {
+            label: 'Large3',
+            value: 'large3',
+          },
+          {
+            label: 'Large4',
+            value: 'large4',
+          },
+          {
+            label: 'Large5',
+            value: 'large5',
+          },
         ]}
         _style={{
           wrapper: {

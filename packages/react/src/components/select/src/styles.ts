@@ -37,6 +37,13 @@ export const styles = ({
         height: '100%'
       },
 
+      [`& .${prefixCls}-selection-overflow`]: {
+        position: 'relative',
+        display: 'flex',
+        flexWrap: 'wrap',
+        maxWidth: '100%'
+      },
+
       [`& .${prefixCls}-selection-search`]: {
         position: 'absolute',
         left: 0,
@@ -51,6 +58,11 @@ export const styles = ({
           border: 0,
           cursor: 'pointer'
         }
+      },
+
+      [`& .${prefixCls}-selection-overflow-item`]: {
+        display: 'inline-flex',
+        maxWidth: '100%'
       },
 
       [`& .${prefixCls}-selection-placeholder, & .${prefixCls}-selection-item`]: {
@@ -80,6 +92,24 @@ export const styles = ({
         }
       },
 
+      [`& .${prefixCls}-selection-item-remove`]: {
+        display: 'inline-flex',
+        alignItems: 'center',
+        height: '100%',
+        marginLeft: 2,
+        cursor: 'pointer',
+        lineHeight: 0,
+
+        '& svg': {
+          width: 12,
+          height: 12
+        },
+
+        '&:hover': {
+          opacity: 0.5
+        }
+      },
+
       [`& .${prefixCls}-clear`]: {
         backgroundColor: '#fff',
         opacity: 0,
@@ -95,6 +125,36 @@ export const styles = ({
           boxShadow: 'focused',
           borderColor: 'base'
         },
+      },
+
+      [`&.${prefixCls}-show-search`]: {
+        [`& .${prefixCls}-selector`]: {
+          cursor: 'text'
+        }
+      },
+
+      [`&.${prefixCls}-multiple`]: {
+        [`& .${prefixCls}-selector`]: {
+          height: '100%',
+          paddingRight: 24,
+          paddingLeft: 2
+        },
+
+        [`& .${prefixCls}-selection-item`]: {
+          display: 'flex',
+          alignItems: 'center',
+          background: 'rgba(0,0,0,0.06)',
+          borderRadius: 4,
+          marginBlock: 2,
+          marginRight: 4,
+          paddingLeft: 8,
+          paddingRight: 4
+        },
+
+        [`& .${prefixCls}-selection-item-content`]: {
+          overflow: 'hidden',
+          lineClamp: 1
+        }
       }
     },
     popup: {

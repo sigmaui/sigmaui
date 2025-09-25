@@ -22,19 +22,23 @@ const SigmaSelect: FC<SelectProps> = ({
   allowClear,
   ...selectProps
 }) => {
-  const restProps = getRestProps(selectProps)
+  const restProps = getRestProps(selectProps);
 
   const suffixIcon = (
     <ChevronDownSingleIcon/>
-  )
+  );
 
   const clearIcon = (
     <XMarkIcon/>
-  )
+  );
 
   const menuItemSelectedIcon = (
     <CheckIcon/>
-  )
+  );
+
+  const removeIcon = (
+    <XMarkIcon/>
+  );
 
   const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear
 
@@ -49,6 +53,7 @@ const SigmaSelect: FC<SelectProps> = ({
       allowClear={mergedAllowClear}
       suffixIcon={suffixIcon}
       menuItemSelectedIcon={menuItemSelectedIcon}
+      removeIcon={removeIcon}
       {...restProps}
     />
   )
