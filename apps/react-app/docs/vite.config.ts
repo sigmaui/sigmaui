@@ -69,6 +69,7 @@ export default defineConfig(({ mode }) => {
         ),
         '@packages/react/components/box': path.resolve(__dirname, '../../../packages/react/src/components/box/src'),
         '@sigmaui-kit/locale': path.resolve(__dirname, '../../../packages/common/locale/src'),
+        '@sigmaui-kit/path-morphing': path.resolve(__dirname, '../../../packages/common/motion/path-morphing/src'),
         '@sigmaui-kit/layout': path.resolve(__dirname, '../../../packages/react/src/components/layout/src'),
         '@sigmaui-kit/button': path.resolve(__dirname, '../../../packages/react/src/components/button/src'),
         '@sigmaui-kit/input': path.resolve(__dirname, '../../../packages/react/src/components/input/src'),
