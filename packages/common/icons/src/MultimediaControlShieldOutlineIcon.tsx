@@ -16,7 +16,6 @@ function MultimediaControlShieldOutlineIcon(props: IconProps) {
   );
 }
 
-MultimediaControlShieldOutlineIcon.displayName =
-  'MultimediaControlShieldOutlineIcon';
+MultimediaControlShieldOutlineIcon.displayName = 'MultimediaControlShieldOutlineIcon';
 
 export default MultimediaControlShieldOutlineIcon;

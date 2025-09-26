@@ -1,7 +1,7 @@
 export default {
   Custom: {
     message: {
-      required: 'required'
-    }
-  }
-}
+      required: 'required',
+    },
+  },
+};

@@ -1,9 +1,9 @@
-import React from 'react'
-import Box from '@microui-kit/box'
-import ComponentPreview from '@docs/components/ComponentPreview'
-import Tooltip from '@sigmaui-kit/tooltip'
-import Button from '@sigmaui-kit/button'
-import code from './code'
+import React from 'react';
+import Box from '@microui-kit/box';
+import ComponentPreview from '@docs/components/ComponentPreview';
+import Tooltip from '@sigmaui-kit/tooltip';
+import Button from '@sigmaui-kit/button';
+import code from './code';
 
 export const Demo: React.FC<any> = ({ control }) => {
   return (
@@ -21,8 +21,8 @@ export const Demo: React.FC<any> = ({ control }) => {
         <Button>Tooltip</Button>
       </Tooltip>
     </Box>
-  )
-}
+  );
+};
 export default function Usage() {
   return (
     <>
@@ -30,5 +30,5 @@ export default function Usage() {
         <Demo />
       </ComponentPreview>
     </>
-  )
+  );
 }

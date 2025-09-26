@@ -6,7 +6,7 @@ export const styles = ({
   prefixCls,
   theme = {},
   size,
-  variant
+  variant,
 }: IProps<any>): Partial<Record<ClassKeys, StylesProperties>> => {
   return {
     wrapper: {
@@ -16,8 +16,8 @@ export const styles = ({
 
       '&:hover': {
         [`& .${prefixCls}-clear`]: {
-          opacity: 1
-        }
+          opacity: 1,
+        },
       },
 
       [`&.${prefixCls}-single`]: {
@@ -34,7 +34,7 @@ export const styles = ({
         borderColor: 'border',
         paddingInline: 12,
         size,
-        variant
+        variant,
       },
 
       [`& .${prefixCls}-selection-wrap`]: {
@@ -42,14 +42,14 @@ export const styles = ({
         alignItems: 'center',
         width: '100%',
         height: '100%',
-        minWidth: 0
+        minWidth: 0,
       },
 
       [`& .${prefixCls}-selection-overflow`]: {
         position: 'relative',
         display: 'flex',
         flexWrap: 'wrap',
-        maxWidth: '100%'
+        maxWidth: '100%',
       },
 
       [`& .${prefixCls}-selection-search`]: {
@@ -69,14 +69,14 @@ export const styles = ({
 
           '&::-webkit-search-cancel-button': {
             display: 'none',
-            appearance: 'none'
-          }
-        }
+            appearance: 'none',
+          },
+        },
       },
 
       [`& .${prefixCls}-selection-overflow-item`]: {
         display: 'inline-flex',
-        maxWidth: '100%'
+        maxWidth: '100%',
       },
 
       [`& .${prefixCls}-selection-placeholder, & .${prefixCls}-selection-item`]: {
@@ -85,7 +85,7 @@ export const styles = ({
         width: '100%',
         paddingRight: 12,
         lineClamp: 1,
-        userSelect: 'none'
+        userSelect: 'none',
       },
 
       [`& .${prefixCls}-selection-item`]: {
@@ -94,7 +94,7 @@ export const styles = ({
 
       [`& .${prefixCls}-selection-placeholder`]: {
         color: 'placeholder',
-        pointerEvents: 'none'
+        pointerEvents: 'none',
       },
 
       [`& .${prefixCls}-arrow, & .${prefixCls}-clear`]: {
@@ -107,8 +107,8 @@ export const styles = ({
 
         '& svg': {
           width: 14,
-          height: 14
-        }
+          height: 14,
+        },
       },
 
       [`& .${prefixCls}-selection-item-remove`]: {
@@ -122,12 +122,12 @@ export const styles = ({
 
         '& svg': {
           width: 12,
-          height: 12
+          height: 12,
         },
 
         '&:hover': {
-          opacity: 0.8
-        }
+          opacity: 0.8,
+        },
       },
 
       [`& .${prefixCls}-clear`]: {
@@ -136,21 +136,21 @@ export const styles = ({
         transition: 'color .2s ease, opacity .2s ease',
 
         '&:hover': {
-          color: 'rgba(0,0,0,0.45)'
-        }
+          color: 'rgba(0,0,0,0.45)',
+        },
       },
 
       '&[class*="-focused"]': {
         [`& .${prefixCls}-selector`]: {
           boxShadow: 'focused',
-          borderColor: 'base'
+          borderColor: 'base',
         },
       },
 
       [`&.${prefixCls}-show-search`]: {
         [`& .${prefixCls}-selector`]: {
-          cursor: 'text'
-        }
+          cursor: 'text',
+        },
       },
 
       [`&.${prefixCls}-multiple`]: {
@@ -161,7 +161,7 @@ export const styles = ({
           height: '100%',
           minHeight: 32,
           paddingRight: 26,
-          paddingLeft: 2
+          paddingLeft: 2,
         },
 
         [`& .${prefixCls}-selection-placeholder`]: {
@@ -171,7 +171,7 @@ export const styles = ({
           left: 5,
           right: 26,
           transform: 'translateY(-50%)',
-          transition: 'all 0.3s'
+          transition: 'all 0.3s',
         },
 
         [`& .${prefixCls}-selection-search`]: {
@@ -181,8 +181,8 @@ export const styles = ({
           '& input': {
             minWidth: 4,
             outline: 'none',
-            appearance: 'none'
-          }
+            appearance: 'none',
+          },
         },
 
         [`& .${prefixCls}-selection-search-mirror`]: {
@@ -191,7 +191,7 @@ export const styles = ({
           left: 0,
           right: 'auto',
           zIndex: 999,
-          visibility: 'hidden'
+          visibility: 'hidden',
         },
 
         [`& .${prefixCls}-selection-item`]: {
@@ -205,26 +205,26 @@ export const styles = ({
           marginRight: 4,
           paddingLeft: 6,
           paddingRight: 4,
-          cursor: 'default'
+          cursor: 'default',
         },
 
         [`& .${prefixCls}-selection-overflow-item`]: {
           [`&+.${prefixCls}-selection-overflow-item`]: {
             [`& .${prefixCls}-selection-search`]: {
-              marginLeft: 0
-            }
+              marginLeft: 0,
+            },
           },
         },
 
         [`& .${prefixCls}-selection-overflow-item-suffix`]: {
-          marginBlock: 4
+          marginBlock: 4,
         },
 
         [`& .${prefixCls}-selection-item-content`]: {
           overflow: 'hidden',
-          lineClamp: 1
-        }
-      }
+          lineClamp: 1,
+        },
+      },
     },
     popup: {
       position: 'absolute',
@@ -239,7 +239,7 @@ export const styles = ({
       size,
 
       '&[class*="-hidden"]': {
-        display: 'none'
+        display: 'none',
       },
 
       [`& .${prefixCls}-item`]: {
@@ -251,22 +251,22 @@ export const styles = ({
         cursor: 'pointer',
 
         '&:hover': {
-          backgroundColor: 'rgba(0,0,0,0.05)'
+          backgroundColor: 'rgba(0,0,0,0.05)',
         },
 
         '&[class*="-option-disabled"]': {
           opacity: 0.5,
-          cursor: 'not-allowed'
-        }
+          cursor: 'not-allowed',
+        },
       },
 
       [`& .${prefixCls}-item-option-active`]: {
-        backgroundColor: 'rgba(0,0,0,0.05)'
+        backgroundColor: 'rgba(0,0,0,0.05)',
       },
 
       [`& .${prefixCls}-item-option-content`]: {
         flex: 'auto',
-        lineClamp: 1
+        lineClamp: 1,
       },
 
       [`& .${prefixCls}-item-option-state`]: {
@@ -277,16 +277,16 @@ export const styles = ({
 
         '& svg': {
           width: 14,
-          height: 14
-        }
+          height: 14,
+        },
       },
     },
     // prefix: {},
     // suffix: {},
     // input: {}
-  }
-}
+  };
+};
 
-export type SelectTypes = ReturnType<typeof styles>
-export type SelectKeys = keyof SelectTypes
-export type SelectProps = IProps<SelectTypes>
+export type SelectTypes = ReturnType<typeof styles>;
+export type SelectKeys = keyof SelectTypes;
+export type SelectProps = IProps<SelectTypes>;

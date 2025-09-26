@@ -28,13 +28,11 @@ const SigmaText: FC<TextProps> = ({
       ...restProps,
     },
     { _class },
-  )
+  );
 
-  return (
-    <As className={classNames(prefixCls, className, classString)}>{children}</As>
-  )
-}
+  return <As className={classNames(prefixCls, className, classString)}>{children}</As>;
+};
 
 SigmaText.displayName = displayName;
 
-export default SigmaText
+export default SigmaText;

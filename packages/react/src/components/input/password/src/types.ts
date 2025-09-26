@@ -5,8 +5,8 @@ import type { InputProps } from '@sigmaui-kit/input';
 export type { StylesProperties };
 
 export interface IProps<Styles> extends FCWithStylesProps<Styles> {
-  suffix?: ReactNode
-  action?: 'click' | 'pointer'
+  suffix?: ReactNode;
+  action?: 'click' | 'pointer';
   iconRender?: (visible: boolean) => ReactNode;
   isTooltip?: boolean;
 }

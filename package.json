@@ -87,6 +87,7 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
+    "eslint-plugin-import": "^2.32.0",
     "@babel/cli": "^7.28.0",
     "@babel/core": "^7.28.0",
     "@babel/preset-typescript": "^7.27.1",
@@ -123,6 +124,7 @@
   "engines": {
     "node": ">=16.x"
   },
+  "type": "module",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
@@ -134,7 +136,7 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+    "**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "yarn lint"
     ]
   },

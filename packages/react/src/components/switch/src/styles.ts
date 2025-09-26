@@ -6,7 +6,7 @@ export const styles = ({
   prefixCls,
   theme = {},
   size,
-  variant
+  variant,
 }: IProps<any>): Partial<Record<ClassKeys, StylesProperties>> => {
   // console.log('theme', theme)
   return {
@@ -44,8 +44,8 @@ export const styles = ({
           backgroundColor: '#fff',
           borderRadius: 14,
           verticalAlign: 'top',
-          transition: 'all .2s ease-in-out'
-        }
+          transition: 'all .2s ease-in-out',
+        },
       },
 
       [`&.${prefixCls}-checked`]: {
@@ -55,38 +55,38 @@ export const styles = ({
 
         [`& .${prefixCls}-handle`]: {
           left: '100%',
-          transform: 'translateX(-100%)'
+          transform: 'translateX(-100%)',
         },
 
         [`& .${prefixCls}-inner-checked`]: {
-          display: 'inline-block'
+          display: 'inline-block',
         },
 
         [`& .${prefixCls}-inner-unchecked`]: {
-          display: 'none'
-        }
+          display: 'none',
+        },
       },
 
       [`& .${prefixCls}-inner`]: {
         paddingLeft: 12,
-        pointerEvents: 'none'
+        pointerEvents: 'none',
       },
 
       [`& .${prefixCls}-inner-checked`]: {
-        display: 'none'
+        display: 'none',
       },
 
       [`& .${prefixCls}-inner-unchecked`]: {
-        display: 'inline-block'
+        display: 'inline-block',
       },
 
-      '&:active': {}
+      '&:active': {},
     },
-    content: {}
-  }
-}
+    content: {},
+  };
+};
 
-export type SwitchTypes = ReturnType<typeof styles>
-export type SwitchKeys = keyof SwitchTypes
+export type SwitchTypes = ReturnType<typeof styles>;
+export type SwitchKeys = keyof SwitchTypes;
 
-export type SwitchProps = IProps<SwitchTypes>
+export type SwitchProps = IProps<SwitchTypes>;

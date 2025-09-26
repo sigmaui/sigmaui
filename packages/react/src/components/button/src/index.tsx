@@ -5,11 +5,9 @@ import { withStyles } from '@sigmaui-kit/with-styles';
 import Loading from '@sigmaui-kit/loading';
 import { getRestProps } from '@microui-kit/helpers';
 
-import { styles, type ButtonProps } from './styles';
+import { type ButtonProps, styles } from './styles';
 
-export type {
-  ButtonProps
-}
+export type { ButtonProps };
 
 const Button: FC<ButtonProps> = ({
   prefixCls,
@@ -38,11 +36,11 @@ const Button: FC<ButtonProps> = ({
             borderColor: theme.fn.rgba('#fff', 0.2),
             borderLeftColor: '#fff!important',
             borderWidth: 2,
-          }
+          },
         })}
         {...loadingProps}
       />
-    )
+    );
   }
 
   if (locking) {
@@ -54,17 +52,17 @@ const Button: FC<ButtonProps> = ({
           animateProps: {
             extendStyle: {
               wrapper: {
-                backgroundColor: '#fff'
-              }
-            }
-          }
+                backgroundColor: '#fff',
+              },
+            },
+          },
         }}
         {...loadingProps}
       />
-    )
+    );
   }
 
-  let buttonNode = (
+  const buttonNode = (
     <button
       type={htmlType}
       className={classNames(prefixCls, className, classes?.wrapper)}
@@ -85,12 +83,12 @@ const Button: FC<ButtonProps> = ({
       >
         {buttonNode}
       </Link>
-    )
+    );
   }
 
-  return buttonNode
-}
+  return buttonNode;
+};
 
 Button.displayName = 'Button';
 
-export default withStyles<ButtonProps>(styles)(Button)
+export default withStyles<ButtonProps>(styles)(Button);

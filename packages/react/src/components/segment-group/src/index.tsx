@@ -6,7 +6,7 @@ import Segmented from '@rc-component/segmented';
 import { withStyles } from '@sigmaui-kit/with-styles';
 import { getRestProps } from '@microui-kit/helpers';
 
-import { styles, type SegmentGroupProps } from './styles';
+import { type SegmentGroupProps, styles } from './styles';
 
 const SegmentGroup: FC<SegmentGroupProps> = ({
   prefixCls,
@@ -18,16 +18,16 @@ const SegmentGroup: FC<SegmentGroupProps> = ({
   ...segmentGroupProps
 }) => {
   const restProps = getRestProps(segmentGroupProps);
-  const router = useRouter()
+  const router = useRouter();
 
   const onChange = (value: string) => {
     console.log('onChange', value);
     const isLink = value?.startsWith?.('/');
 
     if (isLink) {
-      router.push(value)
+      router.push(value);
     }
-  }
+  };
 
   return (
     <Segmented
@@ -39,9 +39,9 @@ const SegmentGroup: FC<SegmentGroupProps> = ({
       classNames={classes}
       {...restProps}
     />
-  )
-}
+  );
+};
 
-SegmentGroup.displayName = 'SegmentGroup'
+SegmentGroup.displayName = 'SegmentGroup';
 
-export default withStyles<SegmentGroupProps>(styles)(SegmentGroup)
+export default withStyles<SegmentGroupProps>(styles)(SegmentGroup);

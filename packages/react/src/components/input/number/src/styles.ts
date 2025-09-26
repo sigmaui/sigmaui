@@ -1,12 +1,6 @@
 import { IProps, StylesProperties } from './types';
 
-export type ClassKeys =
-  | 'wrapper'
-  | 'affixWrapper'
-  | 'prefix'
-  | 'suffix'
-  | 'actions'
-  | 'input';
+export type ClassKeys = 'wrapper' | 'affixWrapper' | 'prefix' | 'suffix' | 'actions' | 'input';
 
 export const styles = ({ prefixCls, size, variant }: IProps<any>): Partial<Record<ClassKeys, StylesProperties>> => {
   // console.log('theme', theme)
@@ -30,17 +24,17 @@ export const styles = ({ prefixCls, size, variant }: IProps<any>): Partial<Recor
 
         [`& .${prefixCls}-handler-wrap`]: {
           width: 22,
-          opacity: 1
-        }
+          opacity: 1,
+        },
       },
 
       '&:focus, &[class*="-focused"]': {
         boxShadow: 'focused',
-        borderColor: 'base'
+        borderColor: 'base',
       },
 
       '&::placeholder': {
-        color: 'input.placeholder'
+        color: 'input.placeholder',
       },
 
       '&[disabled]': {
@@ -55,18 +49,18 @@ export const styles = ({ prefixCls, size, variant }: IProps<any>): Partial<Recor
         fontFamily: 'inherit',
 
         '&:focus': {
-          outline: 'none'
+          outline: 'none',
         },
 
         '&::placeholder': {
-          color: 'input.placeholder'
-        }
+          color: 'input.placeholder',
+        },
       },
 
       [`& .${prefixCls}-input-wrap`]: {
         width: '100%',
-        height: '100%'
-      }
+        height: '100%',
+      },
     },
     actions: {
       position: 'absolute',
@@ -92,23 +86,23 @@ export const styles = ({ prefixCls, size, variant }: IProps<any>): Partial<Recor
         '& svg': {
           width: 10,
           height: 10,
-          transition: 'all .2s linear'
+          transition: 'all .2s linear',
         },
 
         '&:hover': {
           height: '60%',
-          color: 'base'
-        }
+          color: 'base',
+        },
       },
 
       [`& .${prefixCls}-handler-down`]: {
         borderTop: `1px solid #d9d9d9`,
-      }
-    }
-  }
-}
+      },
+    },
+  };
+};
 
-export type InputNumberTypes = ReturnType<typeof styles>
-export type InputNumberKeys = keyof InputNumberTypes
+export type InputNumberTypes = ReturnType<typeof styles>;
+export type InputNumberKeys = keyof InputNumberTypes;
 
-export type InputNumberProps = IProps<InputNumberTypes>
+export type InputNumberProps = IProps<InputNumberTypes>;

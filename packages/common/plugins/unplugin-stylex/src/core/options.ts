@@ -1,10 +1,10 @@
-import type { StylexOptions, UnpluginStylexOptions } from '@/types'
-import { getAliases, isDevelopment } from '@/utils'
+import type { StylexOptions, UnpluginStylexOptions } from '@/types';
+import { getAliases, isDevelopment } from '@/utils';
 
 export function getOptions(options: UnpluginStylexOptions & { framework: string }): Required<UnpluginStylexOptions> {
-  const projectAliases = getAliases(options.framework)
-  const stylex = options.stylex || ({} as StylexOptions)
-  const isDev = options.dev || isDevelopment
+  const projectAliases = getAliases(options.framework);
+  const stylex = options.stylex || ({} as StylexOptions);
+  const isDev = options.dev || isDevelopment;
 
   return {
     ...options,
@@ -25,5 +25,5 @@ export function getOptions(options: UnpluginStylexOptions & { framework: string 
       },
       ...stylex,
     },
-  }
+  };
 }

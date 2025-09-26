@@ -1,31 +1,31 @@
-import React, { useState } from 'react'
-import Form, { FormItemTypeEnum, FormItemOption, useForm } from '@sigmaui-kit/form'
-import LockFilledIcon from '@sigmaui-kit/icons/LockFilledIcon'
-import Button from '@sigmaui-kit/button'
-import type { InputTypes, InputProps } from '@sigmaui-kit/input'
-import ComponentPreview from '@docs/components/ComponentPreview'
-import code from './code'
+import React, { useState } from 'react';
+import Form, { FormItemOption, FormItemTypeEnum, useForm } from '@sigmaui-kit/form';
+import LockFilledIcon from '@sigmaui-kit/icons/LockFilledIcon';
+import Button from '@sigmaui-kit/button';
+import type { InputProps, InputTypes } from '@sigmaui-kit/input';
+import ComponentPreview from '@docs/components/ComponentPreview';
+import code from './code';
 
 export const Demo: React.FC<any> = ({ control }) => {
-  console.log('control', control)
+  console.log('control', control);
 
   const [form] = useForm({
     name: 'validate-field',
-  })
+  });
 
-  const { useStoreSelector } = form.storeMethods
+  const { useStoreSelector } = form.storeMethods;
 
-  const isDirty = useStoreSelector((state) => state.isDirty)
+  const isDirty = useStoreSelector((state) => state.isDirty);
   // const isSubmitting = useStoreSelector((state) => state.isSubmitting);
 
-  console.log('isDirty', isDirty)
+  console.log('isDirty', isDirty);
 
   const onFinish = (values) => {
-    console.log('values', values)
+    console.log('values', values);
 
-    const changedValues = form.getChangedValues()
-    console.log('changedValues', changedValues)
-  }
+    const changedValues = form.getChangedValues();
+    console.log('changedValues', changedValues);
+  };
 
   return (
     <Form
@@ -88,7 +88,7 @@ export const Demo: React.FC<any> = ({ control }) => {
             ],
           },
           onChange: ({ form }) => {
-            form?.handleSetFieldValue('merchant', undefined)
+            form?.handleSetFieldValue('merchant', undefined);
           },
         },
         {
@@ -113,20 +113,20 @@ export const Demo: React.FC<any> = ({ control }) => {
           shouldUpdateKey: ['scope'],
           autoResetValue: null,
           validateField: ({ form }) => {
-            const scope = form?.getFieldValue('scope')
-            const description = form?.getFieldValue('extra.description')
+            const scope = form?.getFieldValue('scope');
+            const description = form?.getFieldValue('extra.description');
 
-            console.log('description', description)
+            console.log('description', description);
 
             if (!scope) {
-              return
+              return;
             }
 
-            console.log('scope', scope)
+            console.log('scope', scope);
 
             return {
               // type: FormItemTypeEnum.INPUT
-            }
+            };
           },
         },
         {
@@ -178,18 +178,18 @@ export const Demo: React.FC<any> = ({ control }) => {
           >
             Submit
           </Button>
-        )
+        );
       }}
     </Form>
-  )
-}
+  );
+};
 export default function ValidateFieldComponent() {
-  const [value, setValue] = useState<number[] | undefined>(undefined)
+  const [value, setValue] = useState<number[] | undefined>(undefined);
   return (
     <>
       <ComponentPreview data={code}>
         <Demo />
       </ComponentPreview>
     </>
-  )
+  );
 }

@@ -1,4 +1,4 @@
-import { create } from '@stylexjs/stylex'
+import { create } from '@stylexjs/stylex';
 
 export const verticalAlign = create({
   'align-baseline': { 'vertical-align': 'baseline' },
@@ -9,4 +9,4 @@ export const verticalAlign = create({
   'align-text-bottom': { 'vertical-align': 'text-bottom' },
   'align-sub': { 'vertical-align': 'sub' },
   'align-super': { 'vertical-align': 'super' },
-})
+});

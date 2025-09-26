@@ -3,22 +3,22 @@ const Form = {
     required: 'is required',
     invalid: 'is invalid',
     email: {
-      invalid: 'is invalid'
+      invalid: 'is invalid',
     },
     url: {
-      invalid: 'is invalid'
-    }
-  }
+      invalid: 'is invalid',
+    },
+  },
 };
 
 const Password = {
   message: {
     hide: 'Hide password',
-    show: 'Show password'
-  }
-}
+    show: 'Show password',
+  },
+};
 
 export default {
   Form,
-  Password
-}
+  Password,
+};

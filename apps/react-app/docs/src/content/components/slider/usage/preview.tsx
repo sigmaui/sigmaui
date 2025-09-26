@@ -1,9 +1,9 @@
-import ComponentPreview from '@docs/components/ComponentPreview'
-import Slider from '@sigmaui-kit/slider'
-import code from './code'
+import ComponentPreview from '@docs/components/ComponentPreview';
+import Slider from '@sigmaui-kit/slider';
+import code from './code';
 export const Demo: React.FC<any> = () => {
-  return <Slider defaultValue={[0]} />
-}
+  return <Slider defaultValue={[0]} />;
+};
 export default function UsageSliderComponent() {
   return (
     <>
@@ -11,5 +11,5 @@ export default function UsageSliderComponent() {
         <Demo />
       </ComponentPreview>
     </>
-  )
+  );
 }

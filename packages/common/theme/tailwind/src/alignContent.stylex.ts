@@ -1,4 +1,4 @@
-import { create } from '@stylexjs/stylex'
+import { create } from '@stylexjs/stylex';
 
 export const alignContent = create({
   'content-center': { 'align-content': 'center' },
@@ -8,4 +8,4 @@ export const alignContent = create({
   'content-around': { 'align-content': 'space-around' },
   'content-evenly': { 'align-content': 'space-evenly' },
   'content-baseline': { 'align-content': 'baseline' },
-})
+});

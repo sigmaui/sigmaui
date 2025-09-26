@@ -1,7 +1,7 @@
-import typescript from './typescript.raw.tsx?raw'
+import typescript from './typescript.raw.tsx?raw';
 
 export default {
   code: {
-    typescript
+    typescript,
   },
-}
+};

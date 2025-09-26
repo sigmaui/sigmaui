@@ -5,19 +5,19 @@ export type ClassKeys = 'wrapper' | 'item' | 'label';
 export const styles = ({
   prefixCls,
   theme = {},
-  isThumbLine
+  isThumbLine,
 }: IProps<any>): Partial<Record<ClassKeys, StylesProperties>> => {
   return {
     wrapper: {
       [`& .${prefixCls}-group`]: {
         display: 'flex',
-        position: 'relative'
+        position: 'relative',
       },
 
       [`& .${prefixCls}-item-input`]: {
         position: 'absolute',
         width: 0,
-        height: 0
+        height: 0,
       },
 
       [`& .${prefixCls}-thumb`]: {
@@ -26,8 +26,8 @@ export const styles = ({
         width: 0,
         height: isThumbLine ? 2 : '100%',
         bottom: 0,
-        transition: 'transform .3s cubic-bezier(.645,.045,.355,1),width .3s cubic-bezier(.645,.045,.355,1)'
-      }
+        transition: 'transform .3s cubic-bezier(.645,.045,.355,1),width .3s cubic-bezier(.645,.045,.355,1)',
+      },
     },
     item: {
       display: 'flex',
@@ -48,19 +48,19 @@ export const styles = ({
           width: '100%',
           height: 2,
           left: 0,
-          bottom: 0
-        }
+          bottom: 0,
+        },
       },
 
       '&[class*="-disabled"]': {
         opacity: 0.5,
-        cursor: 'not-allowed'
-      }
+        cursor: 'not-allowed',
+      },
     },
-    label: {}
-  }
-}
+    label: {},
+  };
+};
 
-export type SegmentGroupTypes = ReturnType<typeof styles>
-export type SegmentGroupKeys = keyof SegmentGroupTypes
-export type SegmentGroupProps = IProps<SegmentGroupTypes>
+export type SegmentGroupTypes = ReturnType<typeof styles>;
+export type SegmentGroupKeys = keyof SegmentGroupTypes;
+export type SegmentGroupProps = IProps<SegmentGroupTypes>;

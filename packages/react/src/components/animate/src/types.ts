@@ -1,16 +1,13 @@
-import type { FCWithStylesProps, StylesProperties, StylesObject } from '@sigmaui-kit/types';
+import type { FCWithStylesProps, StylesObject, StylesProperties } from '@sigmaui-kit/types';
 
-export type {
-  StylesProperties,
-  StylesObject
-}
+export type { StylesProperties, StylesObject };
 
 export enum ANIMATION_NAME {
-  BLINK = 'blink'
+  BLINK = 'blink',
 }
 
 export interface IProps<Styles> extends FCWithStylesProps<Styles> {
-  as?: string
-  keyframe?: any
-  animation?: any
+  as?: string;
+  keyframe?: any;
+  animation?: any;
 }

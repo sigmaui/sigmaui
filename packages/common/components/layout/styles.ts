@@ -1,4 +1,4 @@
-import type { IProps, StylesProperties } from './types'
+import type { IProps, StylesProperties } from './types';
 
 export const styles = ({ theme = {}, isSidebar }: IProps<any>) => {
   // console.log('theme', theme)
@@ -17,10 +17,10 @@ export const styles = ({ theme = {}, isSidebar }: IProps<any>) => {
       marginLeft: isSidebar ? 220 : undefined,
       width: isSidebar ? `calc(100% - ${theme.fn?.pxToRem?.(220)})` : '100%',
     } as StylesProperties,
-  }
-}
+  };
+};
 
-export type LayoutTypes = ReturnType<typeof styles>
-export type LayoutKeys = keyof LayoutTypes
+export type LayoutTypes = ReturnType<typeof styles>;
+export type LayoutKeys = keyof LayoutTypes;
 
-export type LayoutProps = IProps<LayoutTypes>
+export type LayoutProps = IProps<LayoutTypes>;

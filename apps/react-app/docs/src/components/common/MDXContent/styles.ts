@@ -1,4 +1,4 @@
-import type { IProps } from './types'
+import type { IProps } from './types';
 
 export const styles = ({ theme = {} }: IProps<any>) => {
   // console.log('theme', theme)
@@ -9,10 +9,10 @@ export const styles = ({ theme = {} }: IProps<any>) => {
         marginBottom: 12,
       },
     },
-  }
-}
+  };
+};
 
-export type MDXContentTypes = ReturnType<typeof styles>
-export type MDXContentKeys = keyof MDXContentTypes
+export type MDXContentTypes = ReturnType<typeof styles>;
+export type MDXContentKeys = keyof MDXContentTypes;
 
-export type MDXContentProps = IProps<MDXContentTypes>
+export type MDXContentProps = IProps<MDXContentTypes>;

@@ -1,4 +1,4 @@
-import { create } from '@stylexjs/stylex'
+import { create } from '@stylexjs/stylex';
 
 export const justifyContent = create({
   'justify-start': { 'justify-content': 'flex-start' },
@@ -7,4 +7,4 @@ export const justifyContent = create({
   'justify-between': { 'justify-content': 'space-between' },
   'justify-around': { 'justify-content': 'space-around' },
   'justify-evenly': { 'justify-content': 'space-evenly' },
-})
+});

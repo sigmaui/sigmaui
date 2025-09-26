@@ -1,17 +1,17 @@
-import React from 'react'
-import type { FC } from 'react'
-import classNames from 'classnames'
-import { withStyles } from '@microui-kit/with-styles'
-import { useRouter } from '@microui-kit/use-router'
-import Menu from '@sigmaui-kit/menu'
+import React from 'react';
+import type { FC } from 'react';
+import classNames from 'classnames';
+import { withStyles } from '@microui-kit/with-styles';
+import { useRouter } from '@microui-kit/use-router';
+import Menu from '@sigmaui-kit/menu';
 
-import { routeMap } from '@docs/router/routeMap'
+import { routeMap } from '@docs/router/routeMap';
 
-import { styles, type SidebarProps } from './styles'
+import { type SidebarProps, styles } from './styles';
 
 const Sidebar: FC<SidebarProps> = ({ prefixCls = 'sm-sidebar', className, classes }) => {
-  const router = useRouter()
-  const { pathname } = router
+  const router = useRouter();
+  const { pathname } = router;
 
   return (
     <div className={classNames(prefixCls, className, classes?.wrapper)}>
@@ -93,9 +93,9 @@ const Sidebar: FC<SidebarProps> = ({ prefixCls = 'sm-sidebar', className, classe
         ]}
       />
     </div>
-  )
-}
+  );
+};
 
-Sidebar.displayName = 'Sidebar'
+Sidebar.displayName = 'Sidebar';
 
-export default withStyles<SidebarProps>(styles)(Sidebar)
+export default withStyles<SidebarProps>(styles)(Sidebar);

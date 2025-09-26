@@ -7,11 +7,9 @@ import PathMorphing from '@sigmaui-kit/path-morphing';
 import XMarkIcon from '@sigmaui-kit/icons/XMarkIcon';
 import CheckIcon from '@sigmaui-kit/icons/CheckIcon';
 
-import { styles, type SelectProps } from './styles';
+import { type SelectProps, styles } from './styles';
 
-export type {
-  SelectProps
-}
+export type { SelectProps };
 
 const SigmaSelect: FC<SelectProps> = ({
   prefixCls,
@@ -35,19 +33,13 @@ const SigmaSelect: FC<SelectProps> = ({
     />
   );
 
-  const clearIcon = (
-    <XMarkIcon/>
-  );
+  const clearIcon = <XMarkIcon />;
 
-  const menuItemSelectedIcon = (
-    <CheckIcon/>
-  );
+  const menuItemSelectedIcon = <CheckIcon />;
 
-  const removeIcon = (
-    <XMarkIcon/>
-  );
+  const removeIcon = <XMarkIcon />;
 
-  const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear
+  const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
 
   return (
     <RcSelect
@@ -66,9 +58,9 @@ const SigmaSelect: FC<SelectProps> = ({
       // transitionName="slide-up"
       {...restProps}
     />
-  )
-}
+  );
+};
 
-SigmaSelect.displayName = 'Select'
+SigmaSelect.displayName = 'Select';
 
-export default withStyles<SelectProps>(styles)(SigmaSelect)
+export default withStyles<SelectProps>(styles)(SigmaSelect);

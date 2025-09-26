@@ -1,9 +1,9 @@
-import React from 'react'
-import type { FC } from 'react'
-import classNames from 'classnames'
-import { withStyles } from '@microui-kit/with-styles'
+import React from 'react';
+import type { FC } from 'react';
+import classNames from 'classnames';
+import { withStyles } from '@microui-kit/with-styles';
 
-import { styles, type LayoutProps } from 'packages/common/components/layout/styles'
+import { type LayoutProps, styles } from 'packages/common/components/layout/styles';
 
 const SigmaLayout: FC<LayoutProps> = ({ prefixCls = 'sm-layout', className, classes, children, header, sidebar }) => {
   return (
@@ -14,9 +14,9 @@ const SigmaLayout: FC<LayoutProps> = ({ prefixCls = 'sm-layout', className, clas
         <div className={classNames(`${prefixCls}-content`, classes?.content)}>{children}</div>
       </main>
     </div>
-  )
-}
+  );
+};
 
-SigmaLayout.displayName = 'Layout'
+SigmaLayout.displayName = 'Layout';
 
-export default withStyles<LayoutProps>(styles)(SigmaLayout)
+export default withStyles<LayoutProps>(styles)(SigmaLayout);

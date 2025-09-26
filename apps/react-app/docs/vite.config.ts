@@ -1,10 +1,10 @@
-import { defineConfig } from 'vite'
-import path from 'path'
-import reactRefresh from '@vitejs/plugin-react'
-import mdx from '@mdx-js/rollup'
-import remarkFrontmatter from 'remark-frontmatter'
-import rehypeSlug from 'rehype-slug'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import { defineConfig } from 'vite';
+import reactRefresh from '@vitejs/plugin-react';
+import mdx from '@mdx-js/rollup';
+import remarkFrontmatter from 'remark-frontmatter';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import path from 'path';
 
 const FILE_NAME = {
   MAIN: 'main',
@@ -14,7 +14,7 @@ const FILE_NAME = {
   PAGE: 'page',
   SERVER: 'server',
   ROOT_CONFIG: 'root-config',
-}
+};
 
 const PATH_NAME = {
   HTML: 'index.html',
@@ -24,7 +24,7 @@ const PATH_NAME = {
   SERVER_API: 'apis/index.tsx',
   PAGE: '/pages/',
   COMPONENT: '/components/',
-}
+};
 
 const BUILD_NAME = {
   CLIENT: 'client',
@@ -32,13 +32,13 @@ const BUILD_NAME = {
   SERVER: 'server',
   SERVER_CONFIG: 'server-config',
   SERVER_API: 'server-api',
-}
+};
 
 export default defineConfig(({ mode }) => {
-  console.log('mode', mode)
-  const isDev = mode === 'development'
+  console.log('mode', mode);
+  const isDev = mode === 'development';
 
-  const staticPath = 'static'
+  const staticPath = 'static';
 
   return {
     base: './',
@@ -81,7 +81,10 @@ export default defineConfig(({ mode }) => {
         '@sigmaui-kit/icon': path.resolve(__dirname, '../../../packages/react/src/components/icon/src'),
         '@sigmaui-kit/slider': path.resolve(__dirname, '../../../packages/react/src/components/slider/src'),
         '@sigmaui-kit/tabs': path.resolve(__dirname, '../../../packages/react/src/components/tabs/src'),
-        '@sigmaui-kit/segment-group': path.resolve(__dirname, '../../../packages/react/src/components/segment-group/src',),
+        '@sigmaui-kit/segment-group': path.resolve(
+          __dirname,
+          '../../../packages/react/src/components/segment-group/src',
+        ),
         '@sigmaui-kit/menu': path.resolve(__dirname, '../../../packages/react/src/components/menu/src'),
         '@sigmaui-kit/form': path.resolve(__dirname, '../../../packages/react/src/components/form/src'),
         '@sigmaui-kit/tooltip': path.resolve(__dirname, '../../../packages/react/src/components/tooltip/src'),
@@ -181,9 +184,9 @@ export default defineConfig(({ mode }) => {
           // },
           manualChunks(id: string) {
             if (id.includes('node_modules')) {
-              const segments = id.split('node_modules/')
+              const segments = id.split('node_modules/');
               if (segments[1]) {
-                return segments[1].split('/')[0]
+                return segments[1].split('/')[0];
               }
             }
           },
@@ -213,5 +216,5 @@ export default defineConfig(({ mode }) => {
         ],
       }),
     ],
-  }
-})
+  };
+});

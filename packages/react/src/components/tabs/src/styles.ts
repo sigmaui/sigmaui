@@ -12,13 +12,13 @@ export const styles = ({ prefixCls, theme = {} }: IProps<any>): Partial<Record<C
       display: 'flex',
 
       [`& .${prefixCls}-nav-list`]: {
-        display: 'flex'
+        display: 'flex',
       },
 
       [`& .${prefixCls}-nav-operations-hidden`]: {
         visibility: 'hidden',
-        pointerEvents: 'none'
-      }
+        pointerEvents: 'none',
+      },
     },
     item: {
       position: 'relative',
@@ -28,8 +28,8 @@ export const styles = ({ prefixCls, theme = {} }: IProps<any>): Partial<Record<C
       cursor: 'pointer',
 
       '&[class*="-active"]': {
-        color: 'base'
-      }
+        color: 'base',
+      },
     },
     indicator: {
       position: 'absolute',
@@ -41,10 +41,10 @@ export const styles = ({ prefixCls, theme = {} }: IProps<any>): Partial<Record<C
     content: {
       marginTop: 12,
     },
-  }
-}
+  };
+};
 
-export type TabsTypes = ReturnType<typeof styles>
-export type TabsKeys = keyof TabsTypes
+export type TabsTypes = ReturnType<typeof styles>;
+export type TabsKeys = keyof TabsTypes;
 
-export type TabsProps = IProps<TabsTypes>
+export type TabsProps = IProps<TabsTypes>;

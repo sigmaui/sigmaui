@@ -193,5 +193,5 @@ export {
   UserOutlinedIcon,
   VietnameseCircleIcon,
   ViewMenuOutlinedIcon,
-  XMarkIcon
-}
+  XMarkIcon,
+};

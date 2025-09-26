@@ -1,6 +1,6 @@
-import { ITheme } from 'packages/common/theme/config'
-import type { IProps, StylesProperties } from './types'
-import { Theme } from '@microui-kit/theme'
+import { ITheme } from 'packages/common/theme/config';
+import { Theme } from '@microui-kit/theme';
+import type { IProps, StylesProperties } from './types';
 
 type ClassNames =
   | 'wrapper'
@@ -22,13 +22,13 @@ type ClassNames =
   | 'thumb-large'
   | 'marker-small'
   | 'marker-large'
-  | 'labelContainer'
+  | 'labelContainer';
 export const styles: ({
   theme,
   renderer,
 }: {
-  theme: ITheme
-  renderer: any
+  theme: ITheme;
+  renderer: any;
 }) => Record<ClassNames, StylesProperties> = ({ theme, renderer }: { theme: ITheme; renderer: any }) => {
   const fadeIn = renderer.renderKeyframe(() => {
     return {
@@ -40,8 +40,8 @@ export const styles: ({
         opacity: 1,
         transform: 'translateY(0)',
       },
-    }
-  })
+    };
+  });
   const fadeOut = renderer.renderKeyframe(() => {
     return {
       '0%': {
@@ -52,8 +52,8 @@ export const styles: ({
         opacity: 0,
         transform: 'translateY(-4px)',
       },
-    }
-  })
+    };
+  });
   return {
     wrapper: {
       display: 'flex',
@@ -199,5 +199,5 @@ export const styles: ({
       position: 'absolute',
       pointerEvents: 'none',
     },
-  }
-}
+  };
+};

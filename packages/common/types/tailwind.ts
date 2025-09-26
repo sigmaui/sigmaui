@@ -238,4 +238,4 @@ export type Tailwind =
   | 'bg-local'
   | 'bg-scroll'
   | 'pointer-events-none'
-  | 'pointer-events-auto'
+  | 'pointer-events-auto';

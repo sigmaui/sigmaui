@@ -1,4 +1,4 @@
-import type { StylesObject } from 'packages/common/types'
+import type { StylesObject } from 'packages/common/types';
 
 export const fontSizes = {
   default: 14,
@@ -8,7 +8,7 @@ export const fontSizes = {
   lg: 16,
   xl: 18,
   '2xl': 20,
-}
+};
 
 export const heights = {
   default: 32,
@@ -19,9 +19,9 @@ export const heights = {
   xl: 48,
   '2xl': 56,
   switch: {
-    default: 20
-  }
-}
+    default: 20,
+  },
+};
 
 export const radii = {
   default: 6,
@@ -31,7 +31,7 @@ export const radii = {
   lg: 10,
   xl: 12,
   '2xl': 16,
-}
+};
 
 export const defaultSizes = {
   _: {},
@@ -41,11 +41,11 @@ export const defaultSizes = {
   lg: {},
   xl: {},
   '2xl': {},
-}
+};
 
 export const textSizes = {
   _: {
-    fontSize: fontSizes.md
+    fontSize: fontSizes.md,
   },
   xs: {
     fontSize: fontSizes.xs,
@@ -62,35 +62,35 @@ export const textSizes = {
   xl: {
     fontSize: fontSizes.xl,
   },
-  '2xl': {}
-}
+  '2xl': {},
+};
 
 export const iconSizes = {
   _: {
     width: 16,
-    height: 16
+    height: 16,
   },
   xs: {
     width: 18,
-    height: 18
+    height: 18,
   },
   sm: {
     width: 20,
-    height: 20
+    height: 20,
   },
   md: {
     width: 22,
-    height: 22
+    height: 22,
   },
   lg: {
     width: 24,
-    height: 24
+    height: 24,
   },
   xl: {
     width: 26,
-    height: 26
-  }
-}
+    height: 26,
+  },
+};
 
 export const inputSizes = {
   Input: {
@@ -131,7 +131,7 @@ export const inputSizes = {
       paddingInline: 18,
     },
     '2xl': {},
-    icon: iconSizes
+    icon: iconSizes,
   } as StylesObject,
   InputNumber: {
     _: {
@@ -171,10 +171,10 @@ export const inputSizes = {
       paddingInline: 18,
     },
     '2xl': {},
-    icon: iconSizes
+    icon: iconSizes,
   } as StylesObject,
   Password: {
-    icon: iconSizes
+    icon: iconSizes,
   },
   Textarea: {
     _: {
@@ -213,9 +213,9 @@ export const inputSizes = {
       paddingBlock: 4,
       paddingInline: 18,
     },
-    '2xl': {}
-  }
-}
+    '2xl': {},
+  },
+};
 
 export const buttonSizes = {
   Button: {
@@ -251,7 +251,7 @@ export const buttonSizes = {
     },
     '2xl': {},
   } as StylesObject,
-}
+};
 
 export const selectSizes = {
   Select: {
@@ -287,7 +287,7 @@ export const selectSizes = {
     },
     '2xl': {},
   } as StylesObject,
-}
+};
 
 export const tooltipSizes = {
   Tooltip: {
@@ -322,9 +322,9 @@ export const tooltipSizes = {
       borderRadius: radii.xl,
     },
     '2xl': {},
-    text: textSizes
+    text: textSizes,
   } as StylesObject,
-}
+};
 
 export const switchSizes = {
   Switch: {
@@ -356,7 +356,7 @@ export const switchSizes = {
     handle: {
       _: {
         width: heights.switch.default,
-        padding: 2
+        padding: 2,
       },
       xs: {
         width: heights.xs,
@@ -374,9 +374,9 @@ export const switchSizes = {
         width: heights.xl,
       },
       '2xl': {},
-    }
+    },
   } as StylesObject,
-}
+};
 
 export const sizes = {
   ...defaultSizes,
@@ -387,5 +387,5 @@ export const sizes = {
   ...tooltipSizes,
   ...switchSizes,
   Text: textSizes,
-  Icon: iconSizes
-}
+  Icon: iconSizes,
+};

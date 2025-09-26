@@ -1,10 +1,10 @@
-import React, { ReactNode, createContext, useContext, FC } from 'react';
-import { usePlatformDetect, PlatformInfo, PlatformDetectResult } from '@sigmaui-kit/use-platform-detect';
+import React, { FC, ReactNode, createContext, useContext } from 'react';
+import { PlatformDetectResult, PlatformInfo, usePlatformDetect } from '@sigmaui-kit/use-platform-detect';
 
-export type { PlatformInfo, PlatformDetectResult }
+export type { PlatformInfo, PlatformDetectResult };
 
 interface PlatformContextType {
-  platform: PlatformInfo
+  platform: PlatformInfo;
 }
 
 const Context = createContext<PlatformContextType>({
@@ -22,31 +22,31 @@ const Context = createContext<PlatformContextType>({
     isFirefox: false,
     isIpad: false,
   },
-})
+});
 
 interface PlatformProviderProps {
-  userAgent?: string
-  children?: ReactNode
+  userAgent?: string;
+  children?: ReactNode;
 }
 
 export const PlatformProvider: FC<PlatformProviderProps> = ({ userAgent, children }) => {
-  const { platform } = usePlatformDetect(userAgent)
+  const { platform } = usePlatformDetect(userAgent);
 
-  return <Context.Provider value={{ platform }}>{children}</Context.Provider>
-}
+  return <Context.Provider value={{ platform }}>{children}</Context.Provider>;
+};
 
 export const usePlatform = (): PlatformContextType => {
-  return useContext(Context)
-}
+  return useContext(Context);
+};
 
 export const withPlatform = <T extends object>(Component: React.ComponentType<T & PlatformContextType>) => {
   return (props: Omit<T, keyof PlatformContextType>) => {
-    const state = useContext(Context)
+    const state = useContext(Context);
     return (
       <Component
         {...(props as T)}
         {...state}
       />
-    )
-  }
-}
+    );
+  };
+};

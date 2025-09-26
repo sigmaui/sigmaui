@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from 'react'
-import classNames from 'classnames'
-import type { FC } from 'react'
-import { withStyles } from '@microui-kit/with-styles'
+import React, { useEffect, useRef } from 'react';
+import classNames from 'classnames';
+import type { FC } from 'react';
+import { withStyles } from '@microui-kit/with-styles';
 
-import { styles } from 'packages/common/components/slider/styles'
-import { Slider, useSlider } from '@ark-ui/react'
-import { SliderProps } from 'packages/common/components/slider/types'
+import { styles } from 'packages/common/components/slider/styles';
+import { Slider, useSlider } from '@ark-ui/react';
+import { SliderProps } from 'packages/common/components/slider/types';
 
 const SigmaSlider = ({
   size = 'default',
@@ -23,7 +23,7 @@ const SigmaSlider = ({
     value,
     onValueChange,
     ...rest,
-  })
+  });
 
   return (
     <Slider.RootProvider
@@ -62,9 +62,9 @@ const SigmaSlider = ({
         </Slider.MarkerGroup>
       )}
     </Slider.RootProvider>
-  )
-}
+  );
+};
 
-SigmaSlider.displayName = 'Slider'
+SigmaSlider.displayName = 'Slider';
 
-export default withStyles<SliderProps>(styles)(SigmaSlider)
+export default withStyles<SliderProps>(styles)(SigmaSlider);

@@ -1,5 +1,5 @@
-const componentPath = '/docs/components'
-const themingPath = '/docs/theming'
+const componentPath = '/docs/components';
+const themingPath = '/docs/theming';
 
 export const routeMap = {
   playgroundPath: '/playground',
@@ -28,4 +28,4 @@ export const routeMap = {
     sizes: `${themingPath}/sizes`,
     variants: `${themingPath}/variants`,
   },
-}
+};

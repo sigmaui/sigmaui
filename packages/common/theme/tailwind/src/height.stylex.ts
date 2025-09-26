@@ -1,4 +1,4 @@
-import { create } from '@stylexjs/stylex'
+import { create } from '@stylexjs/stylex';
 
 export const height = create({
   'h-0': { height: 0 },
@@ -19,4 +19,4 @@ export const height = create({
   'max-h-min': { 'max-height': 'min-content' },
   'max-h-max': { 'max-height': 'max-content' },
   'max-h-fit': { 'max-height': 'fit-content' },
-})
+});

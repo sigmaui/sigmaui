@@ -1,10 +1,10 @@
-import React from 'react'
-import { createBrowserRouter } from 'react-router'
-import loadable from './loadable'
+import React from 'react';
+import { createBrowserRouter } from 'react-router';
+import loadable from './loadable';
 
-import Pages from '../pages'
+import Pages from '../pages';
 
-export const routes: any = []
+export const routes: any = [];
 
 Pages.forEach((route: any) => {
   if (route.path instanceof Array) {
@@ -14,12 +14,12 @@ Pages.forEach((route: any) => {
           ...route,
           path,
         }),
-      )
-    })
+      );
+    });
   } else {
-    routes.push(loadable(route))
+    routes.push(loadable(route));
   }
-})
+});
 
 export const createRouter = (props: any = {}) => {
   const { App, ...restProps } = props;
@@ -30,5 +30,5 @@ export const createRouter = (props: any = {}) => {
       element: <App {...restProps} />,
       children: routes,
     },
-  ])
-}
+  ]);
+};

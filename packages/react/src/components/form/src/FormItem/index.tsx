@@ -2,35 +2,35 @@ import React, { Fragment, useCallback } from 'react';
 import type { FC } from 'react';
 import classNames from 'classnames';
 import { Field as RcFieldForm } from '@rc-component/form';
-import type { InternalNamePath, Meta, RuleObject, EventArgs, StoreValue } from '@rc-component/form/lib/interface';
+import type { EventArgs, InternalNamePath, Meta, RuleObject, StoreValue } from '@rc-component/form/lib/interface';
 import { FieldProps } from '@rc-component/form/lib/Field';
 import { useStoreContext } from '@microui-kit/use-store';
 import { getRestProps } from '@microui-kit/helpers';
 import { withStyles } from '@sigmaui-kit/with-styles';
 
-import { isObject, getValueFromEvent } from '../helpers';
+import { type FormItemProps, styles } from './styles';
+import { type FieldChildrenType, type FormItemOption, type FormItemType, FormItemTypeEnum } from './types';
+import { getValueFromEvent, isObject } from '../helpers';
 
 import FormItemLabel from '../FormItemLabel';
 import FormItemControl from '../FormItemControl';
 import type { FormInstance, Handlers } from '../hooks/useForm';
 
-import { styles, type FormItemProps } from './styles';
-
-import { type FormItemType, FormItemTypeEnum, type FormItemOption, type FieldChildrenType } from './types';
 import { StoreInitialState } from '../Form/types';
 
-export type {
-  FormItemType,
-  FormItemProps
-}
+export type { FormItemType, FormItemProps };
 
-const getIsRequired = ({ required, rules, form }: {
-  required?: boolean | RuleObject,
-  rules?: FieldProps['rules'],
-  form: FormInstance
+const getIsRequired = ({
+  required,
+  rules,
+  form,
+}: {
+  required?: boolean | RuleObject;
+  rules?: FieldProps['rules'];
+  form: FormInstance;
 }) => {
   if (required !== undefined) {
-    return Boolean(required)
+    return Boolean(required);
   }
 
   if (rules) {
@@ -44,11 +44,11 @@ const getIsRequired = ({ required, rules, form }: {
         return ruleEntity?.required && !ruleEntity?.warningOnly;
       }
       return false;
-    })
+    });
   }
 
-  return false
-}
+  return false;
+};
 
 const getFieldId = (namePath: InternalNamePath, formName?: string) => {
   if (!namePath.length) {
@@ -61,28 +61,28 @@ const getFieldId = (namePath: InternalNamePath, formName?: string) => {
     return `${formName}_${mergedId}`;
   }
 
-  return mergedId
-}
+  return mergedId;
+};
 
 const getRules = ({
   type,
   required,
   formRules = {},
   fieldRules = [],
-  validateMessages = {}
+  validateMessages = {},
 }: {
   // t?: WithTranslation['t'],
   // label?: FormItemOption['label'],
   // name?: FormItemOption['name'],
-  type?: FormItemOption['type'],
-  required?: boolean | RuleObject,
-  formRules?: { [key: string]: any },
-  fieldRules?: FieldProps['rules'],
-  validateMessages?: FormItemOption['validateMessages'],
+  type?: FormItemOption['type'];
+  required?: boolean | RuleObject;
+  formRules?: { [key: string]: any };
+  fieldRules?: FieldProps['rules'];
+  validateMessages?: FormItemOption['validateMessages'];
 }) => {
   const hasRequired = fieldRules.some?.((rule) => 'required' in rule);
 
-  const rulesByType = type && formRules?.[type] || [];
+  const rulesByType = (type && formRules?.[type]) || [];
 
   // console.log('rulesByType', rulesByType, type);
 
@@ -92,53 +92,49 @@ const getRules = ({
     if (typeof required === 'boolean') {
       requiredRule = {
         required,
-        message: validateMessages.required
-      }
+        message: validateMessages.required,
+      };
     } else {
       if (isObject(required)) {
         requiredRule = {
           required: true,
           message: validateMessages.required,
-          ...required
-        }
+          ...required,
+        };
       }
     }
   }
 
-  const allRules = [
-    ...fieldRules,
-    ...(hasRequired ? [] : [requiredRule]),
-    ...rulesByType
-  ];
+  const allRules = [...fieldRules, ...(hasRequired ? [] : [requiredRule]), ...rulesByType];
 
   if (rulesByType.length === 0) {
     if (type === FormItemTypeEnum.EMAIL) {
       allRules.push({
         type,
-        message: validateMessages.email
-      })
+        message: validateMessages.email,
+      });
     }
 
     if (type === FormItemTypeEnum.URL) {
       allRules.push({
         type,
-        message: validateMessages.url
-      })
+        message: validateMessages.url,
+      });
     }
   }
 
-  return allRules
-}
+  return allRules;
+};
 
-const getStatus = ({ meta, validateStatus }: { meta?: Meta, validateStatus?: string }) => {
+const getStatus = ({ meta, validateStatus }: { meta?: Meta; validateStatus?: string }) => {
   if (validateStatus !== undefined) {
-    return validateStatus
+    return validateStatus;
   }
 
   const validating = meta?.validating;
 
   if (validating) {
-    return 'validating'
+    return 'validating';
   }
 
   const errors = meta?.errors || [];
@@ -146,7 +142,7 @@ const getStatus = ({ meta, validateStatus }: { meta?: Meta, validateStatus?: str
   if (errors.length > 0) {
     return 'error';
   }
-}
+};
 
 const FormItem: FC<FormItemProps> = ({
   prefixCls,
@@ -177,7 +173,7 @@ const FormItem: FC<FormItemProps> = ({
   ...formItemProps
 }) => {
   if (typeof name === 'string' && name.includes('.')) {
-    name = name.split('.')
+    name = name.split('.');
   }
 
   const restProps = getRestProps(formItemProps);
@@ -189,14 +185,14 @@ const FormItem: FC<FormItemProps> = ({
   const isAutoTrim = useStoreSelector((state) => state.isAutoTrim);
   const isBlurAutoValidate = useStoreSelector((state) => state.isBlurAutoValidate);
 
-  const rules = getRules({ type, required, formRules, fieldRules, validateMessages })
+  const rules = getRules({ type, required, formRules, fieldRules, validateMessages });
 
   const { messageVariables = {} } = restProps;
 
   let renderChildren: FieldChildrenType;
 
   if (noStyle) {
-    renderChildren = children
+    renderChildren = children;
   } else {
     renderChildren = (control, meta, form) => {
       const isRequired = getIsRequired({ required, rules, form });
@@ -210,7 +206,7 @@ const FormItem: FC<FormItemProps> = ({
         control.onChange?.(...args);
 
         setState?.({
-          isDirty: true
+          isDirty: true,
         });
 
         handlers?.updateFieldChange?.(meta.name);
@@ -222,17 +218,17 @@ const FormItem: FC<FormItemProps> = ({
             value = getValueFromEventCustom(...args);
           } else {
             value = getValueFromEvent(args, {
-              valuePropName
-            })
+              valuePropName,
+            });
           }
 
           onChangeCustom?.({
             form,
             value,
-            preValue: control.value
+            preValue: control.value,
           });
         }
-      }
+      };
 
       const childProps: React.ReactElement<any>['props'] = {
         disabled,
@@ -240,7 +236,7 @@ const FormItem: FC<FormItemProps> = ({
         ...fieldProps,
         ...(children?.props || {}),
         ...control,
-        onChange
+        onChange,
       };
 
       if (!childProps.id) {
@@ -255,19 +251,25 @@ const FormItem: FC<FormItemProps> = ({
         childProps['aria-disabled'] = 'true';
       }
 
-      console.log('isBlurAutoValidate', isBlurAutoValidate)
+      console.log('isBlurAutoValidate', isBlurAutoValidate);
 
       if (isAutoTrim || isBlurAutoValidate) {
         childProps.onBlur = (e: React.MouseEvent) => {
           fieldProps.onBlur?.(e);
 
           if (isAutoTrim) {
-            if (!type || type === FormItemTypeEnum.INPUT || type === FormItemTypeEnum.TEXTAREA || type === FormItemTypeEnum.EMAIL || type === FormItemTypeEnum.URL) {
+            if (
+              !type ||
+              type === FormItemTypeEnum.INPUT ||
+              type === FormItemTypeEnum.TEXTAREA ||
+              type === FormItemTypeEnum.EMAIL ||
+              type === FormItemTypeEnum.URL
+            ) {
               const value = (e.target as HTMLInputElement).value;
 
               if (value) {
                 form.handleSetFieldValue?.(meta.name, value.trim(), {
-                  isValidateField: true
+                  isValidateField: true,
                 });
               }
             }
@@ -276,18 +278,18 @@ const FormItem: FC<FormItemProps> = ({
           if (isBlurAutoValidate) {
             form.validateFields([meta.name]);
           }
-        }
+        };
       }
 
       // console.log('childProps', childProps);
 
       return (
-        <div className={classNames(prefixCls, className, classes?.wrapper, {
-          ['has-error']: hasError
-        })}>
-          {
-            label
-            &&
+        <div
+          className={classNames(prefixCls, className, classes?.wrapper, {
+            ['has-error']: hasError,
+          })}
+        >
+          {label && (
             <FormItemLabel
               tooltip={tooltip}
               {...labelProps}
@@ -297,10 +299,8 @@ const FormItem: FC<FormItemProps> = ({
             >
               {label}
             </FormItemLabel>
-          }
-          {
-            children
-            &&
+          )}
+          {children && (
             <FormItemControl
               {...controlProps}
               fieldId={fieldId}
@@ -310,10 +310,10 @@ const FormItem: FC<FormItemProps> = ({
             >
               {React.cloneElement(children, childProps)}
             </FormItemControl>
-          }
+          )}
         </div>
-      )
-    }
+      );
+    };
   }
 
   return (
@@ -327,14 +327,14 @@ const FormItem: FC<FormItemProps> = ({
       messageVariables={{
         label,
         name: label,
-        ...messageVariables
+        ...messageVariables,
       }}
     >
       {renderChildren}
     </RcFieldForm>
-  )
-}
+  );
+};
 
 FormItem.displayName = 'FormItem';
 
-export default withStyles<FormItemProps>(styles)(FormItem)
+export default withStyles<FormItemProps>(styles)(FormItem);

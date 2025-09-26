@@ -1,4 +1,4 @@
-import { create } from '@stylexjs/stylex'
+import { create } from '@stylexjs/stylex';
 
 export const position = create({
   static: { position: 'static' },
@@ -6,4 +6,4 @@ export const position = create({
   absolute: { position: 'absolute' },
   relative: { position: 'relative' },
   sticky: { position: 'sticky' },
-})
+});

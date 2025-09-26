@@ -5,11 +5,9 @@ import { withStyles } from '@sigmaui-kit/with-styles';
 import RcSwitch, { type SwitchChangeEventHandler } from '@rc-component/switch';
 import { getRestProps } from '@microui-kit/helpers';
 
-import { styles, type SwitchProps } from './styles';
+import { type SwitchProps, styles } from './styles';
 
-export type {
-  SwitchProps
-}
+export type { SwitchProps };
 const Switch: FC<SwitchProps> = ({
   prefixCls,
   className,
@@ -33,8 +31,7 @@ const Switch: FC<SwitchProps> = ({
 
   const loadingIcon = (
     <div className={classNames(`${prefixCls}-content`, classes?.content)}>
-      <div className={`${prefixCls}-handle`}>
-      </div>
+      <div className={`${prefixCls}-handle`}></div>
     </div>
   );
 
@@ -47,9 +44,9 @@ const Switch: FC<SwitchProps> = ({
       checked={checked}
       onChange={handleChange}
     />
-  )
-}
+  );
+};
 
 Switch.displayName = 'Switch';
 
-export default withStyles<SwitchProps>(styles)(Switch)
+export default withStyles<SwitchProps>(styles)(Switch);

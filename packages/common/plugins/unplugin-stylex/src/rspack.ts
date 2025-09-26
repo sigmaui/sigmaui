@@ -4,14 +4,14 @@
  * @module
  */
 
-import { createRspackPlugin } from 'unplugin'
-import type { RspackPluginInstance } from 'unplugin'
-import { unpluginFactory } from './index'
-import type { UnpluginStylexInstance } from './types'
+import { createRspackPlugin } from 'unplugin';
+import type { RspackPluginInstance } from 'unplugin';
+import type { UnpluginStylexInstance } from './types';
+import { unpluginFactory } from './index';
 
-type RspackPluginType = UnpluginStylexInstance<RspackPluginInstance>
+type RspackPluginType = UnpluginStylexInstance<RspackPluginInstance>;
 
-const rspackPlugin: RspackPluginType = createRspackPlugin(unpluginFactory)
+const rspackPlugin: RspackPluginType = createRspackPlugin(unpluginFactory);
 
 /**
  * Rsapck plugin
@@ -26,4 +26,4 @@ const rspackPlugin: RspackPluginType = createRspackPlugin(unpluginFactory)
  *   ],
  * }
  */
-export default rspackPlugin
+export default rspackPlugin;

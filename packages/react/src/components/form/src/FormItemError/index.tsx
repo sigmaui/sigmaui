@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { withStyles } from '@sigmaui-kit/with-styles';
 import { getRestProps } from '@microui-kit/helpers';
 
-import { styles, type FormItemErrorProps } from './styles';
+import { type FormItemErrorProps, styles } from './styles';
 
 const FormItemError: FC<FormItemErrorProps> = ({
   prefixCls,
@@ -25,19 +25,18 @@ const FormItemError: FC<FormItemErrorProps> = ({
       className={classNames(prefixCls, className, classes?.wrapper)}
       {...restProps}
     >
-      {
-        errors.map((error) => {
-          return (
-            <div className={classNames(`${prefixCls}-line`, classes?.errorLine)}>
-              {icon}{t(error)}
-            </div>
-          )
-        })
-      }
+      {errors.map((error) => {
+        return (
+          <div className={classNames(`${prefixCls}-line`, classes?.errorLine)}>
+            {icon}
+            {t(error)}
+          </div>
+        );
+      })}
     </div>
-  )
-}
+  );
+};
 
-FormItemError.displayName = 'FormItemError'
+FormItemError.displayName = 'FormItemError';
 
-export default withStyles<FormItemErrorProps>(styles)(FormItemError)
+export default withStyles<FormItemErrorProps>(styles)(FormItemError);

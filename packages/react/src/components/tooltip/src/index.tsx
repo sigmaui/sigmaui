@@ -5,23 +5,15 @@ import { withStyles } from '@sigmaui-kit/with-styles';
 import RcTooltip from '@rc-component/tooltip';
 import { getRestProps } from '@microui-kit/helpers';
 
-import { styles, type TooltipProps } from './styles';
+import { type TooltipProps, styles } from './styles';
 
-export type {
-  TooltipProps
-}
+export type { TooltipProps };
 
 // function isFragment(child: any): boolean {
 //   return child && React.isValidElement(child) && child.type === React.Fragment;
 // }
 
-const Tooltip: FC<TooltipProps> = ({
-  prefixCls,
-  className,
-  classes,
-  children,
-  ...tooltipProps
-}) => {
+const Tooltip: FC<TooltipProps> = ({ prefixCls, className, classes, children, ...tooltipProps }) => {
   const restProps = getRestProps(tooltipProps);
 
   return (
@@ -31,17 +23,15 @@ const Tooltip: FC<TooltipProps> = ({
       classNames={{
         root: classes?.root,
         arrow: classes?.arrow,
-        body: classes?.body
+        body: classes?.body,
       }}
       {...restProps}
     >
-      <span className={classes?.inner}>
-        {children}
-      </span>
+      <span className={classes?.inner}>{children}</span>
     </RcTooltip>
-  )
-}
+  );
+};
 
 Tooltip.displayName = 'Tooltip';
 
-export default withStyles<TooltipProps>(styles)(Tooltip)
+export default withStyles<TooltipProps>(styles)(Tooltip);

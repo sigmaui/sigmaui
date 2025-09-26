@@ -1,15 +1,15 @@
-import React from 'react'
-import type { FC, ReactNode } from 'react'
-import * as stylex from '@stylexjs/stylex'
-import Button, { ButtonKeys } from '@packages/react/components/button'
-import Select, { SelectKeys } from '@packages/react/components/select'
-import { ThemeProvider } from '@packages/react/hooks/use-theme'
-import type { StylesDefinitions } from '@packages/react/hooks/use-theme'
-import { getTheme, darkTheme } from 'packages/common/theme'
-import { themeConfig } from './theme/config'
+import React from 'react';
+import type { FC, ReactNode } from 'react';
+import * as stylex from '@stylexjs/stylex';
+import Button, { ButtonKeys } from '@packages/react/components/button';
+import Select, { SelectKeys } from '@packages/react/components/select';
+import { ThemeProvider } from '@packages/react/hooks/use-theme';
+import type { StylesDefinitions } from '@packages/react/hooks/use-theme';
+import { darkTheme, getTheme } from 'packages/common/theme';
+import { themeConfig } from './theme/config';
 
 interface AppProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 const buttonStyles = stylex.create({
@@ -17,7 +17,7 @@ const buttonStyles = stylex.create({
     // position: 'fixed',
     backgroundColor: 'pink',
   },
-} as Partial<Pick<StylesDefinitions, ButtonKeys>>)
+} as Partial<Pick<StylesDefinitions, ButtonKeys>>);
 
 const selectStyles = stylex.create({
   root: {
@@ -26,12 +26,12 @@ const selectStyles = stylex.create({
   label: {
     color: 'pink',
   },
-} as Partial<Pick<StylesDefinitions, SelectKeys>>)
+} as Partial<Pick<StylesDefinitions, SelectKeys>>);
 
 const App: FC<AppProps> = ({ children }) => {
-  const { theme, themeTokens } = getTheme()
+  const { theme, themeTokens } = getTheme();
 
-  console.log('theme', theme)
+  console.log('theme', theme);
 
   return (
     <ThemeProvider
@@ -90,7 +90,7 @@ const App: FC<AppProps> = ({ children }) => {
       </ThemeProvider>
       {children}
     </ThemeProvider>
-  )
-}
+  );
+};
 
-export default App
+export default App;

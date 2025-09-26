@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { withStyles } from '@sigmaui-kit/with-styles';
 import { getRestProps } from '@microui-kit/helpers';
 
-import { styles, type IconProps } from './styles';
+import { type IconProps, styles } from './styles';
 
 const SigmaIcon: FC<IconProps> = ({
   prefixCls,
@@ -19,17 +19,17 @@ const SigmaIcon: FC<IconProps> = ({
 
   if (icon) {
     if (React.isValidElement(icon)) {
-      iconElement = icon
+      iconElement = icon;
     }
 
     if (typeof icon === 'string') {
-      if (
-        icon.startsWith?.('/') ||
-        icon.startsWith?.('http') ||
-        icon.startsWith?.('data:image')
-      ) {
+      if (icon.startsWith?.('/') || icon.startsWith?.('http') || icon.startsWith?.('data:image')) {
         iconElement = (
-          <img className={classes?.image} src={icon} alt="icon"/>
+          <img
+            className={classes?.image}
+            src={icon}
+            alt="icon"
+          />
         );
       } else {
         iconClasName = `icon-${icon}`;
@@ -37,16 +37,16 @@ const SigmaIcon: FC<IconProps> = ({
 
         if (iconString) {
           if (React.isValidElement(iconString)) {
-            iconElement = iconString
+            iconElement = iconString;
           } else {
             if (typeof iconString === 'string') {
-              if (
-                iconString.startsWith('/') ||
-                iconString.startsWith('http') ||
-                iconString.startsWith('data:image')
-              ) {
+              if (iconString.startsWith('/') || iconString.startsWith('http') || iconString.startsWith('data:image')) {
                 iconElement = (
-                  <img className={classes?.image} src={iconString} alt="icon"/>
+                  <img
+                    className={classes?.image}
+                    src={iconString}
+                    alt="icon"
+                  />
                 );
               } else {
                 iconProps.dangerouslySetInnerHTML = { __html: iconString };
@@ -54,11 +54,7 @@ const SigmaIcon: FC<IconProps> = ({
             } else {
               const IconElement = iconString;
 
-              iconElement = (
-                <IconElement
-                  {...svgProps}
-                />
-              );
+              iconElement = <IconElement {...svgProps} />;
             }
           }
         }
@@ -73,9 +69,9 @@ const SigmaIcon: FC<IconProps> = ({
     >
       {iconElement}
     </div>
-  )
-}
+  );
+};
 
-SigmaIcon.displayName = 'Icon'
+SigmaIcon.displayName = 'Icon';
 
-export default withStyles<IconProps>(styles)(SigmaIcon)
+export default withStyles<IconProps>(styles)(SigmaIcon);

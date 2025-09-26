@@ -8,13 +8,13 @@ const _ButtonHTMLTypes = ['submit', 'button', 'reset'] as const;
 export type ButtonHTMLType = (typeof _ButtonHTMLTypes)[number];
 
 export interface IProps<Styles> extends Omit<HTMLAttributes<HTMLButtonElement>, 'children'>, FCWithStylesProps<Styles> {
-  htmlType?: ButtonHTMLType
-  href?: string
-  asLink?: ComponentType<any>
-  loading?: boolean
-  locking?: boolean
-  disabled?: boolean
-  prefix?: any
-  suffix?: any
-  loadingProps?: LoadingProps
+  htmlType?: ButtonHTMLType;
+  href?: string;
+  asLink?: ComponentType<any>;
+  loading?: boolean;
+  locking?: boolean;
+  disabled?: boolean;
+  prefix?: any;
+  suffix?: any;
+  loadingProps?: LoadingProps;
 }

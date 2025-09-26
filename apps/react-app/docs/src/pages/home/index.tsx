@@ -1,14 +1,14 @@
-import { usePlatform } from '@microui-kit/platform'
-import Box from '@microui-kit/box'
-import Button from '@sigmaui-kit/button'
-import Page from '@docs/components/layout/Page'
+import { usePlatform } from '@microui-kit/platform';
+import Box from '@microui-kit/box';
+import Button from '@sigmaui-kit/button';
+import Page from '@docs/components/layout/Page';
 
-import { routeMap } from '@docs/router/routeMap'
+import { routeMap } from '@docs/router/routeMap';
 
 const Home = ({}) => {
-  const { platform } = usePlatform()
+  const { platform } = usePlatform();
 
-  console.log('platform', platform)
+  console.log('platform', platform);
 
   return (
     <Page>
@@ -38,7 +38,7 @@ const Home = ({}) => {
         </Box>
       </Box>
     </Page>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

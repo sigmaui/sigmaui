@@ -3,40 +3,30 @@ import classNames from 'classnames';
 import { withStyles } from '@sigmaui-kit/with-styles';
 import Animate from '@sigmaui-kit/animate';
 
-import { styles, LoadingDotsProps } from './styles';
+import { LoadingDotsProps, styles } from './styles';
 
-export type {
-  LoadingDotsProps
-}
+export type { LoadingDotsProps };
 
-const LoadingDots: FC<LoadingDotsProps> = ({
-  prefixCls,
-  className,
-  classes,
-  animateProps = {},
-  size = 12
-}) => {
+const LoadingDots: FC<LoadingDotsProps> = ({ prefixCls, className, classes, animateProps = {}, size = 12 }) => {
   const animateStyle = {
     wrapper: {
       width: size,
       height: size,
       backgroundColor: 'base',
-      borderRadius: '50%'
-    }
+      borderRadius: '50%',
+    },
   };
 
   const animation = {
     name: 'blink',
-    duration: '1.4s'
-  }
+    duration: '1.4s',
+  };
 
   return (
-    <div
-      className={classNames(prefixCls, classes?.wrapper, className)}
-    >
+    <div className={classNames(prefixCls, classes?.wrapper, className)}>
       <Animate
         animation={{
-          ...animation
+          ...animation,
         }}
         _style={animateStyle}
         {...animateProps}
@@ -44,7 +34,7 @@ const LoadingDots: FC<LoadingDotsProps> = ({
       <Animate
         animation={{
           ...animation,
-          delay: '200ms'
+          delay: '200ms',
         }}
         _style={animateStyle}
         {...animateProps}
@@ -52,15 +42,15 @@ const LoadingDots: FC<LoadingDotsProps> = ({
       <Animate
         animation={{
           ...animation,
-          delay: '400ms'
+          delay: '400ms',
         }}
         _style={animateStyle}
         {...animateProps}
       />
     </div>
-  )
+  );
 };
 
 LoadingDots.displayName = 'LoadingDots';
 
-export default withStyles<LoadingDotsProps>(styles)(LoadingDots)
+export default withStyles<LoadingDotsProps>(styles)(LoadingDots);

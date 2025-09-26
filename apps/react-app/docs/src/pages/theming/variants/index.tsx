@@ -1,7 +1,7 @@
-import Box from '@microui-kit/box'
-import Button from '@sigmaui-kit/button'
-import DocPage from '@docs/components/layout/DocPage'
-import VariantsMdx from '@docs/content/docs/theming/variants.mdx'
+import Box from '@microui-kit/box';
+import Button from '@sigmaui-kit/button';
+import DocPage from '@docs/components/layout/DocPage';
+import VariantsMdx from '@docs/content/docs/theming/variants.mdx';
 
 const VariantsPage = ({}) => {
   return (
@@ -15,7 +15,7 @@ const VariantsPage = ({}) => {
         <Button variant="link">link</Button>
       </Box>
     </DocPage>
-  )
-}
+  );
+};
 
-export default VariantsPage
+export default VariantsPage;

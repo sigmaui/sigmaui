@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo } from 'react';
-import { useForm as useRcForm, type FormInstance as RcFormInstance } from '@rc-component/form';
-import type { NamePath, Meta } from '@rc-component/form/lib/interface';
-import { useStore, StoreMethods } from '@microui-kit/use-store';
+import { type FormInstance as RcFormInstance, useForm as useRcForm } from '@rc-component/form';
+import type { Meta, NamePath } from '@rc-component/form/lib/interface';
+import { StoreMethods, useStore } from '@microui-kit/use-store';
 
 import type { StoreInitialState } from '../Form/types';
 
@@ -9,7 +9,10 @@ export type FieldValues = Record<string, any>;
 export type SubmitHandler<T> = (data: T, event?: React.BaseSyntheticEvent) => unknown | Promise<unknown>;
 export type SubmitErrorHandler<T> = (errors: T, event?: React.BaseSyntheticEvent) => unknown | Promise<unknown>;
 
-export type UseFormHandleSubmit<TFieldValues = any, TTransformedValues = TFieldValues> = (onValid: SubmitHandler<TTransformedValues>, onInvalid?: SubmitErrorHandler<TFieldValues>) => (e?: React.BaseSyntheticEvent) => Promise<void>;
+export type UseFormHandleSubmit<TFieldValues = any, TTransformedValues = TFieldValues> = (
+  onValid: SubmitHandler<TTransformedValues>,
+  onInvalid?: SubmitErrorHandler<TFieldValues>,
+) => (e?: React.BaseSyntheticEvent) => Promise<void>;
 
 export interface FormInstance<Values = any> extends RcFormInstance<Values> {
   name?: string;
@@ -26,29 +29,31 @@ export interface FormInstance<Values = any> extends RcFormInstance<Values> {
 }
 
 type UseFormParams<Values, T> =
-  | { initialState?: T } & { name: string; form?: FormInstance<Values> }
-  | { initialState?: T } & { name?: string; form: FormInstance<Values> }
+  | ({ initialState?: T } & { name: string; form?: FormInstance<Values> })
+  | ({ initialState?: T } & { name?: string; form: FormInstance<Values> });
 
 export interface Handlers {
-  updateState: (key: any) => void
-  updateFieldChange: (key: any) => void
+  updateState: (key: any) => void;
+  updateFieldChange: (key: any) => void;
 }
 
 function getName(name: string | NamePath) {
   if (typeof name === 'string' && name.includes('.')) {
-    name = name.split('.')
+    name = name.split('.');
   }
 
-  return name
+  return name;
 }
 
 const defaultInitialState = {
   isSubmitting: false,
   isDirty: false,
-  changedFields: {}
-}
+  changedFields: {},
+};
 
-export function useForm<Values = any, T extends StoreInitialState = any>(params: UseFormParams<Values, T>): [FormInstance<Values>] {
+export function useForm<Values = any, T extends StoreInitialState = any>(
+  params: UseFormParams<Values, T>,
+): [FormInstance<Values>] {
   const [rcForm] = useRcForm();
   const { form, initialState } = params;
 
@@ -64,7 +69,7 @@ export function useForm<Values = any, T extends StoreInitialState = any>(params:
     initialState: {
       formName: name,
       ...defaultInitialState,
-      ...initialState
+      ...initialState,
     } as T,
     handlers: ({ setState }) => {
       return {
@@ -72,39 +77,39 @@ export function useForm<Values = any, T extends StoreInitialState = any>(params:
           setState(dataState);
         },
         updateFieldChange: (key: Meta['name']) => {
-          console.log('updateFieldChange', key)
+          console.log('updateFieldChange', key);
 
           setState(({ changedFields }) => {
             if (Array.isArray(key)) {
               return {
                 changedFields: {
                   ...changedFields,
-                  [key.join('.')]: true
-                }
-              } as Partial<T>
+                  [key.join('.')]: true,
+                },
+              } as Partial<T>;
             }
 
             return {
               changedFields: {
                 ...changedFields,
-                [key]: true
-              }
-            } as Partial<T>
+                [key]: true,
+              },
+            } as Partial<T>;
           });
-        }
+        },
       };
-    }
+    },
   });
 
   useEffect(() => {
-    storeMethods.setState(initialState as T)
-  }, [JSON.stringify(initialState)])
+    storeMethods.setState(initialState as T);
+  }, [JSON.stringify(initialState)]);
 
   const wrapForm: FormInstance<Values> = useMemo(() => {
     let newForm: FormInstance;
 
     if (form) {
-      newForm = form
+      newForm = form;
     } else {
       const getFieldValue = rcForm.getFieldValue;
       const setFieldValue = rcForm.setFieldValue;
@@ -116,17 +121,17 @@ export function useForm<Values = any, T extends StoreInitialState = any>(params:
         storeKey,
         ...rcForm,
         getFieldValue: (name: string | NamePath) => {
-          return getFieldValue(getName(name))
+          return getFieldValue(getName(name));
         },
         setFieldValue: (name: string | NamePath, value) => {
           setFieldValue(getName(name), value);
           storeMethods.handlers?.updateFieldChange?.(name);
         },
         getFieldError: (name: string | NamePath) => {
-          return getFieldError(getName(name))
+          return getFieldError(getName(name));
         },
         getFieldWarning: (name: string | NamePath) => {
-          return getFieldWarning(getName(name))
+          return getFieldWarning(getName(name));
         },
         getChangedFields: () => {
           const storeState = storeMethods.getState();
@@ -142,18 +147,15 @@ export function useForm<Values = any, T extends StoreInitialState = any>(params:
             // console.log('meta', meta);
 
             if (!name) {
-              return false
+              return false;
             }
 
             return changedFields[name];
-          })
+          });
         },
-        scrollToField: (name: NamePath) => {
-        },
-        focusField: (name: NamePath) => {
-        },
-        getFieldInstance: (name: NamePath) => {
-        },
+        scrollToField: (name: NamePath) => {},
+        focusField: (name: NamePath) => {},
+        getFieldInstance: (name: NamePath) => {},
         handleSetFieldValue: (name: string | NamePath, value: any, params: { isValidateField?: boolean } = {}) => {
           const { isValidateField } = params;
 
@@ -170,19 +172,19 @@ export function useForm<Values = any, T extends StoreInitialState = any>(params:
             }
 
             storeMethods.setState({
-              isSubmitting: true
+              isSubmitting: true,
             } as T);
 
             try {
               const values = await wrapForm.validateFields();
 
-              console.log('validateFields', values)
+              console.log('validateFields', values);
 
               if (onValid) {
                 await onValid(values, e);
               }
             } catch (errorInfo) {
-              console.log('validateFields errorInfo', errorInfo)
+              console.log('validateFields errorInfo', errorInfo);
 
               if (onInvalid) {
                 await onInvalid(errorInfo as Values, e);
@@ -190,28 +192,28 @@ export function useForm<Values = any, T extends StoreInitialState = any>(params:
             }
 
             storeMethods.setState({
-              isSubmitting: false
+              isSubmitting: false,
             } as T);
-          }
+          };
         },
         reset: () => {
           wrapForm.resetFields();
           storeMethods.setState(defaultInitialState as T);
         },
-        storeMethods
+        storeMethods,
       };
     }
 
     // console.log('newForm', newForm);
 
     storeMethods.setState({
-      form: newForm
+      form: newForm,
     } as T);
 
-    return newForm
-  }, [form, rcForm])
+    return newForm;
+  }, [form, rcForm]);
 
-  return [wrapForm]
+  return [wrapForm];
 }
 
-export default useForm
+export default useForm;

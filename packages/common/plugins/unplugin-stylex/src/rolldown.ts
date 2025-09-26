@@ -4,13 +4,13 @@
  * @module
  */
 
-import { createRolldownPlugin } from 'unplugin'
-import type { RolldownPlugin } from 'unplugin'
-import { unpluginFactory } from './index'
-import type { UnpluginStylexInstance } from './types'
+import { createRolldownPlugin } from 'unplugin';
+import type { RolldownPlugin } from 'unplugin';
+import type { UnpluginStylexInstance } from './types';
+import { unpluginFactory } from './index';
 
 // Todo(eryue0220): upgrade ts declaration
-const rolldownPlugin: UnpluginStylexInstance<RolldownPlugin | RolldownPlugin[]> = createRolldownPlugin(unpluginFactory)
+const rolldownPlugin: UnpluginStylexInstance<RolldownPlugin | RolldownPlugin[]> = createRolldownPlugin(unpluginFactory);
 
 /**
  * @experimental
@@ -28,4 +28,4 @@ const rolldownPlugin: UnpluginStylexInstance<RolldownPlugin | RolldownPlugin[]> 
  *   ],
  * }
  */
-export default rolldownPlugin
+export default rolldownPlugin;

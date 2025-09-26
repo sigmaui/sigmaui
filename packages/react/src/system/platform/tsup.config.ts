@@ -1,5 +1,5 @@
-import { defineConfig } from 'tsup'
-import vue from 'unplugin-vue/esbuild'
+import { defineConfig } from 'tsup';
+import vue from 'unplugin-vue/esbuild';
 
 export default defineConfig({
   clean: true,
@@ -7,7 +7,7 @@ export default defineConfig({
   target: 'es2019',
   format: ['cjs', 'esm'],
   esbuildOptions(options) {
-    options.drop = ['console']
+    options.drop = ['console'];
   },
   esbuildPlugins: [
     vue({
@@ -15,4 +15,4 @@ export default defineConfig({
     }),
   ],
   external: ['@sigmaui-kit/v-use-theme'],
-})
+});

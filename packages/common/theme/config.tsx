@@ -5,7 +5,7 @@ import { formatProperty } from '@microui-kit/create-renderer';
 import { modes } from './modes';
 import { components } from './tokens/components';
 import { colors } from './tokens/colors';
-import { sizes, fontSizes, heights, radii } from './tokens/sizes';
+import { fontSizes, heights, radii, sizes } from './tokens/sizes';
 import { variants } from './tokens/variants';
 import { boxShadows } from './tokens/boxShadow';
 import { zIndex } from './tokens/zIndex';
@@ -22,25 +22,23 @@ const themeMapping: any = {
   height: (theme: any) => theme.heights,
   boxShadow: (theme: any) => theme.shadows,
   zIndex: (theme: any) => theme.zIndex,
-}
+};
 
 export const felaRendererConfig = {
   themeMapping,
   customProperties: {
-    borderWidth: formatProperty('borderWidth')
+    borderWidth: formatProperty('borderWidth'),
   },
   clsBlackList: [],
-  enhancers: [
-    customRenderer()
-  ]
-}
-type BoxShadow = keyof typeof boxShadows
-type Colors = keyof typeof colors
+  enhancers: [customRenderer()],
+};
+type BoxShadow = keyof typeof boxShadows;
+type Colors = keyof typeof colors;
 
 export type ITheme = Theme & {
-  shadows: Record<BoxShadow, string>
-  colors: Record<Colors, string>
-}
+  shadows: Record<BoxShadow, string>;
+  colors: Record<Colors, string>;
+};
 const theme: ITheme = {
   base: {
     fontSize: 16,
@@ -55,11 +53,11 @@ const theme: ITheme = {
   heights,
   radii,
   shadows: boxShadows,
-  zIndex
-}
+  zIndex,
+};
 
 export const globalStyle = ({ theme, renderer }: any) => {
-  const platform = theme?.platform
+  const platform = theme?.platform;
 
   return {
     '*, :after, :before': {
@@ -125,7 +123,7 @@ export const globalStyle = ({ theme, renderer }: any) => {
     '[data-placeholder-shown] [data-part="value-text"]': {
       color: '#999',
     },
-  }
-}
+  };
+};
 
-export default theme
+export default theme;

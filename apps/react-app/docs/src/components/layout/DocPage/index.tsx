@@ -1,11 +1,10 @@
-import React from 'react'
-import type { FC } from 'react'
-import classNames from 'classnames'
-import { withStyles } from '@microui-kit/with-styles'
+import React from 'react';
+import type { FC } from 'react';
+import classNames from 'classnames';
+import { withStyles } from '@microui-kit/with-styles';
 
-import TableOfContent from '../TableOfContent'
-
-import { styles, type DocPageProps } from './styles'
+import { type DocPageProps, styles } from './styles';
+import TableOfContent from '../TableOfContent';
 
 const DocPage: FC<DocPageProps> = ({
   prefixCls = 'sm-page',
@@ -15,9 +14,9 @@ const DocPage: FC<DocPageProps> = ({
   data = {},
   isShowToc = true,
 }) => {
-  const { slug, title, description, toc } = data
+  const { slug, title, description, toc } = data;
 
-  const contentClassName = 'sm-toc-content'
+  const contentClassName = 'sm-toc-content';
 
   return (
     <div className={classNames(prefixCls, className, classes?.wrapper)}>
@@ -46,9 +45,9 @@ const DocPage: FC<DocPageProps> = ({
         />
       )}
     </div>
-  )
-}
+  );
+};
 
-DocPage.displayName = 'DocPage'
+DocPage.displayName = 'DocPage';
 
-export default withStyles<DocPageProps>(styles)(DocPage)
+export default withStyles<DocPageProps>(styles)(DocPage);

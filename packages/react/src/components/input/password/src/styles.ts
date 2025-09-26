@@ -6,11 +6,11 @@ export const styles = ({}: IProps<any>): Partial<Record<ClassKeys, StylesPropert
   // console.log('theme', theme)
 
   return {
-    wrapper: {}
-  }
-}
+    wrapper: {},
+  };
+};
 
-export type PasswordTypes = ReturnType<typeof styles>
-export type PasswordKeys = keyof PasswordTypes
+export type PasswordTypes = ReturnType<typeof styles>;
+export type PasswordKeys = keyof PasswordTypes;
 
-export type PasswordProps = IProps<PasswordTypes>
+export type PasswordProps = IProps<PasswordTypes>;

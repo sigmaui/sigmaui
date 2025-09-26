@@ -1,35 +1,35 @@
-import React, { FC, useRef, useEffect, useCallback, useMemo } from 'react';
 import {
-  RendererProvider,
   ThemeProvider as FelaThemeProvider,
   type ProviderProps,
-  type ThemeProviderProps
+  RendererProvider,
+  type ThemeProviderProps,
 } from 'react-fela';
 import { useThemeMode } from '@microui-kit/use-theme-mode';
 import { usePlatform } from '@microui-kit/platform';
 import { getTheme } from '@microui-kit/theme';
 import { cssifyObject } from '@microui-kit/utils';
+import React, { FC, useCallback, useEffect, useMemo, useRef } from 'react';
 
 import { THEME_MODE } from '@microui-kit/types';
 
 export { THEME_MODE };
 
 interface SigmaUIProviderProps {
-  theme?: any
-  children?: React.ReactNode
-  renderer?: any
-  rendererConfig?: any
-  themeRenderer?: any
-  root?: string | undefined
-  globalStyle?: any
-  globalProps?: any
-  themeProps?: any
-  cookies?: any
-  themeMode?: string
-  extra?: any
-  isSplashMode?: boolean
-  providerProps?: ProviderProps
-  prefix?: string
+  theme?: any;
+  children?: React.ReactNode;
+  renderer?: any;
+  rendererConfig?: any;
+  themeRenderer?: any;
+  root?: string | undefined;
+  globalStyle?: any;
+  globalProps?: any;
+  themeProps?: any;
+  cookies?: any;
+  themeMode?: string;
+  extra?: any;
+  isSplashMode?: boolean;
+  providerProps?: ProviderProps;
+  prefix?: string;
 }
 
 const ROOT_TYPE = 'ROOT';
@@ -45,11 +45,11 @@ function renderRoot(params: any) {
     type: rootType,
     css,
     selector,
-  }
+  };
 
   if (isCache) {
-    renderer.cache[rootType] = change
-    renderer._emitChange(change)
+    renderer.cache[rootType] = change;
+    renderer._emitChange(change);
   }
 
   // console.log('renderRoot', renderer.nodes);
@@ -57,28 +57,28 @@ function renderRoot(params: any) {
   const node = renderer.nodes[rootType];
 
   if (node) {
-    node.textContent = `${selector}{${css}}`
+    node.textContent = `${selector}{${css}}`;
   }
 }
 
 function getMode(params: any) {
-  const { deviceMode, themeMode } = params
+  const { deviceMode, themeMode } = params;
 
-  const modes: string[] = []
+  const modes: string[] = [];
 
   if (deviceMode) {
-    modes.push(deviceMode)
+    modes.push(deviceMode);
   }
 
   if (themeMode) {
-    modes.push(themeMode)
+    modes.push(themeMode);
   }
 
   if (modes.length === 0) {
-    return ''
+    return '';
   }
 
-  return modes.join(':')
+  return modes.join(':');
 }
 
 export const ThemeProvider: FC<ThemeProviderProps> = ({ theme, children, overwrite }) => {
@@ -89,8 +89,8 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ theme, children, overwri
     >
       {children}
     </FelaThemeProvider>
-  )
-}
+  );
+};
 
 export const SigmaUIProvider: FC<SigmaUIProviderProps> = ({
   theme: themeFromProp,
@@ -107,7 +107,6 @@ export const SigmaUIProvider: FC<SigmaUIProviderProps> = ({
   themeMode: themeModeFromProp,
   providerProps = {},
   prefix,
-
 }) => {
   const rendererRef = useRef(false);
   const { platform }: any = usePlatform();
@@ -116,15 +115,15 @@ export const SigmaUIProvider: FC<SigmaUIProviderProps> = ({
   const { mode: themeMode, changeMode } = useThemeMode({
     cookies,
     mode: themeModeFromProp || THEME_MODE.DARK,
-  })
+  });
 
   const { plugins = [], ...configs }: any = rendererConfig;
 
   const { domain, projectName, isCssVars } = themeProps;
 
   const mode = useMemo(() => {
-    return getMode({ deviceMode, themeMode })
-  }, [deviceMode, themeMode])
+    return getMode({ deviceMode, themeMode });
+  }, [deviceMode, themeMode]);
 
   const theme = getTheme(themeFromProp, {
     deviceMode,
@@ -133,16 +132,16 @@ export const SigmaUIProvider: FC<SigmaUIProviderProps> = ({
     projectName,
     platform,
     isCssVars,
-    prefix
-  })
+    prefix,
+  });
 
   const modes = theme?.modes;
 
   useMemo(() => {
     Object.keys(configs).forEach((key) => {
-      renderer[key] = configs[key]
-    })
-  }, [configs])
+      renderer[key] = configs[key];
+    });
+  }, [configs]);
 
   const rootSelector = mode ? `${root}[data-mode="${mode}"]` : root;
 
@@ -153,30 +152,36 @@ export const SigmaUIProvider: FC<SigmaUIProviderProps> = ({
         selector: rootSelector,
         style: theme.__cssVars,
         mode,
-      })
+      });
     }
-  }, [JSON.stringify(theme.__cssVars), mode])
+  }, [JSON.stringify(theme.__cssVars), mode]);
 
   if (!rendererRef.current) {
     rendererRef.current = true;
 
     if (typeof globalStyle === 'function') {
-      globalStyle = globalStyle({ theme, renderer })
+      globalStyle = globalStyle({ theme, renderer });
     }
 
     const { html: htmlStyle = {}, body: bodyStyle = {}, ...staticStyle }: any = globalStyle;
 
-    renderer.renderStatic({
-      // scrollbarColor: 'hsl(0, 0%, 67%) transparent',
-      ...htmlStyle,
-    }, 'html');
+    renderer.renderStatic(
+      {
+        // scrollbarColor: 'hsl(0, 0%, 67%) transparent',
+        ...htmlStyle,
+      },
+      'html',
+    );
 
-    renderer.renderStatic({
-      margin: 0,
-      ...bodyStyle,
-    }, 'body');
+    renderer.renderStatic(
+      {
+        margin: 0,
+        ...bodyStyle,
+      },
+      'body',
+    );
 
-    const lightName = THEME_MODE.LIGHT
+    const lightName = THEME_MODE.LIGHT;
 
     const lightConfig = modes?.[lightName] || themeFromProp;
 
@@ -184,7 +189,7 @@ export const SigmaUIProvider: FC<SigmaUIProviderProps> = ({
       backgroundColor: lightConfig.colors?.background || '#ffffff',
       color: lightConfig.colors?.default || '#1a1a1a',
       // colorScheme: 'light'
-    }
+    };
 
     const darkName = THEME_MODE.DARK;
 
@@ -194,17 +199,17 @@ export const SigmaUIProvider: FC<SigmaUIProviderProps> = ({
       backgroundColor: darkConfig.colors?.background || '#000000',
       color: darkConfig.colors?.default || '#ffffff',
       // colorScheme: 'dark'
-    }
+    };
 
-    renderer.renderStatic(lightCss, `html[data-theme-mode=${lightName}]`)
-    renderer.renderStatic(darkCss, `html[data-theme-mode=${darkName}]`)
+    renderer.renderStatic(lightCss, `html[data-theme-mode=${lightName}]`);
+    renderer.renderStatic(darkCss, `html[data-theme-mode=${darkName}]`);
 
     const staticKeys = Object.keys(staticStyle);
 
     if (staticKeys.length > 0) {
       staticKeys.forEach((key) => {
-        renderer.renderStatic(staticStyle[key], key)
-      })
+        renderer.renderStatic(staticStyle[key], key);
+      });
     }
 
     renderCssVars();
@@ -218,13 +223,13 @@ export const SigmaUIProvider: FC<SigmaUIProviderProps> = ({
   globalProps.changeMode = changeMode;
 
   useEffect(() => {
-    renderCssVars()
-  }, [JSON.stringify(theme.__cssVars)])
+    renderCssVars();
+  }, [JSON.stringify(theme.__cssVars)]);
 
   useEffect(() => {
     const element = document.documentElement;
     element.setAttribute('data-mode', mode);
-  }, [mode])
+  }, [mode]);
 
   return (
     <RendererProvider
@@ -237,14 +242,14 @@ export const SigmaUIProvider: FC<SigmaUIProviderProps> = ({
           cookies,
           deviceMode,
           themeMode,
-          globalProps
+          globalProps,
         }}
       >
         {children}
         {extra}
       </ThemeProvider>
     </RendererProvider>
-  )
-}
+  );
+};
 
-export default SigmaUIProvider
+export default SigmaUIProvider;

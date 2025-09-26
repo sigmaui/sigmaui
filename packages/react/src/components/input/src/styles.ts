@@ -14,7 +14,7 @@ export const styles = ({
   prefixCls,
   theme = {},
   size,
-  variant
+  variant,
 }: IProps<any>): Partial<Record<ClassKeys, StylesProperties>> => {
   // console.log('theme', theme)
 
@@ -32,16 +32,16 @@ export const styles = ({
       variant,
 
       '&:hover': {
-        borderColor: 'base'
+        borderColor: 'base',
       },
 
       '&:focus, &[class*="-focused"]': {
         boxShadow: 'focused',
-        borderColor: 'base'
+        borderColor: 'base',
       },
 
       '&::placeholder': {
-        color: 'input.placeholder'
+        color: 'input.placeholder',
       },
 
       '&[disabled]': {
@@ -52,16 +52,16 @@ export const styles = ({
         borderColor: 'error',
 
         '&:hover': {
-          borderColor: 'error'
+          borderColor: 'error',
         },
 
         '&:focus, &[class*="-focused"]': {
           boxShadow: 'error.focused',
-          borderColor: 'error'
+          borderColor: 'error',
         },
 
         [`& .${prefixCls}-prefix`]: {
-          color: 'error'
+          color: 'error',
         },
       },
 
@@ -76,12 +76,12 @@ export const styles = ({
         fontFamily: 'inherit',
 
         '&::placeholder': {
-          color: 'input.placeholder'
-        }
-      }
+          color: 'input.placeholder',
+        },
+      },
     },
     affixWrapper: {
-      display: 'flex'
+      display: 'flex',
     },
     prefix: {
       display: 'flex',
@@ -90,8 +90,8 @@ export const styles = ({
       marginRight: 4,
 
       '& svg': {
-        size: `icon.${size}`
-      }
+        size: `icon.${size}`,
+      },
     },
     suffix: {
       display: 'flex',
@@ -100,7 +100,7 @@ export const styles = ({
       marginLeft: 4,
 
       '& svg': {
-        size: `icon.${size}`
+        size: `icon.${size}`,
       },
 
       [`& .${prefixCls}-clear-icon`]: {
@@ -114,24 +114,24 @@ export const styles = ({
         cursor: 'pointer',
 
         '&[class*="-hidden"]': {
-          visibility: 'hidden'
+          visibility: 'hidden',
         },
 
         '& svg': {
           width: 10,
-          height: 10
-        }
-      }
+          height: 10,
+        },
+      },
     },
     count: {
       whiteSpace: 'nowrap',
       // color: `var(description, rgba(0,0,0,0.45))`,
-      color: 'description'
-    }
-  }
-}
+      color: 'description',
+    },
+  };
+};
 
-export type InputTypes = ReturnType<typeof styles>
-export type InputKeys = keyof InputTypes
+export type InputTypes = ReturnType<typeof styles>;
+export type InputKeys = keyof InputTypes;
 
-export type InputProps = IProps<InputTypes>
+export type InputProps = IProps<InputTypes>;

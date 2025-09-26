@@ -5,14 +5,12 @@ import { useStoreContext } from '@microui-kit/use-store';
 import { withStyles } from '@sigmaui-kit/with-styles';
 import { getRestProps } from '@microui-kit/helpers';
 
+import { type FormItemControlProps, styles } from './styles';
 import FormItemError from '../FormItemError';
 
-import { styles, type FormItemControlProps } from './styles';
 import { StoreInitialState } from '../Form/types';
 
-export type {
-  FormItemControlProps
-}
+export type { FormItemControlProps };
 
 const FormItemControl: FC<FormItemControlProps> = ({
   prefixCls,
@@ -40,40 +38,32 @@ const FormItemControl: FC<FormItemControlProps> = ({
       className={classNames(prefixCls, className, classes?.wrapper)}
       {...restProps}
     >
-      <div className={classNames(`${prefixCls}-content`, classes?.content)}>
-        {children}
-      </div>
-      {
-        hasMeta
-        &&
+      <div className={classNames(`${prefixCls}-content`, classes?.content)}>{children}</div>
+      {hasMeta && (
         <Fragment>
           <div className={classNames(`${formItemPrefixCls}-meta`, classes?.meta)}>
-            {
-              note
-              &&
+            {note && (
               <div
                 id={`${fieldId}_note`}
                 className={classNames(`${formItemPrefixCls}-note`, classes?.note)}
               >
                 {note}
               </div>
-            }
-            {
-              hasError
-              &&
+            )}
+            {hasError && (
               <FormItemError
                 id={`${fieldId}_error`}
                 errors={errors}
                 icon={validateIcons['error']}
               />
-            }
+            )}
           </div>
         </Fragment>
-      }
+      )}
     </div>
-  )
-}
+  );
+};
 
-FormItemControl.displayName = 'FormItemControl'
+FormItemControl.displayName = 'FormItemControl';
 
-export default withStyles<FormItemControlProps>(styles)(FormItemControl)
+export default withStyles<FormItemControlProps>(styles)(FormItemControl);

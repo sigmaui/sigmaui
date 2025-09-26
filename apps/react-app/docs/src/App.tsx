@@ -13,21 +13,21 @@ import Header from './components/layout/Header';
 import Sidebar from './components/layout/Sidebar';
 
 const App = ({ renderer }) => {
-  const router = useRouter()
-  const { pathname } = router
+  const router = useRouter();
+  const { pathname } = router;
 
-  const route = getRoute({ routes, pathname })
-  const { routeProps = {}, name: pageName } = route
+  const route = getRoute({ routes, pathname });
+  const { routeProps = {}, name: pageName } = route;
 
   const theme = {
     ...themeConfig,
-  }
+  };
 
-  const isSidebar = pathname.startsWith('/docs')
+  const isSidebar = pathname.startsWith('/docs');
 
   // console.log('renderer', renderer);
 
-  console.log('Locales', Locales.Custom.message.required)
+  console.log('Locales', Locales.Custom.message.required);
 
   return (
     <SigmaUIProvider
@@ -48,9 +48,9 @@ const App = ({ renderer }) => {
               marginTop: 24,
             },
           }}
-          header={<Header/>}
+          header={<Header />}
           isSidebar={isSidebar}
-          sidebar={isSidebar && <Sidebar/>}
+          sidebar={isSidebar && <Sidebar />}
         >
           <Outlet
             context={{
@@ -61,7 +61,7 @@ const App = ({ renderer }) => {
         </Layout>
       </MDXProvider>
     </SigmaUIProvider>
-  )
-}
+  );
+};
 
-export default App
+export default App;
