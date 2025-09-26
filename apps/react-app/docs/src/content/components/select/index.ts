@@ -1,5 +1,1 @@
-import usage from './usage'
-
-export const selectContent = {
-  usage,
-}
+export { default as Usage } from './usage/preview'
