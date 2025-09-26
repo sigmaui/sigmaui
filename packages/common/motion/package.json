@@ -1,6 +1,6 @@
 {
-  "name": "@sigmaui-kit/select",
-  "version": "0.0.3",
+  "name": "@sigmaui-kit/motion",
+  "version": "0.0.1",
   "description": "",
   "keywords": [],
   "author": "",
@@ -11,36 +11,41 @@
   "files": [
     "dist"
   ],
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./*"
+      ]
+    }
+  },
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sigmaui/sigmaui.git",
-    "directory": "packages/react/components/select"
+    "directory": "packages/common/motion"
   },
   "scripts": {
     "setup": "yarn install",
-    "build": "tsup src --dts",
+    "build": "yarn generate:index && tsup src --dts && yarn generate:exports",
     "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "build:fast": "tsup src",
     "prepack": "clean-package",
     "postpack": "clean-package restore",
-    "prepublishOnly": "node ../../../../../scripts/prepublish.js",
-    "postpublish": "node ../../../../../scripts/postpublish.js"
+    "prepublishOnly": "node ../../../scripts/prepublish.js",
+    "postpublish": "node ../../../scripts/postpublish.js",
+    "generate:index": "node generate-index.js",
+    "generate:exports": "node generate-exports.js"
   },
-  "dependencies": {
-    "@rc-component/select": "^1.1.5"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": ">=18",
-    "@sigmaui-kit/types": "latest",
-    "@sigmaui-kit/with-styles": "latest",
-    "@microui-kit/helpers": "latest",
-    "@sigmaui-kit/path-morphing": "latest"
+    "react-dom": ">=18"
   },
   "devDependencies": {},
-  "clean-package": "../../../../../clean-package.config.json"
+  "clean-package": "./clean-package.config.json"
 }

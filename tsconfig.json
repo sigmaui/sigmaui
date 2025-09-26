@@ -59,6 +59,9 @@
       "@sigmaui-kit/locale": [
         "packages/common/locale/src"
       ],
+      "@sigmaui-kit/path-morphing": [
+        "packages/common/motion/path-morphing/src"
+      ],
       "@sigmaui-kit/layout": [
         "packages/react/src/components/layout/src"
       ],

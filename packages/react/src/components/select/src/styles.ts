@@ -20,7 +20,13 @@ export const styles = ({
         },
       },
 
-      [`&.${prefixCls}-single`]: {},
+      [`&.${prefixCls}-single`]: {
+        [`&.${prefixCls}-open`]: {
+          [`& .${prefixCls}-selection-item`]: {
+            color: 'placeholder'
+          }
+        }
+      },
 
       [`& .${prefixCls}-selector`]: {
         position: 'relative',
@@ -80,6 +86,10 @@ export const styles = ({
         paddingRight: 12,
         lineClamp: 1,
         userSelect: 'none',
+      },
+
+      [`& .${prefixCls}-selection-item`]: {
+        transition: 'all .3s, visibility 0s'
       },
 
       [`& .${prefixCls}-selection-placeholder`]: {
