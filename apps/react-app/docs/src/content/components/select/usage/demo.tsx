@@ -42,9 +42,51 @@ export const Demo: React.FC<any> = ({ control }) => {
       />
       <Select
         allowClear
+        mode="multiple"
+        size={control.state.size}
+        placeholder="Multiple selection"
+        options={[
+          {
+            label: 'Small Small Small Small Small Small',
+            value: 'small',
+            // disabled: true
+          },
+          {
+            label: 'Middle',
+            value: 'middle',
+          },
+          {
+            label: 'Large',
+            value: 'large',
+          },
+          {
+            label: 'Large2',
+            value: 'large2',
+          },
+          {
+            label: 'Large3',
+            value: 'large3',
+          },
+          {
+            label: 'Large4',
+            value: 'large4',
+          },
+          {
+            label: 'Large5',
+            value: 'large5',
+          },
+        ]}
+        _style={{
+          wrapper: {
+            width: 200
+          }
+        }}
+      />
+      <Select
+        allowClear
         mode="tags"
         size={control.state.size}
-        placeholder="Select size Select size Select size Select size"
+        placeholder="Tags mode"
         options={[
           {
             label: 'Small Small Small Small Small Small',
