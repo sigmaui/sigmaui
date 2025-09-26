@@ -3,19 +3,11 @@ import classNames from 'classnames';
 import { withStyles } from '@sigmaui-kit/with-styles';
 import { getEvent } from '@microui-kit/helpers';
 
-import { styles, AnimateProps } from './styles';
+import { AnimateProps, styles } from './styles';
 
-export type {
-  AnimateProps
-}
+export type { AnimateProps };
 
-const Animate: FC<AnimateProps> = ({
-  prefixCls,
-  className,
-  classes = {},
-  as: As = 'div',
-  ...animateProps
-}) => {
+const Animate: FC<AnimateProps> = ({ prefixCls, className, classes = {}, as: As = 'div', ...animateProps }) => {
   const events = getEvent(animateProps);
 
   return (
@@ -23,9 +15,9 @@ const Animate: FC<AnimateProps> = ({
       className={classNames(prefixCls, className, classes.wrapper)}
       {...events}
     />
-  )
+  );
 };
 
 Animate.displayName = 'Animate';
 
-export default withStyles<AnimateProps>(styles)(Animate)
+export default withStyles<AnimateProps>(styles)(Animate);

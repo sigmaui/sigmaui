@@ -16,39 +16,27 @@ const formCustomRenderItem = ({ type }) => {
 
   switch (type) {
     case FormItemTypeEnum.INPUT:
-      controller = (
-        <Input/>
-      );
+      controller = <Input />;
       break;
 
     case FormItemTypeEnum.PASSWORD:
-      controller = (
-        <Password/>
-      );
+      controller = <Password />;
       break;
 
     case FormItemTypeEnum.EMAIL:
-      controller = (
-        <Input/>
-      );
+      controller = <Input />;
       break;
 
     case FormItemTypeEnum.URL:
-      controller = (
-        <Input/>
-      );
+      controller = <Input />;
       break;
 
     case FormItemTypeEnum.SELECT:
-      controller = (
-        <Select/>
-      );
+      controller = <Select />;
       break;
 
     case FormItemTypeEnum.TEXTAREA:
-      controller = (
-        <Textarea/>
-      );
+      controller = <Textarea />;
       break;
 
     case FormItemTypeEnum.SWITCH:
@@ -81,13 +69,13 @@ const formRules = (params: { t?: WithTranslation['t'] } = {}) => {
     //     }
     //   })
     // ]
-  }
-}
+  };
+};
 
 export const components = {
   Button: {
     defaultProps: {
-      asLink: Link
+      asLink: Link,
     },
     _style: {
       wrapper: {},
@@ -95,7 +83,7 @@ export const components = {
   },
   Icon: {
     defaultProps: {
-      iconMap
+      iconMap,
     },
   },
   Password: {
@@ -110,8 +98,8 @@ export const components = {
       customRenderItem: formCustomRenderItem,
       formRules,
       validateIcons: {
-        error: <AlertErrorIcon/>
-      }
+        error: <AlertErrorIcon />,
+      },
     },
-  }
-}
+  },
+};

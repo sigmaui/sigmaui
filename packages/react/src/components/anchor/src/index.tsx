@@ -1,14 +1,14 @@
-import React from 'react'
-import type { FC } from 'react'
-import classNames from 'classnames'
-import { withStyles } from '@microui-kit/with-styles'
+import React from 'react';
+import type { FC } from 'react';
+import classNames from 'classnames';
+import { withStyles } from '@microui-kit/with-styles';
 
-import { styles, type AnchorProps } from 'packages/common/components/anchor/styles'
+import { type AnchorProps, styles } from 'packages/common/components/anchor/styles';
 
 const SigmaAnchor: FC<AnchorProps> = ({ prefixCls = 'sm-anchor', className, classes }) => {
-  return <div className={classNames(prefixCls, className, classes?.wrapper)}></div>
-}
+  return <div className={classNames(prefixCls, className, classes?.wrapper)}></div>;
+};
 
-SigmaAnchor.displayName = 'Anchor'
+SigmaAnchor.displayName = 'Anchor';
 
-export default withStyles<AnchorProps>(styles)(SigmaAnchor)
+export default withStyles<AnchorProps>(styles)(SigmaAnchor);

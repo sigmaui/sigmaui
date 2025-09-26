@@ -11,7 +11,7 @@ export const styles = ({ prefixCls, theme = {}, size }: IProps<any>): Partial<Re
       zIndex: 'tooltip',
 
       [`&.${prefixCls}-hidden`]: {
-        display: 'none'
+        display: 'none',
       },
 
       [`& .${prefixCls}-body`]: {
@@ -20,13 +20,13 @@ export const styles = ({ prefixCls, theme = {}, size }: IProps<any>): Partial<Re
         paddingBlock: 6,
         paddingInline: 8,
         borderRadius: 'default',
-        size: `text.${size}`
-      }
-    }
-  }
-}
+        size: `text.${size}`,
+      },
+    },
+  };
+};
 
-export type TooltipTypes = ReturnType<typeof styles>
-export type TooltipKeys = keyof TooltipTypes
+export type TooltipTypes = ReturnType<typeof styles>;
+export type TooltipKeys = keyof TooltipTypes;
 
-export type TooltipProps = IProps<TooltipTypes>
+export type TooltipProps = IProps<TooltipTypes>;

@@ -6,7 +6,7 @@ import { getRestProps } from '@microui-kit/helpers';
 import { withStyles } from '@sigmaui-kit/with-styles';
 import XMarkIcon from '@sigmaui-kit/icons/XMarkIcon';
 
-import { styles, type TextareaProps } from './styles';
+import { type TextareaProps, styles } from './styles';
 
 const Textarea: FC<TextareaProps> = ({
   prefixCls,
@@ -24,26 +24,26 @@ const Textarea: FC<TextareaProps> = ({
     restProps.showCount = true;
   }
 
-  const mergedAllowClear = allowClear === true ? { clearIcon: <XMarkIcon/> } : allowClear;
+  const mergedAllowClear = allowClear === true ? { clearIcon: <XMarkIcon /> } : allowClear;
 
   return (
     <RcTextArea
       prefixCls={prefixCls}
       className={classNames(className, classes?.wrapper, {
-        [`_${status}`]: status
+        [`_${status}`]: status,
       })}
       classNames={{
         affixWrapper: classes?.affixWrapper,
         suffix: classes?.suffix,
-        count: classes?.count
+        count: classes?.count,
       }}
       maxLength={maxLength}
       allowClear={mergedAllowClear}
       {...restProps}
     />
-  )
-}
+  );
+};
 
 Textarea.displayName = 'Textarea';
 
-export default withStyles<TextareaProps>(styles)(Textarea)
+export default withStyles<TextareaProps>(styles)(Textarea);

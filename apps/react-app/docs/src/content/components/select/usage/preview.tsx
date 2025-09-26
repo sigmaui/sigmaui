@@ -1,8 +1,8 @@
-import React, { useState, Fragment } from 'react'
-import Box from '@microui-kit/box'
-import Select from '@sigmaui-kit/select'
-import ComponentPreview from '@docs/components/ComponentPreview'
-import code from './code'
+import React, { Fragment, useState } from 'react';
+import Box from '@microui-kit/box';
+import Select from '@sigmaui-kit/select';
+import ComponentPreview from '@docs/components/ComponentPreview';
+import code from './code';
 
 export const Demo: React.FC<any> = () => {
   return (
@@ -120,15 +120,15 @@ export const Demo: React.FC<any> = () => {
         }}
       />
     </Box>
-  )
-}
+  );
+};
 export default function Usage() {
-  const [value, setValue] = useState<number[] | undefined>(undefined)
+  const [value, setValue] = useState<number[] | undefined>(undefined);
   return (
     <>
       <ComponentPreview data={code}>
         <Demo />
       </ComponentPreview>
     </>
-  )
+  );
 }

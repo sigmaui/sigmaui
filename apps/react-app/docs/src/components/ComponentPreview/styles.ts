@@ -1,4 +1,4 @@
-import { IProps } from './types'
+import { IProps } from './types';
 
 export const styles = ({ theme = {} }: IProps<any, any>) => {
   // console.log('theme', theme)
@@ -10,5 +10,5 @@ export const styles = ({ theme = {} }: IProps<any, any>) => {
       borderRadius: theme.base?.borderRadius,
       overflow: 'hidden',
     },
-  }
-}
+  };
+};

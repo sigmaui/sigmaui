@@ -9,7 +9,7 @@ export const styles = ({ prefixCls, theme = {} }: IProps<any>): Partial<Record<C
       listStyle: 'none',
 
       [`&.${prefixCls}-horizontal`]: {
-        display: 'flex'
+        display: 'flex',
       },
 
       [`& .${prefixCls}-item`]: {
@@ -19,12 +19,12 @@ export const styles = ({ prefixCls, theme = {} }: IProps<any>): Partial<Record<C
         cursor: 'pointer',
 
         '&[class*="-selected"]': {
-          color: theme.colors?.base
-        }
+          color: theme.colors?.base,
+        },
       },
 
       [`& .${prefixCls}-hidden`]: {
-        display: 'none'
+        display: 'none',
       },
 
       '& ul': {
@@ -33,8 +33,8 @@ export const styles = ({ prefixCls, theme = {} }: IProps<any>): Partial<Record<C
 
       [`&.${prefixCls}-inline`]: {
         [`& .${prefixCls}-item`]: {
-          width: '100%'
-        }
+          width: '100%',
+        },
       },
     },
     list: {},
@@ -43,17 +43,17 @@ export const styles = ({ prefixCls, theme = {} }: IProps<any>): Partial<Record<C
       position: 'absolute',
 
       '&[class*="-hidden"]': {
-        display: 'none'
+        display: 'none',
       },
 
       '& ul': {
         listStyle: 'none',
-      }
-    }
-  }
-}
+      },
+    },
+  };
+};
 
-export type MenuTypes = ReturnType<typeof styles>
-export type MenuKeys = keyof MenuTypes
+export type MenuTypes = ReturnType<typeof styles>;
+export type MenuKeys = keyof MenuTypes;
 
-export type MenuProps = IProps<MenuTypes>
+export type MenuProps = IProps<MenuTypes>;

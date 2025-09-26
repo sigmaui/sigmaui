@@ -1,12 +1,12 @@
 import { ANIMATION_NAME } from './types';
-import type { IProps, StylesProperties, StylesObject } from './types';
+import type { IProps, StylesObject, StylesProperties } from './types';
 
 export type ClassKeys = 'wrapper';
 
 export const styles = ({
   renderer,
   keyframe,
-  animation = {}
+  animation = {},
 }: IProps<any>): Partial<Record<ClassKeys, StylesProperties>> => {
   let { name, duration = '300ms', delay, timing = 'linear', iteration = 'infinite', fillMode } = animation;
 
@@ -15,21 +15,21 @@ export const styles = ({
       keyframe = {
         '0%': { opacity: 0.2 },
         '20%': { opacity: 1 },
-        '100% ': { opacity: 0.2 }
-      }
+        '100% ': { opacity: 0.2 },
+      };
 
       fillMode = 'both';
     }
   }
 
   if (!duration) {
-    duration = '300ms'
+    duration = '300ms';
   }
 
   const wrapperStyle: StylesObject = {};
 
   const animationName = renderer?.renderKeyframe(() => {
-    return keyframe
+    return keyframe;
   }, {});
 
   if (animationName) {
@@ -57,11 +57,11 @@ export const styles = ({
   }
 
   return {
-    wrapper: wrapperStyle
-  }
-}
+    wrapper: wrapperStyle,
+  };
+};
 
-export type AnimateTypes = ReturnType<typeof styles>
-export type AnimateKeys = keyof AnimateTypes
+export type AnimateTypes = ReturnType<typeof styles>;
+export type AnimateKeys = keyof AnimateTypes;
 
-export type AnimateProps = IProps<AnimateTypes>
+export type AnimateProps = IProps<AnimateTypes>;

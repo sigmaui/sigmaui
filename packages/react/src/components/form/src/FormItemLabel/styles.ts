@@ -11,28 +11,28 @@ export const styles = ({ isSuffixMark }: IProps<any>): Partial<Record<ClassKeys,
       content: 'attr(data-required-mark)',
       display: 'inline-block',
       marginLeft: 4,
-      color: 'form.requiredMark'
-    } as StylesProperties
+      color: 'form.requiredMark',
+    } as StylesProperties;
   } else {
     requiredStyle[':before'] = {
       content: 'attr(data-required-mark)',
       display: 'inline-block',
       marginRight: 4,
-      color: 'form.requiredMark'
-    } as StylesProperties
+      color: 'form.requiredMark',
+    } as StylesProperties;
   }
 
   return {
     wrapper: {
       display: 'inline-flex',
       alignItems: 'center',
-      fontSize: 14
+      fontSize: 14,
     },
-    required: requiredStyle
-  }
-}
+    required: requiredStyle,
+  };
+};
 
-export type FormItemLabelTypes = ReturnType<typeof styles>
-export type FormItemLabelKeys = keyof FormItemLabelTypes
+export type FormItemLabelTypes = ReturnType<typeof styles>;
+export type FormItemLabelKeys = keyof FormItemLabelTypes;
 
-export type FormItemLabelProps = IProps<FormItemLabelTypes>
+export type FormItemLabelProps = IProps<FormItemLabelTypes>;

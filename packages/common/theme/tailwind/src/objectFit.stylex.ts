@@ -1,4 +1,4 @@
-import { create } from '@stylexjs/stylex'
+import { create } from '@stylexjs/stylex';
 
 export const objectFit = create({
   'object-contain': { 'object-fit': 'contain' },
@@ -6,4 +6,4 @@ export const objectFit = create({
   'object-fill': { 'object-fit': 'fill' },
   'object-none': { 'object-fit': 'none' },
   'object-scale-down': { 'object-fit': 'scale-down' },
-})
+});

@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
-import Form, { FormItemTypeEnum, FormItemOption } from '@sigmaui-kit/form'
-import LockFilledIcon from '@sigmaui-kit/icons/LockFilledIcon'
-import Button from '@sigmaui-kit/button'
-import type { InputTypes } from '@sigmaui-kit/input'
-import ComponentPreview from '@docs/components/ComponentPreview'
-import code from './code'
+import React, { useState } from 'react';
+import Form, { FormItemOption, FormItemTypeEnum } from '@sigmaui-kit/form';
+import LockFilledIcon from '@sigmaui-kit/icons/LockFilledIcon';
+import Button from '@sigmaui-kit/button';
+import type { InputTypes } from '@sigmaui-kit/input';
+import ComponentPreview from '@docs/components/ComponentPreview';
+import code from './code';
 
 export const Demo: React.FC<any> = () => {
   const onFinish = (value) => {
-    console.log('onFinish', value)
-  }
+    console.log('onFinish', value);
+  };
 
   return (
     <Form
@@ -62,18 +62,18 @@ export const Demo: React.FC<any> = () => {
           >
             Submit
           </Button>
-        )
+        );
       }}
     </Form>
-  )
-}
+  );
+};
 export default function UsageFormComponent() {
-  const [value, setValue] = useState<number[] | undefined>(undefined)
+  const [value, setValue] = useState<number[] | undefined>(undefined);
   return (
     <>
       <ComponentPreview data={code}>
         <Demo />
       </ComponentPreview>
     </>
-  )
+  );
 }

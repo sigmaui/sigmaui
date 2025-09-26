@@ -1,6 +1,6 @@
-import React from 'react'
-import App from './App'
+import React from 'react';
+import App from './App';
 
-const app = <App>App</App>
+const app = <App>App</App>;
 
-export default app
+export default app;

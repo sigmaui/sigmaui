@@ -16,7 +16,6 @@ function MultimediaControlPlayOutlinedIcon(props: IconProps) {
   );
 }
 
-MultimediaControlPlayOutlinedIcon.displayName =
-  'MultimediaControlPlayOutlinedIcon';
+MultimediaControlPlayOutlinedIcon.displayName = 'MultimediaControlPlayOutlinedIcon';
 
 export default MultimediaControlPlayOutlinedIcon;

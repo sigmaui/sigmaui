@@ -6,7 +6,7 @@ export const styles = ({ prefixCls, layout = {} }: IProps<any>): Partial<Record<
   // console.log('theme', theme);
   const wrapperStyle: StylesProperties = {};
   const extraStyle: StylesProperties = {
-    width: '100%'
+    width: '100%',
   };
   const col = layout?.col;
 
@@ -23,18 +23,18 @@ export const styles = ({ prefixCls, layout = {} }: IProps<any>): Partial<Record<
 
     wrapperStyle[`& .${prefixCls}-item`] = {
       width: `${100 / col}%`,
-      paddingInline: halfSpace
-    }
+      paddingInline: halfSpace,
+    };
     extraStyle.paddingInline = halfSpace;
   }
 
   return {
     wrapper: wrapperStyle,
-    extra: extraStyle
-  }
-}
+    extra: extraStyle,
+  };
+};
 
-export type FormTypes = ReturnType<typeof styles>
-export type FormKeys = keyof FormTypes
+export type FormTypes = ReturnType<typeof styles>;
+export type FormKeys = keyof FormTypes;
 
-export type FormProps = IProps<FormTypes>
+export type FormProps = IProps<FormTypes>;

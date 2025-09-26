@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useRef, useCallback } from 'react';
+import React, { Fragment, useCallback, useRef, useState } from 'react';
 import type { FC } from 'react';
 import { getRestProps } from '@microui-kit/helpers';
 import { withStyles } from '@sigmaui-kit/with-styles';
@@ -9,19 +9,17 @@ import Tooltip from '@sigmaui-kit/tooltip';
 import Icon from '@sigmaui-kit/icon';
 import { Locales } from '@sigmaui-kit/locale';
 
-import { styles, type PasswordProps } from './styles';
+import { type PasswordProps, styles } from './styles';
 
 const defaultIconRender = (visible: boolean): React.ReactNode => {
   if (visible) {
-    return <EyeVisibilityOutlinedIcon/>
+    return <EyeVisibilityOutlinedIcon />;
   }
 
-  return <EyeHiddenOutlinedIcon/>
+  return <EyeHiddenOutlinedIcon />;
 };
 
-export type {
-  PasswordProps
-}
+export type { PasswordProps };
 
 const Password: FC<PasswordProps> = ({
   className,
@@ -57,11 +55,11 @@ const Password: FC<PasswordProps> = ({
     },
     onMouseUp: (e: React.MouseEvent) => {
       e.preventDefault();
-    }
-  }
+    },
+  };
 
   if (action === 'click') {
-    (iconProps as any).onClick = handleVisibleChange
+    (iconProps as any).onClick = handleVisibleChange;
   }
 
   if (action === 'pointer') {
@@ -80,16 +78,16 @@ const Password: FC<PasswordProps> = ({
           color: visible ? 'base' : 'icon.default',
 
           '&:hover': {
-            color: !visible ? 'icon.hover' : undefined
-          }
-        }
+            color: !visible ? 'icon.hover' : undefined,
+          },
+        },
       }}
     />
-  )
+  );
 
   if (isTooltip) {
     const overlay = t(visible ? Locales.Password.message.hide : Locales.Password.message.show, {
-      defaultValue: visible ? 'Hide password' : 'Show password'
+      defaultValue: visible ? 'Hide password' : 'Show password',
     });
 
     suffixIcon = (
@@ -100,7 +98,7 @@ const Password: FC<PasswordProps> = ({
       >
         {suffixIcon}
       </Tooltip>
-    )
+    );
   }
 
   restProps.type = visible ? 'text' : 'password';
@@ -109,7 +107,7 @@ const Password: FC<PasswordProps> = ({
       {suffixIcon}
       {suffix}
     </Fragment>
-  )
+  );
 
   return (
     <Input
@@ -118,9 +116,9 @@ const Password: FC<PasswordProps> = ({
       size={size}
       {...restProps}
     />
-  )
-}
+  );
+};
 
-Password.displayName = 'Password'
+Password.displayName = 'Password';
 
-export default withStyles<PasswordProps>(styles)(Password)
+export default withStyles<PasswordProps>(styles)(Password);

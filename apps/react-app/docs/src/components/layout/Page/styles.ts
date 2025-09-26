@@ -1,4 +1,4 @@
-import type { IProps, StylesProperties } from './types'
+import type { IProps, StylesProperties } from './types';
 
 export const styles = ({ theme = {} }: IProps<any>) => {
   // console.log('theme', theme)
@@ -12,10 +12,10 @@ export const styles = ({ theme = {} }: IProps<any>) => {
         marginBottom: 12,
       },
     } as StylesProperties,
-  }
-}
+  };
+};
 
-export type PageTypes = ReturnType<typeof styles>
-export type PageKeys = keyof PageTypes
+export type PageTypes = ReturnType<typeof styles>;
+export type PageKeys = keyof PageTypes;
 
-export type PageProps = IProps<PageTypes>
+export type PageProps = IProps<PageTypes>;

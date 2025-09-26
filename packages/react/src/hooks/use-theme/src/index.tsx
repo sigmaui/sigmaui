@@ -1,44 +1,44 @@
-import React, { useContext, createContext } from 'react'
-import type { FC, ReactNode } from 'react'
-import type { Theme } from '@stylexjs/stylex'
-import * as stylex from '@stylexjs/stylex'
+import React, { createContext, useContext } from 'react';
+import type { FC, ReactNode } from 'react';
+import type { Theme } from '@stylexjs/stylex';
+import * as stylex from '@stylexjs/stylex';
 
-export type StylesDefinitions = Parameters<typeof stylex.create>[0]
+export type StylesDefinitions = Parameters<typeof stylex.create>[0];
 
 interface ComponentDefaultProps {
-  [key: string]: unknown
+  [key: string]: unknown;
 }
 
-type DefaultPropsFunction = (theme: Theme<any, any>) => ComponentDefaultProps
+type DefaultPropsFunction = (theme: Theme<any, any>) => ComponentDefaultProps;
 
 interface ThemeConfig {
-  globalProps?: Record<string, unknown>
+  globalProps?: Record<string, unknown>;
   components?: {
     [componentName: string]: {
-      defaultProps?: ComponentDefaultProps | DefaultPropsFunction
-    }
-  }
+      defaultProps?: ComponentDefaultProps | DefaultPropsFunction;
+    };
+  };
 
-  [key: string]: any
+  [key: string]: any;
 }
 
 export interface ThemeContextProps {
-  theme?: Theme<any, any>
-  themeConfig: ThemeConfig
-  themeTokens: { [key: string]: any }
+  theme?: Theme<any, any>;
+  themeConfig: ThemeConfig;
+  themeTokens: { [key: string]: any };
 }
 
 const ThemeContext = createContext<ThemeContextProps>({
   theme: undefined,
   themeConfig: {},
   themeTokens: {},
-})
+});
 
 interface ThemeProviderProps {
-  children?: ReactNode
-  theme?: Theme<any, any>
-  themeConfig?: Record<string, unknown>
-  themeTokens?: { [key: string]: any }
+  children?: ReactNode;
+  theme?: Theme<any, any>;
+  themeConfig?: Record<string, unknown>;
+  themeTokens?: { [key: string]: any };
 }
 
 export const ThemeProvider: FC<ThemeProviderProps> = ({
@@ -47,7 +47,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
   themeConfig: themeConfigFromProp = {},
   themeTokens: themeTokensFromProp = {},
 }) => {
-  const { themeTokens = {}, themeConfig = {} } = useContext(ThemeContext)
+  const { themeTokens = {}, themeConfig = {} } = useContext(ThemeContext);
 
   return (
     <ThemeContext.Provider
@@ -66,9 +66,9 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
     >
       {children}
     </ThemeContext.Provider>
-  )
-}
+  );
+};
 
 export const useTheme = (): ThemeContextProps => {
-  return useContext(ThemeContext)
-}
+  return useContext(ThemeContext);
+};

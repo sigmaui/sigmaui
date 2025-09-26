@@ -1,4 +1,4 @@
-import { create } from '@stylexjs/stylex'
+import { create } from '@stylexjs/stylex';
 
 export const display = create({
   block: { display: 'block' },
@@ -22,4 +22,4 @@ export const display = create({
   contents: { display: 'contents' },
   'list-item': { display: 'list-item' },
   hidden: { display: 'none' },
-})
+});

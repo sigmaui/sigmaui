@@ -4,10 +4,10 @@
  * @module
  */
 
-import { createFarmPlugin } from 'unplugin'
-import { unpluginFactory } from './index'
+import { createFarmPlugin } from 'unplugin';
+import { unpluginFactory } from './index';
 
-const farmPlugin: ReturnType<typeof createFarmPlugin> = createFarmPlugin(unpluginFactory)
+const farmPlugin: ReturnType<typeof createFarmPlugin> = createFarmPlugin(unpluginFactory);
 
 /**
  * Farm plugin
@@ -23,4 +23,4 @@ const farmPlugin: ReturnType<typeof createFarmPlugin> = createFarmPlugin(unplugi
  *   ],
  * }
  */
-export default farmPlugin
+export default farmPlugin;

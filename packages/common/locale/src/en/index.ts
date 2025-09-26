@@ -3,5 +3,5 @@ import components from './components';
 
 export default {
   global,
-  ...components
-}
+  ...components,
+};

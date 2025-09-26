@@ -20,18 +20,18 @@ export const styles = ({ prefixCls, size, variant }: IProps<any>): Partial<Recor
           borderColor: 'error',
 
           '&:hover': {
-            borderColor: 'error'
+            borderColor: 'error',
           },
 
           '&:focus, &[class*="-focused"]': {
             boxShadow: 'error.focused',
-            borderColor: 'error'
+            borderColor: 'error',
           },
 
           [`& .${prefixCls}-prefix`]: {
-            color: 'error'
+            color: 'error',
           },
-        }
+        },
       },
 
       [`&.${prefixCls}, & .${prefixCls}`]: {
@@ -47,22 +47,22 @@ export const styles = ({ prefixCls, size, variant }: IProps<any>): Partial<Recor
         variant,
 
         '&:hover': {
-          borderColor: 'base'
+          borderColor: 'base',
         },
 
         '&:focus': {
           boxShadow: 'focused',
-          borderColor: 'base'
+          borderColor: 'base',
         },
 
         '&::placeholder': {
-          color: 'input.placeholder'
+          color: 'input.placeholder',
         },
 
         '&[disabled]': {
-          cursor: 'not-allowed'
-        }
-      }
+          cursor: 'not-allowed',
+        },
+      },
     },
     affixWrapper: {
       position: 'relative',
@@ -70,8 +70,8 @@ export const styles = ({ prefixCls, size, variant }: IProps<any>): Partial<Recor
 
       '&[class*="-allow-clear"]': {
         '& textarea': {
-          paddingRight: 24
-        }
+          paddingRight: 24,
+        },
       },
     },
     suffix: {
@@ -92,24 +92,24 @@ export const styles = ({ prefixCls, size, variant }: IProps<any>): Partial<Recor
         cursor: 'pointer',
 
         '&[class*="-hidden"]': {
-          visibility: 'hidden'
+          visibility: 'hidden',
         },
 
         '& svg': {
           width: 10,
-          height: 10
-        }
-      }
+          height: 10,
+        },
+      },
     },
     count: {
       whiteSpace: 'nowrap',
       color: 'description',
-      fontSize: 14
-    }
-  }
-}
+      fontSize: 14,
+    },
+  };
+};
 
-export type TextareaTypes = ReturnType<typeof styles>
-export type TextareaKeys = keyof TextareaTypes
+export type TextareaTypes = ReturnType<typeof styles>;
+export type TextareaKeys = keyof TextareaTypes;
 
-export type TextareaProps = IProps<TextareaTypes>
+export type TextareaProps = IProps<TextareaTypes>;

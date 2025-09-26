@@ -5,7 +5,7 @@ export enum VariantEnum {
   Variant = 'variant',
 }
 
-export type Variant = `${VariantEnum}`
+export type Variant = `${VariantEnum}`;
 
 export type Tailwind =
   | 'static'
@@ -247,4 +247,4 @@ export type Tailwind =
   | 'bg-local'
   | 'bg-scroll'
   | 'pointer-events-none'
-  | 'pointer-events-auto'
+  | 'pointer-events-auto';

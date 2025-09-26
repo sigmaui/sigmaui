@@ -1,4 +1,4 @@
-import { create } from '@stylexjs/stylex'
+import { create } from '@stylexjs/stylex';
 
 export const whitespace = create({
   'whitespace-normal': { 'white-space': 'normal' },
@@ -6,4 +6,4 @@ export const whitespace = create({
   'whitespace-pre': { 'white-space': 'pre' },
   'whitespace-pre-line': { 'white-space': 'pre-line' },
   'whitespace-pre-wrap': { 'white-space': 'pre-wrap' },
-})
+});

@@ -6,11 +6,9 @@ import Tooltip, { type TooltipProps } from '@sigmaui-kit/tooltip';
 import CircleQuestionOutlinedIcon from '@sigmaui-kit/icons/CircleQuestionOutlinedIcon';
 import { getRestProps } from '@microui-kit/helpers';
 
-import { styles, type FormItemLabelProps } from './styles';
+import { type FormItemLabelProps, styles } from './styles';
 
-export type {
-  FormItemLabelProps
-}
+export type { FormItemLabelProps };
 
 function getTooltipProps<P extends TooltipProps>(tooltip: P | ReactNode): P | null {
   if (tooltip === undefined || tooltip === null) {
@@ -22,7 +20,7 @@ function getTooltipProps<P extends TooltipProps>(tooltip: P | ReactNode): P | nu
   }
 
   return {
-    overlay: tooltip
+    overlay: tooltip,
   } as P;
 }
 
@@ -39,12 +37,12 @@ const FormItemLabel: FC<FormItemLabelProps> = ({
   tooltip,
   ...formItemLabelProps
 }) => {
-  const restProps = getRestProps(formItemLabelProps)
+  const restProps = getRestProps(formItemLabelProps);
 
   const classArgs: any = {};
 
   if (required && classes?.required) {
-    (classArgs as any)[classes?.required] = true
+    (classArgs as any)[classes?.required] = true;
   }
 
   if (requiredMark) {
@@ -57,7 +55,7 @@ const FormItemLabel: FC<FormItemLabelProps> = ({
     const tooltipProps = getTooltipProps(tooltip);
 
     if (tooltipProps) {
-      const { icon = <CircleQuestionOutlinedIcon/>, ...restTooltipProps } = tooltipProps;
+      const { icon = <CircleQuestionOutlinedIcon />, ...restTooltipProps } = tooltipProps;
 
       tooltipNode = (
         <Tooltip
@@ -71,14 +69,14 @@ const FormItemLabel: FC<FormItemLabelProps> = ({
 
               '& svg': {
                 width: 16,
-                height: 16
-              }
-            }
+                height: 16,
+              },
+            },
           }}
         >
           {icon}
         </Tooltip>
-      )
+      );
     }
   }
 
@@ -92,9 +90,9 @@ const FormItemLabel: FC<FormItemLabelProps> = ({
       {children}
       {tooltipNode}
     </label>
-  )
-}
+  );
+};
 
 FormItemLabel.displayName = 'FormItemLabel';
 
-export default withStyles<FormItemLabelProps>(styles)(FormItemLabel)
+export default withStyles<FormItemLabelProps>(styles)(FormItemLabel);

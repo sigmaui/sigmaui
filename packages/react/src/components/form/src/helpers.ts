@@ -23,22 +23,27 @@ export const checkUrl = (str: string) => {
 
 export const checkOnlySpace = (str: string) => {
   return str.trim().length === 0;
-}
+};
 
 export const isObject = (val: any) => {
   return val !== null && typeof val === 'object' && Array.isArray(val) === false;
 };
 
-export const getValidateMessage = ({ t, prefix, key, defaultValue }: {
-  t?: WithTranslation['t']
-  prefix?: string,
-  key: string,
-  defaultValue?: string
+export const getValidateMessage = ({
+  t,
+  prefix,
+  key,
+  defaultValue,
+}: {
+  t?: WithTranslation['t'];
+  prefix?: string;
+  key: string;
+  defaultValue?: string;
 }) => {
   let validateMessage = '';
 
   if (!prefix) {
-    prefix = '${label}'
+    prefix = '${label}';
   }
 
   if (prefix) {
@@ -46,39 +51,49 @@ export const getValidateMessage = ({ t, prefix, key, defaultValue }: {
   }
 
   if (key) {
-    validateMessage += (t ? `${t(key, { defaultValue })}` : (defaultValue || key));
+    validateMessage += t ? `${t(key, { defaultValue })}` : defaultValue || key;
   }
 
-  return validateMessage
+  return validateMessage;
 };
 
-export const checkShouldUpdate = (keys?: string | string[], prevValues: Values = {}, currentValues: Values = {}, params = {}) => {
-  const { form, isAutoResetValue, name, autoResetValue }: {
-    info?: any,
-    form?: FormInstance,
-    name?: FormItemOption['name'],
-    isAutoResetValue?: boolean,
-    autoResetValue?: FormItemOption['autoResetValue']
+export const checkShouldUpdate = (
+  keys?: string | string[],
+  prevValues: Values = {},
+  currentValues: Values = {},
+  params = {},
+) => {
+  const {
+    form,
+    isAutoResetValue,
+    name,
+    autoResetValue,
+  }: {
+    info?: any;
+    form?: FormInstance;
+    name?: FormItemOption['name'];
+    isAutoResetValue?: boolean;
+    autoResetValue?: FormItemOption['autoResetValue'];
   } = params;
 
   if (!keys) {
-    return true
+    return true;
   }
 
-  console.log('checkShouldUpdate', prevValues, currentValues)
+  console.log('checkShouldUpdate', prevValues, currentValues);
 
   if (keys instanceof Array) {
-    return keys.some(key => {
+    return keys.some((key) => {
       if (prevValues[key] !== currentValues[key]) {
         if (isAutoResetValue) {
           form?.setFieldValue(name, autoResetValue);
         }
 
-        return true
+        return true;
       }
 
-      return false
-    })
+      return false;
+    });
   }
 
   if (typeof keys === 'string') {
@@ -87,17 +102,17 @@ export const checkShouldUpdate = (keys?: string | string[], prevValues: Values =
         form?.setFieldValue(name, autoResetValue);
       }
 
-      return true
+      return true;
     }
 
-    return false
+    return false;
   }
 
-  return false
+  return false;
 };
 
 export const getValueFromEvent = (args: EventArgs, params = {}) => {
-  const { valuePropName, type }: { valuePropName?: string, type?: string } = params;
+  const { valuePropName, type }: { valuePropName?: string; type?: string } = params;
 
   const event = args[0];
 
@@ -111,7 +126,7 @@ export const getValueFromEvent = (args: EventArgs, params = {}) => {
         return (event.target as HTMLInputElement).checked;
       }
 
-      return (event.target as HTMLInputElement).value
+      return (event.target as HTMLInputElement).value;
     }
   }
 

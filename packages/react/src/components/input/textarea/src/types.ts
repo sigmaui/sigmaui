@@ -5,5 +5,5 @@ import type { TextAreaProps } from '@rc-component/textarea';
 export type { StylesProperties };
 
 export interface IProps<Styles> extends Omit<TextAreaProps, 'children'>, FCWithStylesProps<Styles> {
-  status?: string
+  status?: string;
 }

@@ -1,11 +1,11 @@
-import React from 'react'
-import ComponentPreview from '@docs/components/ComponentPreview'
-import Textarea from '@sigmaui-kit/textarea'
-import code from './code'
+import React from 'react';
+import ComponentPreview from '@docs/components/ComponentPreview';
+import Textarea from '@sigmaui-kit/textarea';
+import code from './code';
 
 export const Demo: React.FC<any> = () => {
-  return <Textarea placeholder="Textarea" />
-}
+  return <Textarea placeholder="Textarea" />;
+};
 export default function UsageTextareaComponent() {
   return (
     <>
@@ -13,5 +13,5 @@ export default function UsageTextareaComponent() {
         <Demo />
       </ComponentPreview>
     </>
-  )
+  );
 }

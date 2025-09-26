@@ -8,10 +8,10 @@ import { felaRendererConfig } from 'packages/common/theme/config';
 
 import en from './locales/en';
 
-const renderer = createRenderer(felaRendererConfig)
+const renderer = createRenderer(felaRendererConfig);
 
-import { createRouter } from './router'
-import App from './App'
+import { createRouter } from './router';
+import App from './App';
 
 const router = createRouter({
   renderer,
@@ -22,11 +22,11 @@ Locales.__INIT__(en);
 
 const app = (
   <PlatformProvider>
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   </PlatformProvider>
-)
+);
 
-const container = document.getElementById('app')
-const root = createRoot(container!)
+const container = document.getElementById('app');
+const root = createRoot(container!);
 
-root.render(app)
+root.render(app);

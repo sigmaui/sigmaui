@@ -1,11 +1,10 @@
-import React from 'react'
-import type { FC } from 'react'
-import classNames from 'classnames'
-import { withStyles } from '@microui-kit/with-styles'
+import React from 'react';
+import type { FC } from 'react';
+import classNames from 'classnames';
+import { withStyles } from '@microui-kit/with-styles';
 
-import TableOfContent from '../TableOfContent'
-
-import { styles, type PageProps } from './styles'
+import { type PageProps, styles } from './styles';
+import TableOfContent from '../TableOfContent';
 
 const Page: FC<PageProps> = ({ prefixCls = 'sm-page', className, children, classes }) => {
   return (
@@ -22,9 +21,9 @@ const Page: FC<PageProps> = ({ prefixCls = 'sm-page', className, children, class
         }}
       />
     </div>
-  )
-}
+  );
+};
 
-Page.displayName = 'Page'
+Page.displayName = 'Page';
 
-export default withStyles<PageProps>(styles)(Page)
+export default withStyles<PageProps>(styles)(Page);

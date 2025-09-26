@@ -1,4 +1,4 @@
-import { create } from '@stylexjs/stylex'
+import { create } from '@stylexjs/stylex';
 
 export const backgroundPosition = create({
   'bg-bottom': { 'background-position': 'bottom' },
@@ -10,4 +10,4 @@ export const backgroundPosition = create({
   'bg-right-bottom': { 'background-size': 'right bottom' },
   'bg-right-top': { 'background-size': 'right top' },
   'bg-top': { 'background-size': 'top' },
-})
+});

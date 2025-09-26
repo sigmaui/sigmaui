@@ -1,15 +1,15 @@
 import {
-  ChevronDownSingleIcon,
-  XMarkIcon,
   CheckFilledIcon,
+  ChevronDownSingleIcon,
+  EyeHiddenOutlinedIcon,
   EyeVisibilityOutlinedIcon,
-  EyeHiddenOutlinedIcon
-} from '../../icons/src'
+  XMarkIcon,
+} from '../../icons/src';
 
 export default {
   'chevron-down': ChevronDownSingleIcon,
   'x-mark': XMarkIcon,
-  'check': CheckFilledIcon,
-  'eye': EyeVisibilityOutlinedIcon,
-  'eye-off': EyeHiddenOutlinedIcon
-}
+  check: CheckFilledIcon,
+  eye: EyeVisibilityOutlinedIcon,
+  'eye-off': EyeHiddenOutlinedIcon,
+};

@@ -4,12 +4,12 @@
  * @module
  */
 
-import { createWebpackPlugin } from 'unplugin'
-import type { WebpackPluginInstance } from 'unplugin'
-import { unpluginFactory } from './index'
-import type { UnpluginStylexInstance } from './types'
+import { createWebpackPlugin } from 'unplugin';
+import type { WebpackPluginInstance } from 'unplugin';
+import type { UnpluginStylexInstance } from './types';
+import { unpluginFactory } from './index';
 
-const webpackPlugin: UnpluginStylexInstance<WebpackPluginInstance> = createWebpackPlugin(unpluginFactory)
+const webpackPlugin: UnpluginStylexInstance<WebpackPluginInstance> = createWebpackPlugin(unpluginFactory);
 
 /**
  * Webpack plugin
@@ -24,4 +24,4 @@ const webpackPlugin: UnpluginStylexInstance<WebpackPluginInstance> = createWebpa
  *   ],
  * }
  */
-export default webpackPlugin
+export default webpackPlugin;

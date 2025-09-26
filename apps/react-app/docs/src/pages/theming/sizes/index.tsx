@@ -1,13 +1,13 @@
-import Box from '@microui-kit/box'
-import Button from '@sigmaui-kit/button'
-import Input from '@sigmaui-kit/input'
-import Text from '@sigmaui-kit/text'
-import DocPage from '@docs/components/layout/DocPage'
-import SizesMdx from '@docs/content/docs/theming/sizes.mdx'
-import { theming } from '.velite'
+import Box from '@microui-kit/box';
+import Button from '@sigmaui-kit/button';
+import Input from '@sigmaui-kit/input';
+import Text from '@sigmaui-kit/text';
+import DocPage from '@docs/components/layout/DocPage';
+import SizesMdx from '@docs/content/docs/theming/sizes.mdx';
+import { theming } from '.velite';
 
 const SizesPage = ({}) => {
-  console.log('theming', theming)
+  console.log('theming', theming);
 
   return (
     <DocPage>
@@ -59,7 +59,7 @@ const SizesPage = ({}) => {
         <Text size="lg">lg</Text>
       </Box>
     </DocPage>
-  )
-}
+  );
+};
 
-export default SizesPage
+export default SizesPage;

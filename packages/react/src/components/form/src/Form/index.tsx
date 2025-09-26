@@ -1,7 +1,7 @@
-import React, { Fragment, useMemo, useCallback } from 'react';
+import React, { Fragment, useCallback, useMemo } from 'react';
 import type { FC } from 'react';
 import classNames from 'classnames';
-import RcForm, { useWatch, FormProvider } from '@rc-component/form';
+import RcForm, { FormProvider, useWatch } from '@rc-component/form';
 import type { FormProps as RcFormProps } from '@rc-component/form';
 import { FieldProps, ShouldUpdate } from '@rc-component/form/lib/Field';
 import { StoreProvider, useStoreContext } from '@microui-kit/use-store';
@@ -9,25 +9,18 @@ import { getRestProps } from '@microui-kit/helpers';
 import { withStyles } from '@sigmaui-kit/with-styles';
 import { Locales } from '@sigmaui-kit/locale';
 
-import { getValidateMessage, checkShouldUpdate } from '../helpers';
-
-import { styles, type FormProps } from './styles';
+import { type FormProps, styles } from './styles';
 import { StoreInitialState } from './types';
+import { checkShouldUpdate, getValidateMessage } from '../helpers';
 
 import FormItem from '../FormItem';
 import useForm, { type FormInstance } from '../hooks/useForm';
 
-export {
-  FormProvider,
-  useForm,
-  useWatch
-}
+export { FormProvider, useForm, useWatch };
 
-export type {
-  FormProps
-}
+export type { FormProps };
 
-const Children = ({ children, className }: { children?: FormProps['children'], className?: string }) => {
+const Children = ({ children, className }: { children?: FormProps['children']; className?: string }) => {
   const { useStoreSelector } = useStoreContext<StoreInitialState>();
 
   const form = useStoreSelector((state) => state.form);
@@ -35,15 +28,11 @@ const Children = ({ children, className }: { children?: FormProps['children'], c
   const isDirty = useStoreSelector((state) => state.isDirty);
 
   if (typeof children === 'function') {
-    children = children({ form, isSubmitting, isDirty })
+    children = children({ form, isSubmitting, isDirty });
   }
 
-  return (
-    <div className={className}>
-      {children}
-    </div>
-  )
-}
+  return <div className={className}>{children}</div>;
+};
 
 const Form: FC<FormProps> = ({
   prefixCls,
@@ -70,13 +59,13 @@ const Form: FC<FormProps> = ({
   const initialState: StoreInitialState = {
     isAutoTrim,
     isBlurAutoValidate,
-    validateIcons
+    validateIcons,
   };
 
   const [form] = useForm<any, StoreInitialState>({
     name,
     form: customForm,
-    initialState
+    initialState,
   } as any);
 
   const storeMethods = form.storeMethods;
@@ -86,128 +75,128 @@ const Form: FC<FormProps> = ({
   let formRules = customFormRules;
 
   if (typeof customFormRules === 'function') {
-    formRules = customFormRules?.({ t })
+    formRules = customFormRules?.({ t });
   }
 
   const onFinish: RcFormProps['onFinish'] = async (values) => {
     storeMethods.setState({
-      isSubmitting: true
+      isSubmitting: true,
     });
 
     await onFinishCustom?.(values);
 
     storeMethods.setState({
-      isSubmitting: false
+      isSubmitting: false,
     });
   };
 
-  const getChildNode = useCallback(({ render, type }) => {
-    let childNode: React.ReactNode = null;
+  const getChildNode = useCallback(
+    ({ render, type }) => {
+      let childNode: React.ReactNode = null;
 
-    if (render) {
-      childNode = typeof render === 'function' ? render({ form }) : render;
-    } else {
-      if (customRenderItem) {
-        childNode = customRenderItem({ type })
+      if (render) {
+        childNode = typeof render === 'function' ? render({ form }) : render;
+      } else {
+        if (customRenderItem) {
+          childNode = customRenderItem({ type });
+        }
       }
-    }
 
-    return childNode
-  }, [customRenderItem])
+      return childNode;
+    },
+    [customRenderItem],
+  );
 
   const renderChildren = useMemo(() => {
     return (
       <Fragment>
-        {
-          items.map((item) => {
-            const {
-              name,
-              type,
-              render,
-              rules,
-              validateField,
-              shouldUpdate,
-              shouldUpdateKey,
-              autoResetValue,
-              ...formItemProps
-            } = item;
+        {items.map((item) => {
+          const {
+            name,
+            type,
+            render,
+            rules,
+            validateField,
+            shouldUpdate,
+            shouldUpdateKey,
+            autoResetValue,
+            ...formItemProps
+          } = item;
 
-            let childNode = getChildNode({ render, type });
+          let childNode = getChildNode({ render, type });
 
-            const itemProps = {
-              name,
-              type,
-              formRules,
-              fieldRules: rules,
-              disabled
-            }
+          const itemProps = {
+            name,
+            type,
+            formRules,
+            fieldRules: rules,
+            disabled,
+          };
 
-            let shouldUpdateFunc: ShouldUpdate | undefined;
+          let shouldUpdateFunc: ShouldUpdate | undefined;
 
-            if (shouldUpdate) {
-              shouldUpdateFunc = shouldUpdate;
-            } else {
-              const isAutoResetValue = item.hasOwnProperty('autoResetValue');
+          if (shouldUpdate) {
+            shouldUpdateFunc = shouldUpdate;
+          } else {
+            const isAutoResetValue = item.hasOwnProperty('autoResetValue');
 
-              shouldUpdateFunc = (prevValues, currentValues, info) => checkShouldUpdate(shouldUpdateKey, prevValues, currentValues, {
+            shouldUpdateFunc = (prevValues, currentValues, info) =>
+              checkShouldUpdate(shouldUpdateKey, prevValues, currentValues, {
                 info,
                 form,
                 name,
                 isAutoResetValue,
-                autoResetValue
+                autoResetValue,
               });
-            }
+          }
 
-            if (validateField && shouldUpdateFunc) {
-              return (
-                <FormItem
-                  noStyle
-                  shouldUpdate={shouldUpdateFunc}
-                >
-                  {
-                    ((control, meta, form: FormInstance) => {
-                      const validate = validateField({ form });
-
-                      if (validate) {
-                        const { render, ...validateProps } = validate;
-
-                        const type = validateProps.type;
-
-                        if (type || render) {
-                          childNode = getChildNode({ render, type });
-                        }
-
-                        return (
-                          <FormItem
-                            {...itemProps}
-                            {...formItemProps}
-                            {...validateProps}
-                          >
-                            {childNode}
-                          </FormItem>
-                        )
-                      }
-                    }) as FieldProps['children']
-                  }
-                </FormItem>
-              )
-            }
-
+          if (validateField && shouldUpdateFunc) {
             return (
               <FormItem
-                {...itemProps}
-                {...formItemProps}
+                noStyle
+                shouldUpdate={shouldUpdateFunc}
               >
-                {childNode}
+                {
+                  ((control, meta, form: FormInstance) => {
+                    const validate = validateField({ form });
+
+                    if (validate) {
+                      const { render, ...validateProps } = validate;
+
+                      const type = validateProps.type;
+
+                      if (type || render) {
+                        childNode = getChildNode({ render, type });
+                      }
+
+                      return (
+                        <FormItem
+                          {...itemProps}
+                          {...formItemProps}
+                          {...validateProps}
+                        >
+                          {childNode}
+                        </FormItem>
+                      );
+                    }
+                  }) as FieldProps['children']
+                }
               </FormItem>
-            )
-          })
-        }
-        <Children className={classNames(`${prefixCls}-extra`, classes?.extra)}>
-          {children}
-        </Children>
+            );
+          }
+
+          return (
+            <FormItem
+              {...itemProps}
+              {...formItemProps}
+            >
+              {childNode}
+            </FormItem>
+          );
+        })}
+        <Children className={classNames(`${prefixCls}-extra`, classes?.extra)}>{children}</Children>
       </Fragment>
-    )
+    );
   }, [children, items]);
 
   const { validateMessages = {} } = restProps;
@@ -217,21 +206,21 @@ const Form: FC<FormProps> = ({
       required: getValidateMessage({
         t,
         key: Locales.Form.message.required,
-        defaultValue: 'is required'
+        defaultValue: 'is required',
       }),
       types: {
         email: getValidateMessage({
           t,
           key: Locales.Form.message.email.invalid,
-          defaultValue: 'is invalid'
+          defaultValue: 'is invalid',
         }),
         url: getValidateMessage({
           t,
           key: Locales.Form.message.url.invalid,
-          defaultValue: 'is invalid'
-        })
-      }
-    }
+          defaultValue: 'is invalid',
+        }),
+      },
+    };
   }, []);
 
   const formName = form?.name;
@@ -251,15 +240,15 @@ const Form: FC<FormProps> = ({
         initialValues={initialValues}
         validateMessages={{
           ...defaultValidateMessages,
-          ...validateMessages
+          ...validateMessages,
         }}
       >
         {renderChildren}
       </RcForm>
     </StoreProvider>
-  )
-}
+  );
+};
 
 Form.displayName = 'Form';
 
-export default withStyles<FormProps>(styles)(Form)
+export default withStyles<FormProps>(styles)(Form);

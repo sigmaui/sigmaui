@@ -51,7 +51,7 @@ export const Locales = createNestedLocales(en);
 // Add __init__ function to Locales
 Locales.__INIT__ = function (addLocales: any) {
   if (!addLocales) {
-    return
+    return;
   }
 
   const newLocales = createNestedLocales(addLocales);

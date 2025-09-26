@@ -2,10 +2,7 @@ import React, { useEffect, useRef } from 'react';
 
 import type { InputRef } from '@sigmaui-kit/input';
 
-export default function useRemovePasswordTimeout(
-  inputRef: React.RefObject<InputRef | null>,
-  triggerOnMount?: boolean,
-) {
+export default function useRemovePasswordTimeout(inputRef: React.RefObject<InputRef | null>, triggerOnMount?: boolean) {
   const removePasswordTimeoutRef = useRef<ReturnType<typeof setTimeout>[]>([]);
   const removePasswordTimeout = () => {
     removePasswordTimeoutRef.current.push(

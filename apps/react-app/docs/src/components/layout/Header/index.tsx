@@ -1,19 +1,19 @@
-import React from 'react'
-import type { FC } from 'react'
-import classNames from 'classnames'
-import { withStyles } from '@microui-kit/with-styles'
-import { useRouter } from '@microui-kit/use-router'
-import SegmentGroup from '@sigmaui-kit/segment-group'
-import Menu from '@sigmaui-kit/menu'
+import React from 'react';
+import type { FC } from 'react';
+import classNames from 'classnames';
+import { withStyles } from '@microui-kit/with-styles';
+import { useRouter } from '@microui-kit/use-router';
+import SegmentGroup from '@sigmaui-kit/segment-group';
+import Menu from '@sigmaui-kit/menu';
 
-import { routeMap } from '@docs/router/routeMap'
+import { routeMap } from '@docs/router/routeMap';
 
-import { styles, type HeaderProps } from './styles'
+import { type HeaderProps, styles } from './styles';
 
 const Header: FC<HeaderProps> = ({ prefixCls = 'sm-header', className, classes }) => {
-  const router = useRouter()
-  const { pathname } = router
-  const isShowSegmentDocs = pathname.startsWith('/docs')
+  const router = useRouter();
+  const { pathname } = router;
+  const isShowSegmentDocs = pathname.startsWith('/docs');
 
   return (
     <div className={classNames(prefixCls, className, classes?.wrapper)}>
@@ -43,8 +43,8 @@ const Header: FC<HeaderProps> = ({ prefixCls = 'sm-header', className, classes }
             ]}
             _style={{
               wrapper: {
-                width: '100%'
-              }
+                width: '100%',
+              },
             }}
           />
         </div>
@@ -69,7 +69,7 @@ const Header: FC<HeaderProps> = ({ prefixCls = 'sm-header', className, classes }
             {
               label: 'Charts',
               value: routeMap.chartPath,
-              disabled: true
+              disabled: true,
             },
             {
               label: 'Templates',
@@ -85,9 +85,9 @@ const Header: FC<HeaderProps> = ({ prefixCls = 'sm-header', className, classes }
         />
       )}
     </div>
-  )
-}
+  );
+};
 
-Header.displayName = 'Header'
+Header.displayName = 'Header';
 
-export default withStyles<HeaderProps>(styles)(Header)
+export default withStyles<HeaderProps>(styles)(Header);

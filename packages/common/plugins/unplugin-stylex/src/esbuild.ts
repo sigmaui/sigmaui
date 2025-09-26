@@ -4,12 +4,12 @@
  * @module
  */
 
-import { createEsbuildPlugin } from 'unplugin'
-import type { EsbuildPlugin } from 'unplugin'
-import { unpluginFactory } from './index'
-import type { UnpluginStylexInstance } from './types'
+import { createEsbuildPlugin } from 'unplugin';
+import type { EsbuildPlugin } from 'unplugin';
+import type { UnpluginStylexInstance } from './types';
+import { unpluginFactory } from './index';
 
-const esbuildPlugin: UnpluginStylexInstance<EsbuildPlugin | EsbuildPlugin[]> = createEsbuildPlugin(unpluginFactory)
+const esbuildPlugin: UnpluginStylexInstance<EsbuildPlugin | EsbuildPlugin[]> = createEsbuildPlugin(unpluginFactory);
 
 /**
  * Esbuild plugin
@@ -25,4 +25,4 @@ const esbuildPlugin: UnpluginStylexInstance<EsbuildPlugin | EsbuildPlugin[]> = c
  *   ],
  * }
  */
-export default esbuildPlugin
+export default esbuildPlugin;

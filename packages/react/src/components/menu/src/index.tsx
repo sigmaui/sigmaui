@@ -6,27 +6,21 @@ import { withStyles } from '@sigmaui-kit/with-styles';
 import RcMenu from '@rc-component/menu';
 import { getRestProps } from '@microui-kit/helpers';
 
-import { styles, type MenuProps } from './styles';
+import { type MenuProps, styles } from './styles';
 
-const Menu: FC<MenuProps> = ({
-  prefixCls,
-  className,
-  classes,
-  items = [],
-  ...menuProps
-}) => {
+const Menu: FC<MenuProps> = ({ prefixCls, className, classes, items = [], ...menuProps }) => {
   const restProps = getRestProps(menuProps);
   const router = useRouter();
 
   const onSelect = ({ key }) => {
-    console.log('onSelect', key)
+    console.log('onSelect', key);
 
     const isLink = key?.startsWith?.('/');
 
     if (isLink) {
-      router.push(key)
+      router.push(key);
     }
-  }
+  };
 
   return (
     <RcMenu
@@ -38,9 +32,9 @@ const Menu: FC<MenuProps> = ({
       overflowedIndicatorPopupClassName={classes?.popup}
       {...restProps}
     />
-  )
-}
+  );
+};
 
 Menu.displayName = 'Menu';
 
-export default withStyles<MenuProps>(styles)(Menu)
+export default withStyles<MenuProps>(styles)(Menu);

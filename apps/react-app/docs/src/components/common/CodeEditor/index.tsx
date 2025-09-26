@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from 'react'
-import type { FC } from 'react'
-import classNames from 'classnames'
-import { withStyles } from '@microui-kit/with-styles'
-import './prism.css'
-import { styles } from './styles'
-import { CodeEditorProps } from './types'
-import { PrismClass } from '@docs/utils/prism.constant'
+import React, { useEffect, useRef } from 'react';
+import type { FC } from 'react';
+import classNames from 'classnames';
+import { withStyles } from '@microui-kit/with-styles';
+import './prism.css';
+import { PrismClass } from '@docs/utils/prism.constant';
+import { styles } from './styles';
+import { CodeEditorProps } from './types';
 
 const CodeEditor: FC<CodeEditorProps> = ({
   prefixCls = 'sm-code-editor',
@@ -17,8 +17,8 @@ const CodeEditor: FC<CodeEditorProps> = ({
   lineNumbers = true,
 }) => {
   useEffect(() => {
-    window.Prism.highlightAll()
-  }, [content, language])
+    window.Prism.highlightAll();
+  }, [content, language]);
   return (
     <div className={classNames(prefixCls, className, classes?.wrapper)}>
       <pre
@@ -28,9 +28,9 @@ const CodeEditor: FC<CodeEditorProps> = ({
         <code className={`language-${language}`}>{content}</code>
       </pre>
     </div>
-  )
-}
+  );
+};
 
-CodeEditor.displayName = 'CodeEditor'
+CodeEditor.displayName = 'CodeEditor';
 
-export default withStyles<CodeEditorProps>(styles)(CodeEditor)
+export default withStyles<CodeEditorProps>(styles)(CodeEditor);

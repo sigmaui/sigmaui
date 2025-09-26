@@ -6,7 +6,7 @@ export const styles = ({ prefixCls, theme = {} }: IProps<any>): Partial<Record<C
   // console.log('theme', theme)
   return {
     wrapper: {
-      color: 'error'
+      color: 'error',
     },
     errorLine: {
       display: 'flex',
@@ -15,13 +15,13 @@ export const styles = ({ prefixCls, theme = {} }: IProps<any>): Partial<Record<C
 
       '& svg': {
         width: 16,
-        height: 16
-      }
-    }
-  }
-}
+        height: 16,
+      },
+    },
+  };
+};
 
-export type FormItemErrorTypes = ReturnType<typeof styles>
-export type FormItemErrorKeys = keyof FormItemErrorTypes
+export type FormItemErrorTypes = ReturnType<typeof styles>;
+export type FormItemErrorKeys = keyof FormItemErrorTypes;
 
-export type FormItemErrorProps = IProps<FormItemErrorTypes>
+export type FormItemErrorProps = IProps<FormItemErrorTypes>;

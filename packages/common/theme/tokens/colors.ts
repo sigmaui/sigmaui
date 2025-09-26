@@ -1,34 +1,34 @@
 export const formColors = {
   requiredMark: '#d70015',
   help: 'rgba(0,0,0,0.45)',
-  note: 'rgba(0,0,0,0.45)'
-}
+  note: 'rgba(0,0,0,0.45)',
+};
 
 export const inputColors = {
   text: 'rgba(0, 0, 0, 0.88)',
   placeholder: 'rgba(0,0,0,0.25)',
-}
+};
 
 export const buttonColors = {
   text: '#fff',
   background: '#f77f00',
-}
+};
 
 export const iconColors = {
   default: 'rgba(0,0,0,0.45)',
-  hover: 'rgba(0,0,0,0.88)'
-}
+  hover: 'rgba(0,0,0,0.88)',
+};
 
 export const tooltipColors = {
   background: 'rgba(0,0,0,0.85)',
-  text: '#fff'
-}
+  text: '#fff',
+};
 
 export const popupColors = {
   background: '#fff',
   text: '#000',
-  border: 'rgba(41, 43, 51, 0.5)'
-}
+  border: 'rgba(41, 43, 51, 0.5)',
+};
 
 export const colors = {
   base: '#f77f00',
@@ -50,5 +50,5 @@ export const colors = {
   button: buttonColors,
   icon: iconColors,
   tooltip: tooltipColors,
-  popup: popupColors
-} as const
+  popup: popupColors,
+} as const;

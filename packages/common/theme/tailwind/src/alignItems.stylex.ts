@@ -1,4 +1,4 @@
-import { create } from '@stylexjs/stylex'
+import { create } from '@stylexjs/stylex';
 
 export const alignItems = create({
   'items-start': { 'align-items': 'flex-start' },
@@ -6,4 +6,4 @@ export const alignItems = create({
   'items-center': { 'align-items': 'center' },
   'items-baseline': { 'align-items': 'baseline' },
   'items-stretch': { 'align-items': 'stretch' },
-})
+});

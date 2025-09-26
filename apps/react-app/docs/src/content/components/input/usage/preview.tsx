@@ -1,10 +1,10 @@
-import React from 'react'
-import Box from '@microui-kit/box'
-import ComponentPreview from '@docs/components/ComponentPreview'
-import Input from '@sigmaui-kit/input'
-import InputNumber from '@sigmaui-kit/input-number'
-import Textarea from '@sigmaui-kit/textarea'
-import code from './code'
+import React from 'react';
+import Box from '@microui-kit/box';
+import ComponentPreview from '@docs/components/ComponentPreview';
+import Input from '@sigmaui-kit/input';
+import InputNumber from '@sigmaui-kit/input-number';
+import Textarea from '@sigmaui-kit/textarea';
+import code from './code';
 export const Demo: React.FC<any> = () => {
   return (
     <Box
@@ -31,8 +31,8 @@ export const Demo: React.FC<any> = () => {
         placeholder="Textarea"
       />
     </Box>
-  )
-}
+  );
+};
 export default function UsageInputComponent() {
   return (
     <>
@@ -40,5 +40,5 @@ export default function UsageInputComponent() {
         <Demo />
       </ComponentPreview>
     </>
-  )
+  );
 }

@@ -4,9 +4,9 @@ import LoadingMdx from '@docs/content/docs/components/loading.mdx';
 const LoadingPage = ({}) => {
   return (
     <DocPage>
-      <LoadingMdx/>
+      <LoadingMdx />
     </DocPage>
-  )
-}
+  );
+};
 
-export default LoadingPage
+export default LoadingPage;

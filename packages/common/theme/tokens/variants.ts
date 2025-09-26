@@ -1,8 +1,8 @@
-import type { StylesObject } from 'packages/common/types'
+import type { StylesObject } from 'packages/common/types';
 
 export const inputVariants = {
   Input: {} as StylesObject,
-}
+};
 
 export const buttonVariants = {
   Button: {
@@ -53,7 +53,7 @@ export const buttonVariants = {
       },
     },
   } as StylesObject,
-}
+};
 
 export const variants = {
   solid: {},
@@ -64,4 +64,4 @@ export const variants = {
   link: {},
   ...inputVariants,
   ...buttonVariants,
-}
+};

@@ -39,12 +39,12 @@ export const styles = ({ theme = {}, size, variant }: IProps<any>): Partial<Reco
       marginLeft: 6,
     },
     link: {
-      display: 'inline-block'
-    }
-  }
-}
+      display: 'inline-block',
+    },
+  };
+};
 
-export type ButtonTypes = ReturnType<typeof styles>
-export type ButtonKeys = keyof ButtonTypes
+export type ButtonTypes = ReturnType<typeof styles>;
+export type ButtonKeys = keyof ButtonTypes;
 
-export type ButtonProps = IProps<ButtonTypes>
+export type ButtonProps = IProps<ButtonTypes>;

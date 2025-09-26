@@ -1,11 +1,11 @@
-import { defineConfig } from 'vite'
-import path from 'path'
+import { defineConfig } from 'vite';
+import stylexPlugin from 'unplugin-stylex/vite';
+import path from 'path';
 // @ts-ignore
-import stylexPlugin from 'unplugin-stylex/vite'
 
 export default defineConfig(({ mode }) => {
-  console.log('mode', mode)
-  const isDev = mode === 'development'
+  console.log('mode', mode);
+  const isDev = mode === 'development';
 
   return {
     base: './',
@@ -49,5 +49,5 @@ export default defineConfig(({ mode }) => {
         },
       }),
     ],
-  }
-})
+  };
+});
