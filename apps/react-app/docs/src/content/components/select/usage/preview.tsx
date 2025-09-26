@@ -2,22 +2,20 @@ import React, { useState, Fragment } from 'react'
 import Box from '@microui-kit/box'
 import Select from '@sigmaui-kit/select'
 import ComponentPreview from '@docs/components/ComponentPreview'
-import { selectContent } from '..'
+import code from './code'
 
-export const Demo: React.FC<any> = ({ control }) => {
-  console.log('control', control)
+export const Demo: React.FC<any> = () => {
 
   return (
     <Box
       css={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 12
+        gap: 12,
       }}
     >
       <Select
         allowClear
-        size={control.state.size}
         placeholder="Select size Select size Select size Select size"
         options={[
           {
@@ -36,14 +34,13 @@ export const Demo: React.FC<any> = ({ control }) => {
         ]}
         _style={{
           wrapper: {
-            width: 200
-          }
+            width: 200,
+          },
         }}
       />
       <Select
         allowClear
         mode="tags"
-        size={control.state.size}
         placeholder="Select size Select size Select size Select size"
         options={[
           {
@@ -62,49 +59,19 @@ export const Demo: React.FC<any> = ({ control }) => {
         ]}
         _style={{
           wrapper: {
-            width: 200
-          }
+            width: 200,
+          },
         }}
       />
     </Box>
   )
 }
-export const UsageSelectComponent = () => {
+export default function Usage() {
   const [value, setValue] = useState<number[] | undefined>(undefined)
   return (
     <>
-      <ComponentPreview<{ size: string }>
-        data={selectContent.usage}
-        items={[
-          {
-            initialValue: 'small',
-            prop: 'size',
-            type: 'slider',
-            defaultValue: [0],
-            mappingData: {
-              0: 'sm',
-              50: 'md',
-              100: 'lg',
-            },
-            label: 'Size',
-            step: 50,
-            marks: {
-              items: [
-                {
-                  value: 0,
-                },
-                {
-                  value: 50,
-                },
-                {
-                  value: 100,
-                },
-              ],
-            },
-          },
-        ]}
-      >
-        {({ control }) => <Demo control={control}/>}
+      <ComponentPreview data={code}>
+        <Demo />
       </ComponentPreview>
     </>
   )

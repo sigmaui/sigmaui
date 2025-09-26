@@ -1,9 +1,4 @@
-import usage from './usage';
-import password from './password';
-import textarea from './textarea';
-
-export const inputContent = {
-  usage,
-  password,
-  textarea
-}
+export { default as Usage } from './usage/preview'
+export { default as Password } from './password/preview'
+export { default as Textarea } from './textarea/preview'
+export { default as Number } from './number/preview'

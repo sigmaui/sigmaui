@@ -1,7 +1,2 @@
-import usage from './usage';
-import dots from './dots';
-
-export const loadingContent = {
-  usage,
-  dots
-}
+export { default as Usage } from './usage/preview'
+export { default as Dots } from './dots/preview'
