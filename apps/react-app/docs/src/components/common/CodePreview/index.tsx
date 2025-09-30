@@ -1,20 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classNames from 'classnames';
 import Box from '@microui-kit/box';
 import useMicroUI from '@microui-kit/use-micro-ui';
 import { ITheme } from '@packages/common/theme/config';
+import { CodeContext } from '../CodeProvider';
 
-type CodeDemoProps<T extends Record<string, any>> = {
+type CodePreviewProps = {
   prefixCls?: string;
   className?: string;
   children?: React.ReactNode;
 };
-const CodeDemo = <T extends Record<string, any>>({
-  prefixCls = 'sm-code-demo',
-  className,
-  children,
-}: CodeDemoProps<T>) => {
+const CodePreview = ({ prefixCls = 'sm-code-demo', className, children }: CodePreviewProps) => {
   const { theme }: { theme: ITheme } = useMicroUI();
+  const { element } = useContext(CodeContext);
   return (
     <div className={classNames(prefixCls, className)}>
       <Box
@@ -26,12 +24,12 @@ const CodeDemo = <T extends Record<string, any>>({
           minHeight: 200,
         }}
       >
-        {children}
+        {children || element}
       </Box>
     </div>
   );
 };
 
-CodeDemo.displayName = 'CodeDemo';
+CodePreview.displayName = 'CodePreview';
 
-export default CodeDemo;
+export default CodePreview;

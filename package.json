@@ -87,7 +87,6 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "eslint-plugin-import": "^2.32.0",
     "@babel/cli": "^7.28.0",
     "@babel/core": "^7.28.0",
     "@babel/preset-typescript": "^7.27.1",
@@ -104,6 +103,7 @@
     "clean-package": "^2.2.0",
     "eslint": "^9.15.0",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",

@@ -7,7 +7,7 @@ export type CodeEditorKeys = keyof CodeEditorTypes;
 export type CodeEditorProps = IProps<CodeEditorTypes>;
 
 export interface IProps<Styles> extends FCWithStylesProps<Styles> {
-  content: string;
+  content?: string | React.ReactNode;
   language?: PrismLanguage;
   lineNumbers?: boolean;
   displayLang: string;
