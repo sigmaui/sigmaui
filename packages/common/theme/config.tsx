@@ -2,13 +2,13 @@ import { type Theme } from '@microui-kit/theme';
 import { customRenderer } from '@microui-kit/fela-custom-renderer';
 import { formatProperty } from '@microui-kit/create-renderer';
 
-import { modes } from './modes';
-import { components } from './tokens/components';
-import { colors } from './tokens/colors';
-import { fontSizes, heights, radii, sizes } from './tokens/sizes';
-import { variants } from './tokens/variants';
-import { boxShadows } from './tokens/boxShadow';
-import { zIndex } from './tokens/zIndex';
+import { modes } from './sigma-theme/modes';
+import { components } from './sigma-theme/tokens/components';
+import { colors } from './sigma-theme/tokens/colors';
+import { fontSizes, heights, radii, sizes } from './sigma-theme/tokens/sizes';
+import { variants } from './sigma-theme/tokens/variants';
+import { boxShadows } from './sigma-theme/tokens/boxShadow';
+import { zIndex } from './sigma-theme/tokens/zIndex';
 
 const themeMapping: any = {
   color: (theme: any) => theme.colors,

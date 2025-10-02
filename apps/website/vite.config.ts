@@ -1,7 +1,5 @@
 import { defineConfig } from 'vite';
-import stylexPlugin from 'unplugin-stylex/vite';
 import path from 'path';
-// @ts-ignore
 
 export default defineConfig(({ mode }) => {
   console.log('mode', mode);
@@ -14,8 +12,7 @@ export default defineConfig(({ mode }) => {
       alias: {
         src: path.resolve(__dirname, './src'),
         packages: path.resolve(__dirname, '../../packages'),
-        '@packages/common/theme/types': path.resolve(__dirname, '../../packages/common/theme/typesStylex'),
-        '@packages/react/hooks/with-stylex': path.resolve(__dirname, '../../packages/react/src/hooks/with-stylex/src'),
+        '@packages/common/theme/types': path.resolve(__dirname, '../../packages/common/theme/types'),
         '@packages/react/hooks/use-theme': path.resolve(__dirname, '../../packages/react/src/hooks/use-theme/src'),
         '@packages/react/components/select': path.resolve(__dirname, '../../packages/react/src/components/select/src'),
         '@packages/react/components/button': path.resolve(__dirname, '../../packages/react/src/components/button/src'),
@@ -37,17 +34,6 @@ export default defineConfig(({ mode }) => {
     esbuild: {
       pure: ['console.log', 'console.warn'],
     },
-    plugins: [
-      stylexPlugin({
-        stylex: {
-          filename: 'stylex.css',
-          classNamePrefix: 'x',
-          dev: false,
-          // dev: isDev,
-          runtimeInjection: isDev,
-          useCSSLayers: true,
-        },
-      }),
-    ],
+    plugins: [],
   };
 });

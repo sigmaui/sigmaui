@@ -1,5 +1,4 @@
 import { defineConfig } from 'tsup';
-import vue from 'unplugin-vue/esbuild';
 
 export default defineConfig({
   clean: true,
@@ -9,10 +8,4 @@ export default defineConfig({
   esbuildOptions(options) {
     options.drop = ['console'];
   },
-  esbuildPlugins: [
-    vue({
-      isProduction: true,
-    }),
-  ],
-  external: ['@sigmaui-kit/v-use-theme'],
 });

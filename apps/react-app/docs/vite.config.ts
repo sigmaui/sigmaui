@@ -53,11 +53,6 @@ export default defineConfig(({ mode }) => {
         '.contentlayer/generated': path.resolve(__dirname, './.contentlayer/generated'),
         packages: path.resolve(__dirname, '../../../packages'),
         '@docs': path.resolve(__dirname, '../../../apps/react-app/docs/src'),
-        '@packages/common/hooks/use-stylex': path.resolve(__dirname, '../../../packages/common/hooks/use-stylex/src'),
-        '@packages/react/hooks/with-stylex': path.resolve(
-          __dirname,
-          '../../../packages/react/src/hooks/with-stylex/src',
-        ),
         '@packages/react/hooks/use-theme': path.resolve(__dirname, '../../../packages/react/src/hooks/use-theme/src'),
         '@packages/react/components/select': path.resolve(
           __dirname,

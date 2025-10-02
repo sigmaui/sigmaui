@@ -32,17 +32,11 @@
       "@packages/common/theme/types": [
         "packages/common/theme/types"
       ],
-      "@packages/common/hooks/use-stylex": [
-        "packages/common/hooks/use-stylex/src"
-      ],
       "@packages/react/types": [
         "packages/react/src/types"
       ],
       "@packages/react/hooks/*": [
         "packages/react/src/hooks/*/src"
-      ],
-      "@packages/react/hooks/with-stylex": [
-        "packages/react/src/hooks/with-stylex/src"
       ],
       "@packages/react/hooks/use-theme": [
         "packages/react/src/hooks/use-theme/src"
@@ -115,24 +109,6 @@
       ],
       "@sigmaui-kit/loading-dots": [
         "packages/react/src/components/loading/dots/src"
-      ],
-      "@packages/vue/types": [
-        "packages/vue/src/types"
-      ],
-      "@packages/vue/hooks/*": [
-        "packages/vue/src/hooks/*/src"
-      ],
-      "@packages/vue/hooks/with-stylex": [
-        "packages/vue/src/hooks/with-stylex/src"
-      ],
-      "@packages/react/hooks/use-platform": [
-        "packages/vue/src/hooks/use-platform/src"
-      ],
-      "@packages/vue/components/button": [
-        "packages/vue/src/components/button/src"
-      ],
-      "@packages/vue/components/box": [
-        "packages/vue/src/components/box/src"
       ]
     }
   },

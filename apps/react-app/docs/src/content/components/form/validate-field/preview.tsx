@@ -50,7 +50,6 @@ export const Demo: React.FC<any> = ({ control }) => {
           labelProps: {
             isSuffixMark: true,
           },
-          tooltip: '123',
           // validateMessages: {
           //   required: 'Please do not leave blank',
           // }
@@ -60,6 +59,8 @@ export const Demo: React.FC<any> = ({ control }) => {
           name: 'password',
           type: FormItemTypeEnum.PASSWORD,
           required: true,
+          tooltip:
+            'Password must be 6-20 characters and must contain at least one number, lowercase letter, uppercase letter and special character (!,@,#,$,&,*)',
           fieldProps: {
             placeholder: 'Enter password',
             action: 'pointer',
