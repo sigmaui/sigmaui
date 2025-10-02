@@ -25,6 +25,12 @@ export type InputColors = {
 export type ButtonColors = {
   text?: string;
   background?: string;
+  hover?: {
+    background?: string;
+  };
+  active?: {
+    background?: string;
+  };
 };
 export type IconColors = {
   default?: string;
@@ -61,6 +67,12 @@ export const inputColors: InputColors = {
 export const buttonColors: ButtonColors = {
   text: '#fff',
   background: '#f77f00',
+  hover: {
+    background: 'linear-gradient(0deg, rgb(255 255 255 / 5%) 0%, rgb(255 255 255 / 5%) 100%), #f77f00',
+  },
+  active: {
+    background: 'linear-gradient(0deg, rgb(0 0 0 / 10%) 0%, rgb(0 0 0 / 10%) 100%), #f77f00',
+  },
 };
 
 export const iconColors: IconColors = {
