@@ -6,7 +6,7 @@
   "author": "",
   "homepage": "https://sigmaui.org",
   "license": "MIT",
-  "main": "src/index.vue",
+  "main": "src/index.tsx",
   "sideEffects": false,
   "files": [
     "dist"

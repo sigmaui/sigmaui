@@ -23,9 +23,9 @@ export const styles = ({
       [`&.${prefixCls}-single`]: {
         [`&.${prefixCls}-open`]: {
           [`& .${prefixCls}-selection-item`]: {
-            color: 'placeholder'
-          }
-        }
+            color: 'placeholder',
+          },
+        },
       },
 
       [`& .${prefixCls}-selector`]: {
@@ -89,7 +89,7 @@ export const styles = ({
       },
 
       [`& .${prefixCls}-selection-item`]: {
-        transition: 'all .3s, visibility 0s'
+        transition: 'all .3s, visibility 0s',
       },
 
       [`& .${prefixCls}-selection-placeholder`]: {
