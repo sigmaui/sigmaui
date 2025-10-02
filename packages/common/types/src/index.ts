@@ -1,8 +1,7 @@
 import type { CSSProperties, IRenderer } from 'fela';
 import type { WithTranslation } from 'react-i18next';
-import { type Theme } from '@microui-kit/theme';
-
 import { type Tailwind } from './tailwind';
+import type { ITheme } from '../../theme/config';
 
 export type ClassString = `${Tailwind}`;
 
@@ -21,7 +20,7 @@ export type StylesObject = { [key: string]: StyleProperties | StylesObject | fal
 
 export type Styles<T> =
   | { [K in keyof T]?: StylesProperties }
-  | ((theme: Theme, props: any) => { [K in keyof T]?: StylesProperties });
+  | ((theme: ITheme, props: any) => { [K in keyof T]?: StylesProperties });
 
 export type Classes<T> = {
   [K in keyof T]: T[K] extends (...args: any[]) => any
@@ -31,12 +30,6 @@ export type Classes<T> = {
     : string;
 };
 
-export type ThemeColor = 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'info' | 'error' | 'disabled';
-
-export type ThemeSize = 'default' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
-
-export type ThemeVariant = 'default' | 'solid' | 'outlined' | 'dashed' | 'filled' | 'text' | 'link';
-
 export interface IStylesProps<IStyles> {
   _style?: Styles<IStyles>;
   extendStyle?: Styles<IStyles>;
@@ -45,19 +38,19 @@ export interface IStylesProps<IStyles> {
 export interface FCDefaultProps {
   prefixCls?: string;
   className?: string;
-  children?: any;
+  children?: React.ReactNode | string;
 }
 
 export interface FCProps extends FCDefaultProps {
   _class?: ClassString | ClassString[] | string | undefined;
 }
 
-export interface FCWithStylesProps<IStyles> extends FCProps {
+export interface FCWithStylesProps<IStyles = any> extends FCProps {
   classes?: Classes<IStyles>;
-  theme?: Theme;
+  theme?: ITheme;
   renderer?: IRenderer;
-  size?: ThemeSize;
-  variant?: ThemeVariant;
+  size?: ITheme['sizes'];
+  variant?: ITheme['variants'];
   t?: WithTranslation['t'];
   _style?: Styles<IStyles>;
   extendStyle?: Styles<IStyles>;

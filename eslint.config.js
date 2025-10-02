@@ -7,7 +7,7 @@ import eslintPluginPrettier from "eslint-plugin-prettier";
 import eslintPluginImport from "eslint-plugin-import";
 
 export default tseslint.config(
-  { ignores: ["dist", "vite.config.ts", "tsup.config.ts", "**/*.raw.tsx"] },
+  { ignores: ["dist", "vite.config.ts", "tsup.config.ts", "**/*.raw.tsx", '**/public/', 'tsconfig.json'] },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ["**/*.{ts,tsx}"],
@@ -33,6 +33,8 @@ export default tseslint.config(
       "@typescript-eslint/ban-ts-comment": "off",
       "react-refresh/only-export-components": "off",
       "@typescript-eslint/no-unnecessary-type-constraint": "warn",
+      "no-prototype-builtins": "off",
+      "no-empty-pattern": "off",
       "import/order": [
         1,
         {

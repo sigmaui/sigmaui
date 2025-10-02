@@ -1,13 +1,12 @@
-import { type Theme } from '@microui-kit/theme';
 import { customRenderer } from '@microui-kit/fela-custom-renderer';
 import { formatProperty } from '@microui-kit/create-renderer';
 
 import { modes } from './sigma-theme/modes';
 import { components } from './sigma-theme/tokens/components';
-import { colors } from './sigma-theme/tokens/colors';
+import { Colors, colors } from './sigma-theme/tokens/colors';
 import { fontSizes, heights, radii, sizes } from './sigma-theme/tokens/sizes';
 import { variants } from './sigma-theme/tokens/variants';
-import { boxShadows } from './sigma-theme/tokens/boxShadow';
+import { BoxShadow, boxShadows } from './sigma-theme/tokens/boxShadow';
 import { zIndex } from './sigma-theme/tokens/zIndex';
 
 const themeMapping: any = {
@@ -23,6 +22,10 @@ const themeMapping: any = {
   boxShadow: (theme: any) => theme.shadows,
   zIndex: (theme: any) => theme.zIndex,
 };
+export type BaseTheme = {
+  fontSize: number;
+  borderRadius: number;
+};
 
 export const felaRendererConfig = {
   themeMapping,
@@ -32,18 +35,41 @@ export const felaRendererConfig = {
   clsBlackList: [],
   enhancers: [customRenderer()],
 };
-type BoxShadow = keyof typeof boxShadows;
-type Colors = keyof typeof colors;
 
-export type ITheme = Theme & {
-  shadows: Record<BoxShadow, string>;
-  colors: Record<Colors, string>;
+export type ThemeMode<T = 'light' | 'dark'> = T;
+
+export type ITheme = {
+  base: BaseTheme;
+  theme: ThemeMode;
+  shadows: BoxShadow;
+  colors: Colors;
+  form: Colors['form'];
+  input: Colors['input'];
+  button: Colors['button'];
+  icon: Colors['icon'];
+  tooltip: Colors['tooltip'];
+  popup: Colors['popup'];
+  modes: typeof modes;
+  components: typeof components;
+  sizes: typeof sizes;
+  variants: typeof variants;
+  fontSizes: typeof fontSizes;
+  heights: typeof heights;
+  radii: typeof radii;
+  zIndex: typeof zIndex;
 };
 const theme: ITheme = {
+  theme: 'light',
   base: {
     fontSize: 16,
     borderRadius: 8,
   },
+  form: colors.form,
+  input: colors.input,
+  button: colors.button,
+  icon: colors.icon,
+  tooltip: colors.tooltip,
+  popup: colors.popup,
   modes,
   components,
   colors,

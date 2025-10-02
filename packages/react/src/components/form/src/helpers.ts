@@ -17,7 +17,7 @@ export const checkEmail = (str: string) => {
 };
 
 export const checkUrl = (str: string) => {
-  const re = /^(https?|ftp):\/\/[^\s\/$.?#].\S*$/;
+  const re = /^(https?|ftp):\/\/[^\s/$.?#].\S*$/;
   return re.test(str);
 };
 

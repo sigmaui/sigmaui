@@ -1,8 +1,14 @@
-export const errorShadows = {
+export type BoxShadowKeys = 'xs' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | 'focused' | 'popup';
+export type BoxShadow = Partial<Record<BoxShadowKeys, string>> & {
+  error?: {
+    focused?: string;
+  };
+};
+export const errorShadows: BoxShadow['error'] = {
   focused: '0 0 0 4px rgba(215, 0, 21, 0.2)',
 };
 
-export const boxShadows = {
+export const boxShadows: BoxShadow = {
   xs: '0px 1px 2px 0px rgba(41, 43, 51, 0.05)',
   md: '0px 4px 8px -2px rgba(41, 43, 51, 0.1), 0px 2px 4px -2px rgba(41, 43, 51, 0.05)',
   lg: '0px 12px 16px -4px rgba(41, 43, 51, 0.1), 0px 4px 6px -2px rgba(41, 43, 51, 0.05)',
@@ -12,4 +18,4 @@ export const boxShadows = {
   focused: '0 0 0 4px rgba(247, 127, 0, 0.2)',
   popup: '0px 1px 2px 0px rgba(41, 43, 51, 0.05)',
   error: errorShadows,
-} as const;
+};

@@ -8,7 +8,7 @@ export const styles = ({
   keyframe,
   animation = {},
 }: IProps<any>): Partial<Record<ClassKeys, StylesProperties>> => {
-  let { name, duration = '300ms', delay, timing = 'linear', iteration = 'infinite', fillMode } = animation;
+  const { name, duration = '300ms', delay, timing = 'linear', iteration = 'infinite', fillMode } = animation;
 
   if (!keyframe) {
     if (name === ANIMATION_NAME.BLINK) {
@@ -18,12 +18,12 @@ export const styles = ({
         '100% ': { opacity: 0.2 },
       };
 
-      fillMode = 'both';
+      animation.fillMode = 'both';
     }
   }
 
   if (!duration) {
-    duration = '300ms';
+    animation.duration = '300ms';
   }
 
   const wrapperStyle: StylesObject = {};
