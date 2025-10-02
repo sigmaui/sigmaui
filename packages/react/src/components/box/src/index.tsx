@@ -1,16 +1,19 @@
 import React from 'react';
 import type { FC } from 'react';
-import classNames from 'classnames';
-import { useMicroUI } from '@microui-kit/use-micro-ui';
+import MicroBox, { BoxProps } from '@microui-kit/box';
 
-import type { BoxProps } from './types';
-
-const SigmaBox: FC<BoxProps> = ({ prefixCls = 'sm-box', className, children, as: As = 'div' }) => {
-  const { css } = useMicroUI();
-
-  return <As className={classNames(prefixCls, className)}>{children}</As>;
+const Box: FC<BoxProps> = ({
+  prefixCls = 'sm-box',
+  ...restProps
+}) => {
+  return (
+    <MicroBox
+      prefixCls={prefixCls}
+      {...restProps}
+    />
+  );
 };
 
-SigmaBox.displayName = 'Box';
+Box.displayName = 'Box';
 
-export default SigmaBox;
+export default Box;

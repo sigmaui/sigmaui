@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import Form, { FormItemOption, FormItemTypeEnum, useForm } from '@sigmaui-kit/form';
+import Form, { FormItemOption, FormItemTypeEnum, useForm, FormItem } from '@sigmaui-kit/form';
+import Select from '@sigmaui-kit/select';
 import LockFilledIcon from '@sigmaui-kit/icons/LockFilledIcon';
 import Button from '@sigmaui-kit/button';
 import type { InputProps, InputTypes } from '@sigmaui-kit/input';
@@ -64,7 +65,7 @@ export const Demo: React.FC<any> = ({ control }) => {
           fieldProps: {
             placeholder: 'Enter password',
             action: 'pointer',
-            prefix: <LockFilledIcon />,
+            prefix: <LockFilledIcon/>,
             // suffix: '123332'
           },
         },
@@ -153,6 +154,23 @@ export const Demo: React.FC<any> = ({ control }) => {
             },
           },
         },
+        {
+          label: 'Group',
+          name: 'group',
+          noStyle: true,
+          render: () => {
+            return (
+              <div>
+                <FormItem
+                  name="test"
+                  label="Test"
+                >
+                  <Select/>
+                </FormItem>
+              </div>
+            )
+          }
+        },
       ]}
       layout={{
         col: 2,
@@ -189,7 +207,7 @@ export default function ValidateFieldComponent() {
   return (
     <>
       <ComponentPreview data={code}>
-        <Demo />
+        <Demo/>
       </ComponentPreview>
     </>
   );
