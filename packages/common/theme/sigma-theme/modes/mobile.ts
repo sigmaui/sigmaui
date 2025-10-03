@@ -1,8 +1,11 @@
-export const mobile = {
+import { ITheme } from '../../config';
+
+export const mobile: Partial<ITheme> = {
   base: {
     fontSize: 12,
+    borderRadius: 8,
   },
   colors: {
-    primary: 'blue',
+    base: '#f77f00',
   },
 };

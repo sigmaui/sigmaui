@@ -1,10 +1,8 @@
 import Button from '@sigmaui-kit/button'
 
-export default function Demo() {
+export default function App() {
   return (
-    <Button
-      {props.variant}
-    >
+    <Button>
       Button
     </Button>
   )

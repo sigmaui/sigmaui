@@ -3,10 +3,11 @@ import type { FC, JSX } from 'react';
 import classNames from 'classnames';
 import { withStyles } from '@microui-kit/with-styles';
 import useMicroUI from '@microui-kit/use-micro-ui';
+import Button from '@sigmaui-kit/button';
 import { styles } from './styles';
 import { CodeEnum, ComponentPreviewProps, IData } from './types';
-import CodeContent from './children/CodeContent';
-import { CodeDemo, CodeEditor } from '../common';
+import { CodeEditor, CodeError, CodePreview } from '../common';
+import { CodeProvider } from '../common/CodeProvider';
 
 export const replaceProps = (code: string, input: Record<string, any>) => {
   return code.replace(/{props\.(\w+)}/g, (_, key) => {
@@ -41,36 +42,26 @@ export const transformTabsOptions = (data: IData, previewProps: Record<string, a
     // },
   ];
 };
-
 const ComponentPreview = ({
   prefixCls = 'sm-component-preview',
   className,
   classes,
   data,
+  scope,
   children,
 }: ComponentPreviewProps) => {
   const { css } = useMicroUI();
   return (
-    <div className={classNames(prefixCls, className, classes?.wrapper)}>
-      <CodeDemo
-        className={css({
-          width: '100%',
-          display: 'flex',
-          gap: 12,
-          padding: 12,
-        })}
-      >
-        {children}
-      </CodeDemo>
-      <CodeContent
-        containerClass={{
-          background: 'black',
-          padding: 12,
-        }}
-        // rootProps={{ defaultValue: CodeEnum.REACT }}
-        data={data}
-      />
-    </div>
+    <CodeProvider
+      code={data?.code?.[CodeEnum.TYPESCRIPT]}
+      scope={scope}
+    >
+      <div className={classNames(prefixCls, className, classes?.wrapper)}>
+        <CodePreview />
+        <CodeEditor displayLang={CodeEnum.TYPESCRIPT} />
+        <CodeError />
+      </div>
+    </CodeProvider>
   );
 };
 

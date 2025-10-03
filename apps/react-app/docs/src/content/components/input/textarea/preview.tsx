@@ -9,9 +9,10 @@ export const Demo: React.FC<any> = () => {
 export default function UsageTextareaComponent() {
   return (
     <>
-      <ComponentPreview data={code}>
-        <Demo />
-      </ComponentPreview>
+      <ComponentPreview
+        data={code}
+        scope={{ import: { '@sigmaui-kit/textarea': Textarea } }}
+      />
     </>
   );
 }

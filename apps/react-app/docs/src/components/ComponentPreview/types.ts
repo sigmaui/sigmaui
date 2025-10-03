@@ -20,8 +20,7 @@ export interface IData {
 export type ComponentPreviewTypes = ReturnType<typeof styles>;
 export type ComponentPreviewKeys = keyof ComponentPreviewTypes;
 
-export type ComponentPreviewProps = IProps<ComponentPreviewTypes>;
-
-export interface IProps<Styles> extends FCWithStylesProps<Styles> {
+export type ComponentPreviewProps = FCWithStylesProps<ComponentPreviewTypes> & {
   data: IData;
-}
+  scope: Record<string, unknown> | undefined;
+};

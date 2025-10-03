@@ -1,15 +1,70 @@
-export const formColors = {
+export type ColorsKeys =
+  | 'base'
+  | 'secondary'
+  | 'background'
+  | 'text'
+  | 'error'
+  | 'warning'
+  | 'success'
+  | 'border'
+  | 'active'
+  | 'placeholder'
+  | 'description'
+  | 'fillWeak'
+  | 'neutral'
+  | 'bgEmphasized';
+export type FormColors = {
+  requiredMark?: string;
+  help?: string;
+  note?: string;
+};
+export type InputColors = {
+  text?: string;
+  placeholder?: string;
+};
+export type ButtonColors = {
+  text?: string;
+  background?: string;
+  hover?: {
+    background?: string;
+  };
+  active?: {
+    background?: string;
+  };
+};
+export type IconColors = {
+  default?: string;
+  hover?: string;
+};
+export type TooltipColors = {
+  background?: string;
+  text?: string;
+};
+export type PopupColors = {
+  background?: string;
+  text?: string;
+  border?: string;
+};
+export type Colors = Partial<Record<ColorsKeys, string>> & {
+  form?: FormColors;
+  input?: InputColors;
+  button?: ButtonColors;
+  icon?: IconColors;
+  tooltip?: TooltipColors;
+  popup?: PopupColors;
+};
+export const formColors: FormColors = {
   requiredMark: '#d70015',
   help: 'rgba(0,0,0,0.45)',
   note: 'rgba(0,0,0,0.45)',
 };
 
-export const inputColors = {
-  text: 'rgba(0,0,0,0.88)',
+export const inputColors: InputColors = {
+  text: 'rgba(0, 0, 0, 0.88)',
   placeholder: 'rgba(0,0,0,0.25)',
 };
 
-export const buttonColors = {
+export const buttonColors: ButtonColors = {
   text: '#fff',
   background: '#f77f00',
   hover: {
@@ -20,23 +75,23 @@ export const buttonColors = {
   },
 };
 
-export const iconColors = {
+export const iconColors: IconColors = {
   default: 'rgba(0,0,0,0.45)',
   hover: 'rgba(0,0,0,0.88)',
 };
 
-export const tooltipColors = {
+export const tooltipColors: TooltipColors = {
   background: 'rgba(0,0,0,0.85)',
   text: '#fff',
 };
 
-export const popupColors = {
+export const popupColors: PopupColors = {
   background: '#fff',
   text: '#000',
   border: 'rgba(41, 43, 51, 0.5)',
 };
 
-export const colors = {
+export const colors: Colors = {
   base: '#f77f00',
   secondary: '#5856D6',
   background: '#fff',
@@ -44,8 +99,7 @@ export const colors = {
   error: '#d70015',
   warning: '#FF9500',
   success: '#34C759',
-  // border: 'rgba(0,0,0,0.2)',
-  border: 'rgba(41, 43, 51, 0.5)',
+  border: '#ddd',
   active: '#f77f00',
   placeholder: 'rgba(0,0,0,0.25)',
   description: 'rgba(0,0,0,0.45)',
@@ -58,4 +112,4 @@ export const colors = {
   icon: iconColors,
   tooltip: tooltipColors,
   popup: popupColors,
-} as const;
+};

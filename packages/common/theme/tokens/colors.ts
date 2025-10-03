@@ -12,6 +12,12 @@ export const inputColors = {
 export const buttonColors = {
   text: '#fff',
   background: '#f77f00',
+  hover: {
+    background: 'linear-gradient(0deg, rgb(255 255 255 / 5%) 0%, rgb(255 255 255 / 5%) 100%), #f77f00',
+  },
+  active: {
+    background: 'linear-gradient(0deg, rgb(0 0 0 / 10%) 0%, rgb(0 0 0 / 10%) 100%), #f77f00',
+  },
 };
 
 export const iconColors = {

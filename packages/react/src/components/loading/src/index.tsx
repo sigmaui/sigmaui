@@ -22,8 +22,8 @@ const Loading: FC<LoadingProps> = ({ prefixCls, className, classes, text, full, 
   return (
     <div
       className={classNames(prefixCls, classes?.wrapper, className, {
-        [classes?.full!]: full,
-        [classes?.center!]: center,
+        [classes?.full as string]: full,
+        [classes?.center as string]: center,
       })}
     >
       <div className={classes?.inner}>
