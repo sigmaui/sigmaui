@@ -45,7 +45,10 @@
     "@sigmaui-kit/types": "^0.0.1",
     "@tanstack/react-form": "^1.12.4",
     "@tanstack/react-table": "^8.21.3",
-    "rc-tabs": "^15.7.0"
+    "rc-drawer": "^7.3.0",
+    "rc-motion": "^2.9.5",
+    "rc-tabs": "^15.7.0",
+    "rc-util": "^5.44.4"
   },
   "peerDependencies": {},
   "clean-package": "../../clean-package.config.json"

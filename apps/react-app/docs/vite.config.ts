@@ -50,10 +50,16 @@ export default defineConfig(({ mode }) => {
       alias: {
         src: path.resolve(__dirname, './src'),
         '.velite': path.resolve(__dirname, './.velite'),
-        '.contentlayer/generated': path.resolve(__dirname, './.contentlayer/generated'),
+        '.contentlayer/generated': path.resolve(
+          __dirname,
+          './.contentlayer/generated',
+        ),
         packages: path.resolve(__dirname, '../../../packages'),
         '@docs': path.resolve(__dirname, '../../../apps/react-app/docs/src'),
-        '@packages/react/hooks/use-theme': path.resolve(__dirname, '../../../packages/react/src/hooks/use-theme/src'),
+        '@packages/react/hooks/use-theme': path.resolve(
+          __dirname,
+          '../../../packages/react/src/hooks/use-theme/src',
+        ),
         '@packages/react/components/select': path.resolve(
           __dirname,
           '../../../packages/react/src/components/select/src',
@@ -62,31 +68,98 @@ export default defineConfig(({ mode }) => {
           __dirname,
           '../../../packages/react/src/components/button/src',
         ),
-        '@packages/react/components/box': path.resolve(__dirname, '../../../packages/react/src/components/box/src'),
-        '@sigmaui-kit/locale': path.resolve(__dirname, '../../../packages/common/locale/src'),
-        '@sigmaui-kit/path-morphing': path.resolve(__dirname, '../../../packages/common/motion/path-morphing/src'),
-        '@sigmaui-kit/layout': path.resolve(__dirname, '../../../packages/react/src/components/layout/src'),
-        '@sigmaui-kit/button': path.resolve(__dirname, '../../../packages/react/src/components/button/src'),
-        '@sigmaui-kit/input': path.resolve(__dirname, '../../../packages/react/src/components/input/src'),
-        '@sigmaui-kit/input-number': path.resolve(__dirname, '../../../packages/react/src/components/input/number/src'),
-        '@sigmaui-kit/password': path.resolve(__dirname, '../../../packages/react/src/components/input/password/src'),
-        '@sigmaui-kit/textarea': path.resolve(__dirname, '../../../packages/react/src/components/input/textarea/src'),
-        '@sigmaui-kit/text': path.resolve(__dirname, '../../../packages/react/src/components/text/src'),
-        '@sigmaui-kit/select': path.resolve(__dirname, '../../../packages/react/src/components/select/src'),
-        '@sigmaui-kit/icon': path.resolve(__dirname, '../../../packages/react/src/components/icon/src'),
-        '@sigmaui-kit/slider': path.resolve(__dirname, '../../../packages/react/src/components/slider/src'),
-        '@sigmaui-kit/tabs': path.resolve(__dirname, '../../../packages/react/src/components/tabs/src'),
+        '@packages/react/components/box': path.resolve(
+          __dirname,
+          '../../../packages/react/src/components/box/src',
+        ),
+        '@sigmaui-kit/locale': path.resolve(
+          __dirname,
+          '../../../packages/common/locale/src',
+        ),
+        '@sigmaui-kit/path-morphing': path.resolve(
+          __dirname,
+          '../../../packages/common/motion/path-morphing/src',
+        ),
+        '@sigmaui-kit/layout': path.resolve(
+          __dirname,
+          '../../../packages/react/src/components/layout/src',
+        ),
+        '@sigmaui-kit/button': path.resolve(
+          __dirname,
+          '../../../packages/react/src/components/button/src',
+        ),
+        '@sigmaui-kit/input': path.resolve(
+          __dirname,
+          '../../../packages/react/src/components/input/src',
+        ),
+        '@sigmaui-kit/input-number': path.resolve(
+          __dirname,
+          '../../../packages/react/src/components/input/number/src',
+        ),
+        '@sigmaui-kit/password': path.resolve(
+          __dirname,
+          '../../../packages/react/src/components/input/password/src',
+        ),
+        '@sigmaui-kit/textarea': path.resolve(
+          __dirname,
+          '../../../packages/react/src/components/input/textarea/src',
+        ),
+        '@sigmaui-kit/text': path.resolve(
+          __dirname,
+          '../../../packages/react/src/components/text/src',
+        ),
+        '@sigmaui-kit/select': path.resolve(
+          __dirname,
+          '../../../packages/react/src/components/select/src',
+        ),
+        '@sigmaui-kit/icon': path.resolve(
+          __dirname,
+          '../../../packages/react/src/components/icon/src',
+        ),
+        '@sigmaui-kit/slider': path.resolve(
+          __dirname,
+          '../../../packages/react/src/components/slider/src',
+        ),
+        '@sigmaui-kit/tabs': path.resolve(
+          __dirname,
+          '../../../packages/react/src/components/tabs/src',
+        ),
         '@sigmaui-kit/segment-group': path.resolve(
           __dirname,
           '../../../packages/react/src/components/segment-group/src',
         ),
-        '@sigmaui-kit/menu': path.resolve(__dirname, '../../../packages/react/src/components/menu/src'),
-        '@sigmaui-kit/form': path.resolve(__dirname, '../../../packages/react/src/components/form/src'),
-        '@sigmaui-kit/tooltip': path.resolve(__dirname, '../../../packages/react/src/components/tooltip/src'),
-        '@sigmaui-kit/switch': path.resolve(__dirname, '../../../packages/react/src/components/switch/src'),
-        '@sigmaui-kit/animate': path.resolve(__dirname, '../../../packages/react/src/components/animate/src'),
-        '@sigmaui-kit/loading': path.resolve(__dirname, '../../../packages/react/src/components/loading/src'),
-        '@sigmaui-kit/loading-dots': path.resolve(__dirname, '../../../packages/react/src/components/loading/dots/src'),
+        '@sigmaui-kit/menu': path.resolve(
+          __dirname,
+          '../../../packages/react/src/components/menu/src',
+        ),
+        '@sigmaui-kit/form': path.resolve(
+          __dirname,
+          '../../../packages/react/src/components/form/src',
+        ),
+        '@sigmaui-kit/tooltip': path.resolve(
+          __dirname,
+          '../../../packages/react/src/components/tooltip/src',
+        ),
+        '@sigmaui-kit/switch': path.resolve(
+          __dirname,
+          '../../../packages/react/src/components/switch/src',
+        ),
+        '@sigmaui-kit/animate': path.resolve(
+          __dirname,
+          '../../../packages/react/src/components/animate/src',
+        ),
+        '@sigmaui-kit/loading': path.resolve(
+          __dirname,
+          '../../../packages/react/src/components/loading/src',
+        ),
+        '@sigmaui-kit/loading-dots': path.resolve(
+          __dirname,
+          '../../../packages/react/src/components/loading/dots/src',
+        ),
+        '@sigmaui-kit/drawer': path.resolve(
+          __dirname,
+          '../../../packages/react/src/components/drawer/src',
+        ),
       },
     },
     build: {
