@@ -22,6 +22,7 @@ export const routeMap = {
     tooltip: `${componentPath}/tooltip`,
     switch: `${componentPath}/switch`,
     loading: `${componentPath}/loading`,
+    drawer: `${componentPath}/drawer`,
   },
   themingPath,
   theming: {

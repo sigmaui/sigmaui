@@ -94,7 +94,8 @@ export const globalStyle = ({ theme, renderer }: any) => {
       'text-size-adjust': 'none',
     },
     body: {
-      fontFamily: '"SigmaUI-Sans",-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif',
+      fontFamily:
+        '"SigmaUI-Sans",-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif',
       fontSize: '1rem',
       fontWeight: 400,
       // lineHeight: '1rem',
@@ -109,7 +110,9 @@ export const globalStyle = ({ theme, renderer }: any) => {
       height: '100%',
       top: 0,
       left: 0,
-      right: platform?.isDesktop ? 'calc((var(--app-scrollbar-width, 0px) + 1px) * -1)' : undefined,
+      right: platform?.isDesktop
+        ? 'calc((var(--app-scrollbar-width, 0px) + 1px) * -1)'
+        : undefined,
       overflowX: 'auto',
     },
     'body[data-overflow="hidden"]': {

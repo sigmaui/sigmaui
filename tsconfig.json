@@ -3,10 +3,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "lib": [
-      "dom",
-      "esnext"
-    ],
+    "lib": ["dom", "esnext"],
     "declaration": true,
     "sourceMap": true,
     "moduleResolution": "node",
@@ -18,106 +15,62 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
+    "emitDeclarationOnly": true,
     "allowImportingTsExtensions": true,
     "downlevelIteration": true,
     "noImplicitAny": false,
     "baseUrl": ".",
     "paths": {
-      "docs/*": [
-        "../../../apps/react-app/docs/src/*"
-      ],
-      "@packages/*": [
-        "../../../packages/*"
-      ],
-      "@packages/common/theme/types": [
-        "packages/common/theme/types"
-      ],
-      "@packages/react/types": [
-        "packages/react/src/types"
-      ],
-      "@packages/react/hooks/*": [
-        "packages/react/src/hooks/*/src"
-      ],
-      "@packages/react/hooks/use-theme": [
-        "packages/react/src/hooks/use-theme/src"
-      ],
-      "@packages/react/components/*": [
-        "packages/react/src/components/*/src"
+      "@packages/*": ["../../../packages/*"],
+      "@packages/common/theme/types": ["packages/common/theme/types"],
+      "@packages/react/components/*": ["packages/react/src/components/*/src"],
+      "@packages/react/components/button": [
+        "packages/react/src/components/button/src"
       ],
       "@packages/react/components/select": [
         "packages/react/src/components/select/src"
       ],
-      "@packages/react/components/button": [
-        "packages/react/src/components/button/src"
+      "@packages/react/hooks/*": ["packages/react/src/hooks/*/src"],
+      "@packages/react/hooks/use-theme": [
+        "packages/react/src/hooks/use-theme/src"
       ],
-      "@sigmaui-kit/locale": [
-        "packages/common/locale/src"
+      "@packages/react/types": ["packages/react/src/types"],
+      "@sigmaui-kit/animate": ["packages/react/src/components/animate/src"],
+      "@sigmaui-kit/button": ["packages/react/src/components/button/src"],
+      "@sigmaui-kit/drawer": ["packages/react/src/components/drawer/src"],
+      "@sigmaui-kit/form": ["packages/react/src/components/form/src"],
+      "@sigmaui-kit/icon": ["packages/react/src/components/icon/src"],
+      "@sigmaui-kit/input": ["packages/react/src/components/input/src"],
+      "@sigmaui-kit/input-number": [
+        "packages/react/src/components/input/number/src"
+      ],
+      "@sigmaui-kit/layout": ["packages/react/src/components/layout/src"],
+      "@sigmaui-kit/loading": ["packages/react/src/components/loading/src"],
+      "@sigmaui-kit/loading-dots": [
+        "packages/react/src/components/loading/dots/src"
+      ],
+      "@sigmaui-kit/locale": ["packages/common/locale/src"],
+      "@sigmaui-kit/menu": ["packages/react/src/components/menu/src"],
+      "@sigmaui-kit/password": [
+        "packages/react/src/components/input/password/src"
       ],
       "@sigmaui-kit/path-morphing": [
         "packages/common/motion/path-morphing/src"
       ],
-      "@sigmaui-kit/layout": [
-        "packages/react/src/components/layout/src"
-      ],
-      "@sigmaui-kit/input": [
-        "packages/react/src/components/input/src"
-      ],
-      "@sigmaui-kit/input-number": [
-        "packages/react/src/components/input/number/src"
-      ],
-      "@sigmaui-kit/password": [
-        "packages/react/src/components/input/password/src"
-      ],
-      "@sigmaui-kit/textarea": [
-        "packages/react/src/components/input/textarea/src"
-      ],
-      "@sigmaui-kit/button": [
-        "packages/react/src/components/button/src"
-      ],
-      "@sigmaui-kit/select": [
-        "packages/react/src/components/select/src"
-      ],
-      "@sigmaui-kit/icon": [
-        "packages/react/src/components/icon/src"
-      ],
-      "@sigmaui-kit/slider": [
-        "packages/react/src/components/slider/src"
-      ],
-      "@sigmaui-kit/tabs": [
-        "packages/react/src/components/tabs/src"
-      ],
       "@sigmaui-kit/segment-group": [
         "packages/react/src/components/segment-group/src"
       ],
-      "@sigmaui-kit/menu": [
-        "packages/react/src/components/menu/src"
+      "@sigmaui-kit/select": ["packages/react/src/components/select/src"],
+      "@sigmaui-kit/slider": ["packages/react/src/components/slider/src"],
+      "@sigmaui-kit/switch": ["packages/react/src/components/switch/src"],
+      "@sigmaui-kit/tabs": ["packages/react/src/components/tabs/src"],
+      "@sigmaui-kit/textarea": [
+        "packages/react/src/components/input/textarea/src"
       ],
-      "@sigmaui-kit/form": [
-        "packages/react/src/components/form/src"
-      ],
-      "@sigmaui-kit/tooltip": [
-        "packages/react/src/components/tooltip/src"
-      ],
-      "@sigmaui-kit/switch": [
-        "packages/react/src/components/switch/src"
-      ],
-      "@sigmaui-kit/animate": [
-        "packages/react/src/components/animate/src"
-      ],
-      "@sigmaui-kit/loading": [
-        "packages/react/src/components/loading/src"
-      ],
-      "@sigmaui-kit/loading-dots": [
-        "packages/react/src/components/loading/dots/src"
-      ]
+      "@sigmaui-kit/tooltip": ["packages/react/src/components/tooltip/src"],
+      "docs/*": ["../../../apps/react-app/docs/src/*"]
     }
   },
-  "include": [
-    "packages"
-  ],
-  "exclude": [
-    "**/node_modules",
-    "**/dist",
-    "**/.turbo"
-  ]
+  "include": ["packages"],
+  "exclude": ["**/node_modules", "**/dist", "**/.turbo"]
 }

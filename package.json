@@ -24,6 +24,8 @@
     "dev:chart-maker": "cd apps/react-app/chart-maker && yarn dev",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "postinstall": "husky",
     "commit": "npx git-cz",
     "prepare": "husky"
@@ -114,8 +116,9 @@
     }
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "yarn lint"
+    "**/*.{js,jsx,ts,tsx,json,css,scss,md,mdx,yml,yaml,html,css,scss}": [
+      "prettier --write",
+      "eslint --fix"
     ]
   },
   "packageManager": "yarn@1.22.22"
