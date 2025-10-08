@@ -9,7 +9,11 @@ import { routeMap } from '@docs/router/routeMap';
 
 import { type SidebarProps, styles } from './styles';
 
-const Sidebar: FC<SidebarProps> = ({ prefixCls = 'sm-sidebar', className, classes }) => {
+const Sidebar: FC<SidebarProps> = ({
+  prefixCls = 'sm-sidebar',
+  className,
+  classes,
+}) => {
   const router = useRouter();
   const { pathname } = router;
 
@@ -87,6 +91,10 @@ const Sidebar: FC<SidebarProps> = ({ prefixCls = 'sm-sidebar', className, classe
               {
                 label: 'Loading',
                 key: routeMap.component.loading,
+              },
+              {
+                label: 'Drawer',
+                key: routeMap.component.drawer,
               },
             ],
           },

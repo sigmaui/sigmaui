@@ -1,0 +1,10 @@
+node_modules
+**/dist
+**/.turbo
+**/.contentlayer/**
+**/.velite/**
+**/.next/**
+**/build/**
+**/coverage/**
+.yarn/**
+

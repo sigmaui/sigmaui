@@ -14,11 +14,16 @@ export const replaceProps = (code: string, input: Record<string, any>) => {
     if (input[key] === '') {
       return `${key}`;
     }
-    return Object.prototype.hasOwnProperty.call(input, key) ? `${key}="${input[key]}"` : `undefined`;
+    return Object.prototype.hasOwnProperty.call(input, key)
+      ? `${key}="${input[key]}"`
+      : `undefined`;
   });
 };
 
-export const transformTabsOptions = (data: IData, previewProps: Record<string, any>) => {
+export const transformTabsOptions = (
+  data: IData,
+  previewProps: Record<string, any>,
+) => {
   return [
     {
       label: 'Typescript',
@@ -52,10 +57,7 @@ const ComponentPreview = ({
 }: ComponentPreviewProps) => {
   const { css } = useMicroUI();
   return (
-    <CodeProvider
-      code={data?.code?.[CodeEnum.TYPESCRIPT]}
-      scope={scope}
-    >
+    <CodeProvider code={data?.code?.[CodeEnum.TYPESCRIPT]} scope={scope}>
       <div className={classNames(prefixCls, className, classes?.wrapper)}>
         <CodePreview />
         <CodeEditor displayLang={CodeEnum.TYPESCRIPT} />

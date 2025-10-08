@@ -8,6 +8,7 @@ import FormComponent from './form/route';
 import TooltipComponent from './tooltip/route';
 import SwitchComponent from './switch/route';
 import LoadingComponent from './loading/route';
+import DrawerComponent from './drawer/route';
 
 export default [
   BoxComponent,
@@ -20,4 +21,5 @@ export default [
   TooltipComponent,
   SwitchComponent,
   LoadingComponent,
+  DrawerComponent,
 ];
