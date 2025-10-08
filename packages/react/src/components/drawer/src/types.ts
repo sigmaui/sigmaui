@@ -36,8 +36,12 @@ export interface DrawerPanelProps {
    *
    * `<Drawer closeIcon={false} />`
    */
-  // closable?: ClosableType;
-  closeIcon?: React.ReactNode;
+  closable?:
+    | boolean
+    | ({
+        closeIcon?: React.ReactNode;
+        disabled?: boolean;
+      } & React.AriaAttributes);
   onClose?: RCDrawerProps['onClose'];
 
   children?: React.ReactNode;

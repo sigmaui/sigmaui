@@ -9,6 +9,8 @@ import type { CSSMotionProps } from 'rc-motion';
 import { composeRef } from 'rc-util/lib/ref';
 
 import { withStyles } from '@sigmaui-kit/with-styles';
+import Button from '@sigmaui-kit/button';
+import XMarkIcon from '@sigmaui-kit/icons/XMarkIcon';
 
 import { type DrawerProps, styles } from './style';
 import { PushState } from './types';
@@ -33,7 +35,7 @@ const Drawer: FC<DrawerProps> = ({
   panelRef = null,
   rootClassName,
   title,
-  closeIcon,
+  closable = {},
   extra,
   footer,
   loading,
@@ -93,7 +95,7 @@ const Drawer: FC<DrawerProps> = ({
 
   // ===================== Header Node =====================
   const headerNode = React.useMemo<React.ReactNode>(() => {
-    if (!title && closeIcon === false) {
+    if (!title && !closable) {
       return null;
     }
     return (
@@ -111,14 +113,18 @@ const Drawer: FC<DrawerProps> = ({
         )}
       >
         <div className={`${prefixCls}-header-title`}>
-          {closeIcon !== false && (
-            <button
-              type="button"
+          {closable && (
+            <Button
+              htmlType="button"
               onClick={onClose}
               className={`${prefixCls}-close`}
             >
-              {closeIcon || 'X'}
-            </button>
+              {typeof closable === 'object' && closable.closeIcon ? (
+                closable.closeIcon
+              ) : (
+                <XMarkIcon />
+              )}
+            </Button>
           )}
           {title && <div className={`${prefixCls}-title`}>{title}</div>}
         </div>
@@ -126,7 +132,7 @@ const Drawer: FC<DrawerProps> = ({
       </div>
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [closeIcon, extra, prefixCls, title]);
+  }, [closable, extra, prefixCls, title]);
   // ===================== Footer Node =====================
 
   const footerNode = React.useMemo<React.ReactNode>(() => {
