@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 
 const backupPackageJsonPath = './package-backup.json';
 const packageJsonPath = './package.json';

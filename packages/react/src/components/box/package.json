@@ -1,6 +1,6 @@
 {
   "name": "@sigmaui-kit/box",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "keywords": [],
   "author": "",
@@ -31,13 +31,11 @@
     "prepublishOnly": "node ../../../../../scripts/prepublish.js",
     "postpublish": "node ../../../../../scripts/postpublish.js"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": ">=18",
     "@microui-kit/box": "latest"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "clean-package": "../../../../../clean-package.config.json"
 }
