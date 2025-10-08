@@ -34,7 +34,7 @@
       "@packages/react/hooks/use-theme": [
         "packages/react/src/hooks/use-theme/src"
       ],
-      "@packages/react/types": ["packages/react/src/types"],
+      "@sigmaui-kit/types": ["packages/common/types/src"],
       "@sigmaui-kit/animate": ["packages/react/src/components/animate/src"],
       "@sigmaui-kit/button": ["packages/react/src/components/button/src"],
       "@sigmaui-kit/drawer": ["packages/react/src/components/drawer/src"],

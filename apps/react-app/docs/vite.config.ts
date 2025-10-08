@@ -72,6 +72,10 @@ export default defineConfig(({ mode }) => {
           __dirname,
           '../../../packages/react/src/components/box/src',
         ),
+        '@sigmaui-kit/types': path.resolve(
+          __dirname,
+          '../../../packages/common/types/src',
+        ),
         '@sigmaui-kit/locale': path.resolve(
           __dirname,
           '../../../packages/common/locale/src',
