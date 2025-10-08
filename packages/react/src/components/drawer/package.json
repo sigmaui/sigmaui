@@ -36,7 +36,9 @@
     "react": ">=18",
     "classnames": "latest",
     "@sigmaui-kit/types": "latest",
-    "@sigmaui-kit/with-styles": "latest"
+    "@sigmaui-kit/with-styles": "latest",
+    "@sigmaui-kit/button": "latest",
+    "@sigmaui-kit/icons": "latest"
   },
   "devDependencies": {},
   "clean-package": "../../../../../clean-package.config.json"
