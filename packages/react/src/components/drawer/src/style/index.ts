@@ -5,10 +5,10 @@ export type ClassKeys =
   | 'root' // root
   | 'mask' // root => mask
   | 'wrapper' // root => wrapper
-  | 'content' // root => wrapper => content
-  | 'header' // root => wrapper => content => header
-  | 'body' // root => wrapper => content => body
-  | 'footer'; // root => wrapper => content => footer
+  | 'section' // root => wrapper => section
+  | 'header' // root => wrapper => section => header
+  | 'body' // root => wrapper => section => body
+  | 'footer'; // root => wrapper => section => footer
 
 const token = {
   boxShadowDrawerLeft:
@@ -117,7 +117,7 @@ export const styles = ({
       },
     },
 
-    content: {
+    section: {
       display: 'flex',
       flexDirection: 'column',
       width: '100%',

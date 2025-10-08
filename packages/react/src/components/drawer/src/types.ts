@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'react';
-import type { DrawerProps as RCDrawerProps } from 'rc-drawer';
+import type { DrawerProps as RCDrawerProps } from '@rc-component/drawer';
 import type { FCWithStylesProps, StylesProperties } from '@sigmaui-kit/types';
 
 export type { StylesProperties };

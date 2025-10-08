@@ -3,10 +3,10 @@ import type { FC } from 'react';
 
 import classNames from 'classnames';
 
-import RcDrawer from 'rc-drawer';
-import type { DrawerProps as RcDrawerProps } from 'rc-drawer';
-import type { CSSMotionProps } from 'rc-motion';
-import { composeRef } from 'rc-util/lib/ref';
+import RcDrawer from '@rc-component/drawer';
+import type { DrawerProps as RCDrawerProps } from '@rc-component/drawer';
+import type { CSSMotionProps } from '@rc-component/motion';
+import { composeRef } from '@rc-component/util/lib/ref';
 
 import { withStyles } from '@sigmaui-kit/with-styles';
 import Button from '@sigmaui-kit/button';
@@ -69,7 +69,7 @@ const Drawer: FC<DrawerProps> = ({
     motionDeadline: 500,
   };
 
-  const panelMotion: RcDrawerProps['motion'] = (motionPlacement) => ({
+  const panelMotion: RCDrawerProps['motion'] = (motionPlacement) => ({
     motionName: `${prefixCls}-panel-motion-${motionPlacement}`,
     motionAppear: true,
     motionEnter: true,
@@ -78,7 +78,7 @@ const Drawer: FC<DrawerProps> = ({
   });
 
   // ============================ Refs ============================
-  // Select `ant-drawer-content` by `panelRef`
+  // Select `ant-drawer-section` by `panelRef`
   const innerPanelRef = usePanelRef();
   const mergedPanelRef = composeRef(
     panelRef,
@@ -166,15 +166,15 @@ const Drawer: FC<DrawerProps> = ({
       {...restProps}
       classNames={{
         mask: classNames(classes?.mask, propClassNames.mask),
-        content: classNames(classes?.content, propClassNames.content),
+        section: classNames(classes?.section, propClassNames.section),
         wrapper: classNames(classes?.wrapper, propClassNames.wrapper),
       }}
       styles={{
         mask: {
           ...propStyles.mask,
         },
-        content: {
-          ...propStyles.content,
+        section: {
+          ...propStyles.section,
         },
         wrapper: {
           ...propStyles.wrapper,
