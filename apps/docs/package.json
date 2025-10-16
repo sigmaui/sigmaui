@@ -2,7 +2,7 @@
   "name": "@sigma-ui-kit/docs",
   "version": "0.0.1",
   "type": "module",
-  "private": false,
+  "private": true,
   "scripts": {
     "dev": "next dev --turbopack --port 3001",
     "build": "next build",
@@ -16,5 +16,8 @@
   },
   "devDependencies": {
     "eslint-config-next": "^15.5.5"
+  },
+  "changesets": {
+    "ignore": true
   }
 }
