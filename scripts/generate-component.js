@@ -149,7 +149,7 @@ async function main() {
 
   console.log(`\n📋 Package information:`);
   console.log(`   📁 Location: packages/${selectedScope}/${kebabName}`);
-  console.log(`   📦 Name: @tdm-ui/${kebabName}`);
+  console.log(`   📦 Name: @sigma-ui-kit/${kebabName}`);
   console.log(`   📝 Description: ${finalDescription}`);
   console.log(`   🏷️  Component: ${pascalName}\n`);
 
@@ -162,7 +162,7 @@ async function main() {
   }
 
   const pkgJson = {
-    name: `@tdm-ui/${kebabName}`,
+    name: `@sigma-ui-kit/${kebabName}`,
     description: finalDescription,
     version: '0.0.1',
     private: false,
@@ -189,7 +189,7 @@ async function main() {
       'check-types': 'tsc --noEmit',
     },
     dependencies: {
-      '@tdm-ui/theme': 'workspace:*',
+      '@sigma-ui-kit/theme': 'workspace:*',
     },
     peerDependencies: {
       '@types/react': '*',
@@ -204,16 +204,10 @@ async function main() {
     license: 'MIT',
     repository: {
       type: 'git',
-      url: 'https://github.com/your-org/tdm-ui.git',
+      url: 'https://github.com/your-org/sigma-ui-kit.git',
       directory: `packages/${selectedScope}/${kebabName}`,
     },
-    keywords: [
-      'react',
-      'ui',
-      kebabName,
-      selectedScope === 'blocks' ? 'block' : 'component',
-      'tdm-ui',
-    ],
+    keywords: ['react', 'ui', kebabName, 'sigma-ui-kit'],
   };
 
   const eslintrc = `{
@@ -275,8 +269,10 @@ export default defineConfig({
 `;
 
   const compTsx = `import React from 'react';
+
+  import { withStyles } from '@sigma-ui-kit/theme';
+  
 import { ${pascalName}Props } from './types';
-import { withStyles } from '@tdm-ui/theme';
 
 const ${pascalName} = React.forwardRef<HTMLDivElement, ${pascalName}Props>((props, ref) => {
   return (
@@ -309,7 +305,7 @@ export type { ${pascalName}Props } from './types';
   write(path.join(pkgDir, 'src', `${kebabName}.tsx`), compTsx);
   write(path.join(pkgDir, 'src', 'index.ts'), index);
 
-  console.log(`\n✅ Successfully created ${selectedScope} package: @tdm-ui/${kebabName}`);
+  console.log(`\n✅ Successfully created ${selectedScope} package: @sigma-ui-kit/${kebabName}`);
   console.log(`📁 Path: ${pkgDir}`);
 
   // Auto run pnpm install
@@ -323,7 +319,7 @@ export type { ${pascalName}Props } from './types';
   }
 
   console.log(`\n🚀 Next steps:`);
-  console.log(`   1. pnpm --filter @tdm-ui/${kebabName} build`);
+  console.log(`   1. pnpm --filter @sigma-ui-kit/${kebabName} build`);
   console.log(`   2. Edit component in src/${kebabName}.tsx`);
   console.log(`   3. Add to apps/docs for testing\n`);
 }

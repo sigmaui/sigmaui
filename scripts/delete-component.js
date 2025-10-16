@@ -170,7 +170,7 @@ async function main() {
   // Display component information
   console.log(`\n📋 Component information:`);
   console.log(`   📁 Location: packages/${selectedScope}/${selectedComponentName}`);
-  console.log(`   📦 Name: @tdm-ui/${selectedComponentName}`);
+  console.log(`   📦 Name: @sigma-ui-kit/${selectedComponentName}`);
 
   // Check package.json to get more information
   const packageJsonPath = path.join(componentDir, 'package.json');
@@ -218,7 +218,7 @@ async function main() {
   const success = removeDirectory(componentDir);
 
   if (success) {
-    console.log(`\n✅ Successfully deleted component: @tdm-ui/${selectedComponentName}`);
+    console.log(`\n✅ Successfully deleted component: @sigma-ui-kit/${selectedComponentName}`);
     console.log(`📁 Deleted path: ${componentDir}`);
 
     // Auto run pnpm install to update lockfile
@@ -236,7 +236,7 @@ async function main() {
     console.log(`   2. Update dependencies if needed`);
     console.log(`   3. Rebuild packages if needed: pnpm build`);
   } else {
-    console.log(`\n❌ Cannot delete component: @tdm-ui/${selectedComponentName}`);
+    console.log(`\n❌ Cannot delete component: @sigma-ui-kit/${selectedComponentName}`);
     process.exit(1);
   }
 }

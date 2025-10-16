@@ -24,9 +24,9 @@
 
     "paths": {
       "@/*": ["./apps/docs/src/*"],
-      "@tdm-ui/theme": ["./packages/theme/src"],
-      "@tdm-ui/icons": ["./packages/icons/src"],
-      "@tdm-ui/*": ["./packages/components/*/src", "./packages/blocks/*/src"]
+      "@sigma-ui-kit/theme": ["./packages/theme/src"],
+      "@sigma-ui-kit/icons": ["./packages/icons/src"],
+      "@sigma-ui-kit/*": ["./packages/components/*/src", "./packages/blocks/*/src"]
     }
   },
 

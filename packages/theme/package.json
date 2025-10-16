@@ -1,12 +1,13 @@
 {
-  "name": "@tdm-ui/theme",
+  "name": "@sigma-ui-kit/theme",
+  "description": "Theme provider and design tokens for Sigma UI Kit",
   "version": "0.0.1",
   "private": false,
-  "description": "Theme provider and design tokens for TDM UI",
   "source": "./src/index.ts",
   "main": "./src/index.ts",
   "module": "./src/index.ts",
   "publishConfig": {
+    "access": "public",
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
     "types": "./dist/index.d.ts",
@@ -56,7 +57,7 @@
     "design-tokens",
     "typescript"
   ],
-  "author": "TDM UI Team",
+  "author": "Sigma UI Kit Team",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {

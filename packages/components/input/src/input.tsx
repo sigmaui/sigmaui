@@ -1,7 +1,7 @@
 import RcInput from '@rc-component/input';
 
-import { withStyles } from '@tdm-ui/theme';
-import { XMarkIcon } from '@tdm-ui/icons';
+import { withStyles } from '@sigma-ui-kit/theme';
+import { XMarkIcon } from '@sigma-ui-kit/icons';
 
 import { InputProps } from './types';
 

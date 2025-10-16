@@ -1,0 +1,10 @@
+# @sigma-ui-kit/input-password
+
+## 0.0.1
+
+### Patch Changes
+
+- Init package
+- Updated dependencies
+  - @sigma-ui-kit/input@0.0.1
+  - @sigma-ui-kit/theme@0.0.1

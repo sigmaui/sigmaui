@@ -64,6 +64,7 @@ async function main() {
 
   // Template icon component
   const iconTemplate = `import React from 'react';
+  
 import { IconProps } from './types';
 
 const ${iconName} = React.forwardRef<SVGSVGElement, IconProps>(
@@ -118,8 +119,10 @@ export default ${iconName};
   console.log(`📁 Path: ${iconFile}`);
   console.log(`\n🚀 Next steps:`);
   console.log(`   1. Edit SVG path in ${iconName}.tsx`);
-  console.log(`   2. pnpm --filter @tdm-ui/icons build`);
-  console.log(`   3. Import and use: import { ${iconName} } from '@tdm-ui/icons/${iconName}'\n`);
+  console.log(`   2. pnpm --filter @sigma-ui-kit/icons build`);
+  console.log(
+    `   3. Import and use: import { ${iconName} } from '@sigma-ui-kit/icons/${iconName}'\n`
+  );
 }
 
 main();

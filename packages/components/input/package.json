@@ -1,5 +1,5 @@
 {
-  "name": "@tdm-ui/input",
+  "name": "@sigma-ui-kit/input",
   "description": "TDM UI Input component",
   "version": "0.0.1",
   "private": false,
@@ -7,6 +7,7 @@
   "main": "./src/index.ts",
   "module": "./src/index.ts",
   "publishConfig": {
+    "access": "public",
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
     "types": "./dist/index.d.ts",
@@ -36,8 +37,8 @@
   },
   "dependencies": {
     "@rc-component/input": "^1.1.1",
-    "@tdm-ui/icons": "workspace:*",
-    "@tdm-ui/theme": "workspace:*"
+    "@sigma-ui-kit/icons": "workspace:*",
+    "@sigma-ui-kit/theme": "workspace:*"
   },
   "peerDependencies": {
     "@types/react": "*",
@@ -56,14 +57,13 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-org/tdm-ui.git",
+    "url": "https://github.com/your-org/sigma-ui-kit.git",
     "directory": "packages/components/input"
   },
   "keywords": [
     "react",
     "ui",
     "input",
-    "component",
-    "tdm-ui"
+    "sigma-ui-kit"
   ]
 }

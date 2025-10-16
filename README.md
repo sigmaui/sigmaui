@@ -45,7 +45,7 @@ pnpm --version  # Should be >= 9.0.0
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd tdm-ui
+cd sigma-ui-kit
 
 # Install dependencies
 pnpm install
@@ -58,7 +58,7 @@ pnpm install
 pnpm dev
 
 # Start specific app
-pnpm --filter @tdm-ui/docs dev
+pnpm --filter @sigma-ui-kit/docs dev
 ```
 
 ### 3. Build
@@ -68,13 +68,13 @@ pnpm --filter @tdm-ui/docs dev
 pnpm build
 
 # Build specific package
-pnpm --filter @tdm-ui/button build
+pnpm --filter @sigma-ui-kit/button build
 ```
 
 ## 📁 Project Structure
 
 ```
-tdm-ui/
+sigma-ui-kit/
 ├── apps/
 │   └── docs/                 # Documentation app (Next.js)
 ├── packages/
@@ -198,10 +198,10 @@ pnpm format
 pnpm build
 
 # Build specific package
-pnpm --filter @tdm-ui/button build
+pnpm --filter @sigma-ui-kit/button build
 
 # Watch mode for development
-pnpm --filter @tdm-ui/button dev
+pnpm --filter @sigma-ui-kit/button dev
 ```
 
 ## 🧩 Components
@@ -235,9 +235,9 @@ SVG icon components:
 
 ```tsx
 // Import individual components
-import { Button } from '@tdm-ui/button';
-import { Input } from '@tdm-ui/input';
-import { XMarkIcon } from '@tdm-ui/icons/XMarkIcon';
+import { Button } from '@sigma-ui-kit/button';
+import { Input } from '@sigma-ui-kit/input';
+import { XMarkIcon } from '@sigma-ui-kit/icons/XMarkIcon';
 
 // Use in your app
 function App() {
@@ -255,7 +255,7 @@ function App() {
 
 1. **Create component**: `pnpm generate:component`
 2. **Edit component**: Modify files in `src/`
-3. **Build**: `pnpm --filter @tdm-ui/your-component build`
+3. **Build**: `pnpm --filter @sigma-ui-kit/your-component build`
 4. **Test**: Add to `apps/docs` for testing
 
 ## 🔨 Development
@@ -267,17 +267,17 @@ function App() {
 pnpm dev
 
 # Start specific app
-pnpm --filter @tdm-ui/docs dev
+pnpm --filter @sigma-ui-kit/docs dev
 
 # Watch specific component
-pnpm --filter @tdm-ui/button dev
+pnpm --filter @sigma-ui-kit/button dev
 ```
 
 ### Testing Components
 
 1. Add component to `apps/docs/app/page.tsx`
 2. Import and use the component
-3. Run `pnpm --filter @tdm-ui/docs dev`
+3. Run `pnpm --filter @sigma-ui-kit/docs dev`
 4. View at `http://localhost:3001`
 
 ### Code Quality
@@ -305,10 +305,10 @@ pnpm build
 
 ```bash
 # Build specific component
-pnpm --filter @tdm-ui/button build
+pnpm --filter @sigma-ui-kit/button build
 
 # Build docs app
-pnpm --filter @tdm-ui/docs build
+pnpm --filter @sigma-ui-kit/docs build
 ```
 
 ### Build Outputs
@@ -325,7 +325,7 @@ Each package builds to:
 
 ```bash
 # Publish specific component
-pnpm --filter @tdm-ui/button build
+pnpm --filter @sigma-ui-kit/button build
 cd packages/components/button
 npm publish
 

@@ -1,7 +1,7 @@
 'use client';
 
 import Image, { type ImageProps } from 'next/image';
-import Button from '@tdm-ui/button';
+import Button from '@sigma-ui-kit/button';
 import styles from './page.module.css';
 
 type Props = Omit<ImageProps, 'src'> & {

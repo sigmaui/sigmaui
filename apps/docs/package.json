@@ -1,8 +1,8 @@
 {
-  "name": "@tdm-ui/docs",
-  "version": "0.1.0",
+  "name": "@sigma-ui-kit/docs",
+  "version": "0.0.1",
   "type": "module",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "next dev --turbopack --port 3001",
     "build": "next build",
@@ -11,7 +11,7 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "@tdm-ui/button": "workspace:*",
+    "@sigma-ui-kit/button": "workspace:*",
     "next": "^15.5.0"
   },
   "devDependencies": {

@@ -24,6 +24,9 @@ importers:
       '@commitlint/config-conventional':
         specifier: ^20.0.0
         version: 20.0.0
+      '@commitlint/format':
+        specifier: ^20.0.0
+        version: 20.0.0
       '@commitlint/prompt':
         specifier: ^20.1.0
         version: 20.1.0(@types/node@22.15.3)(typescript@5.9.2)
@@ -78,7 +81,7 @@ importers:
 
   apps/docs:
     dependencies:
-      '@tdm-ui/button':
+      '@sigma-ui-kit/button':
         specifier: workspace:*
         version: link:../../packages/components/button
       next:
@@ -91,7 +94,10 @@ importers:
 
   packages/blocks/input-password:
     dependencies:
-      '@tdm-ui/theme':
+      '@sigma-ui-kit/input':
+        specifier: workspace:*
+        version: link:../../components/input
+      '@sigma-ui-kit/theme':
         specifier: workspace:*
         version: link:../../theme
       '@types/react':
@@ -109,7 +115,7 @@ importers:
 
   packages/components/button:
     dependencies:
-      '@tdm-ui/theme':
+      '@sigma-ui-kit/theme':
         specifier: workspace:*
         version: link:../../theme
       '@types/react':
@@ -130,10 +136,10 @@ importers:
       '@rc-component/input':
         specifier: ^1.1.1
         version: 1.1.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@tdm-ui/icons':
+      '@sigma-ui-kit/icons':
         specifier: workspace:*
         version: link:../../icons
-      '@tdm-ui/theme':
+      '@sigma-ui-kit/theme':
         specifier: workspace:*
         version: link:../../theme
       '@types/react':
@@ -151,7 +157,7 @@ importers:
 
   packages/icons:
     dependencies:
-      '@tdm-ui/theme':
+      '@sigma-ui-kit/theme':
         specifier: workspace:*
         version: link:../theme
       react:

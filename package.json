@@ -1,5 +1,5 @@
 {
-  "name": "tdm-ui",
+  "name": "@sigma-ui-kit",
   "private": true,
   "scripts": {
     "build": "turbo run build",
@@ -14,7 +14,7 @@
     "publish:ui": "cd packages/ui && npm publish",
     "publish:button": "cd packages/components/button && npm publish",
     "publish:components": "npm run publish:button",
-    "prepare": "husky install"
+    "prepare": "husky install && chmod +x .husky/*"
   },
   "dependencies": {
     "react": "^19.1.0",
@@ -24,6 +24,7 @@
     "@changesets/cli": "^2.29.7",
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
+    "@commitlint/format": "^20.0.0",
     "@commitlint/prompt": "^20.1.0",
     "@types/node": "^22.15.3",
     "@types/react": "19.1.0",

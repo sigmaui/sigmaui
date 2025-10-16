@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { withStyles } from '@tdm-ui/theme';
+import { withStyles } from '@sigma-ui-kit/theme';
 
 import { ButtonProps } from './types';
 
