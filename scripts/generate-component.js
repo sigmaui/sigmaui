@@ -164,7 +164,7 @@ async function main() {
   const pkgJson = {
     name: `@sigma-ui-kit/${kebabName}`,
     description: finalDescription,
-    version: '0.0.1',
+    version: '0.0.0',
     private: false,
     source: './src/index.ts',
     main: './src/index.ts',
@@ -271,7 +271,7 @@ export default defineConfig({
   const compTsx = `import React from 'react';
 
   import { withStyles } from '@sigma-ui-kit/theme';
-  
+
 import { ${pascalName}Props } from './types';
 
 const ${pascalName} = React.forwardRef<HTMLDivElement, ${pascalName}Props>((props, ref) => {

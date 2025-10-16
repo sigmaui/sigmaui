@@ -321,35 +321,65 @@ Each package builds to:
 
 ## 📤 Publishing
 
-### Publish Components
+This repository uses Changesets to manage versions and publish packages.
 
-```bash
-# Publish specific component
-pnpm --filter @sigma-ui-kit/button build
-cd packages/components/button
-npm publish
+### ✅ One-time checklist
 
-# Or use helper scripts
-pnpm publish:button
-pnpm publish:components
-```
+- Root `package.json`: `"private": true`
+- App `apps/docs/package.json`: `"private": true` (apps are not published)
+- Each publishable package `package.json` contains:
+  ```json
+  {
+    "publishConfig": { "access": "public" },
+    "prepublishOnly": "pnpm build"
+  }
+  ```
+- Logged in to npm: `npm whoami`
 
-### Package Configuration
+### 🚀 Release flow (Changesets)
 
-Each package includes:
+1. Create a changeset
 
-- `package.json` with proper exports
-- TypeScript declarations
-- Source maps
-- NPM ignore rules
+   ```bash
+   pnpm changeset
+   ```
 
-### Version Management
+   - Select packages, choose bump types (major/minor/patch), write a short summary.
 
-```bash
-# Update version in package.json
-# Then publish
-npm publish
-```
+2. Apply version updates
+
+   ```bash
+   pnpm changeset version
+   git add .
+   git commit -m "chore: release"
+   ```
+
+   - Updates versions and changelogs across affected packages.
+
+3. Publish changed packages
+
+   ```bash
+   pnpm changeset publish
+   ```
+
+   - Builds and publishes only changed packages, honoring `publishConfig.access`.
+
+### 🔎 Useful commands
+
+- Filter a single package:
+  ```bash
+  pnpm --filter @sigma-ui-kit/theme changeset publish
+  ```
+- Dry run publish:
+  ```bash
+  pnpm changeset publish --no-git-tag --snapshot
+  ```
+
+### 🧰 Troubleshooting publishing
+
+- E402 Payment Required (scoped private): ensure `publishConfig.access` is `"public"` and your scope allows public packages.
+- E403 Cannot publish over previously published version: bump the version (use a new patch/minor/major via Changesets).
+- Builds missing: add `"prepublishOnly": "pnpm build"` in each publishable package.
 
 ## 🐛 Troubleshooting
 
