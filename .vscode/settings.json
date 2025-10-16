@@ -1,12 +1,7 @@
 {
-  "cSpell.words": [
-    "fela",
-    "flubber",
-    "microui",
-    "postpack",
-    "postpublish",
-    "sigmaui",
-    "stylis",
-    "unplugin"
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
   ]
 }

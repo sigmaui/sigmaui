@@ -1,0 +1,6 @@
+packages:
+  - 'apps/*'
+  - 'packages/theme'
+  - 'packages/icons'
+  - 'packages/components/*'
+  - 'packages/blocks/*'

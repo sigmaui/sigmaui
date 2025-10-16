@@ -1,0 +1,50 @@
+{
+  "name": "@tdm-ui/icons",
+  "version": "0.0.1",
+  "private": false,
+  "description": "TDM UI Icons",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./*": "./dist/*.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint . --max-warnings 0",
+    "check-types": "tsc --noEmit"
+  },
+  "author": "",
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/tdm-ui.git",
+    "directory": "packages/icons"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "icons",
+    "component",
+    "tdm-ui"
+  ],
+  "dependencies": {
+    "@tdm-ui/theme": "workspace:*"
+  }
+}

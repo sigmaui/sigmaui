@@ -1,0 +1,69 @@
+{
+  "name": "@tdm-ui/input",
+  "description": "TDM UI Input component",
+  "version": "0.0.1",
+  "private": false,
+  "source": "./src/index.ts",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "publishConfig": {
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      ".": {
+        "import": {
+          "types": "./dist/index.d.mts",
+          "default": "./dist/index.mjs"
+        },
+        "require": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/index.js"
+        }
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "clean": "rm -rf dist",
+    "dev": "tsup --watch",
+    "lint": "eslint . --max-warnings 0 src",
+    "check-types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@rc-component/input": "^1.1.1",
+    "@tdm-ui/icons": "workspace:*",
+    "@tdm-ui/theme": "workspace:*"
+  },
+  "peerDependencies": {
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "react": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc",
+    "react-dom": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    },
+    "@types/react-dom": {
+      "optional": true
+    }
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/tdm-ui.git",
+    "directory": "packages/components/input"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "input",
+    "component",
+    "tdm-ui"
+  ]
+}
