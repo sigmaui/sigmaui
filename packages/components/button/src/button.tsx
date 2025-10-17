@@ -1,48 +1,101 @@
 import React from 'react';
+import type { FC } from 'react';
 
-import { withStyles } from '@sigma-ui-kit/theme';
+import classNames from 'classnames';
 
-import { ButtonProps } from './types';
+import { ComponentForwardProps, withStyles } from '@sigma-ui-kit/theme';
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
-      variant = 'primary',
-      size = 'md',
-      isLoading = false,
-      children,
-      className = '',
-      disabled,
-      ...props
-    },
-    ref
-  ) => {
-    const baseClasses =
-      'inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50';
+import { ButtonBaseProps, ClassKeys } from './types';
+import styles from './styles';
 
-    const variantClasses = {
-      primary: 'bg-primary text-primary-foreground hover:bg-primary/90',
-      secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-      outline: 'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
-      ghost: 'hover:bg-accent hover:text-accent-foreground',
-    };
-
-    const sizeClasses = {
-      sm: 'h-9 px-3 text-sm',
-      md: 'h-10 px-4 py-2',
-      lg: 'h-11 px-8 text-lg',
-    };
-
-    const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
-
-    return (
-      <button ref={ref} className={classes} disabled={disabled || isLoading} {...props}>
-        {isLoading ? 'Loading...' : children}
-      </button>
+const Button: FC<ButtonBaseProps & ComponentForwardProps<ClassKeys>> = ({
+  prefixCls,
+  className,
+  children,
+  classes,
+  htmlType,
+  href,
+  asLink: Link,
+  loading,
+  locking,
+  disabled,
+  prefix,
+  suffix,
+  loadingProps = {},
+  variant,
+  tone,
+  size,
+  ...buttonProps
+}) => {
+  if (loading) {
+    prefix = (
+      <div
+        style={{
+          width: 20,
+          height: 20,
+          border: '2px solid rgba(255,255,255,0.2)',
+          borderLeftColor: '#fff',
+          borderRadius: '50%',
+          animation: 'spin 1s linear infinite',
+        }}
+        {...loadingProps}
+      />
     );
   }
-);
+
+  if (locking) {
+    suffix = (
+      <div
+        style={{
+          width: 6,
+          height: 6,
+          backgroundColor: '#fff',
+          borderRadius: '50%',
+          animation: 'pulse 1s ease-in-out infinite',
+        }}
+        {...loadingProps}
+      />
+    );
+  }
+
+  const buttonNode = (
+    <button
+      type={htmlType}
+      className={classNames(
+        prefixCls,
+        `${prefixCls}-${variant}`,
+        `${prefixCls}-${tone}`,
+        `${prefixCls}-${size}`,
+        disabled && `${prefixCls}-disabled`,
+        classes?.wrapper,
+        className
+      )}
+      disabled={disabled || loading || locking}
+      {...buttonProps}
+    >
+      {prefix && <div className={classes?.prefix}>{prefix}</div>}
+      {children}
+      {suffix && <div className={classes?.suffix}>{suffix}</div>}
+    </button>
+  );
+
+  if (href && Link) {
+    return (
+      <Link to={href} className={classes?.link}>
+        {buttonNode}
+      </Link>
+    );
+  }
+
+  return buttonNode;
+};
 
 Button.displayName = 'Button';
 
-export default withStyles((theme, props) => ({}))(Button);
+export default withStyles<ButtonBaseProps, ClassKeys>(styles, {
+  defaultProps: {
+    variant: 'primary',
+    tone: 'brand',
+    size: 'standard',
+  },
+})(Button);

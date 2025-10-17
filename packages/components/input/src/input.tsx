@@ -4,6 +4,7 @@ import { withStyles } from '@sigma-ui-kit/theme';
 import { XMarkIcon } from '@sigma-ui-kit/icons';
 
 import { InputProps } from './types';
+import styles from './styles';
 
 function Input(props: InputProps) {
   const { allowClear, ...rest } = props;
@@ -15,4 +16,4 @@ function Input(props: InputProps) {
 
 Input.displayName = 'Input';
 
-export default withStyles((theme, props) => ({}))(Input);
+export default withStyles(styles)(Input);

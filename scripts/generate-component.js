@@ -268,28 +268,48 @@ export default defineConfig({
 });
 `;
 
+  // ${pascalName}.tsx
   const compTsx = `import React from 'react';
 
-  import { withStyles } from '@sigma-ui-kit/theme';
+import { ComponentForwardProps, withStyles } from '@sigma-ui-kit/theme';
 
-import { ${pascalName}Props } from './types';
+import { ClassKeys, ${pascalName}BaseProps } from './types';
+import styles from './styles';
 
-const ${pascalName} = React.forwardRef<HTMLDivElement, ${pascalName}Props>((props, ref) => {
-  return (
-    <div ref={ref} {...props}>
-      ${pascalName}
-    </div>
-  );
-});
+const ${pascalName}: React.FC<${pascalName}BaseProps & ComponentForwardProps<ClassKeys>> = props => {
+  return <div {...props}>${pascalName}</div>;
+};
 
 ${pascalName}.displayName = '${pascalName}';
 
-export default withStyles((theme, props) => ({}))(${pascalName});
+export default withStyles(styles)(${pascalName});
 `;
 
-  const types = `export interface ${pascalName}Props extends React.HTMLAttributes<HTMLDivElement> {}
+  // types.ts
+  const types = `import { WithStyleProps } from '@sigma-ui-kit/theme';
+
+export type ClassKeys = 'root';
+
+export interface ${pascalName}BaseProps {}
+
+export type ${pascalName}Props = WithStyleProps<ClassKeys> & ${pascalName}BaseProps;
 `;
 
+  // styles.ts
+  const styles = `import { StyleFn } from '@sigma-ui-kit/theme';
+import { ${pascalName}Props, ClassKeys } from './types';
+
+const styles: StyleFn<${pascalName}Props, ClassKeys> = props => {
+  const { tokens } = props;
+  return {
+    root: {},
+  };
+};
+
+export default styles;
+`;
+
+  // index.ts
   const index = `export { default as ${pascalName} } from './${kebabName}';
 export type { ${pascalName}Props } from './types';
 `;
@@ -302,6 +322,7 @@ export type { ${pascalName}Props } from './types';
   write(path.join(pkgDir, 'tsconfig.json'), tsconfig);
   write(path.join(pkgDir, 'tsup.config.ts'), tsup);
   write(path.join(pkgDir, 'src', 'types.ts'), types);
+  write(path.join(pkgDir, 'src', 'styles.ts'), styles);
   write(path.join(pkgDir, 'src', `${kebabName}.tsx`), compTsx);
   write(path.join(pkgDir, 'src', 'index.ts'), index);
 
