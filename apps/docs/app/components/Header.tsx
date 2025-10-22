@@ -2,12 +2,13 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Box from '@sigma-ui-kit/box';
 
 import ThemeSwitcher from './ThemeSwitcher';
 
 export default function Header() {
   return (
-    <header>
+    <Box as="header" _style={{ root: { backgroundColor: 'red' } }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -50,6 +51,6 @@ export default function Header() {
           </div>
         </div>
       </div>
-    </header>
+    </Box>
   );
 }

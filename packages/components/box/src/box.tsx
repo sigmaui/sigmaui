@@ -1,14 +1,29 @@
 import React from 'react';
+import type { JSX } from 'react/jsx-runtime';
+import type { ComponentForwardProps } from '@sigma-ui-kit/theme';
+import { classnames, withStyles } from '@sigma-ui-kit/theme';
 
-import { ComponentForwardProps, withStyles } from '@sigma-ui-kit/theme';
-
-import { ClassKeys, BoxBaseProps } from './types';
+import type { ClassKeys, BoxBaseProps } from './types';
 import styles from './styles';
 
-const Box: React.FC<BoxBaseProps & ComponentForwardProps<ClassKeys>> = props => {
-  return <div {...props}>Box</div>;
+const Box = <T extends keyof JSX.IntrinsicElements = 'div'>({
+  as,
+  className,
+  children,
+  classes,
+  prefixCls,
+  renderer,
+  ...rest
+}: BoxBaseProps<T> & ComponentForwardProps<ClassKeys>) => {
+  const Component = as || 'div';
+
+  return React.createElement(
+    Component as any,
+    { className: classnames(prefixCls, classes?.root, className), ...rest },
+    children
+  );
 };
 
 Box.displayName = 'Box';
 
-export default withStyles(styles)(Box);
+export default withStyles<BoxBaseProps<keyof JSX.IntrinsicElements>, ClassKeys>(styles)(Box);

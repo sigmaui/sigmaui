@@ -144,6 +144,7 @@ const withCssVars = (
 
   const vars: Record<string, string> = {};
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const mapVars = (data: any, params: MapVarsParams = {}) => {
     const { level, path = [], isPass, tokenKey } = params;
 

@@ -271,9 +271,9 @@ export default defineConfig({
   // ${pascalName}.tsx
   const compTsx = `import React from 'react';
 
-import { ComponentForwardProps, withStyles } from '@sigma-ui-kit/theme';
+import type { ComponentForwardProps, withStyles } from '@sigma-ui-kit/theme';
 
-import { ClassKeys, ${pascalName}BaseProps } from './types';
+import type { ClassKeys, ${pascalName}BaseProps } from './types';
 import styles from './styles';
 
 const ${pascalName}: React.FC<${pascalName}BaseProps & ComponentForwardProps<ClassKeys>> = props => {
@@ -286,7 +286,7 @@ export default withStyles(styles)(${pascalName});
 `;
 
   // types.ts
-  const types = `import { WithStyleProps } from '@sigma-ui-kit/theme';
+  const types = `import type { WithStyleProps } from '@sigma-ui-kit/theme';
 
 export type ClassKeys = 'root';
 
@@ -296,8 +296,9 @@ export type ${pascalName}Props = WithStyleProps<ClassKeys> & ${pascalName}BasePr
 `;
 
   // styles.ts
-  const styles = `import { StyleFn } from '@sigma-ui-kit/theme';
-import { ${pascalName}Props, ClassKeys } from './types';
+  const styles = `import type { StyleFn } from '@sigma-ui-kit/theme';
+
+import type { ${pascalName}Props, ClassKeys } from './types';
 
 const styles: StyleFn<${pascalName}Props, ClassKeys> = props => {
   const { tokens } = props;
@@ -310,7 +311,7 @@ export default styles;
 `;
 
   // index.ts
-  const index = `export { default as ${pascalName} } from './${kebabName}';
+  const index = `export { default } from './${kebabName}';
 export type { ${pascalName}Props } from './types';
 `;
 
@@ -339,7 +340,7 @@ export type { ${pascalName}Props } from './types';
     console.log(`📦 Adding to @sigma-ui-kit/docs...`);
     execSync(`pnpm add @sigma-ui-kit/${kebabName} --filter @sigma-ui-kit/docs --workspace`, {
       stdio: 'inherit',
-      cwd: pkgDir,
+      cwd: root,
     });
 
     // Add to csr-demo app

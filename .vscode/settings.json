@@ -4,5 +4,16 @@
       "mode": "auto"
     }
   ],
-  "cSpell.words": ["cssify", "Fela", "microui", "Smarttv"]
+  "cSpell.words": ["cssify", "Fela", "microui", "Smarttv"],
+  // Sử dụng LF cho tất cả file khi lưu
+  "files.eol": "\n",
+
+  // Loại bỏ trailing whitespace khi save
+  "files.trimTrailingWhitespace": true,
+
+  // Thêm newline cuối file nếu chưa có
+  "files.insertFinalNewline": true,
+
+  // Optional: VSCode tự format file khi save
+  "editor.formatOnSave": true
 }

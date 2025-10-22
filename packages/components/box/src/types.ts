@@ -1,7 +1,13 @@
-import { WithStyleProps } from '@sigma-ui-kit/theme';
+import type { HTMLAttributes } from 'react';
+import type { JSX } from 'react/jsx-runtime';
+import type { WithStyleProps } from '@sigma-ui-kit/theme';
 
 export type ClassKeys = 'root';
 
-export interface BoxBaseProps {}
+export interface BoxBaseProps<T extends keyof JSX.IntrinsicElements = 'div'>
+  extends HTMLAttributes<HTMLElement> {
+  as?: T;
+}
 
-export type BoxProps = WithStyleProps<ClassKeys> & BoxBaseProps;
+export type BoxProps<T extends keyof JSX.IntrinsicElements = 'div'> = WithStyleProps<ClassKeys> &
+  BoxBaseProps<T>;

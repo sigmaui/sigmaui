@@ -104,7 +104,7 @@ sigma-ui-kit/
 
 ```bash
 # Interactive component generator
-pnpm generate:component
+pnpm gen:comp
 ```
 
 **Steps:**
@@ -129,7 +129,7 @@ pnpm generate:component
 
 ```bash
 # Interactive component deleter
-pnpm delete:component
+pnpm del:comp
 ```
 
 **Steps:**
@@ -151,7 +151,7 @@ pnpm delete:component
 
 ```bash
 # Interactive icon generator
-pnpm generate:icon
+pnpm gen:icon
 ```
 
 **Steps:**
@@ -237,7 +237,7 @@ Advanced UI blocks with multiple components:
 SVG icon components:
 
 - **XMarkIcon** - Close/cancel icon
-- Add more icons using `pnpm generate:icon`
+- Add more icons using `pnpm gen:icon`
 
 ### Using Components
 
@@ -261,7 +261,7 @@ function App() {
 
 ### Component Development
 
-1. **Create component**: `pnpm generate:component`
+1. **Create component**: `pnpm gen:comp`
 2. **Edit component**: Modify files in `src/`
 3. **Build**: `pnpm --filter @sigma-ui-kit/your-component build`
 4. **Test**: Add to `apps/docs` for testing

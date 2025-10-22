@@ -94,16 +94,16 @@ importers:
   apps/csr-demo:
     dependencies:
       '@sigma-ui-kit/box':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../packages/components/box
       '@sigma-ui-kit/button':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../packages/components/button
       '@sigma-ui-kit/input':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../packages/components/input
       '@sigma-ui-kit/theme':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../packages/theme
       fela:
         specifier: ^6.0.0
@@ -151,11 +151,14 @@ importers:
 
   apps/docs:
     dependencies:
+      '@sigma-ui-kit/box':
+        specifier: workspace:^
+        version: link:../../packages/components/box
       '@sigma-ui-kit/button':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../packages/components/button
       '@sigma-ui-kit/theme':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../packages/theme
       next:
         specifier: ^15.5.0
