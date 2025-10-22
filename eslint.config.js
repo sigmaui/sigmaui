@@ -1,75 +1,123 @@
+// eslint.config.js
 import js from '@eslint/js';
 import globals from 'globals';
-import reactHooks from 'eslint-plugin-react-hooks';
-import reactRefresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint';
-import eslintPluginPrettier from 'eslint-plugin-prettier';
-import eslintConfigPrettier from 'eslint-config-prettier';
-import eslintPluginImport from 'eslint-plugin-import';
+import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
+import importPlugin from 'eslint-plugin-import';
+import prettier from 'eslint-plugin-prettier';
 
-export default tseslint.config(
+/** @type {import('eslint').Linter.FlatConfig[]} */
+export default [
   {
     ignores: [
-      'dist',
-      'vite.config.ts',
-      'tsup.config.ts',
-      '**/*.raw.tsx',
-      '**/public/',
-      'tsconfig.json',
+      'node_modules/',
+      '**/node_modules/',
+      '**/dist/',
+      '.next/',
+      '**/.next/',
+      '.turbo/',
+      '**/.turbo/',
+      '*.config.js',
+      '*.config.ts',
+      '*.config.mjs',
+      '.changeset/',
+      '**/.changeset/',
+      'pnpm-lock.yaml',
+      'package-lock.json',
+      'yarn.lock',
+      '.vscode/',
+      '.idea/',
+      '.DS_Store',
+      'Thumbs.db',
+      'scripts/',
     ],
   },
+
   {
-    extends: [
-      js.configs.recommended,
-      ...tseslint.configs.recommended,
-      eslintConfigPrettier,
-    ],
-    files: ['**/*.{ts,tsx}'],
+    files: ['**/*.{js,jsx,ts,tsx}'],
+
     languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
+      parser: tseslint.parser,
+      parserOptions: {
+        ecmaVersion: 2020,
+        sourceType: 'module',
+        ecmaFeatures: { jsx: true },
+        project: ['./tsconfig.json'],
+      },
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        ...globals.es2021,
+      },
     },
+
+    // Plugins
     plugins: {
+      '@typescript-eslint': tseslint.plugin,
+      react,
       'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
-      prettier: eslintPluginPrettier,
-      import: eslintPluginImport,
+      import: importPlugin,
+      prettier,
     },
+
     rules: {
+      ...js.configs.recommended.rules,
+      ...tseslint.configs.recommended[0].rules,
+      ...react.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': [
+      ...importPlugin.configs.recommended.rules,
+
+      'prettier/prettier': ['error', { semi: true, singleQuote: true }],
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': [
         'warn',
-        { allowConstantExport: true },
-      ],
-      '@typescript-eslint/no-unused-vars': 'off',
-      '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/no-empty-object-type': 'off',
-      '@typescript-eslint/ban-ts-comment': 'off',
-      'react-refresh/only-export-components': 'off',
-      '@typescript-eslint/no-unnecessary-type-constraint': 'warn',
-      'no-prototype-builtins': 'off',
-      'no-empty-pattern': 'off',
-      'import/order': [
-        1,
         {
-          groups: [
-            'external',
-            'builtin',
-            'internal',
-            'sibling',
-            'parent',
-            'index',
-          ],
+          vars: 'all',
+          args: 'after-used',
+          ignoreRestSiblings: true,
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
         },
       ],
-      // Enforce single quotes (aligns with Prettier singleQuote)
-      quotes: [
+      '@typescript-eslint/no-unused-vars-type-only': 'off',
+
+      '@typescript-eslint/explicit-function-return-type': 'off',
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
+      // '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-empty-function': 'warn',
+      'prefer-const': 'warn',
+      'no-console': 'warn',
+      'no-debugger': 'error',
+      semi: ['error', 'always'],
+
+      'import/order': [
         'warn',
-        'single',
-        { avoidEscape: true, allowTemplateLiterals: true },
+        {
+          groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index']],
+          'newlines-between': 'always',
+        },
       ],
-      // Defer formatting to Prettier (uses .prettierrc). This rule only reports deviations.
-      'prettier/prettier': ['warn'],
+
+      '@typescript-eslint/consistent-type-imports': [
+        'warn',
+        {
+          prefer: 'type-imports',
+          disallowTypeAnnotations: false,
+        },
+      ],
+    },
+
+    settings: {
+      react: {
+        version: 'detect',
+      },
+      'import/resolver': {
+        typescript: {
+          project: './tsconfig.json',
+        },
+      },
     },
   },
-);
+];

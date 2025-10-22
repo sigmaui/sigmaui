@@ -1,9 +1,10 @@
+'use client';
+
 import React from 'react';
 import deepmerge from 'deepmerge';
-
 import useMicroUI from '@microui-kit/use-micro-ui';
 
-import { ComponentForwardProps, StyleFn, StylesObject, Theme, Tokens } from './types';
+import type { ComponentForwardProps, StyleFn, StylesObject, Theme, Tokens } from './types';
 import defaultToken from './defaultToken';
 import { getMatchingVariants } from './util';
 
@@ -41,9 +42,6 @@ export default function withStyles<ComponentBaseProps, ClassKeys extends string>
 
       const { renderer, theme, css } = useMicroUI<Theme>();
 
-      console.log(theme);
-
-      // Get component name
       const componentName = Component.displayName || Component.name || 'Component';
       const baseName = componentName.toLowerCase();
 
@@ -145,7 +143,7 @@ export default function withStyles<ComponentBaseProps, ClassKeys extends string>
       );
 
       const mergedClass = deepmerge.all([classes, _class || {}], {
-        customMerge: key => {
+        customMerge: () => {
           return (a, b) => {
             if (typeof a === 'string' && typeof b === 'string') {
               return [a, b].filter(Boolean).join(' ');

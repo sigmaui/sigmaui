@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@sigma-ui-kit/button": "workspace:*",
+    "@sigma-ui-kit/theme": "workspace:*",
     "next": "^15.5.0"
   },
   "devDependencies": {

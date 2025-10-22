@@ -1,11 +1,10 @@
-import React from 'react';
-import type { FC } from 'react';
+'use client';
 
-import classNames from 'classnames';
+import React, { type FC } from 'react';
+import { classnames } from '@sigma-ui-kit/theme';
+import { type ComponentForwardProps, withStyles } from '@sigma-ui-kit/theme';
 
-import { ComponentForwardProps, withStyles } from '@sigma-ui-kit/theme';
-
-import { ButtonBaseProps, ClassKeys } from './types';
+import type { ButtonBaseProps, ClassKeys } from './types';
 import styles from './styles';
 
 const Button: FC<ButtonBaseProps & ComponentForwardProps<ClassKeys>> = ({
@@ -61,7 +60,7 @@ const Button: FC<ButtonBaseProps & ComponentForwardProps<ClassKeys>> = ({
   const buttonNode = (
     <button
       type={htmlType}
-      className={classNames(
+      className={classnames(
         prefixCls,
         `${prefixCls}-${variant}`,
         `${prefixCls}-${tone}`,

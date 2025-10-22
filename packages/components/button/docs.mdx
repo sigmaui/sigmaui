@@ -1,0 +1,35 @@
+---
+title: Button
+description: To trigger an operation.
+---
+
+## When To Use
+
+A button means an operation (or a series of operations). Clicking a button will trigger its corresponding business logic.
+
+In Sigma UI Kit we provide 4 types of button.
+
+- 🔵 Primary button: used for the main action, there can be at most one primary button in a section.
+- ⚪️ Secondary button: used for a series of actions without priority.
+- 😶 Outline button: commonly used for adding more actions.
+- 🔤 Ghost button: used for the most secondary action.
+
+And 4 other properties additionally.
+
+- 🔴 `danger`: used for actions of risk, like deletion or authorization.
+- 👻 `ghost`: used in situations with complex background, home pages usually.
+- 🚫 `disabled`: used when actions are not available.
+- 🔃 `loading`: adds a loading spinner in button, avoids multiple submits too.
+
+## Examples
+
+<code src="./demo/basic/Demo.tsx">Basic Usage</code>
+
+## API
+
+| Property | Description          | Type                                               | Default     |
+| -------- | -------------------- | -------------------------------------------------- | ----------- |
+| variant  | Button variant       | `'primary' \| 'secondary' \| 'outline' \| 'ghost'` | `'primary'` |
+| size     | Button size          | `'sm' \| 'md' \| 'lg'`                             | `'md'`      |
+| disabled | Disable button       | `boolean`                                          | `false`     |
+| loading  | Show loading spinner | `boolean`                                          | `false`     |

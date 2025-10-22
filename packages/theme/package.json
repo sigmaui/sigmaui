@@ -6,6 +6,13 @@
   "source": "./src/index.ts",
   "main": "./src/index.ts",
   "module": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts",
+      "require": "./src/index.ts"
+    }
+  },
   "publishConfig": {
     "access": "public",
     "main": "./dist/index.js",
@@ -60,9 +67,25 @@
   "author": "Sigma UI Kit Team",
   "license": "MIT",
   "dependencies": {
-    "deepmerge": "^4.3.1"
+    "@microui-kit/fela-custom-renderer": "^1.0.1",
+    "@microui-kit/platform": "^1.1.3",
+    "@microui-kit/system": "^1.0.0",
+    "@microui-kit/types": "^1.1.8",
+    "@microui-kit/use-micro-ui": "^1.1.0",
+    "@microui-kit/use-platform-detect": "^1.1.3",
+    "@microui-kit/use-theme-mode": "^1.0.0",
+    "@microui-kit/utils": "^1.0.0",
+    "@sigma-ui-kit/hooks": "workspace:^",
+    "clone-deep": "^4.0.1",
+    "deepmerge": "^4.3.1",
+    "fela": "^12.2.1",
+    "fela-preset-web": "^12.2.1",
+    "fela-tools": "^12.2.1",
+    "react-fela": "^12.2.1"
   },
   "devDependencies": {
-    "tsup": "^8.0.1"
+    "@types/clone-deep": "^4.0.4",
+    "next": "^15.5.0",
+    "tsup": "^8.5.0"
   }
 }

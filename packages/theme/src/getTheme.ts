@@ -1,11 +1,11 @@
 import deepmerge from 'deepmerge';
-
+import cloneDeep from 'clone-deep';
 import { getDefaultProps, getRestProps } from '@microui-kit/system';
 import { isObject, hyphenateProperty } from '@microui-kit/utils';
 
 import { rgba, linearGradient, radialGradient, lighten, darken, pxToRem } from './functions';
 import defaultToken from './defaultToken';
-import { ThemeConfig, Tokens, TokensConfig } from './types';
+import type { Theme, ThemeConfig, Tokens, TokensConfig } from './types';
 
 export type DefaultTheme = ThemeVariables & {
   base?: ThemeVariables;
@@ -118,7 +118,7 @@ const fns = (theme: DefaultTheme): ThemeFns => {
   };
 };
 
-export type Theme = DefaultTheme & {
+export type ComputedTheme = Omit<Theme, 'overrideComponents'> & {
   __cssVars?: Record<string, string>;
   __cssVarsByMode?: Record<string, Record<string, string>>;
   fn?: ThemeFns;
@@ -135,11 +135,14 @@ interface MapVarsParams {
   tokenKey?: string;
 }
 
-const withCssVars = (theme: Theme, options: WithCssVarsOptions = {}) => {
+const withCssVars = (
+  theme: ComputedTheme,
+  modes: Record<string, TokensConfig>,
+  options: WithCssVarsOptions = {}
+) => {
   const { prefix = 'sm' } = options;
 
   const vars: Record<string, string> = {};
-  const modes = (theme as any).modes || {};
 
   const mapVars = (data: any, params: MapVarsParams = {}) => {
     const { level, path = [], isPass, tokenKey } = params;
@@ -181,7 +184,6 @@ const withCssVars = (theme: Theme, options: WithCssVarsOptions = {}) => {
     });
   };
 
-  // Tạo CSS variables cho theme chính với reference đến modes
   const mapVarsWithModeReference = (data: any, params: MapVarsParams = {}) => {
     const { level, path = [], isPass, tokenKey } = params;
 
@@ -314,14 +316,13 @@ const withCssVars = (theme: Theme, options: WithCssVarsOptions = {}) => {
     theme['__cssVarsByMode'] = cssVarsByMode;
   }
 
-  theme.fn = fns(theme);
+  theme.fn = fns(theme as any);
 
   return theme;
 };
 
 interface GetThemeOptions {
   deviceMode: string;
-  isCssVars?: boolean;
   prefix?: string;
 }
 
@@ -330,9 +331,7 @@ const getTheme = (
   options: GetThemeOptions
 ) => {
   const { modeConfig = {}, deviceConfig = {} } = themeConfig;
-  const { deviceMode, isCssVars = true, prefix } = options;
-
-  console.log('{ modeConfig, deviceConfig }', themeConfig);
+  const { deviceMode, prefix } = options;
 
   let modeTheme: Tokens = { ...defaultToken };
   const modes: Record<string, TokensConfig> = {};
@@ -371,21 +370,14 @@ const getTheme = (
     }
   }
 
-  const finalTheme: Theme = deviceTheme as unknown as Theme;
+  const finalTheme = cloneDeep(deviceTheme) as ComputedTheme;
 
-  // Thêm modes vào finalTheme để withCssVars có thể sử dụng
-  if (Object.keys(modes).length > 0) {
-    (finalTheme as any).modes = modes;
-  }
+  const tempTheme = { ...finalTheme, __cssVars: {}, __cssVarsByMode: {} };
+  const themeWithCssVar = withCssVars(tempTheme, modes, {
+    prefix,
+  });
 
-  console.log(finalTheme);
-  if (isCssVars) {
-    return withCssVars(finalTheme, {
-      prefix,
-    });
-  }
-
-  return finalTheme;
+  return themeWithCssVar;
 };
 
 export default getTheme;

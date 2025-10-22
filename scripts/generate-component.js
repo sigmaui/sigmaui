@@ -334,6 +334,21 @@ export type { ${pascalName}Props } from './types';
   const { execSync } = require('child_process');
   try {
     execSync('pnpm install', { stdio: 'inherit', cwd: root });
+
+    // Add to docs app
+    console.log(`📦 Adding to @sigma-ui-kit/docs...`);
+    execSync(`pnpm add @sigma-ui-kit/${kebabName} --filter @sigma-ui-kit/docs --workspace`, {
+      stdio: 'inherit',
+      cwd: pkgDir,
+    });
+
+    // Add to csr-demo app
+    console.log(`📦 Adding to @sigma-ui-kit/csr-demo...`);
+    execSync(`pnpm add @sigma-ui-kit/${kebabName} --filter @sigma-ui-kit/csr-demo --workspace`, {
+      stdio: 'inherit',
+      cwd: root,
+    });
+
     console.log(`✅ Dependencies installed successfully!`);
   } catch (error) {
     console.log(`⚠️  Error installing dependencies, please run: pnpm install`);
@@ -342,7 +357,8 @@ export type { ${pascalName}Props } from './types';
   console.log(`\n🚀 Next steps:`);
   console.log(`   1. pnpm --filter @sigma-ui-kit/${kebabName} build`);
   console.log(`   2. Edit component in src/${kebabName}.tsx`);
-  console.log(`   3. Add to apps/docs for testing\n`);
+  console.log(`   3. Component is already added to docs and csr-demo apps`);
+  console.log(`   4. Test in apps/docs or apps/csr-demo\n`);
 }
 
 main();

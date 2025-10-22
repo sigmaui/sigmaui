@@ -2,5 +2,6 @@ packages:
   - 'apps/*'
   - 'packages/theme'
   - 'packages/icons'
+  - 'packages/hooks'
   - 'packages/components/*'
   - 'packages/blocks/*'

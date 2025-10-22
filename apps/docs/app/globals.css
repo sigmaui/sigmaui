@@ -17,8 +17,8 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: #0a0a0a;
+  background: #ffffff;
 }
 
 * {
@@ -32,19 +32,84 @@ a {
   text-decoration: none;
 }
 
-.imgDark {
-  display: none;
+/* Dark mode support */
+[data-theme='dark'] {
+  color-scheme: dark;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+[data-theme='dark'] body {
+  background-color: #0a0a0a;
+  color: #ededed;
+}
 
-  .imgLight {
-    display: none;
-  }
-  .imgDark {
-    display: unset;
-  }
+/* Theme switcher styles */
+.theme-switcher {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Button demo styles */
+.demo-section {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+[data-theme='dark'] .demo-section {
+  border-color: #374151;
+}
+
+.demo-header {
+  background-color: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+[data-theme='dark'] .demo-header {
+  background-color: #1f2937;
+  border-color: #374151;
+}
+
+.demo-content {
+  background-color: #f9fafb;
+}
+
+[data-theme='dark'] .demo-content {
+  background-color: #111827;
+}
+
+/* Code block styles */
+pre {
+  background-color: #1f2937 !important;
+  color: #f9fafb !important;
+}
+
+[data-theme='dark'] pre {
+  background-color: #000000 !important;
+  color: #f9fafb !important;
+}
+
+/* Table styles */
+table {
+  border-color: #e5e7eb;
+}
+
+[data-theme='dark'] table {
+  border-color: #374151;
+}
+
+th {
+  background-color: #f9fafb;
+  color: #111827;
+}
+
+[data-theme='dark'] th {
+  background-color: #1f2937;
+  color: #f9fafb;
+}
+
+td {
+  border-color: #e5e7eb;
+}
+
+[data-theme='dark'] td {
+  border-color: #374151;
 }

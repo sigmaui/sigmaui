@@ -26,6 +26,7 @@
       "@/*": ["./apps/docs/src/*"],
       "@sigma-ui-kit/theme": ["./packages/theme/src"],
       "@sigma-ui-kit/icons": ["./packages/icons/src"],
+      "@sigma-ui-kit/hooks/*": ["./packages/hooks/src/*"],
       "@sigma-ui-kit/*": ["./packages/components/*/src", "./packages/blocks/*/src"]
     }
   },

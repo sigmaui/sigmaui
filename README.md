@@ -134,10 +134,18 @@ pnpm delete:component
 
 **Steps:**
 
-1. Choose location: `components` or `blocks`
-2. Select component from dropdown list
-3. Confirm deletion
-4. Auto-updates dependencies
+1. Choose component from dropdown list (scans packages/components and packages/blocks)
+2. Confirm deletion
+3. Auto-removes from docs and csr-demo apps
+4. Deletes package directory
+5. Runs pnpm install to clean up
+
+**What it does:**
+
+- Removes package from `@sigma-ui-kit/docs`
+- Removes package from `@sigma-ui-kit/csr-demo`
+- Deletes the entire package directory
+- Cleans up dependencies with `pnpm install`
 
 #### Create New Icon
 

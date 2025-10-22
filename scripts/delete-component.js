@@ -3,8 +3,21 @@ const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
 
+function toKebabCase(str) {
+  return str
+    .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+    .replace(/\s+/g, '-')
+    .replace(/_/g, '-')
+    .toLowerCase();
+}
+
 function ensureDir(dir) {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+}
+
+function write(filePath, contents) {
+  ensureDir(path.dirname(filePath));
+  fs.writeFileSync(filePath, contents, 'utf8');
 }
 
 async function prompt(question) {
@@ -35,7 +48,7 @@ async function selectOption(question, options) {
     });
 
     return new Promise(resolve => {
-      rl.question('Chọn số (1-2): ', answer => {
+      rl.question('choose number (1-2): ', answer => {
         rl.close();
         const index = parseInt(answer) - 1;
         if (index >= 0 && index < options.length) {
@@ -62,7 +75,6 @@ async function selectOption(question, options) {
       let text = option;
 
       if (index === selectedIndex) {
-        // selected → xanh dương + đậm
         text = '\x1b[34m\x1b[1m' + option + '\x1b[0m';
       }
 
@@ -93,152 +105,139 @@ async function selectOption(question, options) {
   });
 }
 
-function getAvailableComponents(scope) {
+function findPackages() {
   const root = process.cwd();
-  const componentsDir = path.join(root, 'packages', scope);
+  const packages = [];
 
-  if (!fs.existsSync(componentsDir)) {
-    return [];
+  // Scan components directory
+  const componentsDir = path.join(root, 'packages', 'components');
+  if (fs.existsSync(componentsDir)) {
+    const items = fs.readdirSync(componentsDir);
+    items.forEach(item => {
+      const itemPath = path.join(componentsDir, item);
+      if (fs.statSync(itemPath).isDirectory()) {
+        packages.push({
+          name: item,
+          path: itemPath,
+          scope: 'components',
+        });
+      }
+    });
   }
 
-  return fs
-    .readdirSync(componentsDir, { withFileTypes: true })
-    .filter(dirent => dirent.isDirectory())
-    .map(dirent => dirent.name)
-    .sort();
-}
-
-function removeDirectory(dirPath) {
-  try {
-    if (fs.existsSync(dirPath)) {
-      console.log(`🗑️  Deleting: ${dirPath}`);
-      fs.rmSync(dirPath, { recursive: true, force: true });
-      return true;
-    }
-    return false;
-  } catch (error) {
-    console.error(`❌ Error deleting ${dirPath}:`, error.message);
-    return false;
+  // Scan blocks directory
+  const blocksDir = path.join(root, 'packages', 'blocks');
+  if (fs.existsSync(blocksDir)) {
+    const items = fs.readdirSync(blocksDir);
+    items.forEach(item => {
+      const itemPath = path.join(blocksDir, item);
+      if (fs.statSync(itemPath).isDirectory()) {
+        packages.push({
+          name: item,
+          path: itemPath,
+          scope: 'blocks',
+        });
+      }
+    });
   }
+
+  return packages;
 }
 
 async function main() {
-  console.log(
-    '🗑️  TDM UI Component Delete (This will permanently delete the component and all its files)\n'
-  );
+  console.log('🗑️  TDM UI Component Remover\n');
 
-  // B1: Choose location (components/blocks)
-  const scope = await selectOption('📁 Choose location (Use "↑↓" to select, "Enter" to confirm):', [
-    'packages/components - Basic UI Components',
-    'packages/blocks - Complex UI Blocks',
-  ]);
+  // Find all available packages
+  const packages = findPackages();
 
-  const selectedScope = scope.includes('components') ? 'components' : 'blocks';
-  const root = process.cwd();
-
-  // B2: Get the list of available components
-  const availableComponents = getAvailableComponents(selectedScope);
-
-  if (availableComponents.length === 0) {
-    console.log(`\n❌ No components found in packages/${selectedScope}/`);
+  if (packages.length === 0) {
+    console.log('❌ No packages found in packages/components or packages/blocks');
     process.exit(0);
   }
 
-  // B3: Choose component to delete with "↑↓" and "Enter"
-  const componentName = await selectOption(
-    `\n📦 Choose component to delete (Use "↑↓" to select, "Enter" to confirm):`,
-    availableComponents.map(comp => {
-      // Add description if package.json exists
-      const packageJsonPath = path.join(root, 'packages', selectedScope, comp, 'package.json');
-      let description = '';
-      if (fs.existsSync(packageJsonPath)) {
-        try {
-          const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
-          description = packageJson.description ? ` - ${packageJson.description}` : '';
-        } catch (error) {
-          // Ignore JSON parse errors
-        }
-      }
-      return `${comp}${description}`;
-    })
+  // B1: Choose package to delete
+  const packageOptions = packages.map(pkg => `${pkg.scope}/${pkg.name}`);
+  const selectedPackage = await selectOption(
+    '📦 Choose package to delete (Use "↑↓" to select, "Enter" to confirm):',
+    packageOptions
   );
 
-  // Extract component name from selection (remove description)
-  const selectedComponentName = componentName.split(' - ')[0];
-  const componentDir = path.join(root, 'packages', selectedScope, selectedComponentName);
-
-  // Display component information
-  console.log(`\n📋 Component information:`);
-  console.log(`   📁 Location: packages/${selectedScope}/${selectedComponentName}`);
-  console.log(`   📦 Name: @sigma-ui-kit/${selectedComponentName}`);
-
-  // Check package.json to get more information
-  const packageJsonPath = path.join(componentDir, 'package.json');
-  if (fs.existsSync(packageJsonPath)) {
-    try {
-      const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
-      if (packageJson.description) {
-        console.log(`   📝 Description: ${packageJson.description}`);
-      }
-    } catch (error) {
-      // Ignore JSON parse errors
-    }
-  }
-
-  // Display the files/directories that will be deleted
-  console.log(`\n📁 Files/directories that will be deleted:`);
-  try {
-    const items = fs.readdirSync(componentDir);
-    items.forEach(item => {
-      const itemPath = path.join(componentDir, item);
-      const stat = fs.statSync(itemPath);
-      const type = stat.isDirectory() ? '📁' : '📄';
-      console.log(`   ${type} ${item}`);
-    });
-  } catch (error) {
-    console.log(`   ❌ Cannot read directory: ${error.message}`);
-  }
-
-  // Warning
-  console.log(`\n⚠️  Warning: This will permanently delete component "${selectedComponentName}"!`);
-  console.log('   - All source code will be lost');
-  console.log('   - Build outputs will be deleted');
-  console.log('   - Cannot be undone');
-
-  const confirm = await prompt(
-    '\n❓ Are you sure you want to delete? ("y" or "Y" to confirm, "N" or "Enter" to cancel): '
-  );
-  if (!['y', 'yes', 'Y', 'YES'].includes(confirm)) {
-    console.log('❌ Cancelled deletion');
-    process.exit(0);
-  }
-
-  console.log('\n🔄 Starting deletion...\n');
-
-  const success = removeDirectory(componentDir);
-
-  if (success) {
-    console.log(`\n✅ Successfully deleted component: @sigma-ui-kit/${selectedComponentName}`);
-    console.log(`📁 Deleted path: ${componentDir}`);
-
-    // Auto run pnpm install to update lockfile
-    console.log(`\n🔄 Updating dependencies...`);
-    const { execSync } = require('child_process');
-    try {
-      execSync('pnpm install', { stdio: 'inherit', cwd: root });
-      console.log(`✅ Dependencies updated successfully!`);
-    } catch (error) {
-      console.log(`⚠️  Error updating dependencies, please run: pnpm install`);
-    }
-
-    console.log(`\n🚀 Next steps:`);
-    console.log(`   1. Check and update imports in other files`);
-    console.log(`   2. Update dependencies if needed`);
-    console.log(`   3. Rebuild packages if needed: pnpm build`);
-  } else {
-    console.log(`\n❌ Cannot delete component: @sigma-ui-kit/${selectedComponentName}`);
+  const selectedPkg = packages.find(pkg => `${pkg.scope}/${pkg.name}` === selectedPackage);
+  if (!selectedPkg) {
+    console.log('❌ Package not found');
     process.exit(1);
   }
+
+  const kebabName = selectedPkg.name;
+  const scope = selectedPkg.scope;
+  const pkgDir = selectedPkg.path;
+
+  console.log(`\n📋 Package to delete:`);
+  console.log(`   📁 Location: packages/${scope}/${kebabName}`);
+  console.log(`   📦 Name: @sigma-ui-kit/${kebabName}`);
+  console.log(`   📁 Path: ${pkgDir}\n`);
+
+  const confirm = await prompt(
+    `⚠️  Are you sure you want to delete @sigma-ui-kit/${kebabName}? This action cannot be undone! ("y" or "Y" to confirm, "N" or "Enter" to cancel): `
+  );
+  if (!['y', 'yes', 'Y', 'YES'].includes(confirm)) {
+    console.log('❌ Cancelled package deletion');
+    process.exit(0);
+  }
+
+  console.log('🔄 Removing package from apps...');
+  const { execSync } = require('child_process');
+  const root = process.cwd();
+
+  try {
+    // Remove from docs app
+    console.log(`📦 Removing from @sigma-ui-kit/docs...`);
+    try {
+      execSync(`pnpm remove @sigma-ui-kit/${kebabName} --filter @sigma-ui-kit/docs`, {
+        stdio: 'inherit',
+        cwd: root,
+      });
+    } catch (error) {
+      console.log(`⚠️  Package not found in docs app`);
+    }
+
+    // Remove from csr-demo app
+    console.log(`📦 Removing from @sigma-ui-kit/csr-demo...`);
+    try {
+      execSync(`pnpm remove @sigma-ui-kit/${kebabName} --filter @sigma-ui-kit/csr-demo`, {
+        stdio: 'inherit',
+        cwd: root,
+      });
+    } catch (error) {
+      console.log(`⚠️  Package not found in csr-demo app`);
+    }
+
+    console.log('🔄 Deleting package directory...');
+
+    // Delete the package directory
+    if (fs.existsSync(pkgDir)) {
+      fs.rmSync(pkgDir, { recursive: true, force: true });
+      console.log(`✅ Package directory deleted: ${pkgDir}`);
+    } else {
+      console.log(`⚠️  Package directory not found: ${pkgDir}`);
+    }
+
+    // Run pnpm install to clean up
+    console.log('🔄 Running pnpm install to clean up...');
+    execSync('pnpm install', { stdio: 'inherit', cwd: root });
+
+    console.log(`\n✅ Successfully deleted package: @sigma-ui-kit/${kebabName}`);
+    console.log(`📁 Deleted: ${pkgDir}`);
+    console.log(`📦 Removed from docs and csr-demo apps`);
+  } catch (error) {
+    console.log(`⚠️  Error during deletion: ${error.message}`);
+    console.log(`Please manually delete: ${pkgDir}`);
+  }
+
+  console.log(`\n🚀 Next steps:`);
+  console.log(`   1. Check if any imports of @sigma-ui-kit/${kebabName} need to be removed`);
+  console.log(`   2. Update any documentation that references this component`);
+  console.log(`   3. Commit the changes\n`);
 }
 
 main();
