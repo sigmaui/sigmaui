@@ -1,5 +1,6 @@
-import { CSSProperties, IRenderer, IStyle as FelaIStyle } from 'fela';
-import { ProviderProps as FelaProviderProps } from 'react-fela';
+import type { ReactNode } from 'react';
+import type { CSSProperties, IRenderer, IStyle as FelaIStyle } from 'fela';
+import type { ProviderProps as FelaProviderProps } from 'react-fela';
 
 export interface Locale {
   locale: string;
@@ -349,10 +350,10 @@ export interface SigmaUIProviderProps {
    */
   themeConfig: ThemeConfig;
   /**
-   * @type {React.ReactNode}
+   * @type {ReactNode}
    * @description The children to render
    */
-  children?: React.ReactNode;
+  children?: ReactNode;
   /**
    * @type {IRenderer}
    * @description The renderer to use for the provider

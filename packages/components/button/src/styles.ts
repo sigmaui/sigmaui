@@ -1,6 +1,6 @@
-import { StyleFn } from '@sigma-ui-kit/theme';
+import type { StyleFn } from '@sigma-ui-kit/theme';
 
-import { ButtonBaseProps, ClassKeys } from './types';
+import type { ButtonBaseProps, ClassKeys } from './types';
 
 const styles: StyleFn<ButtonBaseProps, ClassKeys> = props => {
   const { tokens } = props;

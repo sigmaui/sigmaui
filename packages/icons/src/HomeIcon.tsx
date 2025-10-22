@@ -1,5 +1,6 @@
 import React from 'react';
-import { IconProps } from './types';
+
+import type { IconProps } from './types';
 
 const HomeIcon = React.forwardRef<SVGSVGElement, IconProps>(
   ({ size = 24, width, height, ...props }, ref) => {

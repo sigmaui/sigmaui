@@ -1,5 +1,5 @@
-import type { ComponentType } from 'react';
-import { WithStyleProps } from '@sigma-ui-kit/theme';
+import type { ButtonHTMLAttributes, ComponentType } from 'react';
+import type { WithStyleProps } from '@sigma-ui-kit/theme';
 
 // Temporary LoadingProps interface until loading package is published
 export interface LoadingProps {
@@ -13,9 +13,8 @@ export type VariantKeys = 'primary' | 'secondary' | 'tertiary';
 export type SizeKeys = 'smaller' | 'small' | 'medium' | 'standard' | 'big' | 'bigger';
 export type ToneKeys = 'brand' | 'neutral' | 'success' | 'error' | 'warning' | 'info';
 
-export interface ButtonBaseProps
-  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
-  htmlType?: React.ButtonHTMLAttributes<HTMLButtonElement>['type'];
+export interface ButtonBaseProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
+  htmlType?: ButtonHTMLAttributes<HTMLButtonElement>['type'];
   href?: string;
   asLink?: ComponentType<any>;
   loading?: boolean;

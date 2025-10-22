@@ -1,6 +1,6 @@
 import deepmerge from 'deepmerge';
 
-import { StylesObject, VariantsStyle } from './types';
+import type { StylesObject, VariantsStyle } from './types';
 
 export function getMatchingVariants<ComponentBaseProps>(
   variants: VariantsStyle<ComponentBaseProps>,

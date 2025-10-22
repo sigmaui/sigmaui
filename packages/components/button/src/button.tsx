@@ -1,6 +1,6 @@
 'use client';
 
-import React, { type FC } from 'react';
+import { type FC } from 'react';
 import { classnames } from '@sigma-ui-kit/theme';
 import { type ComponentForwardProps, withStyles } from '@sigma-ui-kit/theme';
 

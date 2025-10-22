@@ -4,7 +4,7 @@ import React from 'react';
 import { useThemeMode } from '@sigma-ui-kit/theme';
 
 export default function ThemeSwitcher() {
-  const { themeMode, changeThemeMode } = useThemeMode();
+  const { changeThemeMode } = useThemeMode();
 
   const themes = [
     { value: 'light', label: 'Light', icon: '☀️' },

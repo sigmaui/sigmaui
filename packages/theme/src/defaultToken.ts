@@ -1,4 +1,4 @@
-import { Tokens } from './types';
+import type { Tokens } from './types';
 
 const defaultToken: Tokens = {
   colors: {
