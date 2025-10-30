@@ -119,6 +119,7 @@ const lightTokens: TokensConfig = {
       alternate: 'rgba(245, 246, 250, 1)',
       brand: 'rgba(247, 127, 0, 1)',
       inverse: 'rgba(41, 43, 51, 1)',
+      mask: 'rgba(0, 0, 0, 0.35)',
     },
   },
   boxShadows: {

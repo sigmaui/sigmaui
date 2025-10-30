@@ -79,6 +79,10 @@
     "clone-deep": "^4.0.1",
     "deepmerge": "^4.3.1",
     "fela": "^12.2.1",
+    "fela-plugin-hover-media": "^12.2.1",
+    "fela-plugin-multiple-selectors": "^12.2.1",
+    "fela-plugin-prefixer": "^12.2.1",
+    "fela-plugin-unit": "^12.2.1",
     "fela-preset-web": "^12.2.1",
     "fela-tools": "^12.2.1",
     "react-fela": "^12.2.1"

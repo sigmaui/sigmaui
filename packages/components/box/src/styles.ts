@@ -1,12 +1,14 @@
 import type { StyleFn } from '@sigma-ui-kit/theme';
 import type { JSX } from 'react/jsx-runtime';
 
-import type { BoxBaseProps, ClassKeys } from './types';
+import type { BoxProps, SemanticName } from './types';
 
-const styles: StyleFn<BoxBaseProps<keyof JSX.IntrinsicElements>, ClassKeys> = () => {
+const styleFn: StyleFn<BoxProps<keyof JSX.IntrinsicElements>, SemanticName> = () => {
   return {
-    root: {},
+    root: {
+      root: {},
+    },
   };
 };
 
-export default styles;
+export default styleFn;

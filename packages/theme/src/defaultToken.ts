@@ -119,6 +119,7 @@ const defaultToken: Tokens = {
       alternate: 'rgba(245, 246, 250, 1)',
       brand: 'rgba(247, 127, 0, 1)',
       inverse: 'rgba(41, 43, 51, 1)',
+      mask: 'rgba(0, 0, 0, 0.35)',
     },
   },
   boxShadows: {
@@ -138,11 +139,8 @@ const defaultToken: Tokens = {
     '2xl': '64px',
   },
   zIndices: {
-    popup: 1000,
-    tooltip: 1000,
-    drawer: 1000,
-    modal: 1000,
-    notification: 1000,
+    base: 0,
+    popupBase: 1000,
   },
   fonts: 'Inter, sans-serif',
   fontSizes: {

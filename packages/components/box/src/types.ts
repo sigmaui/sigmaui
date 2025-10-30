@@ -1,13 +1,27 @@
+import type React from 'react';
 import type { HTMLAttributes } from 'react';
 import type { JSX } from 'react/jsx-runtime';
-import type { WithStyleProps } from '@sigma-ui-kit/theme';
+import type { ComponentBaseProps } from '@sigma-ui-kit/theme';
 
-export type ClassKeys = 'root';
+export type SemanticName = 'root';
 
-export interface BoxBaseProps<T extends keyof JSX.IntrinsicElements = 'div'>
-  extends HTMLAttributes<HTMLElement> {
-  as?: T;
+export interface BoxTypeMap<P = {}, D extends React.ElementType = 'div'> {
+  props: P;
+  defaultComponent: D;
 }
 
-export type BoxProps<T extends keyof JSX.IntrinsicElements = 'div'> = WithStyleProps<ClassKeys> &
-  BoxBaseProps<T>;
+export interface OverridableAsComponent<M extends BoxTypeMap> {
+  <C extends React.ElementType>(
+    props: {
+      as?: C;
+      ref?: React.Ref<React.ComponentPropsWithRef<C>['ref']>;
+    } & Omit<React.ComponentPropsWithRef<C>, keyof M['props'] | 'as'> &
+      M['props']
+  ): React.ReactElement | null;
+}
+
+export interface BoxProps<T extends keyof JSX.IntrinsicElements = 'div'>
+  extends ComponentBaseProps<SemanticName>,
+    HTMLAttributes<HTMLElement> {
+  as?: T;
+}

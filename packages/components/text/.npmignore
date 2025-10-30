@@ -1,0 +1,17 @@
+# Source files
+src/
+tsconfig.json
+tsup.config.ts
+
+# Development files
+node_modules/
+*.log
+.env*
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

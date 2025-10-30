@@ -3,5 +3,6 @@ packages:
   - 'packages/theme'
   - 'packages/icons'
   - 'packages/hooks'
+  - 'packages/util'
   - 'packages/components/*'
   - 'packages/blocks/*'

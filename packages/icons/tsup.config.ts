@@ -1,10 +1,10 @@
 import { defineConfig } from 'tsup';
 
 export default defineConfig({
-  entry: ['src/index.tsx', 'src/**/*.tsx', 'src/**/*.ts'],
+  entry: ['src/**/*.tsx', 'src/**/*.ts'],
   format: ['cjs', 'esm'],
   dts: true,
-  splitting: false,
+  splitting: true,
   sourcemap: true,
   clean: true,
   external: ['react', 'react-dom'],

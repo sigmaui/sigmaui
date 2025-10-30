@@ -1,45 +1,40 @@
 import type { StyleFn } from '@sigma-ui-kit/theme';
 
-import type { ButtonBaseProps, ClassKeys } from './types';
+import type { ButtonProps, SematicName } from './types';
 
-const styles: StyleFn<ButtonBaseProps, ClassKeys> = props => {
+const styleFn: StyleFn<ButtonProps, SematicName> = props => {
   const { tokens } = props;
 
   return {
     wrapper: {
-      display: 'inline-flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      border: '1px solid transparent',
-      paddingBlock: 8,
-      paddingInline: 12,
-      cursor: 'pointer',
-      fontFamily: tokens.fonts,
-      fontStyle: 'normal',
-      fontWeight: 600,
+      root: {
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        border: '1px solid transparent',
+        paddingBlock: 8,
+        paddingInline: 12,
+        cursor: 'pointer',
+        fontFamily: tokens.fonts,
+        fontStyle: 'normal',
+        fontWeight: 600,
 
-      '&[disabled]': {
-        cursor: 'not-allowed',
+        '&[disabled]': {
+          cursor: 'not-allowed',
+        },
       },
       variants: [
         // Button Size
         {
-          props: {
-            size: 'smaller',
-          },
+          props: props => props.size === 'smaller',
           style: {
             height: tokens.buttons.height.smaller,
             paddingInline: tokens.buttons.paddingHorizontal.smaller,
             paddingBlock: tokens.buttons.paddingVertical.smaller,
-            fontSize: tokens.fontSizes['text-xxs'],
-            lineHeight: tokens.lineHeights['text-xxs'],
-            borderRadius: tokens.buttons.radii.small,
           },
         },
         {
-          props: {
-            size: 'small',
-          },
+          props: props => props.size === 'small',
           style: {
             height: tokens.buttons.height.small,
             paddingInline: tokens.buttons.paddingHorizontal.small,
@@ -50,9 +45,7 @@ const styles: StyleFn<ButtonBaseProps, ClassKeys> = props => {
           },
         },
         {
-          props: {
-            size: 'standard',
-          },
+          props: props => props.size === 'standard',
           style: {
             height: tokens.buttons.height.standard,
             paddingInline: tokens.buttons.paddingHorizontal.standard,
@@ -63,9 +56,7 @@ const styles: StyleFn<ButtonBaseProps, ClassKeys> = props => {
           },
         },
         {
-          props: {
-            size: 'big',
-          },
+          props: props => props.size === 'big',
           style: {
             height: tokens.buttons.height.big,
             paddingInline: tokens.buttons.paddingHorizontal.big,
@@ -76,9 +67,7 @@ const styles: StyleFn<ButtonBaseProps, ClassKeys> = props => {
           },
         },
         {
-          props: {
-            size: 'bigger',
-          },
+          props: props => props.size === 'bigger',
           style: {
             height: tokens.buttons.height.bigger,
             paddingInline: tokens.buttons.paddingHorizontal.bigger,
@@ -91,9 +80,7 @@ const styles: StyleFn<ButtonBaseProps, ClassKeys> = props => {
         // =====================================================================
         // ========================== Button Primary ==========================
         {
-          props: {
-            variant: 'primary',
-          },
+          props: props => props.variant === 'primary',
           style: {
             color: tokens.colors.text.whiteFixed,
             '&:disabled': {
@@ -105,10 +92,7 @@ const styles: StyleFn<ButtonBaseProps, ClassKeys> = props => {
         },
         // Variant: primary - Tone: brand
         {
-          props: {
-            variant: 'primary',
-            tone: 'brand',
-          },
+          props: props => props.variant === 'primary' && props.tone === 'brand',
           style: {
             background: tokens.colors.fill.brand.strong,
             borderColor: tokens.colors.fill.brand.strong,
@@ -124,10 +108,7 @@ const styles: StyleFn<ButtonBaseProps, ClassKeys> = props => {
         },
         // Variant: primary - Tone: neutral
         {
-          props: {
-            variant: 'primary',
-            tone: 'neutral',
-          },
+          props: props => props.variant === 'primary' && props.tone === 'neutral',
           style: {
             background: tokens.colors.fill.strong,
             color: tokens.colors.text.whiteFixed,
@@ -144,10 +125,7 @@ const styles: StyleFn<ButtonBaseProps, ClassKeys> = props => {
         },
         // Variant: primary - Tone: error
         {
-          props: {
-            variant: 'primary',
-            tone: 'error',
-          },
+          props: props => props.variant === 'primary' && props.tone === 'error',
           style: {
             background: tokens.colors.fill.error.strong,
             color: tokens.colors.text.whiteFixed,
@@ -165,10 +143,7 @@ const styles: StyleFn<ButtonBaseProps, ClassKeys> = props => {
         },
         // Variant: primary - Tone: info
         {
-          props: {
-            variant: 'primary',
-            tone: 'info',
-          },
+          props: props => props.variant === 'primary' && props.tone === 'info',
           style: {
             background: tokens.colors.fill.information.strong,
             color: tokens.colors.text.whiteFixed,
@@ -185,10 +160,7 @@ const styles: StyleFn<ButtonBaseProps, ClassKeys> = props => {
         },
         // Variant: primary - Tone: success
         {
-          props: {
-            variant: 'primary',
-            tone: 'success',
-          },
+          props: props => props.variant === 'primary' && props.tone === 'success',
           style: {
             background: tokens.colors.fill.success.strong,
             color: tokens.colors.text.whiteFixed,
@@ -206,10 +178,7 @@ const styles: StyleFn<ButtonBaseProps, ClassKeys> = props => {
         },
         // Variant: primary - Tone: warning
         {
-          props: {
-            variant: 'primary',
-            tone: 'warning',
-          },
+          props: props => props.variant === 'primary' && props.tone === 'warning',
           style: {
             background: tokens.colors.fill.warning.strong,
             color: tokens.colors.text.whiteFixed,
@@ -227,9 +196,7 @@ const styles: StyleFn<ButtonBaseProps, ClassKeys> = props => {
         // =====================================================================
         // ========================== Button Secondary ==========================
         {
-          props: {
-            variant: 'secondary',
-          },
+          props: props => props.variant === 'secondary',
           style: {
             background: 'transparent',
             '&:disabled': {
@@ -241,10 +208,7 @@ const styles: StyleFn<ButtonBaseProps, ClassKeys> = props => {
         },
         // Variant: secondary - Tone: brand
         {
-          props: {
-            variant: 'secondary',
-            tone: 'brand',
-          },
+          props: props => props.variant === 'secondary' && props.tone === 'brand',
           style: {
             color: tokens.colors.text.brand.primary,
             borderColor: tokens.colors.stroke.brand.weak,
@@ -262,10 +226,7 @@ const styles: StyleFn<ButtonBaseProps, ClassKeys> = props => {
         },
         // Variant: secondary - Tone: neutral
         {
-          props: {
-            variant: 'secondary',
-            tone: 'neutral',
-          },
+          props: props => props.variant === 'secondary' && props.tone === 'neutral',
           style: {
             color: tokens.colors.text.weak,
             borderColor: tokens.colors.stroke.weak,
@@ -283,10 +244,7 @@ const styles: StyleFn<ButtonBaseProps, ClassKeys> = props => {
         },
         // Variant: secondary - Tone: error
         {
-          props: {
-            variant: 'secondary',
-            tone: 'error',
-          },
+          props: props => props.variant === 'secondary' && props.tone === 'error',
           style: {
             color: tokens.colors.text.error,
             borderColor: tokens.colors.stroke.error.weak,
@@ -304,10 +262,7 @@ const styles: StyleFn<ButtonBaseProps, ClassKeys> = props => {
         },
         // Variant: secondary - Tone: info
         {
-          props: {
-            variant: 'secondary',
-            tone: 'info',
-          },
+          props: props => props.variant === 'secondary' && props.tone === 'info',
           style: {
             color: tokens.colors.text.information,
             borderColor: tokens.colors.stroke.information.weak,
@@ -325,10 +280,7 @@ const styles: StyleFn<ButtonBaseProps, ClassKeys> = props => {
         },
         // Variant: secondary - Tone: success
         {
-          props: {
-            variant: 'secondary',
-            tone: 'success',
-          },
+          props: props => props.variant === 'secondary' && props.tone === 'success',
           style: {
             color: tokens.colors.text.success,
             borderColor: tokens.colors.stroke.success.weak,
@@ -346,10 +298,7 @@ const styles: StyleFn<ButtonBaseProps, ClassKeys> = props => {
         },
         // Variant: secondary - Tone: warning
         {
-          props: {
-            variant: 'secondary',
-            tone: 'warning',
-          },
+          props: props => props.variant === 'secondary' && props.tone === 'warning',
           style: {
             color: tokens.colors.text.warning,
             borderColor: tokens.colors.stroke.warning.weak,
@@ -368,9 +317,7 @@ const styles: StyleFn<ButtonBaseProps, ClassKeys> = props => {
         // =====================================================================
         // ========================== Button Tertiary ==========================
         {
-          props: {
-            variant: 'tertiary',
-          },
+          props: props => props.variant === 'tertiary',
           style: {
             background: 'transparent',
             '@media (hover: hover) and (pointer: fine)': {
@@ -388,60 +335,42 @@ const styles: StyleFn<ButtonBaseProps, ClassKeys> = props => {
         },
         // Variant: tertiary - Tone: brand
         {
-          props: {
-            variant: 'tertiary',
-            tone: 'brand',
-          },
+          props: props => props.variant === 'tertiary' && props.tone === 'brand',
           style: {
             color: tokens.colors.text.brand.primary,
           },
         },
         // Variant: tertiary - Tone: neutral
         {
-          props: {
-            variant: 'tertiary',
-            tone: 'neutral',
-          },
+          props: props => props.variant === 'tertiary' && props.tone === 'neutral',
           style: {
             color: tokens.colors.text.strong,
           },
         },
         // Variant: tertiary - Tone: error
         {
-          props: {
-            variant: 'tertiary',
-            tone: 'error',
-          },
+          props: props => props.variant === 'tertiary' && props.tone === 'error',
           style: {
             color: tokens.colors.text.error,
           },
         },
         // Variant: tertiary - Tone: info
         {
-          props: {
-            variant: 'tertiary',
-            tone: 'info',
-          },
+          props: props => props.variant === 'tertiary' && props.tone === 'info',
           style: {
             color: tokens.colors.text.information,
           },
         },
         // Variant: tertiary - Tone: success
         {
-          props: {
-            variant: 'tertiary',
-            tone: 'success',
-          },
+          props: props => props.variant === 'tertiary' && props.tone === 'success',
           style: {
             color: tokens.colors.text.success,
           },
         },
         // Variant: tertiary - Tone: warning
         {
-          props: {
-            variant: 'tertiary',
-            tone: 'warning',
-          },
+          props: props => props.variant === 'tertiary' && props.tone === 'warning',
           style: {
             color: tokens.colors.text.warning,
           },
@@ -449,15 +378,21 @@ const styles: StyleFn<ButtonBaseProps, ClassKeys> = props => {
       ],
     },
     prefix: {
-      marginRight: 6,
+      root: {
+        marginRight: 6,
+      },
     },
     suffix: {
-      marginLeft: 6,
+      root: {
+        marginLeft: 6,
+      },
     },
     link: {
-      display: 'inline-block',
+      root: {
+        display: 'inline-block',
+      },
     },
   };
 };
 
-export default styles;
+export default styleFn;

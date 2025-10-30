@@ -1,29 +1,54 @@
 import React from 'react';
-import type { JSX } from 'react/jsx-runtime';
-import type { ComponentForwardProps } from '@sigma-ui-kit/theme';
-import { classnames, withStyles } from '@sigma-ui-kit/theme';
+import { useDefaultProps } from '@sigma-ui-kit/theme';
+import type { ComponentBaseProps } from '@sigma-ui-kit/theme';
 
-import type { ClassKeys, BoxBaseProps } from './types';
-import styles from './styles';
+import type { OverridableAsComponent, SemanticName } from './types';
+import styleFn from './styles';
 
-const Box = <T extends keyof JSX.IntrinsicElements = 'div'>({
-  as,
-  className,
-  children,
-  classes,
-  prefixCls,
-  renderer,
-  ...rest
-}: BoxBaseProps<T> & ComponentForwardProps<ClassKeys>) => {
-  const Component = as || 'div';
+/** ------------------------------
+ *   Box Implementation
+ *  ------------------------------
+ */
+interface BoxOwnProps extends ComponentBaseProps<SemanticName> {
+  /** Box content */
+  children?: React.ReactNode;
+}
 
-  return React.createElement(
-    Component as any,
-    { className: classnames(prefixCls, classes?.root, className), ...rest },
-    children
-  );
+type BoxTypeMap = {
+  props: BoxOwnProps;
+  defaultComponent: 'div';
 };
 
-Box.displayName = 'Box';
+export type BoxComponent = OverridableAsComponent<BoxTypeMap> & { displayName?: string };
 
-export default withStyles<BoxBaseProps<keyof JSX.IntrinsicElements>, ClassKeys>(styles)(Box);
+/**
+ * Component có thể thay đổi tag qua prop `as` và hỗ trợ ref.
+ */
+const Box = React.forwardRef(
+  <C extends React.ElementType = 'div'>(
+    inProps: {
+      as?: C;
+      styles?: React.CSSProperties;
+      classNames?: string;
+    } & Omit<React.ComponentPropsWithoutRef<C>, 'as' | 'styles' | 'classNames'>,
+    ref: React.Ref<any>
+  ) => {
+    const { classes, as, prefixCls, rootPrefixCls, direction, ...rest } = useDefaultProps<
+      SemanticName,
+      any
+    >({
+      props: inProps,
+      defaultProps: {},
+      styleFn,
+      name: 'Box',
+    });
+    const Component = as || 'div';
+    return <Component ref={ref} {...rest} />;
+  }
+) as BoxComponent;
+
+if (process.env.NODE_ENV !== 'production') {
+  Box.displayName = 'Box';
+}
+
+export default Box;

@@ -324,7 +324,7 @@ export type { ${pascalName}Props } from './types';
   write(path.join(pkgDir, 'tsup.config.ts'), tsup);
   write(path.join(pkgDir, 'src', 'types.ts'), types);
   write(path.join(pkgDir, 'src', 'styles.ts'), styles);
-  write(path.join(pkgDir, 'src', `${kebabName}.tsx`), compTsx);
+  write(path.join(pkgDir, 'src', `${pascalName}.tsx`), compTsx);
   write(path.join(pkgDir, 'src', 'index.ts'), index);
 
   console.log(`\n✅ Successfully created ${selectedScope} package: @sigma-ui-kit/${kebabName}`);

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import type { CSSProperties, IRenderer, IStyle as FelaIStyle } from 'fela';
+import type { CSSProperties, IRenderer, IStyle as FelaIStyle, combineRules } from 'fela';
 import type { ProviderProps as FelaProviderProps } from 'react-fela';
 
 export interface Locale {
@@ -11,11 +11,12 @@ export type StylesObject = FelaIStyle;
 
 // ================================= WithStyles =================================
 export type VariantsStyle<ComponentBaseProps> = Array<{
-  props: Partial<ComponentBaseProps>;
+  props: (props: Partial<ComponentBaseProps>) => boolean;
   style: StylesObject;
 }>;
 
-type StylesObjectWithVariants<ComponentBaseProps> = StylesObject & {
+type StylesObjectWithVariants<ComponentBaseProps> = {
+  root: StylesObject;
   variants?: VariantsStyle<ComponentBaseProps>;
 };
 
@@ -25,12 +26,17 @@ export interface ComponentForwardProps<ClassKeys extends string> {
   prefixCls: string;
 }
 
-export type StyleFn<ComponentBaseProps, ClassKeys extends string> = (
-  props: ComponentBaseProps & {
-    tokens: Tokens;
-    componentCls: string;
+export type StyleFn<ComponentBaseProps, ClassKeys extends string> = (props: {
+  tokens: Tokens;
+  componentCls: string;
+  renderer: IRenderer;
+}) => Record<
+  ClassKeys,
+  {
+    root: StylesObject;
+    variants?: VariantsStyle<ComponentBaseProps>;
   }
-) => Record<ClassKeys, StylesObjectWithVariants<ComponentBaseProps>>;
+>;
 
 // ================================= Tokens =================================
 interface ColorTokens {
@@ -151,6 +157,7 @@ interface ColorTokens {
     alternate: string;
     brand: string;
     inverse: string;
+    mask: string;
   };
 }
 
@@ -208,11 +215,8 @@ interface BoxShadowTokens {
   '2xl': CSSProperties['boxShadow'];
 }
 interface ZIndexTokens {
-  popup: CSSProperties['zIndex'];
-  tooltip: CSSProperties['zIndex'];
-  drawer: CSSProperties['zIndex'];
-  modal: CSSProperties['zIndex'];
-  notification: CSSProperties['zIndex'];
+  base: number;
+  popupBase: number;
 }
 interface IconTokens {
   size: {
@@ -302,15 +306,12 @@ export type TokensConfig = {
 
 // ================================= Components =================================
 export interface ComponentsOverrides<ComponentBaseProps extends object, ClassKeys extends string> {
-  defaultProps: ComponentBaseProps;
-  styleOverrides:
-    | Partial<Record<ClassKeys, StylesObjectWithVariants<ComponentBaseProps>>>
-    | ((
-        props: ComponentBaseProps & {
-          tokens: Tokens;
-          componentCls: string;
-        }
-      ) => Partial<Record<ClassKeys, StylesObjectWithVariants<ComponentBaseProps>>>);
+  styleOverrides: (
+    props: ComponentBaseProps & {
+      tokens: Tokens;
+      componentCls: string;
+    }
+  ) => Partial<Record<ClassKeys, StylesObjectWithVariants<ComponentBaseProps>>>;
 }
 
 export interface OverrideComponents extends Record<string, ComponentsOverrides<any, any>> {

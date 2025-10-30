@@ -6,6 +6,9 @@ import { RendererProvider, ThemeProvider as FelaThemeProvider } from 'react-fela
 import { createRenderer } from 'fela';
 import type { IRenderer } from 'fela';
 import { renderToString } from 'fela-tools';
+import prefixer from 'fela-plugin-prefixer';
+import multipleSelectors from 'fela-plugin-multiple-selectors';
+import unit from 'fela-plugin-unit';
 
 import type { ComputedTheme } from '../../getTheme';
 
@@ -31,7 +34,7 @@ let clientRenderer: IRenderer | null = null;
 function getRenderer(ssr: boolean): IRenderer {
   if (ssr) {
     // Server: create new renderer per request
-    return createRenderer({});
+    return createRenderer({ plugins: [prefixer(), multipleSelectors(), unit()] });
   }
   // Client: reuse global renderer
   if (!clientRenderer) clientRenderer = createRenderer({});

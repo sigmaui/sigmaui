@@ -13,7 +13,6 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
-      "@packages/*": ["../../packages/*"],
       "@docs/*": ["./*"]
     }
   },

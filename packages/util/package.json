@@ -1,0 +1,66 @@
+{
+  "name": "@sigma-ui-kit/util",
+  "version": "0.0.1",
+  "private": false,
+  "description": "Shared React util for Sigma UI Kit apps and libraries",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./*": {
+      "import": "./dist/*.mjs",
+      "require": "./dist/*.js",
+      "types": "./dist/*.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint . --max-warnings 0 src",
+    "check-types": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "react": ">=16.8",
+    "react-dom": ">=16.8"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    },
+    "@types/react-dom": {
+      "optional": true
+    }
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/sigma-ui-kit.git",
+    "directory": "packages/util"
+  },
+  "keywords": [
+    "react",
+    "utils",
+    "sigma-ui-kit",
+    "motion",
+    "animations"
+  ],
+  "dependencies": {
+    "@rc-component/dialog": "^1.5.0",
+    "@rc-component/motion": "^1.1.4",
+    "@rc-component/trigger": "^3.6.15",
+    "@rc-component/util": "^1.3.0",
+    "@sigma-ui-kit/icons": "workspace:^",
+    "deepmerge": "^4.3.1"
+  }
+}

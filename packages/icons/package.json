@@ -9,9 +9,14 @@
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     },
-    "./*": "./dist/*.js"
+    "./*": {
+      "import": "./dist/icons/*.mjs",
+      "require": "./dist/icons/*.js",
+      "types": "./dist/icons/*.d.ts"
+    }
   },
   "files": [
     "dist"
@@ -44,6 +49,8 @@
     "sigma-ui-kit"
   ],
   "dependencies": {
-    "@sigma-ui-kit/theme": "workspace:*"
+    "@rc-component/util": "^1.3.0",
+    "@sigma-ui-kit/theme": "workspace:*",
+    "clsx": "^2.1.1"
   }
 }

@@ -1,2 +1,4 @@
-export { default } from './input';
-export type { InputProps, InputBaseProps } from './types';
+export { default } from './Input';
+export type { InputProps } from './types';
+
+export { default as InputPassword } from './Password';

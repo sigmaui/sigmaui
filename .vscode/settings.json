@@ -4,7 +4,16 @@
       "mode": "auto"
     }
   ],
-  "cSpell.words": ["cssify", "Fela", "microui", "Smarttv"],
+  "cSpell.words": [
+    "cssify",
+    "Fela",
+    "microui",
+    "Popconfirm",
+    "sigmaui",
+    "Smarttv",
+    "Xmark",
+    "zindex"
+  ],
   // Sử dụng LF cho tất cả file khi lưu
   "files.eol": "\n",
 

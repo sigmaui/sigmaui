@@ -3,6 +3,4 @@ import { WithStyleProps } from '@sigma-ui-kit/theme';
 
 export type ClassKeys = 'root';
 
-export interface InputBaseProps extends RcInputProps {}
-
-export type InputProps = WithStyleProps<ClassKeys> & InputBaseProps;
+export interface InputProps extends RcInputProps {}

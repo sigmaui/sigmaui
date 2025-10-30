@@ -1,4 +1,4 @@
-import { TokensConfig } from '@sigma-ui-kit/theme';
+import type { TokensConfig } from '@sigma-ui-kit/theme';
 
 const darkTokens: TokensConfig = {
   colors: {
@@ -120,6 +120,7 @@ const darkTokens: TokensConfig = {
       alternate: 'rgba(18, 19, 26, 1)',
       brand: 'rgba(247, 127, 0, 1)',
       inverse: 'rgba(255, 255, 255, 1)',
+      mask: 'rgba(0, 0, 0, 0.35)',
     },
   },
 

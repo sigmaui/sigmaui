@@ -11,12 +11,29 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
+    "@sigma-ui-kit/badge": "workspace:^",
     "@sigma-ui-kit/box": "workspace:^",
     "@sigma-ui-kit/button": "workspace:^",
+    "@sigma-ui-kit/drawer": "workspace:^",
+    "@sigma-ui-kit/dropdown": "workspace:^",
+    "@sigma-ui-kit/icons": "workspace:^",
+    "@sigma-ui-kit/input": "workspace:^",
+    "@sigma-ui-kit/modal": "workspace:^",
+    "@sigma-ui-kit/notification": "workspace:^",
+    "@sigma-ui-kit/skeleton": "workspace:^",
+    "@sigma-ui-kit/text": "workspace:^",
     "@sigma-ui-kit/theme": "workspace:^",
+    "@sigma-ui-kit/tooltip": "workspace:^",
+    "@sigma-ui-kit/watermark": "workspace:^",
     "next": "^15.5.0"
   },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
   "devDependencies": {
+    "@types/react": "^18.3.26",
+    "@types/react-dom": "^18.3.7",
     "eslint-config-next": "^15.5.5"
   },
   "changesets": {

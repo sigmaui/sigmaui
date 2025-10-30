@@ -1,6 +1,9 @@
 import React from 'react';
 import Button from '@sigma-ui-kit/button';
 
+type VariantKeys = 'primary' | 'secondary' | 'tertiary';
+const variantList: VariantKeys[] = ['primary', 'secondary', 'tertiary'];
+
 export default function ButtonPage() {
   return (
     <div className="max-w-4xl mx-auto p-8">
@@ -49,58 +52,130 @@ export default function Demo() {
       </div>
 
       <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Sizes</h2>
-        <p className="text-gray-600 mb-6">Different button sizes for various use cases.</p>
-
+        <h2 className="text-2xl font-semibold mb-4">Variants</h2>
+        <p className="text-gray-600 mb-6">All button variants.</p>
         <div className="border border-gray-200 rounded-lg overflow-hidden">
-          <div className="px-4 py-2 bg-gray-100 border-b text-sm font-medium">Button Sizes</div>
-
+          <div className="px-4 py-2 bg-gray-100 border-b text-sm font-medium">Button Variants</div>
           <div className="p-6 bg-gray-50">
-            <div className="flex gap-4 items-center">
-              <Button size="smaller">Small</Button>
-              <Button size="small">Medium</Button>
-              <Button size="standard">Medium</Button>
+            <div className="flex gap-4 flex-wrap items-center">
+              {variantList.map(variant => (
+                <Button key={variant} variant={variant}>
+                  {variant.charAt(0).toUpperCase() + variant.slice(1)}
+                </Button>
+              ))}
             </div>
           </div>
-
-          <details className="border-t border-gray-200">
-            <summary className="px-4 py-2 text-sm text-gray-600 hover:text-gray-800 hover:bg-gray-100 cursor-pointer">
-              Show Code
-            </summary>
-            <pre className="p-4 bg-black text-white text-sm overflow-x-auto">
-              <code>{`<Button size="sm">Small</Button>
-<Button size="md">Medium</Button>
-<Button size="lg">Large</Button>`}</code>
-            </pre>
-          </details>
         </div>
       </div>
 
       <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">States</h2>
-        <p className="text-gray-600 mb-6">Button states including loading and disabled.</p>
-
+        <h2 className="text-2xl font-semibold mb-4">Sizes</h2>
+        <p className="text-gray-600 mb-6">All button sizes for all variants.</p>
         <div className="border border-gray-200 rounded-lg overflow-hidden">
-          <div className="px-4 py-2 bg-gray-100 border-b text-sm font-medium">Button States</div>
-
-          <div className="p-6 bg-gray-50">
-            <div className="flex gap-4 items-center">
-              <Button>Normal</Button>
-              <Button loading>Loading</Button>
-              <Button disabled>Disabled</Button>
-            </div>
+          <div className="px-4 py-2 bg-gray-100 border-b text-sm font-medium">Button Sizes</div>
+          <div className="p-6 bg-gray-50 flex flex-col gap-3">
+            {variantList.map(variant => (
+              <div key={variant}>
+                <div className="mb-1 font-medium text-sm text-gray-900">
+                  {variant.charAt(0).toUpperCase() + variant.slice(1)}
+                </div>
+                <div className="flex gap-4 items-center">
+                  <Button variant={variant} size="smaller">
+                    Smaller
+                  </Button>
+                  <Button variant={variant} size="small">
+                    Small
+                  </Button>
+                  <Button variant={variant} size="medium">
+                    Medium
+                  </Button>
+                  <Button variant={variant} size="standard">
+                    Standard
+                  </Button>
+                  <Button variant={variant} size="big">
+                    Big
+                  </Button>
+                  <Button variant={variant} size="bigger">
+                    Bigger
+                  </Button>
+                </div>
+              </div>
+            ))}
           </div>
+        </div>
+      </div>
 
-          <details className="border-t border-gray-200">
-            <summary className="px-4 py-2 text-sm text-gray-600 hover:text-gray-800 hover:bg-gray-100 cursor-pointer">
-              Show Code
-            </summary>
-            <pre className="p-4 bg-black text-white text-sm overflow-x-auto">
-              <code>{`<Button>Normal</Button>
-<Button loading>Loading</Button>
-<Button disabled>Disabled</Button>`}</code>
-            </pre>
-          </details>
+      <div className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Loading States</h2>
+        <p className="text-gray-600 mb-6">Loading state cho từng variant và size.</p>
+        <div className="border border-gray-200 rounded-lg overflow-hidden">
+          <div className="px-4 py-2 bg-gray-100 border-b text-sm font-medium">Button Loading</div>
+          <div className="p-6 bg-gray-50 flex flex-col gap-3">
+            {variantList.map(variant => (
+              <div key={variant}>
+                <div className="mb-1 font-medium text-sm text-gray-900">
+                  {variant.charAt(0).toUpperCase() + variant.slice(1)}
+                </div>
+                <div className="flex gap-4 items-center">
+                  <Button variant={variant} size="smaller" loading>
+                    Smaller
+                  </Button>
+                  <Button variant={variant} size="small" loading>
+                    Small
+                  </Button>
+                  <Button variant={variant} size="medium" loading>
+                    Medium
+                  </Button>
+                  <Button variant={variant} size="standard" loading>
+                    Standard
+                  </Button>
+                  <Button variant={variant} size="big" loading>
+                    Big
+                  </Button>
+                  <Button variant={variant} size="bigger" loading>
+                    Bigger
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Disabled States</h2>
+        <p className="text-gray-600 mb-6">Disabled state cho từng variant và size.</p>
+        <div className="border border-gray-200 rounded-lg overflow-hidden">
+          <div className="px-4 py-2 bg-gray-100 border-b text-sm font-medium">Button Disabled</div>
+          <div className="p-6 bg-gray-50 flex flex-col gap-3">
+            {variantList.map(variant => (
+              <div key={variant}>
+                <div className="mb-1 font-medium text-sm text-gray-900">
+                  {variant.charAt(0).toUpperCase() + variant.slice(1)}
+                </div>
+                <div className="flex gap-4 items-center">
+                  <Button variant={variant} size="smaller" disabled>
+                    Smaller
+                  </Button>
+                  <Button variant={variant} size="small" disabled>
+                    Small
+                  </Button>
+                  <Button variant={variant} size="medium" disabled>
+                    Medium
+                  </Button>
+                  <Button variant={variant} size="standard" disabled>
+                    Standard
+                  </Button>
+                  <Button variant={variant} size="big" disabled>
+                    Big
+                  </Button>
+                  <Button variant={variant} size="bigger" disabled>
+                    Bigger
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

@@ -1,121 +1,252 @@
-import { StyleFn } from '@sigma-ui-kit/theme';
+import type { StyleFn } from '@sigma-ui-kit/theme';
 
-import { ClassKeys, InputBaseProps } from './types';
+import type { InputProps, SemanticName } from './Input';
 
-export const styles: StyleFn<InputBaseProps, ClassKeys> = props => {
-  const { tokens, componentCls } = props;
-
+const getPlaceholderStyle = (tokens: any) => {
   return {
-    root: {
-      width: '100%',
-      outline: 0,
-      borderColor: tokens.colors.stroke.strong,
-      borderStyle: 'solid',
-      borderWidth: 1,
-      color: tokens.colors.text.strong,
-      fontFamily: 'inherit',
-
-      '&:hover': {
-        borderColor: tokens.colors.stroke.brand.strong,
-      },
-
-      '&:focus, &[class*="-focused"]': {
-        boxShadow: 'focused',
-        borderColor: 'base',
-      },
-
-      '&::placeholder': {
-        color: 'input.placeholder',
-      },
-
-      '&[disabled]': {
-        cursor: 'not-allowed',
-      },
-
-      '&._error': {
-        borderColor: 'error',
-
-        '&:hover': {
-          borderColor: 'error',
-        },
-
-        '&:focus, &[class*="-focused"]': {
-          boxShadow: 'error.focused',
-          borderColor: 'error',
-        },
-
-        [`& ${componentCls}-prefix`]: {
-          color: 'error',
-        },
-      },
-
-      '& input': {
-        background: 'transparent',
-        width: '100%',
-        height: '100%',
-        padding: 0,
-        border: 'none',
-        borderRadius: 0,
-        outline: 'none',
-        fontFamily: 'inherit',
-
-        '&::placeholder': {
-          color: 'input.placeholder',
-        },
-      },
+    '::placeholder': {
+      color: tokens.colors.text.disable,
+      opacity: 0.5,
     },
-    affixWrapper: {
-      display: 'flex',
+    '::-webkit-input-placeholder': {
+      color: tokens.colors.text.disable,
+      opacity: 0.5,
     },
-    prefix: {
-      display: 'flex',
-      alignItems: 'center',
-      gap: 4,
-      marginRight: 4,
-
-      '& svg': {
-        // size: `icon.${size}`,
-      },
+    '::-moz-placeholder': {
+      color: tokens.colors.text.disable,
+      opacity: 0.5,
     },
-    suffix: {
-      display: 'flex',
-      alignItems: 'center',
-      gap: 4,
-      marginLeft: 4,
-
-      '& svg': {
-        // size: `icon.${size}`,
-      },
-
-      [`& ${componentCls}-clear-icon`]: {
-        backgroundColor: 'icon',
-        borderRadius: '50%',
-        border: 'none',
-        outline: 'none',
-        margin: 0,
-        padding: 2,
-        lineHeight: 0,
-        cursor: 'pointer',
-
-        '&[class*="-hidden"]': {
-          visibility: 'hidden',
-        },
-
-        '& svg': {
-          width: 10,
-          height: 10,
-        },
-      },
-    },
-    groupWrapper: {},
-    input: {},
-    variant: {},
-    count: {
-      whiteSpace: 'nowrap',
-      // color: `var(description, rgba(0,0,0,0.45))`,
-      color: 'description',
+    ':-moz-placeholder': {
+      color: tokens.colors.text.disable,
+      opacity: 0.5,
     },
   };
 };
 
-export default styles;
+const getOutlinedStyle = (tokens: any, componentCls: string) => {
+  return {
+    root: {
+      margin: 0,
+      borderRadius: tokens.buttons.radii.standard,
+      borderWidth: 1,
+      borderStyle: 'solid',
+      borderColor: tokens.colors.stroke.strong,
+      background: tokens.colors.fill.inverse.hover,
+      transition: 'all 0.2s ease-in-out',
+
+      [`&${componentCls}-disabled, &${componentCls}[disabled]`]: {
+        borderColor: tokens.colors.stroke.weak,
+        background: tokens.colors.fill.disabled,
+        color: tokens.colors.text.disabled,
+        cursor: 'not-allowed',
+      },
+
+      [`&${componentCls}-status-error`]: {
+        borderColor: tokens.colors.stroke.error.strong,
+      },
+      [`&${componentCls}-status-warning`]: {
+        borderColor: tokens.colors.stroke.warning.strong,
+      },
+    },
+    hover: {
+      borderColor: tokens.colors.stroke.brand.strong,
+      [`&${componentCls}-disabled, &${componentCls}[disabled]`]: {
+        borderColor: tokens.colors.stroke.weak,
+      },
+      [`&${componentCls}-status-error`]: {
+        borderColor: tokens.colors.stroke.error.strong,
+      },
+      [`&${componentCls}-status-warning`]: {
+        borderColor: tokens.colors.stroke.warning.strong,
+      },
+    },
+    focus: {
+      borderColor: tokens.colors.stroke.brand.strong,
+      boxShadow: `0 0 0 4px ${tokens.colors.stroke.brand.weak}`,
+      outline: 'none',
+      [`&${componentCls}-status-error`]: {
+        borderColor: tokens.colors.stroke.error.strong,
+        boxShadow: `0 0 0 4px ${tokens.colors.stroke.error.weak}`,
+      },
+      [`&${componentCls}-status-warning`]: {
+        borderColor: tokens.colors.stroke.warning.strong,
+        boxShadow: `0 0 0 4px ${tokens.colors.stroke.warning.weak}`,
+      },
+    },
+  };
+};
+
+const genAllowClearStyle = (tokens: any, componentCls: string) => {
+  return {
+    [`& ${componentCls}-clear-icon`]: {
+      margin: 0,
+      padding: 0,
+      lineHeight: 0,
+      fontSize: tokens.icons.size.xs,
+      color: tokens.colors.text.disabled,
+      verticalAlign: -1,
+      cursor: 'pointer',
+      opacity: 0,
+      transition: `all 0.2s ease-in-out`,
+      border: 'none',
+      outline: 'none',
+      backgroundColor: 'transparent',
+
+      '&:hover': {
+        color: tokens.colors.text.weak,
+      },
+
+      [`&${componentCls}-hidden`]: {
+        visibility: 'hidden',
+      },
+
+      [`&${componentCls}-clear-icon-has-suffix`]: {
+        marginRight: tokens.buttons.spacing.standard,
+      },
+    },
+  };
+};
+
+export const genBasicInputStyle = (tokens: any) => ({
+  position: 'relative',
+  display: 'inline-block',
+  width: '100%',
+  minWidth: 0,
+  paddingInline: `calc(${tokens.buttons.paddingHorizontal.standard} - 1px)`,
+  paddingBlock: `calc(${tokens.buttons.paddingVertical.standard} - 1px)`,
+  color: tokens.colors.text.strong,
+  fontFamily: tokens.fonts,
+  fontSize: tokens.fontSizes['text-sm'],
+  fontWeight: 400,
+  lineHeight: tokens.lineHeights['text-sm'],
+  transition: 'all 0.2s ease-in-out',
+
+  // // Size
+  // '&-lg': {
+  //   ...genInputLargeStyle(token),
+  // },
+  // '&-sm': {
+  //   ...genInputSmallStyle(token),
+  // },
+
+  // RTL
+  // '&-rtl, &-textarea-rtl': {
+  //   direction: 'rtl',
+  // },
+});
+
+export const styleFn: StyleFn<InputProps, SemanticName> = props => {
+  const { tokens, componentCls } = props;
+
+  const outlinedStyle = getOutlinedStyle(tokens, componentCls);
+
+  return {
+    affixWrapper: {
+      root: {
+        ...genBasicInputStyle(tokens),
+        display: 'inline-flex',
+        ...outlinedStyle.root,
+
+        '&::before': {
+          display: 'inline-block',
+          width: 0,
+          visibility: 'hidden',
+          content: '"\\a0"',
+        },
+
+        '&:hover': {
+          ...outlinedStyle.hover,
+          [`& ${componentCls}-clear-icon`]: {
+            opacity: 1,
+          },
+        },
+
+        [`&${componentCls}-affix-wrapper-focused`]: {
+          ...outlinedStyle.focus,
+          [`& ${componentCls}-clear-icon`]: {
+            opacity: 1,
+          },
+        },
+
+        ...genAllowClearStyle(tokens, componentCls),
+
+        [`& > input${componentCls}`]: {
+          font: 'inherit',
+          border: 'none',
+          borderRadius: 0,
+          outline: 'none',
+          background: 'transparent',
+          padding: 0,
+
+          '&[disabled]': {
+            background: 'transparent',
+          },
+
+          '&:focus': {
+            boxShadow: 'none',
+            outline: 'none',
+          },
+        },
+        [`& ${componentCls}-prefix, & ${componentCls}-suffix`]: {
+          display: 'flex',
+          flex: 'none',
+          alignItems: 'center',
+          color: tokens.colors.text.weak,
+          fontSize: tokens.icons.size.sm,
+
+          '& > *:not(:last-child)': {
+            marginInlineEnd: tokens.buttons.spacing.standard,
+          },
+        },
+
+        [`&${componentCls}-disabled`]: {
+          [`& ${componentCls}-prefix, & ${componentCls}-suffix`]: {
+            color: tokens.colors.text.disabled,
+          },
+        },
+      },
+    },
+    input: {
+      root: {
+        ...genBasicInputStyle(tokens),
+        ...getPlaceholderStyle(tokens),
+
+        ...outlinedStyle.root,
+
+        '&:hover': {
+          ...outlinedStyle.hover,
+        },
+
+        '&:focus': {
+          ...outlinedStyle.focus,
+        },
+      },
+    },
+    prefix: {
+      root: {
+        marginInlineEnd: tokens.buttons.spacing.standard,
+      },
+    },
+
+    suffix: {
+      root: {
+        marginInlineStart: tokens.buttons.spacing.standard,
+        [`& ${componentCls}-show-count-has-suffix`]: {
+          marginInlineEnd: tokens.buttons.spacing.standard,
+        },
+      },
+    },
+
+    count: {
+      root: {
+        color: 'inherit',
+        fontSize: tokens.fontSizes['text-xs'],
+        lineHeight: tokens.lineHeights['text-xs'],
+        direction: 'ltr',
+        userSelect: 'none',
+      },
+    },
+  };
+};
+
+export default styleFn;
