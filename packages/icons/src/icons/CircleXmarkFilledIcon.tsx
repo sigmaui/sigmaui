@@ -1,3 +1,6 @@
+// GENERATE BY ./scripts/generate.ts
+// DON NOT EDIT IT MANUALLY
+
 import * as React from 'react';
 
 import SmIcon from '../components/SmIcon';

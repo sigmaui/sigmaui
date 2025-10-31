@@ -7,30 +7,16 @@ import EyeVisibleOutlinedIcon from '@sigma-ui-kit/icons/EyeVisibleOutlinedIcon';
 import Tooltip from '@sigma-ui-kit/tooltip';
 
 import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
-import type { InputProps, InputRef } from './Input';
+import type { IconPropsType, InputProps, InputRef, PasswordProps } from './types';
 import Input from './Input';
 
 const defaultIconRender = (visible: boolean): React.ReactNode =>
   visible ? <EyeVisibleOutlinedIcon /> : <EyeInvisibleOutlinedIcon />;
 
-interface VisibilityToggle {
-  visible?: boolean;
-  onVisibleChange?: (visible: boolean) => void;
-}
-
-export interface PasswordProps extends Omit<InputProps, 'suffix'> {
-  readonly inputPrefixCls?: string;
-  readonly action?: 'click' | 'hover';
-  visibilityToggle?: boolean | VisibilityToggle;
-  iconRender?: (visible: boolean) => React.ReactNode;
-}
-
 const actionMap: Record<PropertyKey, keyof React.DOMAttributes<HTMLSpanElement>> = {
   click: 'onClick',
   hover: 'onMouseOver',
 };
-
-type IconPropsType = React.HTMLAttributes<HTMLSpanElement> & React.Attributes;
 
 const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
   const {

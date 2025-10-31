@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useContext, useEffect } from 'react';
 import type { CSSProperties, MouseEventHandler, MutableRefObject, ReactNode } from 'react';
 import { updateCSS } from '@rc-component/util/lib/Dom/dynamicCSS';

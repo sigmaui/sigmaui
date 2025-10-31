@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { classnames, useDefaultProps } from '@sigma-ui-kit/theme';
 

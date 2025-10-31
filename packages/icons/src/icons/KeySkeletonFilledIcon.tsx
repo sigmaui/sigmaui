@@ -1,0 +1,31 @@
+// GENERATE BY ./scripts/migrate-icons-to-smicon.js
+// DON NOT EDIT IT MANUALLY
+
+import * as React from 'react';
+
+import SmIcon from '../components/SmIcon';
+import type { SmIconProps } from '../components/SmIcon';
+import { svgToIconDefinition } from '../utils';
+
+const keySkeletonFilledSvg = (
+  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.2143 4.28572C14.0089 4.31251 13.0848 4.84822 12.442 5.89287C11.8527 6.96429 11.8527 8.03572 12.442 9.10715C13.0848 10.1518 14.0089 10.6875 15.2143 10.7143C16.4196 10.6875 17.3438 10.1518 17.9866 9.10715C18.5759 8.03572 18.5759 6.96429 17.9866 5.89287C17.3438 4.84822 16.4196 4.31251 15.2143 4.28572ZM15.2143 13.2857C14.0625 13.2589 13.0312 12.9643 12.1205 12.4018L8.66518 15.8572L10.3527 17.5045C10.5938 17.7723 10.7143 18.0804 10.7143 18.4286C10.7143 18.7768 10.5938 19.0848 10.3527 19.3527C10.0848 19.5938 9.77679 19.7143 9.42857 19.7143C9.08036 19.7143 8.77232 19.5938 8.50446 19.3527L6.85714 17.6652L6.09375 18.4286L7.78125 20.0759C8.02232 20.3438 8.14286 20.6518 8.14286 21C8.14286 21.3482 8.02232 21.6563 7.78125 21.9241C7.51339 22.1652 7.20536 22.2857 6.85714 22.2857C6.50893 22.2857 6.20089 22.1652 5.93304 21.9241L3.36161 19.3527C3.12054 19.0848 3 18.7768 3 18.4286C3 18.0804 3.12054 17.7723 3.36161 17.5045L10.3125 10.5938C9.75 9.68304 9.45536 8.65179 9.42857 7.50001C9.48214 5.86608 10.0446 4.50001 11.1161 3.40179C12.2143 2.33037 13.5804 1.76787 15.2143 1.71429C16.8482 1.76787 18.2143 2.33037 19.3125 3.40179C20.3839 4.50001 20.9464 5.86608 21 7.50001C20.9464 9.13394 20.3839 10.5 19.3125 11.5982C18.2143 12.6697 16.8482 13.2322 15.2143 13.2857Z" />
+  </svg>
+);
+
+const keySkeletonFilledIconDefinition = svgToIconDefinition(
+  keySkeletonFilledSvg,
+  'key-skeleton-filled'
+);
+
+const RefIcon: React.ForwardRefExoticComponent<
+  Omit<SmIconProps, 'ref'> & React.RefAttributes<HTMLSpanElement>
+> = React.forwardRef<HTMLSpanElement, SmIconProps>((props, ref) => {
+  return <SmIcon {...props} ref={ref} icon={keySkeletonFilledIconDefinition} />;
+});
+
+if (process.env.NODE_ENV !== 'production') {
+  RefIcon.displayName = 'KeySkeletonFilledIcon';
+}
+
+export default RefIcon;

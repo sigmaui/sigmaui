@@ -1,4 +1,3 @@
-// Seems this is used for iconFont
 import * as React from 'react';
 import { clsx } from 'clsx';
 import { useComposeRef } from '@rc-component/util/lib/ref';

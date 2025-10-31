@@ -3,6 +3,8 @@ import Button from '@sigma-ui-kit/button';
 
 type VariantKeys = 'primary' | 'secondary' | 'tertiary';
 const variantList: VariantKeys[] = ['primary', 'secondary', 'tertiary'];
+type ToneKeys = 'brand' | 'neutral' | 'success' | 'error' | 'warning' | 'info';
+const toneList: ToneKeys[] = ['brand', 'neutral', 'success', 'error', 'warning', 'info'];
 
 export default function ButtonPage() {
   return (
@@ -64,6 +66,56 @@ export default function Demo() {
                 </Button>
               ))}
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Tones</h2>
+        <p className="text-gray-600 mb-6">All tone options for each button variant.</p>
+        <div className="border border-gray-200 rounded-lg overflow-hidden">
+          <div className="px-4 py-2 bg-gray-100 border-b text-sm font-medium">Button Tones</div>
+          <div className="p-6 bg-gray-50 flex flex-col gap-3">
+            {variantList.map(variant => (
+              <div key={variant}>
+                <div className="mb-1 font-medium text-sm text-gray-900">
+                  {variant.charAt(0).toUpperCase() + variant.slice(1)}
+                </div>
+                <div className="flex gap-4 items-center flex-wrap">
+                  {toneList.map(tone => (
+                    <Button key={tone} variant={variant} tone={tone}>
+                      {tone.charAt(0).toUpperCase() + tone.slice(1)}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Variant × Tone</h2>
+        <p className="text-gray-600 mb-6">Kết hợp đầy đủ giữa variant và tone.</p>
+        <div className="border border-gray-200 rounded-lg overflow-hidden">
+          <div className="px-4 py-2 bg-gray-100 border-b text-sm font-medium">
+            Button Variant × Tone
+          </div>
+          <div className="p-6 bg-gray-50 flex flex-col gap-3">
+            {variantList.map(variant => (
+              <div key={variant}>
+                <div className="mb-1 font-medium text-sm text-gray-900">
+                  {variant.charAt(0).toUpperCase() + variant.slice(1)}
+                </div>
+                <div className="flex gap-4 items-center flex-wrap">
+                  {toneList.map(tone => (
+                    <Button key={`${variant}-${tone}`} variant={variant} tone={tone}>
+                      {tone.charAt(0).toUpperCase() + tone.slice(1)}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

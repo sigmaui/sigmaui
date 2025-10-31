@@ -1,45 +1,12 @@
 import React, { forwardRef, useRef } from 'react';
-import type { InputRef, InputProps as RcInputProps } from '@rc-component/input';
+import type { InputRef } from '@rc-component/input';
 import RcInput from '@rc-component/input';
-import { triggerFocus } from '@rc-component/input/lib/utils/commonUtils';
-import type { InputFocusOptions } from '@rc-component/input/lib/utils/commonUtils';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { classnames, useDefaultProps } from '@sigma-ui-kit/theme';
-import type { ComponentBaseProps } from '@sigma-ui-kit/theme';
 import CircleXmarkFilledIcon from '@sigma-ui-kit/icons/CircleXmarkFilledIcon';
 
+import type { InputProps, SemanticName } from './types';
 import styleFn from './styles';
-
-export type { InputFocusOptions };
-export type { InputRef };
-export { triggerFocus };
-
-export type SemanticName = 'prefix' | 'suffix' | 'input' | 'count' | 'affixWrapper';
-
-type SizeKeys = 'small' | 'default';
-type StatusKeys = 'error' | 'warning';
-
-export interface InputProps
-  extends Omit<
-      RcInputProps,
-      | 'wrapperClassName'
-      | 'groupClassName'
-      | 'inputClassName'
-      | 'affixWrapperClassName'
-      | 'classes'
-      | 'addonAfter'
-      | 'addonBefore'
-      | 'classNames'
-      | 'styles'
-      | 'prefixCls'
-    >,
-    ComponentBaseProps<SemanticName> {
-  rootClassName?: string;
-  size?: SizeKeys;
-  disabled?: boolean;
-  status?: StatusKeys;
-  [key: `data-${string}`]: string | undefined;
-}
 
 const Input = forwardRef<InputRef, InputProps>((inProps, ref) => {
   const props = useDefaultProps<SemanticName, InputProps>({

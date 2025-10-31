@@ -1,0 +1,31 @@
+// GENERATE BY ./scripts/migrate-icons-to-smicon.js
+// DON NOT EDIT IT MANUALLY
+
+import * as React from 'react';
+
+import SmIcon from '../components/SmIcon';
+import type { SmIconProps } from '../components/SmIcon';
+import { svgToIconDefinition } from '../utils';
+
+const viewMenuOutlinedSvg = (
+  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M9 19.12V21.12H5V19.12H9ZM19 19.12V21.12H15V19.12H19ZM19 15.12H15V21.12C13.8954 21.12 13 20.2246 13 19.12V15.12C13 14.0154 13.8954 13.12 15 13.12H19C20.1046 13.12 21 14.0154 21 15.12V19.12C21 20.2246 20.1046 21.12 19 21.12V15.12ZM9 15.12H5V21.12C3.89543 21.12 3 20.2246 3 19.12V15.12C3 14.0154 3.89543 13.12 5 13.12H9C10.1046 13.12 11 14.0154 11 15.12V19.12C11 20.2246 10.1046 21.12 9 21.12V15.12ZM9 9.12V11.12H5V9.12H9ZM19 9.12V11.12H15V9.12H19ZM19 5.12H15V11.12C13.8954 11.12 13 10.2246 13 9.12V5.12C13 4.01543 13.8954 3.12 15 3.12H19C20.1046 3.12 21 4.01543 21 5.12V9.12C21 10.2246 20.1046 11.12 19 11.12V5.12ZM9 5.12H5V11.12C3.89543 11.12 3 10.2246 3 9.12V5.12C3 4.01543 3.89543 3.12 5 3.12H9C10.1046 3.12 11 4.01543 11 5.12V9.12C11 10.2246 10.1046 11.12 9 11.12V5.12Z" />
+  </svg>
+);
+
+const viewMenuOutlinedIconDefinition = svgToIconDefinition(
+  viewMenuOutlinedSvg,
+  'view-menu-outlined'
+);
+
+const RefIcon: React.ForwardRefExoticComponent<
+  Omit<SmIconProps, 'ref'> & React.RefAttributes<HTMLSpanElement>
+> = React.forwardRef<HTMLSpanElement, SmIconProps>((props, ref) => {
+  return <SmIcon {...props} ref={ref} icon={viewMenuOutlinedIconDefinition} />;
+});
+
+if (process.env.NODE_ENV !== 'production') {
+  RefIcon.displayName = 'ViewMenuOutlinedIcon';
+}
+
+export default RefIcon;

@@ -1,0 +1,31 @@
+// GENERATE BY ./scripts/migrate-icons-to-smicon.js
+// DON NOT EDIT IT MANUALLY
+
+import * as React from 'react';
+
+import SmIcon from '../components/SmIcon';
+import type { SmIconProps } from '../components/SmIcon';
+import { svgToIconDefinition } from '../utils';
+
+const menuGrid2OutlinedSvg = (
+  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M19 9.75785C19 9.47399 18.7583 9.19544 18.4004 9.19524H16.2002V18.195H18.4004C18.7583 18.1948 19 17.9163 19 17.6324V9.75785ZM9.7998 18.195H14.2002V9.19524H9.7998V18.195ZM5 17.6324L5.01074 17.7382C5.06188 17.9817 5.28643 18.1948 5.59961 18.195H7.7998V9.19524H5.59961C5.24171 9.19544 5 9.47399 5 9.75785V17.6324ZM14.2002 6.60763C14.2002 6.46782 14.1437 6.32785 14.0342 6.22003C13.9237 6.11126 13.7677 6.04502 13.5996 6.04502H10.4004C10.2323 6.04502 10.0763 6.11126 9.96582 6.22003C9.85632 6.32785 9.7998 6.46782 9.7998 6.60763V7.17024H14.2002V6.60763ZM16.2002 7.17024H18.4004C19.8094 7.17045 21 8.30225 21 9.75785V17.6324C21 19.088 19.8094 20.2198 18.4004 20.22H5.59961C4.27861 20.2198 3.14959 19.2251 3.01367 17.9014L3 17.6324V9.75785C3 8.30225 4.19058 7.17045 5.59961 7.17024H7.7998V6.60763C7.7998 5.91203 8.08071 5.25044 8.57129 4.76753C9.0609 4.28558 9.71979 4.02002 10.4004 4.02002H13.5996C14.2802 4.02002 14.9391 4.28558 15.4287 4.76753C15.9193 5.25044 16.2002 5.91203 16.2002 6.60763V7.17024Z" />
+  </svg>
+);
+
+const menuGrid2OutlinedIconDefinition = svgToIconDefinition(
+  menuGrid2OutlinedSvg,
+  'menu-grid2-outlined'
+);
+
+const RefIcon: React.ForwardRefExoticComponent<
+  Omit<SmIconProps, 'ref'> & React.RefAttributes<HTMLSpanElement>
+> = React.forwardRef<HTMLSpanElement, SmIconProps>((props, ref) => {
+  return <SmIcon {...props} ref={ref} icon={menuGrid2OutlinedIconDefinition} />;
+});
+
+if (process.env.NODE_ENV !== 'production') {
+  RefIcon.displayName = 'MenuGrid2OutlinedIcon';
+}
+
+export default RefIcon;

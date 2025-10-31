@@ -1,0 +1,28 @@
+// GENERATE BY ./scripts/migrate-icons-to-smicon.js
+// DON NOT EDIT IT MANUALLY
+
+import * as React from 'react';
+
+import SmIcon from '../components/SmIcon';
+import type { SmIconProps } from '../components/SmIcon';
+import { svgToIconDefinition } from '../utils';
+
+const rotateOutlinedSvg = (
+  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M18.075 9.41251C17.55 8.21251 16.75 7.25001 15.675 6.52501C14.6 5.80001 13.375 5.42501 12 5.40001C10.45 5.42501 9.125 5.97501 8.025 7.05001L6.075 9.00001H8.1C8.65 9.05001 8.95 9.35001 9 9.90001C8.95 10.45 8.65 10.75 8.1 10.8H3.9C3.35 10.75 3.05 10.45 3 9.90001V5.70001C3.05 5.15001 3.35 4.85001 3.9 4.80001C4.45 4.85001 4.75 5.15001 4.8 5.70001V7.72501L6.75 5.77501C8.2 4.35001 9.95 3.62501 12 3.60001C13.75 3.62501 15.3125 4.10001 16.6875 5.02501C18.0625 5.95001 19.075 7.17501 19.725 8.70001C19.9 9.22501 19.75 9.62501 19.275 9.90001C18.75 10.05 18.35 9.88751 18.075 9.41251ZM4.275 15.3C4.1 14.775 4.2625 14.3875 4.7625 14.1375C5.2875 13.9625 5.675 14.1125 5.925 14.5875C6.45 15.7875 7.25 16.75 8.325 17.475C9.4 18.2 10.625 18.575 12 18.6C13.55 18.575 14.875 18.025 15.975 16.95L17.925 15H15.9C15.35 14.95 15.05 14.65 15 14.1C15.05 13.55 15.35 13.25 15.9 13.2H20.1C20.65 13.25 20.95 13.55 21 14.1V18.3C20.95 18.85 20.65 19.15 20.1 19.2C19.55 19.15 19.25 18.85 19.2 18.3V16.275L17.25 18.225C15.775 19.65 14.025 20.375 12 20.4C10.25 20.375 8.6875 19.9 7.3125 18.975C5.9625 18.05 4.95 16.825 4.275 15.3Z" />
+  </svg>
+);
+
+const rotateOutlinedIconDefinition = svgToIconDefinition(rotateOutlinedSvg, 'rotate-outlined');
+
+const RefIcon: React.ForwardRefExoticComponent<
+  Omit<SmIconProps, 'ref'> & React.RefAttributes<HTMLSpanElement>
+> = React.forwardRef<HTMLSpanElement, SmIconProps>((props, ref) => {
+  return <SmIcon {...props} ref={ref} icon={rotateOutlinedIconDefinition} />;
+});
+
+if (process.env.NODE_ENV !== 'production') {
+  RefIcon.displayName = 'RotateOutlinedIcon';
+}
+
+export default RefIcon;

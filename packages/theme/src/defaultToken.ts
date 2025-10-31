@@ -137,6 +137,7 @@ const defaultToken: Tokens = {
     lg: '16px',
     xl: '32px',
     '2xl': '64px',
+    rounded: '9999px',
   },
   zIndices: {
     base: 0,

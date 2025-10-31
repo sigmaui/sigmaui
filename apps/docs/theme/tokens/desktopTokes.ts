@@ -8,6 +8,7 @@ const desktopTokens: TokensConfig = {
     lg: '16px',
     xl: '32px',
     '2xl': '64px',
+    rounded: '9999px',
   },
   fontSizes: {
     'text-xxs': '10px',

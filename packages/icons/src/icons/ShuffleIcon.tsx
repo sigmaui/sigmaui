@@ -15,7 +15,6 @@ const shuffleSvg = (
   </svg>
 );
 
-// Chuyển đổi SVG thành IconDefinition
 const shuffleIconDefinition = svgToIconDefinition(shuffleSvg, 'shuffle');
 
 const RefIcon: React.ForwardRefExoticComponent<

@@ -7,7 +7,7 @@ export {
   type ComponentForwardProps,
   type SigmaUIProviderProps,
 } from './types';
-export { default as withStyles, type WithStyleProps } from './withStyles';
+// export { default as withStyles, type WithStyleProps } from './withStyles';
 export { default as useDefaultProps, type ComponentBaseProps } from './useDefaultProps';
 export { default as classnames } from './classnames';
 export { SigmaThemeProvider } from './SigmaThemeProvider';

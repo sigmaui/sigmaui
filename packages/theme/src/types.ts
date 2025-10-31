@@ -206,6 +206,7 @@ interface RadiiTokens {
   lg: CSSProperties['borderRadius'];
   xl: CSSProperties['borderRadius'];
   '2xl': CSSProperties['borderRadius'];
+  rounded: CSSProperties['borderRadius'];
 }
 interface BoxShadowTokens {
   xs: CSSProperties['boxShadow'];
