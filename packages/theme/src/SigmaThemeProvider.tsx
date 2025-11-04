@@ -1,5 +1,5 @@
 import { type ReactNode, useMemo } from 'react';
-import { usePlatformDetect } from '@sigma-ui-kit/hooks';
+import usePlatformDetect from '@sigma-ui-kit/util/hooks/usePlatformDetect';
 
 import { adapters } from './adapters';
 import type { ThemeConfig } from './types';

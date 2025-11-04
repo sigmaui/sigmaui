@@ -29,7 +29,6 @@
       "@sigma-ui-kit/icons/*": ["./packages/icons/src/icons/*"],
       "@sigma-ui-kit/icons": ["./packages/icons/src/index.ts"],
       "@sigma-ui-kit/private-theme": ["./packages/private-theme/src"],
-      "@sigma-ui-kit/hooks/*": ["./packages/hooks/src/*"],
       "@sigma-ui-kit/util/*": ["./packages/util/src/*"],
       "@sigma-ui-kit/*": ["./packages/components/*/src", "./packages/blocks/*/src"]
     }
