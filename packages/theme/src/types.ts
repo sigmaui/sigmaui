@@ -334,6 +334,7 @@ export interface Theme {
   zIndices: ZIndexTokens;
   icons: IconTokens;
   buttons: ButtonTokens;
+  prefixCls: string;
   overrideComponents: Partial<OverrideComponents>;
 }
 

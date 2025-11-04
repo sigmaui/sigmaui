@@ -1,14 +1,15 @@
 'use client';
 
-import type React from 'react';
 import useMicroUI from '@microui-kit/use-micro-ui';
 
-import type { StyleFn, Theme } from '../types';
+import type { StyleFn, StylesObject, Theme, Tokens } from '../types';
 import { resolveStylesVariant } from './util';
 import { classnames } from '..';
 
 export interface ComponentBaseProps<SemanticName extends string> extends Object {
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  styles?:
+    | Partial<Record<SemanticName, StylesObject>>
+    | ((tokens: Tokens, componentCls: string) => Partial<Record<SemanticName, StylesObject>>);
   classNames?: Partial<Record<SemanticName, string>>;
   prefixCls?: string;
 }
@@ -39,7 +40,7 @@ export default function useDefaultProps<
   const props = { ...defaultProps, ...componentProps } as any;
 
   const {
-    styles: propsStyles,
+    styles: propStyles,
     classNames: propsClassNames,
     prefixCls,
     ...restComponentProps
@@ -56,18 +57,27 @@ export default function useDefaultProps<
       ? overrideComponents[name].styleOverrides
       : undefined;
 
-  const styles = styleFn({ tokens, componentCls, renderer });
-  const overrideStyles = overrideComponent
+  const resolveBaseStyles = styleFn({ tokens, componentCls, renderer });
+  const resolveOverrideStyles = overrideComponent
     ? overrideComponent({
         tokens,
         componentCls,
       })
     : {};
 
+  const resolvedPropsStyles = propStyles
+    ? typeof propStyles === 'function'
+      ? propStyles(tokens, componentCls)
+      : propStyles
+    : {};
+
   const baseStyles = resolveStylesVariant<ComponentProps, SemanticName>(
-    styles,
-    overrideStyles,
-    props
+    resolveBaseStyles,
+    resolveOverrideStyles,
+    {
+      ...props,
+      styles: resolvedPropsStyles,
+    }
   );
 
   const classes = Object.keys(baseStyles).reduce(

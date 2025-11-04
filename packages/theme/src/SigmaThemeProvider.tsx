@@ -7,7 +7,7 @@ import getTheme from './getTheme';
 
 export interface SigmaThemeProviderProps {
   themeConfig?: ThemeConfig;
-  prefix?: string;
+  prefixCls?: string;
   children: ReactNode;
   ssr?: boolean;
 }
@@ -15,7 +15,7 @@ export interface SigmaThemeProviderProps {
 export function SigmaThemeProvider({
   children,
   themeConfig = {},
-  prefix = 'sm',
+  prefixCls = 'sm',
   ssr = false,
 }: SigmaThemeProviderProps) {
   const { modeConfig = {}, deviceConfig = {}, overrideComponents = {} } = themeConfig;
@@ -33,7 +33,7 @@ export function SigmaThemeProvider({
         { modeConfig, deviceConfig },
         {
           deviceMode,
-          prefix,
+          prefixCls,
         }
       ),
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -43,7 +43,7 @@ export function SigmaThemeProvider({
   const Provider = useMemo(() => adapters['fela'], []);
 
   return (
-    <Provider theme={{ ...theme, overrideComponents }} ssr={ssr}>
+    <Provider theme={{ ...theme, overrideComponents, prefixCls }} ssr={ssr}>
       {children}
     </Provider>
   );

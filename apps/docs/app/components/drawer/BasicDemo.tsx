@@ -22,8 +22,7 @@ const BasicDemo: React.FC = () => {
         Open
       </Button>
       <Drawer
-        title="Basic Drawer"
-        // closable={{ 'aria-label': 'Close Button' }}
+        title="Basic Drawer" // closable={{ 'aria-label': 'Close Button' }}
         onClose={onClose}
         open={open}
       >

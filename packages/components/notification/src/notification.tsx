@@ -1,14 +1,273 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-import type { ComponentForwardProps, withStyles } from '@sigma-ui-kit/theme';
+import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
+import { unstableSetRender } from '../config-provider/UnstableContext';
+import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './types';
+import useNotification, { useInternalNotification } from './useNotification';
 
-import type { ClassKeys, NotificationBaseProps } from './types';
-import styles from './styles';
+export type { ArgsProps };
 
-const Notification: React.FC<NotificationBaseProps & ComponentForwardProps<ClassKeys>> = props => {
-  return <div {...props}>Notification</div>;
+let notification: GlobalNotification | null = null;
+
+let act: (callback: VoidFunction) => Promise<void> | void = (callback: VoidFunction) => callback();
+
+interface GlobalNotification {
+  fragment: DocumentFragment;
+  instance?: NotificationInstance | null;
+  sync?: VoidFunction;
+}
+
+type Task =
+  | {
+      type: 'open';
+      config: ArgsProps;
+    }
+  | {
+      type: 'destroy';
+      key?: React.Key;
+    };
+
+let taskQueue: Task[] = [];
+
+let defaultGlobalConfig: GlobalConfigProps = {};
+
+function getGlobalContext() {
+  const { getContainer, rtl, maxCount, top, bottom, showProgress, pauseOnHover } =
+    defaultGlobalConfig;
+  const mergedContainer = getContainer?.() || document.body;
+
+  return {
+    getContainer: () => mergedContainer,
+    rtl,
+    maxCount,
+    top,
+    bottom,
+    showProgress,
+    pauseOnHover,
+  };
+}
+
+interface GlobalHolderRef {
+  instance: NotificationInstance;
+  sync: () => void;
+}
+
+const GlobalHolder = React.forwardRef<
+  GlobalHolderRef,
+  { notificationConfig: GlobalConfigProps; sync: () => void }
+>((props, ref) => {
+  const { notificationConfig, sync } = props;
+
+  const { getPrefixCls } = useContext(ConfigContext);
+  const prefixCls = defaultGlobalConfig.prefixCls || getPrefixCls('notification');
+
+  const [api, holder] = useInternalNotification({
+    ...notificationConfig,
+    prefixCls,
+  });
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  React.useEffect(sync, []);
+
+  React.useImperativeHandle(ref, () => {
+    const instance: NotificationInstance = { ...api };
+
+    Object.keys(instance).forEach(method => {
+      instance[method as keyof NotificationInstance] = (...args: any[]) => {
+        sync();
+        return (api as any)[method](...args);
+      };
+    });
+
+    return {
+      instance,
+      sync,
+    };
+  });
+
+  return holder;
+});
+
+if (process.env.NODE_ENV !== 'production') {
+  GlobalHolder.displayName = 'GlobalHolder';
+}
+
+const GlobalHolderWrapper = React.forwardRef<GlobalHolderRef, unknown>((_, ref) => {
+  const [notificationConfig, setNotificationConfig] =
+    React.useState<GlobalConfigProps>(getGlobalContext);
+
+  const sync = () => {
+    setNotificationConfig(getGlobalContext);
+  };
+
+  React.useEffect(sync, []);
+
+  const global = globalConfig();
+  const rootPrefixCls = global.getRootPrefixCls();
+  const rootIconPrefixCls = global.getIconPrefixCls();
+  const theme = global.getTheme();
+
+  const dom = <GlobalHolder ref={ref} sync={sync} notificationConfig={notificationConfig} />;
+  return (
+    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls} theme={theme}>
+      {global.holderRender ? global.holderRender(dom) : dom}
+    </ConfigProvider>
+  );
+});
+
+if (process.env.NODE_ENV !== 'production') {
+  GlobalHolderWrapper.displayName = 'GlobalHolderWrapper';
+}
+
+const flushNotificationQueue = () => {
+  if (!notification) {
+    const holderFragment = document.createDocumentFragment();
+
+    const newNotification: GlobalNotification = {
+      fragment: holderFragment,
+    };
+
+    notification = newNotification;
+
+    // Delay render to avoid sync issue
+    act(() => {
+      const reactRender = unstableSetRender();
+
+      reactRender(
+        <GlobalHolderWrapper
+          ref={node => {
+            const { instance, sync } = node || {};
+
+            Promise.resolve().then(() => {
+              if (!newNotification.instance && instance) {
+                newNotification.instance = instance;
+                newNotification.sync = sync;
+                flushNotificationQueue();
+              }
+            });
+          }}
+        />,
+        holderFragment
+      );
+    });
+
+    return;
+  }
+
+  // Notification not ready
+  if (!notification.instance) {
+    return;
+  }
+
+  // >>> Execute task
+  taskQueue.forEach(task => {
+    switch (task.type) {
+      case 'open': {
+        act(() => {
+          notification!.instance!.open({
+            ...defaultGlobalConfig,
+            ...task.config,
+          });
+        });
+        break;
+      }
+
+      case 'destroy':
+        act(() => {
+          notification?.instance?.destroy(task.key);
+        });
+        break;
+    }
+  });
+
+  // Clean up
+  taskQueue = [];
 };
 
-Notification.displayName = 'Notification';
+// ==============================================================================
+// ==                                  Export                                  ==
+// ==============================================================================
 
-export default withStyles(styles)(Notification);
+function setNotificationGlobalConfig(config: GlobalConfigProps) {
+  defaultGlobalConfig = {
+    ...defaultGlobalConfig,
+    ...config,
+  };
+
+  // Trigger sync for it
+  act(() => {
+    notification?.sync?.();
+  });
+}
+
+function open(config: ArgsProps) {
+  const global = globalConfig();
+
+  if (process.env.NODE_ENV !== 'production' && !global.holderRender) {
+    warnContext('notification');
+  }
+
+  taskQueue.push({ type: 'open', config });
+  flushNotificationQueue();
+}
+
+const destroy: BaseMethods['destroy'] = key => {
+  taskQueue.push({ type: 'destroy', key });
+  flushNotificationQueue();
+};
+
+interface BaseMethods {
+  open: (config: ArgsProps) => void;
+  destroy: (key?: React.Key) => void;
+  config: (config: GlobalConfigProps) => void;
+  useNotification: typeof useNotification;
+}
+
+type StaticFn = (config: ArgsProps) => void;
+
+interface NoticeMethods {
+  success: StaticFn;
+  info: StaticFn;
+  warning: StaticFn;
+  error: StaticFn;
+}
+
+const methods: (keyof NoticeMethods)[] = ['success', 'info', 'warning', 'error'];
+
+const baseStaticMethods: BaseMethods = {
+  open,
+  destroy,
+  config: setNotificationGlobalConfig,
+  useNotification,
+};
+
+const staticMethods = baseStaticMethods as NoticeMethods & BaseMethods;
+
+methods.forEach((type: keyof NoticeMethods) => {
+  staticMethods[type] = config => open({ ...config, type });
+});
+
+// ==============================================================================
+// ==                                   Test                                   ==
+// ==============================================================================
+const noop = () => {};
+
+let _actWrapper: (wrapper: any) => void = noop;
+if (process.env.NODE_ENV === 'test') {
+  _actWrapper = wrapper => {
+    act = wrapper;
+  };
+}
+const actWrapper = _actWrapper;
+export { actWrapper };
+
+let _actDestroy = noop;
+if (process.env.NODE_ENV === 'test') {
+  _actDestroy = () => {
+    notification = null;
+  };
+}
+const actDestroy = _actDestroy;
+export { actDestroy };
+
+export default staticMethods;

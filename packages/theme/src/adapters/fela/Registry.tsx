@@ -2,7 +2,11 @@
 
 import type { PropsWithChildren } from 'react';
 import React, { useMemo, useEffect, useRef } from 'react';
-import { RendererProvider, ThemeProvider as FelaThemeProvider } from 'react-fela';
+import {
+  RendererProvider,
+  ThemeProvider as FelaThemeProvider,
+  ThemeContext as FelaThemeContext,
+} from 'react-fela';
 import { createRenderer } from 'fela';
 import type { IRenderer } from 'fela';
 import { renderToString } from 'fela-tools';
@@ -117,7 +121,7 @@ ${felaCSS || ''}
 
   return (
     <RendererProvider renderer={renderer}>
-      <FelaThemeProvider theme={theme}>{children}</FelaThemeProvider>
+      <FelaThemeContext.Provider value={theme}>{children}</FelaThemeContext.Provider>
     </RendererProvider>
   );
 }

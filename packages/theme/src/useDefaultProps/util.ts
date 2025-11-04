@@ -11,7 +11,7 @@ export function resolveStylesVariant<
   overrideStyles: Partial<
     Record<SemanticName, { root: StylesObject; variants?: VariantsStyle<ComponentProps> }>
   >,
-  props: ComponentProps
+  props: Omit<ComponentProps, 'styles'> & { styles: Record<SemanticName, StylesObject> }
 ): Record<SemanticName, StylesObject> {
   const resolveOne = ({
     base,
@@ -27,8 +27,8 @@ export function resolveStylesVariant<
     const { root: baseRoot = {}, variants: baseVariants = [] } = base ?? {};
     const { root: overrideRoot = {}, variants: overrideVariants = [] } = override ?? {};
 
-    const matchedBase = baseVariants.filter(v => v.props(props)).map(v => v.style);
-    const matchedOverride = overrideVariants.filter(v => v.props(props)).map(v => v.style);
+    const matchedBase = baseVariants.filter(v => v.props(props as any)).map(v => v.style);
+    const matchedOverride = overrideVariants.filter(v => v.props(props as any)).map(v => v.style);
 
     return deepmerge.all([
       baseRoot,

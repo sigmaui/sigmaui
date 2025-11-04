@@ -125,7 +125,7 @@ export type ComputedTheme = Omit<Theme, 'overrideComponents'> & {
 };
 
 interface WithCssVarsOptions {
-  prefix?: string;
+  prefixCls?: string;
 }
 
 interface MapVarsParams {
@@ -140,7 +140,7 @@ const withCssVars = (
   modes: Record<string, TokensConfig>,
   options: WithCssVarsOptions = {}
 ) => {
-  const { prefix = 'sm' } = options;
+  const { prefixCls = 'sm' } = options;
 
   const vars: Record<string, string> = {};
 
@@ -161,7 +161,7 @@ const withCssVars = (
         });
       } else {
         if (isPass ?? whiteTokens.includes(key)) {
-          const varKey = `--${prefix}-${nextPath.join('-')}`;
+          const varKey = `--${prefixCls}-${nextPath.join('-')}`;
 
           data[key] = `var(${varKey})`;
 
@@ -200,7 +200,7 @@ const withCssVars = (
         });
       } else {
         if (isPass ?? whiteTokens.includes(key)) {
-          const varKey = `--${prefix}-${nextPath.join('-')}`;
+          const varKey = `--${prefixCls}-${nextPath.join('-')}`;
 
           data[key] = `var(${varKey})`;
 
@@ -250,7 +250,7 @@ const withCssVars = (
           });
         } else {
           if (isPass ?? whiteTokens.includes(key)) {
-            const modeVarKey = `--${prefix}-${modeName}-${nextPath.join('-')}`;
+            const modeVarKey = `--${prefixCls}-${modeName}-${nextPath.join('-')}`;
 
             const varValue = vars[modeVarKey];
 
@@ -297,7 +297,7 @@ const withCssVars = (
           if (isObject(value)) {
             createModeVars(value, nextPath);
           } else {
-            const varKey = `--${prefix}-${nextPath.join('-')}`;
+            const varKey = `--${prefixCls}-${nextPath.join('-')}`;
             const varValue =
               typeof value === 'number' && !whiteValueNumberTokens.includes(nextPath[0])
                 ? pxToRem(value)
@@ -324,7 +324,7 @@ const withCssVars = (
 
 interface GetThemeOptions {
   deviceMode: string;
-  prefix?: string;
+  prefixCls?: string;
 }
 
 const getTheme = (
@@ -332,7 +332,7 @@ const getTheme = (
   options: GetThemeOptions
 ) => {
   const { modeConfig = {}, deviceConfig = {} } = themeConfig;
-  const { deviceMode, prefix } = options;
+  const { deviceMode, prefixCls } = options;
 
   let modeTheme: Tokens = { ...defaultToken };
   const modes: Record<string, TokensConfig> = {};
@@ -375,7 +375,7 @@ const getTheme = (
 
   const tempTheme = { ...finalTheme, __cssVars: {}, __cssVarsByMode: {} };
   const themeWithCssVar = withCssVars(tempTheme, modes, {
-    prefix,
+    prefixCls,
   });
 
   return themeWithCssVar;

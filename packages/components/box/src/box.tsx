@@ -1,54 +1,56 @@
+import type { StylesObject, Tokens } from '@sigma-ui-kit/theme';
 import React from 'react';
-import { useDefaultProps } from '@sigma-ui-kit/theme';
-import type { ComponentBaseProps } from '@sigma-ui-kit/theme';
+import { useFela, type IStyle } from 'react-fela';
 
-import type { OverridableAsComponent, SemanticName } from './types';
-import styleFn from './styles';
-
-/** ------------------------------
- *   Box Implementation
- *  ------------------------------
- */
-interface BoxOwnProps extends ComponentBaseProps<SemanticName> {
-  /** Box content */
-  children?: React.ReactNode;
-}
-
-type BoxTypeMap = {
-  props: BoxOwnProps;
-  defaultComponent: 'div';
+// --- Kiểu base cho các props style bạn muốn hỗ trợ ---
+type BoxStyleProps = {
+  padding?: number | string;
+  margin?: number | string;
+  backgroundColor?: string;
+  color?: string;
+  display?: string;
+  flex?: string | number;
 };
 
-export type BoxComponent = OverridableAsComponent<BoxTypeMap> & { displayName?: string };
+// --- Generic type cho prop "as" ---
+type BoxProps<E extends React.ElementType> = {
+  as?: E;
+  children?: React.ReactNode;
+  styles: (tokens: Tokens, componentCls: string) => StylesObject;
+} & BoxStyleProps &
+  Omit<React.ComponentPropsWithoutRef<E>, keyof BoxStyleProps | 'as'>;
 
-/**
- * Component có thể thay đổi tag qua prop `as` và hỗ trợ ref.
- */
-const Box = React.forwardRef(
-  <C extends React.ElementType = 'div'>(
-    inProps: {
-      as?: C;
-      styles?: React.CSSProperties;
-      classNames?: string;
-    } & Omit<React.ComponentPropsWithoutRef<C>, 'as' | 'styles' | 'classNames'>,
-    ref: React.Ref<any>
+// --- Component chính ---
+export const Box = React.forwardRef(
+  <E extends React.ElementType = 'div'>(
+    { as, children, style, ...rest }: BoxProps<E>,
+    ref: React.Ref<Element>
   ) => {
-    const { classes, as, prefixCls, rootPrefixCls, direction, ...rest } = useDefaultProps<
-      SemanticName,
-      any
-    >({
-      props: inProps,
-      defaultProps: {},
-      styleFn,
-      name: 'Box',
-    });
+    const { css } = useFela();
+
+    // Tách riêng style props
+    const styleProps: IStyle = {};
+    for (const key in rest) {
+      if (['padding', 'margin', 'backgroundColor', 'color', 'display', 'flex'].includes(key)) {
+        styleProps[key as keyof IStyle] = rest[key];
+        delete (rest as any)[key];
+      }
+    }
+
     const Component = as || 'div';
-    return <Component ref={ref} {...rest} />;
+    const className = css(styleProps);
+
+    return (
+      <Component
+        ref={ref as React.Ref<HTMLDivElement>}
+        className={className}
+        style={style}
+        {...rest}
+      >
+        {children}
+      </Component>
+    );
   }
-) as BoxComponent;
+);
 
-if (process.env.NODE_ENV !== 'production') {
-  Box.displayName = 'Box';
-}
-
-export default Box;
+Box.displayName = 'Box';
